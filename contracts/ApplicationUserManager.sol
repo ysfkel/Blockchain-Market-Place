@@ -1,12 +1,13 @@
 pragma solidity ^0.4.18;
+import "./Ownerble.sol";
 
-
-contract ApplicationUserManager {
+contract ApplicationUserManager is Ownerble {
     
     enum AccountState {
         Pending,
         Approved
     }
+    
     
     struct Vendor {
         string name;
@@ -17,6 +18,7 @@ contract ApplicationUserManager {
         bool isVendorOrApplicant;
         int pendingListIndex;
         int approveListIndex;
+        AppRole role;
     }
     
     mapping(address => Vendor) private vendors;
@@ -25,18 +27,49 @@ contract ApplicationUserManager {
     Vendor[] private approvedVendors;
     
     
+    //administrators
+      function createAdmin() public ownerOnly {
+        
+        administrators[msg.sender] = Administrator(
+           AppRole.Admin,
+           msg.sender,
+           true
+        );
+    }
     
+    
+    function getUserRole() public view returns(uint) {
+        
+        if(vendors[msg.sender].isVendorOrApplicant == true) {
+            return uint(AppRole(vendors[msg.sender].role));
+        }
+        else if(administrators[msg.sender].isAdmin == true) {
+             return uint(AppRole(administrators[msg.sender].role));
+        }else {
+            return uint(AppRole.Customer);
+        }
+    }
     
     function getPendingVendorsCount() public view returns (uint) {
-          return pendingVendors.length;
+          if(pendingVendors.length>0) {
+                return pendingVendors.length;
+          }
+          return 0;
+         
     }
     
     function getApprovedVendorsCount() public view returns (uint) {
-          return approvedVendors.length;
+        if(approvedVendors.length>0) {
+               return approvedVendors.length;
+          }
+          return 0;
     }
     
     function getPendingVendors() public view returns (uint) {
-          return pendingVendors.length;
+          if(pendingVendors.length>0) {
+               return pendingVendors.length;
+          }
+          return 0;
     }
     
     function getApprovedVendorByIndex(uint index) public view returns (string, string, string, uint, address) {
@@ -77,7 +110,8 @@ contract ApplicationUserManager {
     function requestVendorAccount(string _name, string _email,  string _phone) public returns(bool) {
           require(vendors[msg.sender].isVendorOrApplicant == false, "REQUEST IS IN PROCESS");
            
-          vendors[msg.sender] = Vendor(_name, _email, _phone, AccountState.Pending,  msg.sender, true,  int(pendingVendors.length),getNotExistsIndex());
+          vendors[msg.sender] = Vendor(_name, _email, _phone, AccountState.Pending, 
+          msg.sender, true,  int(pendingVendors.length),getNotExistsIndex(), AppRole.VendorAwaitingApproval);
           setPendingVendor(_name,_email,_phone);
                                          
          return true;
@@ -85,13 +119,15 @@ contract ApplicationUserManager {
     
     function setPendingVendor(string _name, string _email,  string _phone) private returns (uint){
 
-         pendingVendors.push(Vendor(_name, _email, _phone, AccountState.Pending,  msg.sender, true, int(pendingVendors.length),getNotExistsIndex())) -1;
+         pendingVendors.push(Vendor(_name, _email, _phone, AccountState.Pending,
+         msg.sender, true, int(pendingVendors.length),getNotExistsIndex(),AppRole.VendorAwaitingApproval)) -1;
          
     }
     
     function approveVendorAccount(address account) public returns(bool) {
          require(vendors[account].isVendorOrApplicant == true);
           vendors[account].state = AccountState.Approved;
+          vendors[account].role = AppRole.Vendor;
           removeAccountFromPendingList(account);
           addAccountToApprovedList(account);
           return true;
@@ -116,20 +152,6 @@ contract ApplicationUserManager {
          return -1;
     }
              
-    function getApprovedIndex_P() public view returns (int) {
-          return pendingVendors[0].approveListIndex;
-    }
-    
-    function getPendingIndex_P() public view returns (int) {
-          return pendingVendors[0].pendingListIndex;
-    }
-    
-     function getApprovedIndex_A() public view returns (int) {
-          return approvedVendors[0].approveListIndex;
-    }
-    
-    function getPendingIndex_A() public view returns (int) {
-          return approvedVendors[0].pendingListIndex;
-    }
+
     
 }

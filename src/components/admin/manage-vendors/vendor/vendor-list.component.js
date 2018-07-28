@@ -1,5 +1,8 @@
 import React, { Component }from 'react';
 import { getWeb3Contract } from '../../../../services/web3.service';
+import * as appService  from '../../../../services/app.service';
+import * as accountService from '../services/account.service';
+
 import {  Link  } from 'react-router-dom';
 
 class VendorList extends Component {
@@ -9,75 +12,75 @@ class VendorList extends Component {
         this.storeInstance;
         this.state = {
               account: '',
-            products: [],
+               pendingVendors: [],
+               allVendors: [],
+               approvedVendors:[],
               contractInstance:{}
         }
     }
 
+
+
     componentDidMount() {
+        appService.getContract((contract) => {
+            this.storeInstance = contract;
+            appService.getAccount((account) => {
+                this.setState({account: account});
+                 this.getVendors();
+            });
+            
+         });
+       }
+
         
-        getWeb3Contract().then((web3Contract)=>{
-           
-             web3Contract.web3.eth.getCoinbase((err, account) =>{
-                 console.log('contractInstance yk 22',account );
-                  web3Contract.contract.deployed().then((marketPlaceContractInstance)=>{
-                      this.storeInstance = marketPlaceContractInstance;
-                      console.log('marketPlaceContractInstance', marketPlaceContractInstance)
-                    marketPlaceContractInstance.getPendingVendorsCount.call({from:account}).then(result=>{
-                        const count = result.toNumber()
-                        this.setState({account: account});
-                        console.log('--pending vendors', result)
-                        let products = [];
-                  
-                        for(let i=0; i<count; i++) {
-                    
-                            marketPlaceContractInstance.getPendingVendorByIndex.call(i, {from:account}).then((result)=>{
-                               console.log('--result', result)
-                                // const name = result[0];
-                                // const description = result[1];
-                                // const price = result[2].toNumber();
-                                // const quantity = result[3].toNumber();
-                                
-                                // products.push({
-                                //     name,
-                                //     description,
-                                //     price,
-                                //     quantity
-                                // })
-                              //  this.setState({products: products})
-                            })
-                        }
-                     
-                    })
-               })
-             
+       getVendors = () => {
+               this.getApprovedVendors()
+               this.getPendingVendors();
+       }
+
+        getApprovedVendors = ()=> {
+            accountService.getApprovedVendors(this.storeInstance, this.state.account).then((approvedVendors) => {
+                console.log('approvedVendors', approvedVendors)
+                this.setState(prev => {
+                       return {
+                         ...prev,
+                         approvedVendors: approvedVendors,
+                          allVendors: [...approvedVendors,...prev.pendingVendors]
+                       }
+                });   
             })
-         })
         }
 
-    //     deleteProduct =(index) => {
-    //         console.log('--index', index, this.state.account)
-    //         if( this.storeInstance) {
-    //               this.storeInstance.deleteProduct(this.props.storeId,
-    //                 index, {from: this.state.account, gas: 3000000})
-    //               .then((result)=>{
-    //                      console.log('store deleted', result)
-    //                      this.setState(prev =>{
-    //                            prev.products = prev.products.filter((p, _index)=>_index!==index);
-    //                            return prev;
-    //                      })
-    //               }).catch((e)=>{
-    //                      console.log('error', e)
-    //               })
-    //         }
-    //    }
+        getPendingVendors = ()=> {
+            accountService.getPendingVendors(this.storeInstance, this.state.account).then((pendingVendors) => {
+                console.log('pendingVendors', pendingVendors)
+                this.setState(prev => {
+                       return {
+                         ...prev,
+                          pendingVendors: pendingVendors,
+                          allVendors: [...prev.approvedVendors, ...pendingVendors]
+                       }
+                });   
+            }) 
+        }
+
+    
+    renderVendors =() => {
+        return this.state.allVendors.map((vendor, index)=>{
+            return(<div key={index}>
+                 <span>{vendor.name}</span> <span>{vendor.email}</span>  <span>{vendor.phone}</span>   <span>{vendor.statusText}</span> 
+                <Link to={`/manage-vendor/${vendor.account}`}>Details</Link>
+                 </div>)
+      });
+    }
 
     render() {
+        
         return(
             <div>
               <h1>VENDOR LIST</h1>
               <p>
-          
+               {this.renderVendors()}
               </p>
             </div>
         );
@@ -86,25 +89,3 @@ class VendorList extends Component {
 }
 
 export default VendorList;
-
-
-/**
- *   render() {
-        const products = this.state.products.map((p, index)=>{
-            return(<div key={index}>
-                 <span>{p.name}</span> <span>{p.description}</span>  <span>{p.price}</span>   <span>{p.quantity}</span> 
-                 <Link to={`/product/add/${this.props.storeId}/${index}`}>edit</Link>
-                 <button  type="button" onClick={()=>this.deleteProduct(index)}>delete</button>
-             
-              </div>)
-      })
-        return(
-            <div>
-              <h1>PRODUCT LIST</h1>
-              <p>
-              {products}
-              </p>
-            </div>
-        );
-    }
- */

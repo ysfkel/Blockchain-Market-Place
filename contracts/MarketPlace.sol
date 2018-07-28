@@ -1,7 +1,8 @@
 pragma solidity ^0.4.18;
 import './ApplicationUserManager.sol';
+import "./Ownerble.sol";
 
-contract MarketPlace is ApplicationUserManager {
+contract MarketPlace is Ownerble, ApplicationUserManager {
     
    
     struct Product {

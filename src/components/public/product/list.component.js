@@ -42,6 +42,8 @@ export default class ProductsListPublic extends Component {
                                         const description = productResult[1];
                                         const price = productResult[2].toNumber();
                                         const quantity = productResult[3].toNumber();
+
+                                        console.log('products',productResult)
                                         
                                         products.push({
                                             name,
