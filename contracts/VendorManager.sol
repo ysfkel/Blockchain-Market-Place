@@ -1,15 +1,15 @@
 pragma solidity ^0.4.18;
 import "./Ownerble.sol";
+import "./UserManager.sol";
+import "./Base.sol";
 
-contract ApplicationUserManager is Ownerble {
+contract VendorManager is Base, Ownerble {
     
-    enum AccountState {
-        Pending,
-        Approved
-    }
+    mapping(address => Vendor) internal vendors;
+    Vendor[] internal pendingVendors;
+    Vendor[] internal approvedVendors;
     
-    
-    struct Vendor {
+     struct Vendor {
         string name;
         string email;
         string phone;
@@ -19,35 +19,6 @@ contract ApplicationUserManager is Ownerble {
         int pendingListIndex;
         int approveListIndex;
         AppRole role;
-    }
-    
-    mapping(address => Vendor) private vendors;
-    AccountState accountState;
-    Vendor[] private pendingVendors;
-    Vendor[] private approvedVendors;
-    
-    
-    //administrators
-      function createAdmin() public ownerOnly {
-        
-        administrators[msg.sender] = Administrator(
-           AppRole.Admin,
-           msg.sender,
-           true
-        );
-    }
-    
-    
-    function getUserRole() public view returns(uint) {
-        
-        if(vendors[msg.sender].isVendorOrApplicant == true) {
-            return uint(AppRole(vendors[msg.sender].role));
-        }
-        else if(administrators[msg.sender].isAdmin == true) {
-             return uint(AppRole(administrators[msg.sender].role));
-        }else {
-            return uint(AppRole.Customer);
-        }
     }
     
     function getPendingVendorsCount() public view returns (uint) {
@@ -148,10 +119,5 @@ contract ApplicationUserManager is Ownerble {
           return true;
     }
     
-    function getNotExistsIndex() private pure returns (int) {
-         return -1;
-    }
-             
-
     
 }

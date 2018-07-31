@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import {  Link  } from 'react-router-dom';
-import { getWeb3Contract } from '../../services/web3.service';
+import { getWeb3Contract } from '../../../services/web3.service';
 
 export default class StoreList extends Component {
    

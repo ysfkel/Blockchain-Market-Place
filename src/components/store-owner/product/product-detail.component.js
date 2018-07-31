@@ -81,8 +81,9 @@ export default class ProductDetail extends Component{
          } else {
              promise = this.storeInstance.addProduct(this.props.storeId,this.state.name, 
                 this.state.description,this.state.price,this.state.quantity,{
-                 from: this.state.account
-             })
+                 from: this.state.account, gas:3000000 
+             }).then(r=>console.log)
+             .catch(console.log)
          }
          promise.then(function(e){
              console.log('ss result', e )

@@ -1,8 +1,5 @@
 import { getWeb3Contract } from '../../../../services/web3.service';
 
-
-
-
 export const getPendingVendorsCount =(storeContract, account, callback) => {
     if(storeContract && account && callback) {
         storeContract.getPendingVendorsCount.call({from:account}).then(result=>{

@@ -12,20 +12,20 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.18;\n\ncontract Ownerble {\n    \n    constructor() internal{\n         createOwner();\n         createSuperAdmin(msg.sender);\n         \n    }\n    \n    address private  owner;\n    \n    enum AppRole {\n        SuperAdmin, Admin,\n        Vendor, VendorAwaitingApproval, Customer\n    }\n    struct Administrator {\n         AppRole role;\n         address account;\n         bool isAdmin;\n     }\n     \n     function createOwner() private {\n          owner = msg.sender;\n     }\n     function createSuperAdmin(address account) internal ownerOnly {\n        \n        administrators[msg.sender] = Administrator(\n           AppRole.SuperAdmin,\n            account,\n           true\n        );\n    }\n    \n    \n    modifier ownerOnly() {\n        require(msg.sender == owner);\n        _;\n    }\n    \n    mapping(address => Administrator) administrators;\n}",
+  "source": "pragma solidity ^0.4.18;\n\ncontract Ownerble {\n    \n    constructor() internal{\n         createOwner();\n    }\n    \n    enum AccountState {\n        Pending,\n        Approved\n    }\n    enum AppRole {\n        Owner, SuperAdmin, Admin,\n        Vendor, VendorAwaitingApproval, Customer\n    }\n    \n    address private  owner;\n    \n     function createOwner() private {\n          owner = msg.sender;\n     }\n    \n    modifier ownerOnly() {\n        require(msg.sender == owner);\n        _;\n    }\n}",
   "sourcePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
   "ast": {
     "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
     "exportedSymbols": {
       "Ownerble": [
-        1585
+        1279
       ]
     },
-    "id": 1586,
+    "id": 1280,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1513,
+        "id": 1239,
         "literals": [
           "solidity",
           "^",
@@ -33,7 +33,7 @@
           ".18"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:3"
+        "src": "0:24:4"
       },
       {
         "baseContracts": [],
@@ -41,18 +41,18 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1585,
+        "id": 1279,
         "linearizedBaseContracts": [
-          1585
+          1279
         ],
         "name": "Ownerble",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 1524,
+              "id": 1245,
               "nodeType": "Block",
-              "src": "77:80:3",
+              "src": "77:31:4",
               "statements": [
                 {
                   "expression": {
@@ -60,18 +60,18 @@
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 1516,
+                      "id": 1242,
                       "name": "createOwner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1549,
-                      "src": "88:11:3",
+                      "referencedDeclaration": 1267,
+                      "src": "88:11:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
                         "typeString": "function ()"
                       }
                     },
-                    "id": 1517,
+                    "id": 1243,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -79,90 +79,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "88:13:3",
+                    "src": "88:13:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1518,
+                  "id": 1244,
                   "nodeType": "ExpressionStatement",
-                  "src": "88:13:3"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 1520,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 1600,
-                          "src": "129:3:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 1521,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sender",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "129:10:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      ],
-                      "id": 1519,
-                      "name": "createSuperAdmin",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 1569,
-                      "src": "112:16:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
-                        "typeString": "function (address)"
-                      }
-                    },
-                    "id": 1522,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "112:28:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 1523,
-                  "nodeType": "ExpressionStatement",
-                  "src": "112:28:3"
+                  "src": "88:13:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1525,
+            "id": 1246,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -170,31 +100,97 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1514,
+              "id": 1240,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "66:2:3"
+              "src": "66:2:4"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1515,
+              "id": 1241,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "77:0:3"
+              "src": "77:0:4"
             },
-            "scope": 1585,
-            "src": "55:102:3",
+            "scope": 1279,
+            "src": "55:53:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           },
           {
+            "canonicalName": "Ownerble.AccountState",
+            "id": 1249,
+            "members": [
+              {
+                "id": 1247,
+                "name": "Pending",
+                "nodeType": "EnumValue",
+                "src": "146:7:4"
+              },
+              {
+                "id": 1248,
+                "name": "Approved",
+                "nodeType": "EnumValue",
+                "src": "163:8:4"
+              }
+            ],
+            "name": "AccountState",
+            "nodeType": "EnumDefinition",
+            "src": "118:59:4"
+          },
+          {
+            "canonicalName": "Ownerble.AppRole",
+            "id": 1256,
+            "members": [
+              {
+                "id": 1250,
+                "name": "Owner",
+                "nodeType": "EnumValue",
+                "src": "205:5:4"
+              },
+              {
+                "id": 1251,
+                "name": "SuperAdmin",
+                "nodeType": "EnumValue",
+                "src": "212:10:4"
+              },
+              {
+                "id": 1252,
+                "name": "Admin",
+                "nodeType": "EnumValue",
+                "src": "224:5:4"
+              },
+              {
+                "id": 1253,
+                "name": "Vendor",
+                "nodeType": "EnumValue",
+                "src": "239:6:4"
+              },
+              {
+                "id": 1254,
+                "name": "VendorAwaitingApproval",
+                "nodeType": "EnumValue",
+                "src": "247:22:4"
+              },
+              {
+                "id": 1255,
+                "name": "Customer",
+                "nodeType": "EnumValue",
+                "src": "271:8:4"
+              }
+            ],
+            "name": "AppRole",
+            "nodeType": "EnumDefinition",
+            "src": "182:103:4"
+          },
+          {
             "constant": false,
-            "id": 1527,
+            "id": 1258,
             "name": "owner",
             "nodeType": "VariableDeclaration",
-            "scope": 1585,
-            "src": "167:22:3",
+            "scope": 1279,
+            "src": "295:22:4",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -202,10 +198,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1526,
+              "id": 1257,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "167:7:3",
+              "src": "295:7:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -215,157 +211,27 @@
             "visibility": "private"
           },
           {
-            "canonicalName": "Ownerble.AppRole",
-            "id": 1533,
-            "members": [
-              {
-                "id": 1528,
-                "name": "SuperAdmin",
-                "nodeType": "EnumValue",
-                "src": "223:10:3"
-              },
-              {
-                "id": 1529,
-                "name": "Admin",
-                "nodeType": "EnumValue",
-                "src": "235:5:3"
-              },
-              {
-                "id": 1530,
-                "name": "Vendor",
-                "nodeType": "EnumValue",
-                "src": "250:6:3"
-              },
-              {
-                "id": 1531,
-                "name": "VendorAwaitingApproval",
-                "nodeType": "EnumValue",
-                "src": "258:22:3"
-              },
-              {
-                "id": 1532,
-                "name": "Customer",
-                "nodeType": "EnumValue",
-                "src": "282:8:3"
-              }
-            ],
-            "name": "AppRole",
-            "nodeType": "EnumDefinition",
-            "src": "200:96:3"
-          },
-          {
-            "canonicalName": "Ownerble.Administrator",
-            "id": 1540,
-            "members": [
-              {
-                "constant": false,
-                "id": 1535,
-                "name": "role",
-                "nodeType": "VariableDeclaration",
-                "scope": 1540,
-                "src": "333:12:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_AppRole_$1533",
-                  "typeString": "enum Ownerble.AppRole"
-                },
-                "typeName": {
-                  "contractScope": null,
-                  "id": 1534,
-                  "name": "AppRole",
-                  "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 1533,
-                  "src": "333:7:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_AppRole_$1533",
-                    "typeString": "enum Ownerble.AppRole"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 1537,
-                "name": "account",
-                "nodeType": "VariableDeclaration",
-                "scope": 1540,
-                "src": "356:15:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                },
-                "typeName": {
-                  "id": 1536,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "356:7:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 1539,
-                "name": "isAdmin",
-                "nodeType": "VariableDeclaration",
-                "scope": 1540,
-                "src": "382:12:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_bool",
-                  "typeString": "bool"
-                },
-                "typeName": {
-                  "id": 1538,
-                  "name": "bool",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "382:4:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              }
-            ],
-            "name": "Administrator",
-            "nodeType": "StructDefinition",
-            "scope": 1585,
-            "src": "301:101:3",
-            "visibility": "public"
-          },
-          {
             "body": {
-              "id": 1548,
+              "id": 1266,
               "nodeType": "Block",
-              "src": "445:38:3",
+              "src": "360:38:4",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1546,
+                    "id": 1264,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1543,
+                      "id": 1261,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1527,
-                      "src": "457:5:3",
+                      "referencedDeclaration": 1258,
+                      "src": "372:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -377,18 +243,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1544,
+                        "id": 1262,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1600,
-                        "src": "465:3:3",
+                        "referencedDeclaration": 1801,
+                        "src": "380:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 1545,
+                      "id": 1263,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -396,26 +262,26 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "465:10:3",
+                      "src": "380:10:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "457:18:3",
+                    "src": "372:18:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 1547,
+                  "id": 1265,
                   "nodeType": "ExpressionStatement",
-                  "src": "457:18:3"
+                  "src": "372:18:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1549,
+            "id": 1267,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -423,291 +289,29 @@
             "name": "createOwner",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1541,
+              "id": 1259,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "434:2:3"
+              "src": "349:2:4"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1542,
+              "id": 1260,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "445:0:3"
+              "src": "360:0:4"
             },
-            "scope": 1585,
-            "src": "414:69:3",
+            "scope": 1279,
+            "src": "329:69:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "private"
           },
           {
             "body": {
-              "id": 1568,
+              "id": 1277,
               "nodeType": "Block",
-              "src": "551:147:3",
-              "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "id": 1566,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "baseExpression": {
-                        "argumentTypes": null,
-                        "id": 1556,
-                        "name": "administrators",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 1584,
-                        "src": "570:14:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Administrator_$1540_storage_$",
-                          "typeString": "mapping(address => struct Ownerble.Administrator storage ref)"
-                        }
-                      },
-                      "id": 1559,
-                      "indexExpression": {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 1557,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 1600,
-                          "src": "585:3:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 1558,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sender",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "585:10:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "nodeType": "IndexAccess",
-                      "src": "570:26:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Administrator_$1540_storage",
-                        "typeString": "struct Ownerble.Administrator storage ref"
-                      }
-                    },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "arguments": [
-                        {
-                          "argumentTypes": null,
-                          "expression": {
-                            "argumentTypes": null,
-                            "id": 1561,
-                            "name": "AppRole",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 1533,
-                            "src": "625:7:3",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_AppRole_$1533_$",
-                              "typeString": "type(enum Ownerble.AppRole)"
-                            }
-                          },
-                          "id": 1562,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": true,
-                          "lValueRequested": false,
-                          "memberName": "SuperAdmin",
-                          "nodeType": "MemberAccess",
-                          "referencedDeclaration": null,
-                          "src": "625:18:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_AppRole_$1533",
-                            "typeString": "enum Ownerble.AppRole"
-                          }
-                        },
-                        {
-                          "argumentTypes": null,
-                          "id": 1563,
-                          "name": "account",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 1551,
-                          "src": "657:7:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        },
-                        {
-                          "argumentTypes": null,
-                          "hexValue": "74727565",
-                          "id": 1564,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": true,
-                          "kind": "bool",
-                          "lValueRequested": false,
-                          "nodeType": "Literal",
-                          "src": "677:4:3",
-                          "subdenomination": null,
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_bool",
-                            "typeString": "bool"
-                          },
-                          "value": "true"
-                        }
-                      ],
-                      "expression": {
-                        "argumentTypes": [
-                          {
-                            "typeIdentifier": "t_enum$_AppRole_$1533",
-                            "typeString": "enum Ownerble.AppRole"
-                          },
-                          {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          },
-                          {
-                            "typeIdentifier": "t_bool",
-                            "typeString": "bool"
-                          }
-                        ],
-                        "id": 1560,
-                        "name": "Administrator",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 1540,
-                        "src": "599:13:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Administrator_$1540_storage_ptr_$",
-                          "typeString": "type(struct Ownerble.Administrator storage pointer)"
-                        }
-                      },
-                      "id": 1565,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": false,
-                      "kind": "structConstructorCall",
-                      "lValueRequested": false,
-                      "names": [],
-                      "nodeType": "FunctionCall",
-                      "src": "599:92:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Administrator_$1540_memory",
-                        "typeString": "struct Ownerble.Administrator memory"
-                      }
-                    },
-                    "src": "570:121:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Administrator_$1540_storage",
-                      "typeString": "struct Ownerble.Administrator storage ref"
-                    }
-                  },
-                  "id": 1567,
-                  "nodeType": "ExpressionStatement",
-                  "src": "570:121:3"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 1569,
-            "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
-            "modifiers": [
-              {
-                "arguments": null,
-                "id": 1554,
-                "modifierName": {
-                  "argumentTypes": null,
-                  "id": 1553,
-                  "name": "ownerOnly",
-                  "nodeType": "Identifier",
-                  "overloadedDeclarations": [],
-                  "referencedDeclaration": 1580,
-                  "src": "541:9:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_modifier$__$",
-                    "typeString": "modifier ()"
-                  }
-                },
-                "nodeType": "ModifierInvocation",
-                "src": "541:9:3"
-              }
-            ],
-            "name": "createSuperAdmin",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1552,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1551,
-                  "name": "account",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1569,
-                  "src": "515:15:3",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 1550,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "515:7:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "514:17:3"
-            },
-            "payable": false,
-            "returnParameters": {
-              "id": 1555,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "551:0:3"
-            },
-            "scope": 1585,
-            "src": "489:209:3",
-            "stateMutability": "nonpayable",
-            "superFunction": null,
-            "visibility": "internal"
-          },
-          {
-            "body": {
-              "id": 1579,
-              "nodeType": "Block",
-              "src": "734:56:3",
+              "src": "429:56:4",
               "statements": [
                 {
                   "expression": {
@@ -719,7 +323,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 1575,
+                        "id": 1273,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -728,18 +332,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1572,
+                            "id": 1270,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1600,
-                            "src": "752:3:3",
+                            "referencedDeclaration": 1801,
+                            "src": "447:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1573,
+                          "id": 1271,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -747,7 +351,7 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "752:10:3",
+                          "src": "447:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -757,18 +361,18 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 1574,
+                          "id": 1272,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1527,
-                          "src": "766:5:3",
+                          "referencedDeclaration": 1258,
+                          "src": "461:5:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "752:19:3",
+                        "src": "447:19:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -782,21 +386,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1571,
+                      "id": 1269,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1603,
-                        1604
+                        1804,
+                        1805
                       ],
-                      "referencedDeclaration": 1603,
-                      "src": "744:7:3",
+                      "referencedDeclaration": 1804,
+                      "src": "439:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1576,
+                    "id": 1274,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -804,102 +408,55 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "744:28:3",
+                    "src": "439:28:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1577,
+                  "id": 1275,
                   "nodeType": "ExpressionStatement",
-                  "src": "744:28:3"
+                  "src": "439:28:4"
                 },
                 {
-                  "id": 1578,
+                  "id": 1276,
                   "nodeType": "PlaceholderStatement",
-                  "src": "782:1:3"
+                  "src": "477:1:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1580,
+            "id": 1278,
             "name": "ownerOnly",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1570,
+              "id": 1268,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "731:2:3"
+              "src": "426:2:4"
             },
-            "src": "713:77:3",
-            "visibility": "internal"
-          },
-          {
-            "constant": false,
-            "id": 1584,
-            "name": "administrators",
-            "nodeType": "VariableDeclaration",
-            "scope": 1585,
-            "src": "800:48:3",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Administrator_$1540_storage_$",
-              "typeString": "mapping(address => struct Ownerble.Administrator)"
-            },
-            "typeName": {
-              "id": 1583,
-              "keyType": {
-                "id": 1581,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "808:7:3",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "800:33:3",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Administrator_$1540_storage_$",
-                "typeString": "mapping(address => struct Ownerble.Administrator)"
-              },
-              "valueType": {
-                "contractScope": null,
-                "id": 1582,
-                "name": "Administrator",
-                "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1540,
-                "src": "819:13:3",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Administrator_$1540_storage_ptr",
-                  "typeString": "struct Ownerble.Administrator"
-                }
-              }
-            },
-            "value": null,
+            "src": "408:77:4",
             "visibility": "internal"
           }
         ],
-        "scope": 1586,
-        "src": "26:825:3"
+        "scope": 1280,
+        "src": "26:461:4"
       }
     ],
-    "src": "0:851:3"
+    "src": "0:487:4"
   },
   "legacyAST": {
     "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
     "exportedSymbols": {
       "Ownerble": [
-        1585
+        1279
       ]
     },
-    "id": 1586,
+    "id": 1280,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1513,
+        "id": 1239,
         "literals": [
           "solidity",
           "^",
@@ -907,7 +464,7 @@
           ".18"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:3"
+        "src": "0:24:4"
       },
       {
         "baseContracts": [],
@@ -915,18 +472,18 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1585,
+        "id": 1279,
         "linearizedBaseContracts": [
-          1585
+          1279
         ],
         "name": "Ownerble",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 1524,
+              "id": 1245,
               "nodeType": "Block",
-              "src": "77:80:3",
+              "src": "77:31:4",
               "statements": [
                 {
                   "expression": {
@@ -934,18 +491,18 @@
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 1516,
+                      "id": 1242,
                       "name": "createOwner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1549,
-                      "src": "88:11:3",
+                      "referencedDeclaration": 1267,
+                      "src": "88:11:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
                         "typeString": "function ()"
                       }
                     },
-                    "id": 1517,
+                    "id": 1243,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -953,90 +510,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "88:13:3",
+                    "src": "88:13:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1518,
+                  "id": 1244,
                   "nodeType": "ExpressionStatement",
-                  "src": "88:13:3"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 1520,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 1600,
-                          "src": "129:3:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 1521,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sender",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "129:10:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      ],
-                      "id": 1519,
-                      "name": "createSuperAdmin",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 1569,
-                      "src": "112:16:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
-                        "typeString": "function (address)"
-                      }
-                    },
-                    "id": 1522,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "112:28:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 1523,
-                  "nodeType": "ExpressionStatement",
-                  "src": "112:28:3"
+                  "src": "88:13:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1525,
+            "id": 1246,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1044,31 +531,97 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1514,
+              "id": 1240,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "66:2:3"
+              "src": "66:2:4"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1515,
+              "id": 1241,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "77:0:3"
+              "src": "77:0:4"
             },
-            "scope": 1585,
-            "src": "55:102:3",
+            "scope": 1279,
+            "src": "55:53:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           },
           {
+            "canonicalName": "Ownerble.AccountState",
+            "id": 1249,
+            "members": [
+              {
+                "id": 1247,
+                "name": "Pending",
+                "nodeType": "EnumValue",
+                "src": "146:7:4"
+              },
+              {
+                "id": 1248,
+                "name": "Approved",
+                "nodeType": "EnumValue",
+                "src": "163:8:4"
+              }
+            ],
+            "name": "AccountState",
+            "nodeType": "EnumDefinition",
+            "src": "118:59:4"
+          },
+          {
+            "canonicalName": "Ownerble.AppRole",
+            "id": 1256,
+            "members": [
+              {
+                "id": 1250,
+                "name": "Owner",
+                "nodeType": "EnumValue",
+                "src": "205:5:4"
+              },
+              {
+                "id": 1251,
+                "name": "SuperAdmin",
+                "nodeType": "EnumValue",
+                "src": "212:10:4"
+              },
+              {
+                "id": 1252,
+                "name": "Admin",
+                "nodeType": "EnumValue",
+                "src": "224:5:4"
+              },
+              {
+                "id": 1253,
+                "name": "Vendor",
+                "nodeType": "EnumValue",
+                "src": "239:6:4"
+              },
+              {
+                "id": 1254,
+                "name": "VendorAwaitingApproval",
+                "nodeType": "EnumValue",
+                "src": "247:22:4"
+              },
+              {
+                "id": 1255,
+                "name": "Customer",
+                "nodeType": "EnumValue",
+                "src": "271:8:4"
+              }
+            ],
+            "name": "AppRole",
+            "nodeType": "EnumDefinition",
+            "src": "182:103:4"
+          },
+          {
             "constant": false,
-            "id": 1527,
+            "id": 1258,
             "name": "owner",
             "nodeType": "VariableDeclaration",
-            "scope": 1585,
-            "src": "167:22:3",
+            "scope": 1279,
+            "src": "295:22:4",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1076,10 +629,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1526,
+              "id": 1257,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "167:7:3",
+              "src": "295:7:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -1089,157 +642,27 @@
             "visibility": "private"
           },
           {
-            "canonicalName": "Ownerble.AppRole",
-            "id": 1533,
-            "members": [
-              {
-                "id": 1528,
-                "name": "SuperAdmin",
-                "nodeType": "EnumValue",
-                "src": "223:10:3"
-              },
-              {
-                "id": 1529,
-                "name": "Admin",
-                "nodeType": "EnumValue",
-                "src": "235:5:3"
-              },
-              {
-                "id": 1530,
-                "name": "Vendor",
-                "nodeType": "EnumValue",
-                "src": "250:6:3"
-              },
-              {
-                "id": 1531,
-                "name": "VendorAwaitingApproval",
-                "nodeType": "EnumValue",
-                "src": "258:22:3"
-              },
-              {
-                "id": 1532,
-                "name": "Customer",
-                "nodeType": "EnumValue",
-                "src": "282:8:3"
-              }
-            ],
-            "name": "AppRole",
-            "nodeType": "EnumDefinition",
-            "src": "200:96:3"
-          },
-          {
-            "canonicalName": "Ownerble.Administrator",
-            "id": 1540,
-            "members": [
-              {
-                "constant": false,
-                "id": 1535,
-                "name": "role",
-                "nodeType": "VariableDeclaration",
-                "scope": 1540,
-                "src": "333:12:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_AppRole_$1533",
-                  "typeString": "enum Ownerble.AppRole"
-                },
-                "typeName": {
-                  "contractScope": null,
-                  "id": 1534,
-                  "name": "AppRole",
-                  "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 1533,
-                  "src": "333:7:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_AppRole_$1533",
-                    "typeString": "enum Ownerble.AppRole"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 1537,
-                "name": "account",
-                "nodeType": "VariableDeclaration",
-                "scope": 1540,
-                "src": "356:15:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                },
-                "typeName": {
-                  "id": 1536,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "356:7:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 1539,
-                "name": "isAdmin",
-                "nodeType": "VariableDeclaration",
-                "scope": 1540,
-                "src": "382:12:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_bool",
-                  "typeString": "bool"
-                },
-                "typeName": {
-                  "id": 1538,
-                  "name": "bool",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "382:4:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              }
-            ],
-            "name": "Administrator",
-            "nodeType": "StructDefinition",
-            "scope": 1585,
-            "src": "301:101:3",
-            "visibility": "public"
-          },
-          {
             "body": {
-              "id": 1548,
+              "id": 1266,
               "nodeType": "Block",
-              "src": "445:38:3",
+              "src": "360:38:4",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1546,
+                    "id": 1264,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1543,
+                      "id": 1261,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1527,
-                      "src": "457:5:3",
+                      "referencedDeclaration": 1258,
+                      "src": "372:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1251,18 +674,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1544,
+                        "id": 1262,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1600,
-                        "src": "465:3:3",
+                        "referencedDeclaration": 1801,
+                        "src": "380:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 1545,
+                      "id": 1263,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1270,26 +693,26 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "465:10:3",
+                      "src": "380:10:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "457:18:3",
+                    "src": "372:18:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 1547,
+                  "id": 1265,
                   "nodeType": "ExpressionStatement",
-                  "src": "457:18:3"
+                  "src": "372:18:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1549,
+            "id": 1267,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1297,291 +720,29 @@
             "name": "createOwner",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1541,
+              "id": 1259,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "434:2:3"
+              "src": "349:2:4"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1542,
+              "id": 1260,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "445:0:3"
+              "src": "360:0:4"
             },
-            "scope": 1585,
-            "src": "414:69:3",
+            "scope": 1279,
+            "src": "329:69:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "private"
           },
           {
             "body": {
-              "id": 1568,
+              "id": 1277,
               "nodeType": "Block",
-              "src": "551:147:3",
-              "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "id": 1566,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "baseExpression": {
-                        "argumentTypes": null,
-                        "id": 1556,
-                        "name": "administrators",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 1584,
-                        "src": "570:14:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Administrator_$1540_storage_$",
-                          "typeString": "mapping(address => struct Ownerble.Administrator storage ref)"
-                        }
-                      },
-                      "id": 1559,
-                      "indexExpression": {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 1557,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 1600,
-                          "src": "585:3:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 1558,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sender",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "585:10:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "nodeType": "IndexAccess",
-                      "src": "570:26:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Administrator_$1540_storage",
-                        "typeString": "struct Ownerble.Administrator storage ref"
-                      }
-                    },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "arguments": [
-                        {
-                          "argumentTypes": null,
-                          "expression": {
-                            "argumentTypes": null,
-                            "id": 1561,
-                            "name": "AppRole",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 1533,
-                            "src": "625:7:3",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_AppRole_$1533_$",
-                              "typeString": "type(enum Ownerble.AppRole)"
-                            }
-                          },
-                          "id": 1562,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": true,
-                          "lValueRequested": false,
-                          "memberName": "SuperAdmin",
-                          "nodeType": "MemberAccess",
-                          "referencedDeclaration": null,
-                          "src": "625:18:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_AppRole_$1533",
-                            "typeString": "enum Ownerble.AppRole"
-                          }
-                        },
-                        {
-                          "argumentTypes": null,
-                          "id": 1563,
-                          "name": "account",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 1551,
-                          "src": "657:7:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        },
-                        {
-                          "argumentTypes": null,
-                          "hexValue": "74727565",
-                          "id": 1564,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": true,
-                          "kind": "bool",
-                          "lValueRequested": false,
-                          "nodeType": "Literal",
-                          "src": "677:4:3",
-                          "subdenomination": null,
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_bool",
-                            "typeString": "bool"
-                          },
-                          "value": "true"
-                        }
-                      ],
-                      "expression": {
-                        "argumentTypes": [
-                          {
-                            "typeIdentifier": "t_enum$_AppRole_$1533",
-                            "typeString": "enum Ownerble.AppRole"
-                          },
-                          {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          },
-                          {
-                            "typeIdentifier": "t_bool",
-                            "typeString": "bool"
-                          }
-                        ],
-                        "id": 1560,
-                        "name": "Administrator",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 1540,
-                        "src": "599:13:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Administrator_$1540_storage_ptr_$",
-                          "typeString": "type(struct Ownerble.Administrator storage pointer)"
-                        }
-                      },
-                      "id": 1565,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": false,
-                      "kind": "structConstructorCall",
-                      "lValueRequested": false,
-                      "names": [],
-                      "nodeType": "FunctionCall",
-                      "src": "599:92:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Administrator_$1540_memory",
-                        "typeString": "struct Ownerble.Administrator memory"
-                      }
-                    },
-                    "src": "570:121:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Administrator_$1540_storage",
-                      "typeString": "struct Ownerble.Administrator storage ref"
-                    }
-                  },
-                  "id": 1567,
-                  "nodeType": "ExpressionStatement",
-                  "src": "570:121:3"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 1569,
-            "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
-            "modifiers": [
-              {
-                "arguments": null,
-                "id": 1554,
-                "modifierName": {
-                  "argumentTypes": null,
-                  "id": 1553,
-                  "name": "ownerOnly",
-                  "nodeType": "Identifier",
-                  "overloadedDeclarations": [],
-                  "referencedDeclaration": 1580,
-                  "src": "541:9:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_modifier$__$",
-                    "typeString": "modifier ()"
-                  }
-                },
-                "nodeType": "ModifierInvocation",
-                "src": "541:9:3"
-              }
-            ],
-            "name": "createSuperAdmin",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1552,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1551,
-                  "name": "account",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1569,
-                  "src": "515:15:3",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 1550,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "515:7:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "514:17:3"
-            },
-            "payable": false,
-            "returnParameters": {
-              "id": 1555,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "551:0:3"
-            },
-            "scope": 1585,
-            "src": "489:209:3",
-            "stateMutability": "nonpayable",
-            "superFunction": null,
-            "visibility": "internal"
-          },
-          {
-            "body": {
-              "id": 1579,
-              "nodeType": "Block",
-              "src": "734:56:3",
+              "src": "429:56:4",
               "statements": [
                 {
                   "expression": {
@@ -1593,7 +754,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 1575,
+                        "id": 1273,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1602,18 +763,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1572,
+                            "id": 1270,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1600,
-                            "src": "752:3:3",
+                            "referencedDeclaration": 1801,
+                            "src": "447:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1573,
+                          "id": 1271,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1621,7 +782,7 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "752:10:3",
+                          "src": "447:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1631,18 +792,18 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 1574,
+                          "id": 1272,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1527,
-                          "src": "766:5:3",
+                          "referencedDeclaration": 1258,
+                          "src": "461:5:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "752:19:3",
+                        "src": "447:19:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1656,21 +817,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1571,
+                      "id": 1269,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1603,
-                        1604
+                        1804,
+                        1805
                       ],
-                      "referencedDeclaration": 1603,
-                      "src": "744:7:3",
+                      "referencedDeclaration": 1804,
+                      "src": "439:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1576,
+                    "id": 1274,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1678,89 +839,42 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "744:28:3",
+                    "src": "439:28:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1577,
+                  "id": 1275,
                   "nodeType": "ExpressionStatement",
-                  "src": "744:28:3"
+                  "src": "439:28:4"
                 },
                 {
-                  "id": 1578,
+                  "id": 1276,
                   "nodeType": "PlaceholderStatement",
-                  "src": "782:1:3"
+                  "src": "477:1:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1580,
+            "id": 1278,
             "name": "ownerOnly",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1570,
+              "id": 1268,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "731:2:3"
+              "src": "426:2:4"
             },
-            "src": "713:77:3",
-            "visibility": "internal"
-          },
-          {
-            "constant": false,
-            "id": 1584,
-            "name": "administrators",
-            "nodeType": "VariableDeclaration",
-            "scope": 1585,
-            "src": "800:48:3",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Administrator_$1540_storage_$",
-              "typeString": "mapping(address => struct Ownerble.Administrator)"
-            },
-            "typeName": {
-              "id": 1583,
-              "keyType": {
-                "id": 1581,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "808:7:3",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "800:33:3",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Administrator_$1540_storage_$",
-                "typeString": "mapping(address => struct Ownerble.Administrator)"
-              },
-              "valueType": {
-                "contractScope": null,
-                "id": 1582,
-                "name": "Administrator",
-                "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1540,
-                "src": "819:13:3",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Administrator_$1540_storage_ptr",
-                  "typeString": "struct Ownerble.Administrator"
-                }
-              }
-            },
-            "value": null,
+            "src": "408:77:4",
             "visibility": "internal"
           }
         ],
-        "scope": 1586,
-        "src": "26:825:3"
+        "scope": 1280,
+        "src": "26:461:4"
       }
     ],
-    "src": "0:851:3"
+    "src": "0:487:4"
   },
   "compiler": {
     "name": "solc",
@@ -1768,5 +882,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-28T11:55:49.833Z"
+  "updatedAt": "2018-07-29T18:56:50.499Z"
 }

@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import { BrowserRouter as Router, Link , Route, Redirect } from 'react-router-dom';
-import StoreList from './components/store-owner/stores-list';
+import StoreList from './components/store-owner/store/stores-list';
 import StoreDetail from './components/store-owner/store/store-detail.component';
 import ProductList from './components/store-owner/product/product-list.component';
 import ProductDetail from './components/store-owner/product/product-detail.component';
@@ -9,7 +9,8 @@ import ProductListViewComponent from './components/public/product/list-view.comp
 import VendorRequestView from './components/public/vendor-request/vendor-request-view';
 import ManageVendors from './components/admin/manage-vendors/manage-vendors';
 import VendorDetail from './components/admin/manage-vendors/vendor/vendor-detail.component';
-import AdminList from './components/admin/manage-admins/admin/admin-list.component'
+import AdminList from './components/admin/manage-admins/admin/admin-list.component';
+import AdminUserDetail from './components/admin/manage-admins/admin/admin-detail.component';
 import Web3 from 'web3';
 import TruffleContract from 'truffle-contract';
 import MarketPlace from '../build/contracts/MarketPlace.json';
@@ -43,9 +44,12 @@ export default class App extends Component{
     }
 
     componentDidMount() {
+      console.log('-getContract', )
         appService.getContract((contract) => {
             this.storeInstance = contract;
+            console.log('-contract', contract)
             appService.getAccount((account) => {
+              console.log('-******account', account)
                 this.setState({account: account});
                 this.getUserRole();
             });
@@ -60,35 +64,6 @@ export default class App extends Component{
                 console.log('--user role', role);
                 this.setState({role});
 
-                  // switch(role) {
-                  //     case ROLE.ADMIN: {
-
-                  //       break;
-                  //     }
-                  //     case ROLE.SUPER_ADMIN: {
-
-                  //       break;
-                  //     }
-                  //     case ROLE.VENDOR: {
-
-                  //       break;
-                  //     }
-                  //     case ROLE.VENDOR_AWAITING_APPROVAL: {
-
-                  //       break;
-                  //     }
-                  //     case ROLE.CUSTOMER: {
-
-                  //       break;
-                  //     }
-                  // }
-                
-            // this.setState(prev => {
-            //        return {
-            //          ...prev,
-            //          user: user,
-            //        }
-            // });
         })
     }
 
@@ -105,9 +80,11 @@ export default class App extends Component{
                       <AppBar position="static" color="default">
                         <Toolbar style={style.toolbar}>
                               <div style={style.linksContainer}>
-                              
-                              <Link style={style.linkStyle} to="/manage-admin">Manage Admins</Link>   
-                               {(this.state.role === ROLE.ADMIN || this.state.role === ROLE.SUPER_ADMIN) &&
+                              {(this.state.role  === ROLE.OWNER) &&
+                                        <Link style={style.linkStyle} to="/manage-admin-accounts">Manage Admins</Link>    
+                               } 
+                        
+                               {(this.state.role === ROLE.OWNER || this.state.role === ROLE.ADMIN || this.state.role === ROLE.SUPER_ADMIN) &&
                                    <Link style={style.linkStyle} to="/manage-vendors">Manage vendors</Link>   
                                } 
                                {(this.state.role === ROLE.VENDOR) &&
@@ -122,7 +99,6 @@ export default class App extends Component{
                                {this.state.role === ROLE.VENDOR_AWAITING_APPROVAL &&
                                     <span>Your Vendor Account is being Processed</span>
                                }
-                                 <Link style={style.linkStyle} to="/manage-vendors">Manage vendors</Link>   
                               </div>
                         </Toolbar>
                       </AppBar>
@@ -189,8 +165,16 @@ export default class App extends Component{
                            render={(props)=><VendorDetail vendorAccount = {props.match.params.account}/>}/>
 
                            <Route 
-                           path={'/manage-admin'}
+                           path={'/manage-admin-accounts'}
                            render={(props)=><AdminList />}/>
+
+                            <Route 
+                           path={'/update-admin-account/:account'}
+                           render={(props)=><AdminUserDetail adminAccount = {props.match.params.account}/>}/>
+
+                            <Route 
+                           path={'/create-admin-account'}
+                           render={(props)=><AdminUserDetail />}/>
                            
                            
                          

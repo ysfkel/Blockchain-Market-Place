@@ -11,7 +11,7 @@ export default class AdminList extends Component {
         this.storeInstance;
         this.state = {
               account: '',
-              adminAccounts: [],
+              users: [],
         }
     }
 
@@ -21,6 +21,7 @@ export default class AdminList extends Component {
         appService.getContract((contract) => {
             this.storeInstance = contract;
             appService.getAccount((account) => {
+                console.log('account', account)
                 this.setState({account: account});
                  this.getAdminitrators();
             });
@@ -42,12 +43,13 @@ export default class AdminList extends Component {
 
     
     renderList =() => {
+      
         return this.state.users.map((user, index)=>{
             return(<div key={index}>
-                 <span>{user.name}</span> <span>{user.role}</span>  <span>{user.account}</span>   
-                {/* <Link to={`/manage-vendor/${vendor.account}`}>Details</Link> */}
+                 <span>{user.name}</span> <span>{user.roleText}</span>  <span>{user.account}</span>   
+                <Link to={`/update-admin-account/${user.account}`}>Details</Link>
                  </div>)
-      });
+         });
     }
 
     render() {
@@ -55,6 +57,7 @@ export default class AdminList extends Component {
         return(
             <div>
               <h1>ADMIN USERS LIST</h1>
+              <Link to={`/create-admin-account`}>CREATE</Link>
               <p>
                {this.renderList()}
               </p>

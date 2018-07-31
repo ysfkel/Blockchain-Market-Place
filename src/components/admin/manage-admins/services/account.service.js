@@ -1,11 +1,10 @@
-import { getWeb3Contract } from '../../../../services/web3.service';
-
-
-
+import * as appHelper from '../../../../helpers/helpers';
 
 export const getAdminUsersCount =(storeContract, account, callback) => {
     if(storeContract && account && callback) {
+        console.log('-storeContract', storeContract)
         storeContract.getAdminUsersCount.call({from:account}).then(result=>{
+            //console.log('-users count result', result.toNumber())
             callback(result.toNumber());
         });
     } else {
@@ -16,7 +15,8 @@ export const getAdminUsersCount =(storeContract, account, callback) => {
 
 export const getAdminUser =(storeContract,adminAccount, userAccount) => {
     return  new Promise((resolve, reject) => {
-        storeContract.getAdminUser.call(adminAccount, {from:userAccount}).then((result)=>{
+        console.log('--adminAccount, userAccount', adminAccount, userAccount)
+        storeContract.getAdminUserByAddress.call(adminAccount, {from:userAccount}).then((result)=>{
                 resolve(processUser(result));  
         });      
     });             
@@ -29,7 +29,7 @@ export const getAdminUsersList =(storeContract, account) => {
             let _count = 0;
             for(let i=0; i<count; i++) {
                         
-                storeContract.getAdminUser.call(i, {from:account}).then((result)=>{
+                storeContract.getAdminUserByIndex.call(i, {from:account}).then((result)=>{
                     
                     users.push(processUser(result));
                     _count++;
@@ -45,7 +45,27 @@ export const getAdminUsersList =(storeContract, account) => {
   });             
 }
 
+//string name, address account, uint role
+export const createAdminUser =(newAccount, storeContract, account) =>  {
 
+    return new Promise((resolve, reject) => {
+        console.log('--newAccount', newAccount)
+           if(storeContract && account) {
+            storeContract.createAdminUser(newAccount.name, newAccount.account, newAccount.role,{from:account}).then(result=>{
+                   
+            }).then((r) => {
+              
+                resolve(r);
+            }).catch((e)=>{
+                console.log('e',e)
+                reject(e);
+            })
+        } else {
+              console.log('insufficient method parameters')
+              reject('insufficient method parameters');
+        }
+    })
+}
 
 // export const getUserAccount =(storeContract,userAccount) => {
 //     return  new Promise((resolve, reject) => {
@@ -56,12 +76,14 @@ export const getAdminUsersList =(storeContract, account) => {
 // }
 
 
-export const processVendor =(adminResult) => {
+export const processUser =(adminResult) => {
+    const roleNumber = adminResult[1].toNumber();
     const name =  adminResult[0];
-    const role = adminResult[1];
+    const role = roleNumber;
+    const roleText = appHelper.getUserRoleText(roleNumber);// adminResult[1];
     const account = adminResult[2];
 
     return {
-        name, role, account, 
+        account, name, role, roleText 
     }
 }
