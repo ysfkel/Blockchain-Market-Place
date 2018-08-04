@@ -88,7 +88,9 @@ export default class App extends Component{
                                    <Link style={style.linkStyle} to="/manage-vendors">Manage vendors</Link>   
                                } 
                                {(this.state.role === ROLE.VENDOR) &&
-                                  <Link style={style.linkStyle} to="/store-detail">Create store</Link> 
+                                 <span> <Link style={style.linkStyle} to="/create-store">Create store</Link> 
+                                 <Link style={style.linkStyle} to="/manage-stores">Manage Stores</Link> </span>
+                                  
                                } 
                                 
                                <Link style={style.linkStyle} to="/stores">Stores</Link>
@@ -112,32 +114,32 @@ export default class App extends Component{
                            
                            <Route
                           
-                             path={'/store-detail/:id'}
+                             path={'/edit-store/:id'}
                            
                             render={(props)=><StoreDetail storeId={props.match.params.id}/>}
                            />   
 
                            <Route
-                             path={'/store-detail'}
+                             path={'/create-store'}
                             render={(props)=><StoreDetail />}
                            />  
                         
                            <Route
                              exact
-                             path={'/product/add/:id'}
-                             render={(props)=><ProductDetail storeId={props.match.params.id} />}
+                             path={'/product-add/:storeId'}
+                             render={(props)=><ProductDetail storeId={props.match.params.storeId} />}
                            /> 
 
                            <Route
                            exact
-                           path={'/product/add/:id/:productId'}
-                           render={(props)=><ProductDetail storeId={props.match.params.id} productId={props.match.params.productId} />}
+                           path={'/product-edit/:storeId/:productId'}
+                           render={(props)=><ProductDetail storeId={props.match.params.storeId} productId={props.match.params.productId} />}
                          /> 
 
                            
                            <Route
-                           path={'/product/list/:id'}
-                           render={(props)=><ProductList storeId={props.match.params.id} />}
+                           path={'/product/list/:storeId'}
+                           render={(props)=><ProductList storeId={props.match.params.storeId} />}
                          /> 
 
                          <Route
@@ -146,7 +148,7 @@ export default class App extends Component{
                          /> 
 
                          <Route
-                           path={'/products'}
+                           path={'/products-catalog'}
                            render={(props)=><ProductListViewComponent/>}
                          /> 
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getWeb3Contract } from '../../../services/web3.service';
+import { getAccount, getWebContract} from '../../../services/app.service';
+import * as REPO from './repo';
 
 export default class ProductDetail extends Component{
       
@@ -10,85 +11,54 @@ export default class ProductDetail extends Component{
             name:'',
             description:'',
             price:0,
-            account:'',
-            quantity:0
+            account:''
         }
         this.productNameInput='name';
         this.productDescriptionInput='description'
         this.productPriceInput='price'
-        this.productQuantityInput='quantity'
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
-   
-
-    componentDidMount() { 
-        console.log('ss props', this.props)
-      getWeb3Contract().then((web3Contract)=>{
-        web3Contract.web3.eth.getCoinbase((err, account) =>{
-              console.log('contractInstance yk 22',account );
-            //    account="0x422437b6c32df2158a45e6e0cb0976b441b0efae"
-               this.setState({account:account})
-               //"0x01c490bb6e04066ce55aaf4168c2deb8efc19ea5"
-               web3Contract.contract.deployed().then((marketPlaceContractInstance)=>{
-                 marketPlaceContractInstance.userStoresCount(account).then(result=>{
-                     this.storeInstance = marketPlaceContractInstance;
-                     const count = result.toNumber()
-                     console.log('-this.props.storeId', this.props);
-                     if(this.isUpdatable()) {
-                        marketPlaceContractInstance.getUserStoreProduct(this.props.storeId,this.props.productId, 
-                            {from:account}).then((product)=>{
-                           
-                            const name = product[0];
-                            const description = product[1];
-                            const price = product[2];
-                            const quantity = product[3];
-                            this.setState({
-                               name: name,
-                               description: description,
-                               price: price,
-                               quantity: quantity
-                            })
-                          
-                              console.log('--product', product)
-                        })
-                     } else {
-                         console.log('missing product param')
-                     }
-                        
-                })
-                     
-             })
-          
-         })
-      })
+    componentDidMount=() => { 
+        const { storeId , productId } = this.props;               
+        getWebContract((web3Contract) => {
+            const { contract } =  web3Contract ;
+            const { web3 } = web3Contract;
+ 
+            this.storeInstance = contract;
+            getAccount((account) => {
+                this.setState({account: account});
+                if(storeId && productId) {
+                  REPO.getProduct({ contract, web3 ,account, storeId, productId})
+                  .then((product) => {
+                      this.setState({...product})
+                  });
+                }
+            });
+            
+        })
      }
 
      isUpdatable=()=> {
-           return this.props.storeId!==undefined && this.props.productId !=undefined;
+           return this.state.storeIndex!==undefined && this.state.productId !=undefined;
      }
 
      handleSubmit = (e) => {
         e.preventDefault();
         if( this.storeInstance ) {
-         let promise;
          if(this.isUpdatable()) {
-             promise = this.storeInstance.editProduct(this.props.storeId,this.props.productId,this.state.name, 
-                this.state.description,this.state.price,this.state.quantity, {
-                 from: this.state.account
-             })
+            const { name, price, description, productId, storeIndex, account} = this.state;
+            const contract = this.storeInstance;
+            REPO.editProduct({ name, price, description, productId, storeIndex, account, contract}).then(r=>console.log)
+            .catch(console.log);
          } else {
-             promise = this.storeInstance.addProduct(this.props.storeId,this.state.name, 
-                this.state.description,this.state.price,this.state.quantity,{
-                 from: this.state.account, gas:3000000 
-             }).then(r=>console.log)
-             .catch(console.log)
-         }
-         promise.then(function(e){
-             console.log('ss result', e )
-         })
+             const { name, price, description, account} = this.state;
+             const storeIndex = this.props.storeId;
+            REPO.createProduct({ name, price, description, account, storeIndex},this.storeInstance).then(r=>console.log)
+             .catch(console.log);
         }
+      }
     }
 
 
@@ -113,16 +83,16 @@ export default class ProductDetail extends Component{
                        <input type="text" name={this.productNameInput} value={this.state.name} onChange={this.handleChange}/>
                     </div>
 
+                     <div>
+                      <input type="number" name={this.productPriceInput} value={this.state.price} onChange={this.handleChange}/>
+                    </div>
+
                     <div>
                         <textarea name={this.productDescriptionInput}  value={this.state.description} onChange={this.handleChange}></textarea>
                     </div>
 
-                    <div>
-                      <input type="number" name={this.productPriceInput} value={this.state.price} onChange={this.handleChange}/>
-                    </div>
-                    <div>
-                      <input type="number" name={this.productQuantityInput} value={this.state.quantity} onChange={this.handleChange}/>
-                    </div>
+                   
+
                     <div>
                        <button type="submit">Save</button>
                    </div>

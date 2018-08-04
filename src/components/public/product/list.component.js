@@ -32,8 +32,7 @@ export default class ProductsListPublic extends Component {
                            
                             marketPlaceContractInstance.getStoreProductsCountPublic(store_index, {from:account}).then(p_result=>{
                                 const STORE_PRODUCTS_LIST_SIZE = p_result.toNumber();
-                                 console.log('STORE_PRODUCTS_LIST_SIZE', STORE_PRODUCTS_LIST_SIZE)
-                            
+                               
                                 for(let product_index=0; product_index < STORE_PRODUCTS_LIST_SIZE; product_index++) {
 
                                     marketPlaceContractInstance.getStoreProductPublic(store_index,product_index, {from:account}).then((productResult)=>{
@@ -43,7 +42,7 @@ export default class ProductsListPublic extends Component {
                                         const price = productResult[2].toNumber();
                                         const quantity = productResult[3].toNumber();
 
-                                        console.log('products',productResult)
+                                 
                                         
                                         products.push({
                                             name,

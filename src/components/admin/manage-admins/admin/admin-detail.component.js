@@ -58,7 +58,7 @@ export default class AdminUserDetail extends Component {
     }
 
     handleChange = name => event => {
-          console.log(name, event)
+    
           const value = event.target.value;
           this.setState(prev => {
                
@@ -82,7 +82,7 @@ export default class AdminUserDetail extends Component {
         }, this.storeInstance,
          this.state.account
         ).then(r=>{
-              console.log('success', r)
+          
         }).catch(e=> {
               console.log('error', e)
         });

@@ -18,13 +18,13 @@ contract StoreManager is Ownerble, StoreBase {//is Ownerble, UserManager {
     
     }
     
-    /*
-      STORE
-    */
-     function createStore(string storeName, string description) public  returns(uint){
-          Store storage store;
-          store.name=storeName;
-          store.description =description;
+        
+     function createStore(bytes32 storeName, bytes32 description) public  returns(uint){
+        
+          Store memory store;
+          store.name = storeName;
+          store.description = description;
+          
           stores[msg.sender].push(store);
           
           if(vendorSlot[msg.sender].initialized==false) {
@@ -36,9 +36,9 @@ contract StoreManager is Ownerble, StoreBase {//is Ownerble, UserManager {
           return  stores[msg.sender].length;
     }
     
-    function editStore(uint storeIndex, string storeName, string description) public returns(bool) {
-           stores[msg.sender][storeIndex].name = storeName;
-           stores[msg.sender][storeIndex].description = description;
+    function editStore(uint storeIndex, bytes32 storeName, bytes32 description) public returns(bool) {
+          stores[msg.sender][storeIndex].name = storeName;
+          stores[msg.sender][storeIndex].description = description;
     }
     
        function deleteStore(uint storeIndex) public returns(bool) {
@@ -58,18 +58,19 @@ contract StoreManager is Ownerble, StoreBase {//is Ownerble, UserManager {
           return true;
     }
     
-    function getStorePrivate(uint storeIndex) public view returns(string, string){
+    //    mapping(address => Store[]) internal stores;
+    function getStorePrivate(uint storeIndex) public view returns(bytes32, bytes32){
         return getStore(msg.sender, storeIndex);
     }
     
-    function getStorePublic(uint accountIndex, uint storeIndex) public view returns(string, string){
+    function getStorePublic(uint accountIndex, uint storeIndex) public view returns(bytes32, bytes32){
         //check if the account is in accounts with listed store and the account has a store 
         require(accountIndex < vendorAccountsWithListedStores.length && stores[vendorAccountsWithListedStores[accountIndex]].length > 0);
         
         return getStore(vendorAccountsWithListedStores[accountIndex], storeIndex);
     }
     
-    function getStore(address user, uint storeIndex) private view returns (string, string) {
+    function getStore(address user, uint storeIndex) private view returns (bytes32, bytes32) {
           return (
             stores[user][storeIndex].name,
             stores[user][storeIndex].description
@@ -84,5 +85,12 @@ contract StoreManager is Ownerble, StoreBase {//is Ownerble, UserManager {
            return stores[msg.sender].length;
     }
     
+    function getVendorStoreCountPublic(uint accountIndex) public view returns(uint, uint) {
+           return (
+                   accountIndex,
+                   stores[vendorAccountsWithListedStores[accountIndex]].length
+               );
+    }
     
+
 }

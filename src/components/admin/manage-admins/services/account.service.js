@@ -4,7 +4,7 @@ export const getAdminUsersCount =(storeContract, account, callback) => {
     if(storeContract && account && callback) {
         console.log('-storeContract', storeContract)
         storeContract.getAdminUsersCount.call({from:account}).then(result=>{
-            //console.log('-users count result', result.toNumber())
+       
             callback(result.toNumber());
         });
     } else {
@@ -15,7 +15,6 @@ export const getAdminUsersCount =(storeContract, account, callback) => {
 
 export const getAdminUser =(storeContract,adminAccount, userAccount) => {
     return  new Promise((resolve, reject) => {
-        console.log('--adminAccount, userAccount', adminAccount, userAccount)
         storeContract.getAdminUserByAddress.call(adminAccount, {from:userAccount}).then((result)=>{
                 resolve(processUser(result));  
         });      
@@ -49,7 +48,7 @@ export const getAdminUsersList =(storeContract, account) => {
 export const createAdminUser =(newAccount, storeContract, account) =>  {
 
     return new Promise((resolve, reject) => {
-        console.log('--newAccount', newAccount)
+     
            if(storeContract && account) {
             storeContract.createAdminUser(newAccount.name, newAccount.account, newAccount.role,{from:account}).then(result=>{
                    
@@ -57,7 +56,7 @@ export const createAdminUser =(newAccount, storeContract, account) =>  {
               
                 resolve(r);
             }).catch((e)=>{
-                console.log('e',e)
+        
                 reject(e);
             })
         } else {

@@ -47,7 +47,7 @@ export default class VendorDetail extends Component {
                   from: this.state.account,
                   gas: 3000000
               }).then((result) => {
-                    console.log(result)
+                 
               })
         }
     }

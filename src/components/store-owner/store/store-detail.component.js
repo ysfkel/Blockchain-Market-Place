@@ -1,13 +1,13 @@
 import React , { Component } from 'react';
-import { getWeb3Contract } from '../../../services/web3.service';
 import { Link } from 'react-router-dom';
-import { getAccount, getContract} from '../../../services/app.service';
-import { getUsersStoreCount } from './helper';
+import { getAccount, getWebContract} from '../../../services/app.service';
+import { getStore } from './helper';
 
 export default class StoreDetail extends Component {
      
     constructor(props) {
         super(props);
+
         this.state={
             name:'',
             description:'',
@@ -27,16 +27,17 @@ export default class StoreDetail extends Component {
             let promise;
             if(this.props.storeId!==undefined) {
                 promise = this.storeInstance.editStore(this.props.storeId,this.state.name, this.state.description, {
-                    from: this.state.account, gas: 9000000
+                    from: this.state.account, gas: 3000000
                 })
             } else {
-                console.log('--creae', this.state.account,)
+                const { account } = this.state;
+
                 promise = this.storeInstance.createStore(this.state.name, this.state.description, {
-                    from: this.state.account, gas: 9000000
+                    from: account, gas: 3000000
                 })
             }
             promise.then(function(e){
-                console.log('ss result', e )
+          
             })
            }
     }
@@ -52,59 +53,32 @@ export default class StoreDetail extends Component {
         
     }
 
-    componentDidMount() { 
-       
-        getContract((contract) => {
-              this.storeInstance = contract;
-              getAccount((account) => {
-                console.log('account', account)
-                this.setState({account});
-                getUsersStoreCount(contract, account).then(()=>{
-                    console.log('success')
-                })
-             })
+   
+    componentDidMount=() => { 
+        const { storeId } = this.props;                 
+        getWebContract((web3Contract) => {
+            const { contract } =  web3Contract ;
+            const { web3 } = web3Contract;
+ 
+            this.storeInstance = contract;
+            getAccount((account) => {
+                this.setState({account: account});
+                if(storeId) {
+                  getStore({ contract, web3 ,account, storeId})
+                  .then((store) => {
+                      this.setState({...store})
+                  });
+                }
+            });
+            
         })
-       
-    //     console.log('ss props', this.props)
-    //  getWeb3Contract().then((web3Contract)=>{
-    //     web3Contract.web3.eth.getCoinbase((err, account) =>{
-    //            this.setState({account:account})
-    //            //"0x01c490bb6e04066ce55aaf4168c2deb8efc19ea5"
-    //            web3Contract.contract.deployed().then((marketPlaceContractInstance)=>{
-    //             console.log('- xxxxxx', this.props);
-    //             console.log('--account',account)
-    //              marketPlaceContractInstance.userStoresCount(account).then(result=>{
-                   
-    //                  this.storeInstance = marketPlaceContractInstance;
-    //                 //  const count = result.toNumber()
-    //                  console.log('-this.props.storeId', this.props);
-    //                 //  if(this.props.storeId!==undefined) {
-    //                 //     marketPlaceContractInstance.getOwnStore(this.props.storeId, {from:account}).then((storeResult)=>{
-                           
-    //                 //         const name = storeResult[0];
-    //                 //         const description = storeResult[1];
-    //                 //         this.setState({
-    //                 //            name: name,
-    //                 //            description: description
-    //                 //         })
-                          
-    //                 //           console.log('ss', storeResult)
-    //                 //     })
-    //                 //  }
-                        
-    //             })
-                     
-    //          })
-          
-    //      })
-    //   })
      }
    
      render() {
         return(
             <div>
                  <h1>STORE DETAIL</h1>
-                 <Link to={`/product/add/${this.props.storeId }`}>add product</Link>
+                 <Link to={`/product-add/${this.props.storeId }`}>add product</Link>
                  <form onSubmit={this.handleSubmit}>
                     <div>
                        <input type="text" name={this.storeNameInput} value={this.state.name} onChange={this.handleChange}/>

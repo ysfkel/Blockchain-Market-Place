@@ -1,6 +1,7 @@
 
 import Web3 from 'web3';
 import MarketPlace from '../../build/contracts/MarketPlace.json';
+// import web3
 
 export const getWeb3Contract = () =>{
    
@@ -13,7 +14,7 @@ export const getWeb3Contract = () =>{
         }
 
         _web3 = new Web3(web3Provider);
-
+   console.log('--_web3', _web3)
         contract= TruffleContract(MarketPlace);
         contract.setProvider(web3Provider);
         res(

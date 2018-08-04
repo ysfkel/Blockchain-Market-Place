@@ -21,7 +21,7 @@ export default class AdminList extends Component {
         appService.getContract((contract) => {
             this.storeInstance = contract;
             appService.getAccount((account) => {
-                console.log('account', account)
+        
                 this.setState({account: account});
                  this.getAdminitrators();
             });
@@ -31,7 +31,7 @@ export default class AdminList extends Component {
 
         getAdminitrators = ()=> {
             accountService.getAdminUsersList(this.storeInstance, this.state.account).then((users) => {
-                console.log(' users ', users)
+      
                 this.setState(prev => {
                        return {
                          ...prev,

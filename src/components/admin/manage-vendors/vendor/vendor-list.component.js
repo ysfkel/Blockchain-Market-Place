@@ -40,7 +40,7 @@ class VendorList extends Component {
 
         getApprovedVendors = ()=> {
             accountService.getApprovedVendors(this.storeInstance, this.state.account).then((approvedVendors) => {
-                console.log('approvedVendors', approvedVendors)
+             
                 this.setState(prev => {
                        return {
                          ...prev,
@@ -53,7 +53,7 @@ class VendorList extends Component {
 
         getPendingVendors = ()=> {
             accountService.getPendingVendors(this.storeInstance, this.state.account).then((pendingVendors) => {
-                console.log('pendingVendors', pendingVendors)
+           
                 this.setState(prev => {
                        return {
                          ...prev,

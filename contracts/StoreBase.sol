@@ -10,16 +10,19 @@ contract StoreBase {
         Role role;
     }
     struct Product {
-        string name;
-        string description;
+        bytes32 name;
+        bytes32 description;
         uint price;
+        uint productIdSlot;
     }
     
     struct Store {
-        string name;
-        string description;
+        bytes32 name;
+        bytes32 description;
         uint balance;
-        Product[] products;
+        uint[] productIds;
+        uint productIdIncrement;
+        mapping(uint => Product) products;
     }
     
     mapping(address => Store[]) internal stores;

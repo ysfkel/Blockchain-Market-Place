@@ -26,12 +26,11 @@ export default class VendorAccountForm extends Component {
         getWeb3Contract().then((web3Contract)=>{
            
              web3Contract.web3.eth.getCoinbase((err, account) =>{
-                 console.log('contractInstance yk 22 22222222',account );
+          
                   this.setState({account: account});
                     web3Contract.contract.deployed().then((marketPlaceContractInstance)=>{
                       this.storeInstance = marketPlaceContractInstance;
-                      console.log('marketPlaceContractInstance', marketPlaceContractInstance)
-                   
+                    
                     })
              
               })
@@ -40,7 +39,7 @@ export default class VendorAccountForm extends Component {
 
         handleSubmit = (e) => {
              e.preventDefault();
-             console.log('form submitted', this.storeInstance)
+        
              if( this.storeInstance ) {
                 let promise;
             
