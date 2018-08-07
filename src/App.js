@@ -148,8 +148,9 @@ export default class App extends Component{
                          /> 
 
                          <Route
-                           path={'/products-catalog'}
-                           render={(props)=><ProductListViewComponent/>}
+                           path={'/products-catalog/:accountId/:storeId'}
+                           render={(props)=><ProductListViewComponent storeId={props.match.params.storeId} 
+                           accountId={props.match.params.accountId}/>}
                          /> 
 
                     

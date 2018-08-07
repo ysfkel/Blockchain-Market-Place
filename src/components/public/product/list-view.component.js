@@ -12,7 +12,8 @@ export default class ProductListViewComponent extends Component {
             <div>
                <h1>Products</h1>
                
-              <ProductsListPublic/>
+              <ProductsListPublic storeId={this.props.storeId}
+               accountId={this.props.accountId}/>
 
             </div>
         );

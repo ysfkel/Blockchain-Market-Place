@@ -11,18 +11,25 @@ export const getVendorAccountsWithListedStoresCount =({ account, contract}) => {
      });
 }
 
+// export const getVendorAccountIndexes = ({storeOwnersCount, account}) => {
+//     const accountIndexes = [...Array(storeOwnersCount).keys()];
+//     const promise  = accountIndexes.map((accountIndex) => {
+//         return contract.getVendorStoreCountPublic.call(accountIndex, {from: account});
+//     });
 
+//     return promise;
+// }
 export const getStore =({ account,web3 ,contract}) => {
 
     return new Promise((resolve, reject) => {
          getVendorAccountsWithListedStoresCount({ account, contract})
               .then((storeOwnersCount)=>{
                   
-                        const accountIndexes = [...Array(storeOwnersCount).keys()];
+                       const accountIndexes = [...Array(storeOwnersCount).keys()];
                         const promise  = accountIndexes.map((accountIndex) => {
                             return contract.getVendorStoreCountPublic.call(accountIndex, {from: account});
                         });
-
+                   
                         Promise.all(promise).then((result) => {
                             const vendorStoreIndexes = result.map((r) => {  
                                   return {
@@ -43,11 +50,11 @@ export const getStore =({ account,web3 ,contract}) => {
 
                             let promise = [];
 
-                            storePromise.forEach((p) => {
-                                p.forEach((i) => {
-                                    promise = [...promise, i];
+                                storePromise.forEach((p) => {
+                                    p.forEach((i) => {
+                                        promise = [...promise, i];
+                                    })
                                 })
-                            })
 
                                   Promise.all(promise).then((storeResults) => {
                                     const stores = storeResults.map(( storeResult ) => {

@@ -2,25 +2,19 @@ pragma solidity ^0.4.18;
 import './UserManager.sol';
 import "./Ownerble.sol";
 import "./StoreBase.sol";
+import "./VendorBase.sol";
 
-contract StoreManager is Ownerble, StoreBase {//is Ownerble, UserManager {
+contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserManager {
     
-   
-    struct VendorSlot{
-        bool initialized;
-        uint slot;
-    }
-    
-    address[] private vendorAccountsWithListedStores;
-    mapping(address => VendorSlot) private vendorSlot;
-     
+ 
     constructor() public {
     
     }
     
         
      function createStore(bytes32 storeName, bytes32 description) public  returns(uint){
-        
+         //      vendors[account].state = AccountState.Approved;
+         require(vendors[msg.sender].state == AccountState.Approved);
           Store memory store;
           store.name = storeName;
           store.description = description;
@@ -37,6 +31,8 @@ contract StoreManager is Ownerble, StoreBase {//is Ownerble, UserManager {
     }
     
     function editStore(uint storeIndex, bytes32 storeName, bytes32 description) public returns(bool) {
+      require(vendors[msg.sender].state == AccountState.Approved);
+      
           stores[msg.sender][storeIndex].name = storeName;
           stores[msg.sender][storeIndex].description = description;
     }
@@ -59,22 +55,27 @@ contract StoreManager is Ownerble, StoreBase {//is Ownerble, UserManager {
     }
     
     //    mapping(address => Store[]) internal stores;
-    function getStorePrivate(uint storeIndex) public view returns(bytes32, bytes32){
-        return getStore(msg.sender, storeIndex);
+    function getStorePrivate(uint storeIndex) public view returns(bytes32, bytes32, uint, uint){
+        return getStore(vendorSlot[msg.sender].slot, storeIndex);
     }
     
-    function getStorePublic(uint accountIndex, uint storeIndex) public view returns(bytes32, bytes32){
+    function getStorePublic(uint accountIndex, uint storeIndex) public view returns(bytes32, bytes32, uint, uint){
         //check if the account is in accounts with listed store and the account has a store 
         require(accountIndex < vendorAccountsWithListedStores.length && stores[vendorAccountsWithListedStores[accountIndex]].length > 0);
         
-        return getStore(vendorAccountsWithListedStores[accountIndex], storeIndex);
+        // return getStore(vendorAccountsWithListedStores[accountIndex], storeIndex);
+          return getStore(accountIndex, storeIndex);
     }
     
-    function getStore(address user, uint storeIndex) private view returns (bytes32, bytes32) {
+    function getStore(uint accountIndex, uint storeIndex) private view returns (bytes32, bytes32, uint, uint) {
+          address user = vendorAccountsWithListedStores[accountIndex];
+          
           return (
             stores[user][storeIndex].name,
-            stores[user][storeIndex].description
-        );
+            stores[user][storeIndex].description,
+            storeIndex,
+            accountIndex
+         );
     }
     
     function getVendorAccountsWithListedStoresCount() public view returns(uint) {

@@ -1,0 +1,809 @@
+{
+  "contractName": "VendorBase",
+  "abi": [],
+  "bytecode": "0x608060405260136401000000006017810204565b602b565b60008054600160a060020a03191633179055565b60358060386000396000f3006080604052600080fd00a165627a7a72305820743a238f90185b856a346715d176ba2cd68684fd465bda4be5a581aed81db3e20029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820743a238f90185b856a346715d176ba2cd68684fd465bda4be5a581aed81db3e20029",
+  "sourceMap": "50:373:11:-;;;88:13:4;:11;;;;:13;:::i;:::-;50:373:11;;329:69:4;372:5;:18;;-1:-1:-1;;;;;;372:18:4;380:10;372:18;;;329:69::o;50:373:11:-;;;;;;;",
+  "deployedSourceMap": "50:373:11:-;;;;;",
+  "source": "pragma solidity ^0.4.0;\nimport \"./Ownerble.sol\";\n\ncontract VendorBase is Ownerble {\n    \n    mapping(address => Vendor) internal vendors;\n\n     struct Vendor {\n        string name;\n        string email;\n        string phone;\n        AccountState state;\n        address account;\n        bool isVendorOrApplicant;\n        int pendingListIndex;\n        int approveListIndex;\n        AppRole role;\n        uint balance;\n    }\n}",
+  "sourcePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorBase.sol",
+  "ast": {
+    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorBase.sol",
+    "exportedSymbols": {
+      "VendorBase": [
+        2152
+      ]
+    },
+    "id": 2153,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2123,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:11"
+      },
+      {
+        "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
+        "file": "./Ownerble.sol",
+        "id": 2124,
+        "nodeType": "ImportDirective",
+        "scope": 2153,
+        "sourceUnit": 370,
+        "src": "24:24:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 2125,
+              "name": "Ownerble",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 369,
+              "src": "73:8:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownerble_$369",
+                "typeString": "contract Ownerble"
+              }
+            },
+            "id": 2126,
+            "nodeType": "InheritanceSpecifier",
+            "src": "73:8:11"
+          }
+        ],
+        "contractDependencies": [
+          369
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2152,
+        "linearizedBaseContracts": [
+          2152,
+          369
+        ],
+        "name": "VendorBase",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 2130,
+            "name": "vendors",
+            "nodeType": "VariableDeclaration",
+            "scope": 2152,
+            "src": "93:43:11",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2151_storage_$",
+              "typeString": "mapping(address => struct VendorBase.Vendor)"
+            },
+            "typeName": {
+              "id": 2129,
+              "keyType": {
+                "id": 2127,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "101:7:11",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "93:26:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2151_storage_$",
+                "typeString": "mapping(address => struct VendorBase.Vendor)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 2128,
+                "name": "Vendor",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 2151,
+                "src": "112:6:11",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Vendor_$2151_storage_ptr",
+                  "typeString": "struct VendorBase.Vendor"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "VendorBase.Vendor",
+            "id": 2151,
+            "members": [
+              {
+                "constant": false,
+                "id": 2132,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "168:11:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2131,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "168:6:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2134,
+                "name": "email",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "189:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2133,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "189:6:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2136,
+                "name": "phone",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "211:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2135,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "211:6:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2138,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "233:18:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_AccountState_$339",
+                  "typeString": "enum Ownerble.AccountState"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 2137,
+                  "name": "AccountState",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 339,
+                  "src": "233:12:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_AccountState_$339",
+                    "typeString": "enum Ownerble.AccountState"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2140,
+                "name": "account",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "261:15:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2139,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "261:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2142,
+                "name": "isVendorOrApplicant",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "286:24:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2141,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "286:4:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2144,
+                "name": "pendingListIndex",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "320:20:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                },
+                "typeName": {
+                  "id": 2143,
+                  "name": "int",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "320:3:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2146,
+                "name": "approveListIndex",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "350:20:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                },
+                "typeName": {
+                  "id": 2145,
+                  "name": "int",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "350:3:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2148,
+                "name": "role",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "380:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_AppRole_$346",
+                  "typeString": "enum Ownerble.AppRole"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 2147,
+                  "name": "AppRole",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 346,
+                  "src": "380:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_AppRole_$346",
+                    "typeString": "enum Ownerble.AppRole"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2150,
+                "name": "balance",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "402:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2149,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "402:4:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Vendor",
+            "nodeType": "StructDefinition",
+            "scope": 2152,
+            "src": "144:277:11",
+            "visibility": "public"
+          }
+        ],
+        "scope": 2153,
+        "src": "50:373:11"
+      }
+    ],
+    "src": "0:423:11"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorBase.sol",
+    "exportedSymbols": {
+      "VendorBase": [
+        2152
+      ]
+    },
+    "id": 2153,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2123,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:11"
+      },
+      {
+        "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
+        "file": "./Ownerble.sol",
+        "id": 2124,
+        "nodeType": "ImportDirective",
+        "scope": 2153,
+        "sourceUnit": 370,
+        "src": "24:24:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 2125,
+              "name": "Ownerble",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 369,
+              "src": "73:8:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownerble_$369",
+                "typeString": "contract Ownerble"
+              }
+            },
+            "id": 2126,
+            "nodeType": "InheritanceSpecifier",
+            "src": "73:8:11"
+          }
+        ],
+        "contractDependencies": [
+          369
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2152,
+        "linearizedBaseContracts": [
+          2152,
+          369
+        ],
+        "name": "VendorBase",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 2130,
+            "name": "vendors",
+            "nodeType": "VariableDeclaration",
+            "scope": 2152,
+            "src": "93:43:11",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2151_storage_$",
+              "typeString": "mapping(address => struct VendorBase.Vendor)"
+            },
+            "typeName": {
+              "id": 2129,
+              "keyType": {
+                "id": 2127,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "101:7:11",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "93:26:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2151_storage_$",
+                "typeString": "mapping(address => struct VendorBase.Vendor)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 2128,
+                "name": "Vendor",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 2151,
+                "src": "112:6:11",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Vendor_$2151_storage_ptr",
+                  "typeString": "struct VendorBase.Vendor"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "VendorBase.Vendor",
+            "id": 2151,
+            "members": [
+              {
+                "constant": false,
+                "id": 2132,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "168:11:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2131,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "168:6:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2134,
+                "name": "email",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "189:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2133,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "189:6:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2136,
+                "name": "phone",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "211:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2135,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "211:6:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2138,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "233:18:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_AccountState_$339",
+                  "typeString": "enum Ownerble.AccountState"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 2137,
+                  "name": "AccountState",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 339,
+                  "src": "233:12:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_AccountState_$339",
+                    "typeString": "enum Ownerble.AccountState"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2140,
+                "name": "account",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "261:15:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2139,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "261:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2142,
+                "name": "isVendorOrApplicant",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "286:24:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2141,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "286:4:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2144,
+                "name": "pendingListIndex",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "320:20:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                },
+                "typeName": {
+                  "id": 2143,
+                  "name": "int",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "320:3:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2146,
+                "name": "approveListIndex",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "350:20:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                },
+                "typeName": {
+                  "id": 2145,
+                  "name": "int",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "350:3:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2148,
+                "name": "role",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "380:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_AppRole_$346",
+                  "typeString": "enum Ownerble.AppRole"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 2147,
+                  "name": "AppRole",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 346,
+                  "src": "380:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_AppRole_$346",
+                    "typeString": "enum Ownerble.AppRole"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2150,
+                "name": "balance",
+                "nodeType": "VariableDeclaration",
+                "scope": 2151,
+                "src": "402:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2149,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "402:4:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Vendor",
+            "nodeType": "StructDefinition",
+            "scope": 2152,
+            "src": "144:277:11",
+            "visibility": "public"
+          }
+        ],
+        "scope": 2153,
+        "src": "50:373:11"
+      }
+    ],
+    "src": "0:423:11"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-08-07T19:41:28.700Z"
+}

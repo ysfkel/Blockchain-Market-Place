@@ -2,25 +2,14 @@ pragma solidity ^0.4.18;
 import "./Ownerble.sol";
 import "./UserManager.sol";
 import "./Base.sol";
+import "./VendorBase.sol"; 
 
-contract VendorManager is Base, Ownerble {
+contract VendorManager is Base, Ownerble, VendorBase {
     
-    mapping(address => Vendor) internal vendors;
     Vendor[] internal pendingVendors;
     Vendor[] internal approvedVendors;
     
-     struct Vendor {
-        string name;
-        string email;
-        string phone;
-        AccountState state;
-        address account;
-        bool isVendorOrApplicant;
-        int pendingListIndex;
-        int approveListIndex;
-        AppRole role;
-    }
-    
+
     function getPendingVendorsCount() public view returns (uint) {
           if(pendingVendors.length>0) {
                 return pendingVendors.length;
@@ -82,7 +71,7 @@ contract VendorManager is Base, Ownerble {
           require(vendors[msg.sender].isVendorOrApplicant == false, "REQUEST IS IN PROCESS");
            
           vendors[msg.sender] = Vendor(_name, _email, _phone, AccountState.Pending, 
-          msg.sender, true,  int(pendingVendors.length),getNotExistsIndex(), AppRole.VendorAwaitingApproval);
+          msg.sender, true,  int(pendingVendors.length),getNotExistsIndex(), AppRole.VendorAwaitingApproval, 0);
           setPendingVendor(_name,_email,_phone);
                                          
          return true;
@@ -91,7 +80,7 @@ contract VendorManager is Base, Ownerble {
     function setPendingVendor(string _name, string _email,  string _phone) private returns (uint){
 
          pendingVendors.push(Vendor(_name, _email, _phone, AccountState.Pending,
-         msg.sender, true, int(pendingVendors.length),getNotExistsIndex(),AppRole.VendorAwaitingApproval)) -1;
+         msg.sender, true, int(pendingVendors.length),getNotExistsIndex(),AppRole.VendorAwaitingApproval,0)) -1;
          
     }
     

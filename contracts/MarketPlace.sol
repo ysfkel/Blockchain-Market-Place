@@ -3,11 +3,12 @@ import "./StoreManager.sol";
 import "./ProductManager.sol";
 import './UserManager.sol';
 import "./Ownerble.sol";
+import "./ShoppingCartManager.sol";
+import "./Withdrawable.sol";
 
 contract MarketPlace is Ownerble, StoreManager, ProductManager,
-UserManager {
+UserManager, ShoppingCartManager, Withdrawable {
     
     
-
 }
 

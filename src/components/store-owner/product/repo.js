@@ -4,7 +4,7 @@ import * as helper from './helper';
 export const getProductsIds =({storeIndex, account}, contract) => {
 
     return new Promise((resolve, reject) => {
-          contract.getProductsIds.call(storeIndex,{from:account})
+          contract.getProductsIdsVendor.call(storeIndex,{from:account})
           .then((result)=>{
               console.log('result count', result)
               const ids = result.map(i=>i.toNumber());
@@ -53,7 +53,7 @@ export const getProducts =({storeIndex, account}, contract) => {
         getProductsIds({storeIndex, account, web3}, contract).then((productIds) => {
        
              const promise  = productIds.map((productId) => {
-                   return contract.getProduct.call(storeIndex, productId, {from: account});
+                   return contract.getProductVendor.call(storeIndex, productId, {from: account});
              });
              Promise.all(promise).then((result) => {
                  if(result && result.length > 0) {

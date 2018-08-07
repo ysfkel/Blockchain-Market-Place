@@ -1,6 +1,8 @@
 import React , { Component } from 'react';
 import {  Link  } from 'react-router-dom';
 import { getWeb3Contract } from '../../../services/web3.service';
+import { getAccount, getWebContract} from '../../../services/app.service';
+ import { getProducts } from './repo';
 
 export default class ProductsListPublic extends Component {
    
@@ -16,51 +18,26 @@ export default class ProductsListPublic extends Component {
 
     }
 
+    componentDidMount=() => { 
+                 
+        getWebContract((web3Contract) => {
+            const { contract } =  web3Contract ;
+            const { web3 } = web3Contract;
 
-    componentDidMount() {
-        
-        getWeb3Contract().then((web3Contract)=>{
-           
-             web3Contract.web3.eth.getCoinbase((err, account) =>{
-                 this.setState({account: account});
-                web3Contract.contract.deployed().then((marketPlaceContractInstance)=>{
-                    this.storeInstance = marketPlaceContractInstance;
-                    marketPlaceContractInstance.getPublicStoreSize().then(result=>{
-                        const STORE_SIZE = result.toNumber();
-                        const products = [];
-                        for(let store_index=0; store_index<STORE_SIZE; store_index++) {
-                           
-                            marketPlaceContractInstance.getStoreProductsCountPublic(store_index, {from:account}).then(p_result=>{
-                                const STORE_PRODUCTS_LIST_SIZE = p_result.toNumber();
-                               
-                                for(let product_index=0; product_index < STORE_PRODUCTS_LIST_SIZE; product_index++) {
-
-                                    marketPlaceContractInstance.getStoreProductPublic(store_index,product_index, {from:account}).then((productResult)=>{
-                                
-                                        const name = productResult[0];
-                                        const description = productResult[1];
-                                        const price = productResult[2].toNumber();
-                                        const quantity = productResult[3].toNumber();
-
-                                 
-                                        
-                                        products.push({
-                                            name,
-                                            description,
-                                            price,
-                                            quantity
-                                        })
-                                        this.setState({products: products})
-                                    });
-
-                                }
-                           });
-                        }
-                    })
-                })
-              })
-        });
-    }
+            const { storeId, accountId } = this.props;
+ 
+            this.storeInstance = contract;
+            getAccount((account) => {
+                this.setState({account: account});
+                getProducts({account, storeIndex: storeId, accountIndex: accountId,  web3, contract} ).then((products) => {
+                    console.log('products',products)
+                    this.setState({products: products})
+                 });
+                
+            });
+            
+        })
+     }
     
     render() {
         const products = this.state.products.map((p, index)=>{

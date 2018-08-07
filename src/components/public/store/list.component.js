@@ -29,6 +29,7 @@ export default class StoreListPublic extends Component {
        
                   REPO.getStore({ contract, web3 ,account})
                   .then((stores) => {
+                      console.log('--stores',stores)
                        this.setState({stores})
                   });
                 
@@ -43,7 +44,7 @@ export default class StoreListPublic extends Component {
               return(<div key={index}>
                    <span>{store.name}</span> <span>{store.description}</span> 
                    <Link to={`/store-detail/${index}`}>details</Link>
-                   <Link to={`/products-catalog/${index}`}>products</Link>
+                   <Link to={`/products-catalog/${store.actIdx}/${store.storeId}`}>products</Link>
            
                 </div>)
         })

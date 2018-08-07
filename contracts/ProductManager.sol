@@ -4,9 +4,19 @@ import "./StoreBase.sol";
 contract ProductManager is StoreBase {
    
     
-    function getProductsIds(uint storeIndex) public view returns(uint[]) {
+    function getProductsIdsVendor(uint storeIndex) public view returns(uint[]) {
+        return getProductsIds(msg.sender, storeIndex);
+    }
+    
+     function getProductsIdsCustomer(uint accountIndex, uint storeIndex) public view returns(uint[]) {
         return (
-          stores[msg.sender][storeIndex].productIds    
+          stores[vendorAccountsWithListedStores[accountIndex]][storeIndex].productIds    
+        );
+    }
+    
+     function getProductsIds(address account, uint storeIndex) public view returns(uint[]) {
+        return (
+          stores[account][storeIndex].productIds    
         );
     }
     
@@ -15,22 +25,37 @@ contract ProductManager is StoreBase {
           stores[msg.sender][storeIndex].productIds.length    
         );
     }
-    function getProduct(uint storeIndex, uint productId) public constant returns(bytes32, bytes32, uint, uint, uint) {
+    
+     function getProductVendor(uint storeIndex, uint productId) public constant returns(bytes32, bytes32, uint, uint, uint, address, uint) {
+          
+         // require(storeIndex < stores[msg.sender].length && productIndex < stores[msg.sender][storeIndex].products.length, "PRODUCT INDEX DOES NOT EXIST");
+           return getProduct(msg.sender, storeIndex, productId);
+     }
+     
+      function getProductCustomer(uint accountIndex, uint storeIndex, uint productId) public constant returns(bytes32, bytes32, uint, uint, uint, address, uint) {
           
          // require(storeIndex < stores[msg.sender].length && productIndex < stores[msg.sender][storeIndex].products.length, "PRODUCT INDEX DOES NOT EXIST");
             
+          return getProduct(vendorAccountsWithListedStores[accountIndex] ,storeIndex, productId);
+     }
+     
+    function getProduct(address vendor, uint storeIndex, uint productId) public constant returns(bytes32, bytes32, uint, uint, uint, address, uint) {
+          
+         // require(storeIndex < stores[msg.sender].length && productIndex < stores[msg.sender][storeIndex].products.length, "PRODUCT INDEX DOES NOT EXIST");
+          uint quantity =  stores[vendor][storeIndex].products[productId].quantity;
           return (
-                 stores[msg.sender][storeIndex].products[productId].name,
-                 stores[msg.sender][storeIndex].products[productId].description,
-                 stores[msg.sender][storeIndex].products[productId].price,
-                 productId,
-                 storeIndex
-                 
+                 stores[vendor][storeIndex].products[productId].name,
+                 stores[vendor][storeIndex].products[productId].description,
+                 stores[vendor][storeIndex].products[productId].price,
+                 stores[vendor][storeIndex].products[productId].productId,
+                 storeIndex,
+                 vendor,
+                 quantity
               );
-        }
+     }
         
     
-    function createProduct(uint storeIndex,bytes32 productName, bytes32 description, uint price) public returns(uint) {
+    function createProduct(uint storeIndex,bytes32 productName, bytes32 description, uint price, uint quantity) public returns(uint) {
          
           //INCREMENT PRODUCT ID
           uint productIdSlot = stores[msg.sender][storeIndex].productIds.length;
@@ -41,17 +66,17 @@ contract ProductManager is StoreBase {
           //SAVE PRODUCT ID TO STORE
          stores[msg.sender][storeIndex].productIds.push(productId);
             //CREATE PRODUCT
-          stores[msg.sender][storeIndex].products[productId] = Product(productName, description, price, productIdSlot);
+          stores[msg.sender][storeIndex].products[productId] = Product(productName, description, price, productIdSlot, productId, quantity);
           
           return productIdSlot;
     }
     
-      function editProduct(uint storeIndex, uint productId, bytes32 productName, bytes32 description, uint price) public  returns(bool) {
+      function editProduct(uint storeIndex, uint productId, bytes32 productName, bytes32 description, uint price, uint quantity) public  returns(bool) {
         
          stores[msg.sender][storeIndex].products[productId].name = productName;
          stores[msg.sender][storeIndex].products[productId].description = description;
          stores[msg.sender][storeIndex].products[productId].price = price;
-         
+         stores[msg.sender][storeIndex].products[productId].quantity = quantity;
          return true;
     }
     
