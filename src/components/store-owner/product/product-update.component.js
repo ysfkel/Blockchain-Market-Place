@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getAccount, getWebContract} from '../../../services/app.service';
 import * as REPO from './repo';
 
-export default class ProductDetail extends Component{
+export default class ProductEdit extends Component{
       
     constructor(props) {
         super(props);
@@ -11,11 +11,13 @@ export default class ProductDetail extends Component{
             name:'',
             description:'',
             price:0,
+            quantity:0,
             account:''
         }
         this.productNameInput='name';
-        this.productDescriptionInput='description'
-        this.productPriceInput='price'
+        this.productDescriptionInput='description';
+        this.productPriceInput='price';
+        this.productQuantityInput='quantity';
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -48,14 +50,14 @@ export default class ProductDetail extends Component{
         e.preventDefault();
         if( this.storeInstance ) {
          if(this.isUpdatable()) {
-            const { name, price, description, productId, storeIndex, account} = this.state;
+            const { name,quantity, price, description, productId, storeIndex, account} = this.state;
             const contract = this.storeInstance;
-            REPO.editProduct({ name, price, description, productId, storeIndex, account, contract}).then(r=>console.log)
+            REPO.editProduct({ name, price,quantity ,description, productId, storeIndex, account, contract}).then(r=>console.log)
             .catch(console.log);
          } else {
-             const { name, price, description, account} = this.state;
+             const { name,quantity, price, description, account} = this.state;
              const storeIndex = this.props.storeId;
-            REPO.createProduct({ name, price, description, account, storeIndex},this.storeInstance).then(r=>console.log)
+            REPO.createProduct({ name, price, quantity,description, account, storeIndex},this.storeInstance).then(r=>console.log)
              .catch(console.log);
         }
       }
@@ -80,13 +82,15 @@ export default class ProductDetail extends Component{
 
                 <form onSubmit={this.handleSubmit}>
                    <div>
-                       <input type="text" name={this.productNameInput} value={this.state.name} onChange={this.handleChange}/>
+                       <input type="text" placeholder="name" name={this.productNameInput} value={this.state.name} onChange={this.handleChange}/>
                     </div>
 
                      <div>
-                      <input type="number" name={this.productPriceInput} value={this.state.price} onChange={this.handleChange}/>
+                      <input type="number" placeholder="price" name={this.productPriceInput} value={this.state.price} onChange={this.handleChange}/>
                     </div>
-
+                    <div>
+                      <input type="number" placeholder="quantity" name={this.productQuantityInput} value={this.state.quantity} onChange={this.handleChange}/>
+                    </div>
                     <div>
                         <textarea name={this.productDescriptionInput}  value={this.state.description} onChange={this.handleChange}></textarea>
                     </div>

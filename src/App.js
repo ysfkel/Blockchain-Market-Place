@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Link , Route, Redirect } from 'react-router-do
 import StoreList from './components/store-owner/store/stores-list';
 import StoreDetail from './components/store-owner/store/store-detail.component';
 import ProductList from './components/store-owner/product/product-list.component';
-import ProductDetail from './components/store-owner/product/product-detail.component';
+import ProductUpdate from './components/store-owner/product/product-update.component';
+import ProductDetail from './components/public/product/product-detail.component';
+import ManageShoppingCart from './components/public/cart/manage-shopping-cart';
 import PublicStoreListViewComponent from './components/public/store/list-view.component';
 import ProductListViewComponent from './components/public/product/list-view.component';
 import VendorRequestView from './components/public/vendor-request/vendor-request-view';
@@ -81,7 +83,7 @@ export default class App extends Component{
                         <Toolbar style={style.toolbar}>
                               <div style={style.linksContainer}>
                               {(this.state.role  === ROLE.OWNER) &&
-                                        <Link style={style.linkStyle} to="/manage-admin-accounts">Manage Admins</Link>    
+                                  <Link style={style.linkStyle} to="/manage-admin-accounts">Manage Admins</Link>    
                                } 
                         
                                {(this.state.role === ROLE.OWNER || this.state.role === ROLE.ADMIN || this.state.role === ROLE.SUPER_ADMIN) &&
@@ -92,7 +94,7 @@ export default class App extends Component{
                                  <Link style={style.linkStyle} to="/manage-stores">Manage Stores</Link> </span>
                                   
                                } 
-                                
+                                <Link style={style.linkStyle}  to="/shopping-cart">Shopping cart</Link>
                                <Link style={style.linkStyle} to="/stores">Stores</Link>
                                <Link style={style.linkStyle} to="/products">Products</Link>
                                { this.state.role === ROLE.CUSTOMER &&
@@ -127,15 +129,24 @@ export default class App extends Component{
                            <Route
                              exact
                              path={'/product-add/:storeId'}
-                             render={(props)=><ProductDetail storeId={props.match.params.storeId} />}
+                             render={(props)=><ProductUpdate storeId={props.match.params.storeId} />}
                            /> 
 
                            <Route
                            exact
                            path={'/product-edit/:storeId/:productId'}
-                           render={(props)=><ProductDetail storeId={props.match.params.storeId} productId={props.match.params.productId} />}
+                           render={(props)=><ProductUpdate storeId={props.match.params.storeId} productId={props.match.params.productId} />}
                          /> 
 
+                          <Route
+                           exact
+                           path={'/product-details/:accountId/:storeId/:productId'}
+                           render={(props)=><ProductDetail 
+                            accountId= {props.match.params.accountId}
+                            storeId={props.match.params.storeId} 
+                            productId={props.match.params.productId} />}
+                         /> 
+                           
                            
                            <Route
                            path={'/product/list/:storeId'}
@@ -150,7 +161,7 @@ export default class App extends Component{
                          <Route
                            path={'/products-catalog/:accountId/:storeId'}
                            render={(props)=><ProductListViewComponent storeId={props.match.params.storeId} 
-                           accountId={props.match.params.accountId}/>}
+                           accountId={props.match.params.accountId} />}
                          /> 
 
                     
@@ -179,7 +190,7 @@ export default class App extends Component{
                            path={'/create-admin-account'}
                            render={(props)=><AdminUserDetail />}/>
                            
-                           
+                           <Route path={'/shopping-cart'} render={(props)=><ManageShoppingCart/>} />
                          
                          <Redirect from="/" exact to="/stores" />
                             

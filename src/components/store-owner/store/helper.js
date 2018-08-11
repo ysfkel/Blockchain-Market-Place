@@ -28,7 +28,7 @@ export const getStores = ({contract, web3 },account) => {
                     for(let i=0; i<count; i++) {
 
                         contract.getStorePrivate(i, {from:account}).then((storeResult)=>{
-                        
+                            console.log('-storeResult',storeResult)
                             const name = web3.toAscii(storeResult[0]);
                             const description = web3.toAscii(storeResult[1]);
                             stores.push({

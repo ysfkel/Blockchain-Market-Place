@@ -6,5 +6,7 @@ export const transformProduct = ({productResult, web3}) => {
         price: productResult[2].toNumber(),
         productId: productResult[3].toNumber(),
         storeIndex: productResult[4].toNumber(),
+        vendor: productResult[5],
+        quantity: productResult[6].toNumber(),
     }
 }

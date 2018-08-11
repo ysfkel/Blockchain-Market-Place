@@ -11,16 +11,16 @@ export const getProductsIds =({storeIndex, account}, contract) => {
              resolve(ids)
           })
           .then((e)=>{
-              console.log('--error', e)
+              console.log('--error at getProductsIds', e)
               reject(e)
           })
     });
 }
 
-export const createProduct =({ name, price, description, account, storeIndex}, contract) => {
+export const createProduct =({ name, quantity,price, description, account, storeIndex}, contract) => {
        
     return new Promise((resolve, reject) => {
-              contract.createProduct(storeIndex, name, description, price,  {from:account})
+              contract.createProduct(storeIndex, name, description, price, quantity, {from:account})
               .then((result)=>{
                    console.log('...saved')
                    resolve();
@@ -32,10 +32,10 @@ export const createProduct =({ name, price, description, account, storeIndex}, c
      });
 }
 
-export const editProduct =({ name, price, description, productId, account, storeIndex, contract}) => {
+export const editProduct =({ name,quantity ,price, description, productId, account, storeIndex, contract}) => {
 
     return new Promise((resolve, reject) => {
-              contract.editProduct(storeIndex, productId, name, description, price,  {from:account})
+              contract.editProduct(storeIndex, productId, name, description, price, quantity,{from:account})
               .then((result)=>{
                    console.log('...saved')
                    resolve();
@@ -49,6 +49,7 @@ export const editProduct =({ name, price, description, productId, account, store
 
 
 export const getProducts =({storeIndex, account}, contract) => {
+ 
     return new Promise((resolve, reject) => {
         getProductsIds({storeIndex, account, web3}, contract).then((productIds) => {
        
@@ -72,8 +73,8 @@ export const getProducts =({storeIndex, account}, contract) => {
 
 export const getProduct =({ contract, web3 ,account, storeId, productId}) => {
     return new Promise((resolve, reject) => {
-        console.log('storeIndex, productId', storeId, productId)
-             contract.getProduct.call(storeId, productId, {from: account}).then((productResult) => {
+        console.log('====storeIndex, productId', storeId, productId, account)
+             contract.getProductVendor.call(storeId, productId, {from: account}).then((productResult) => {
                    const product = helper.transformProduct({productResult, web3});
                    resolve(product)
              })

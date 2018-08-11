@@ -15,6 +15,7 @@ contract StoreBase {
         uint productQuantity;
         address vendorAccount;
         uint storeIndex;
+        bool purchaseComplete;
     }
     
     struct ShoppingCart {

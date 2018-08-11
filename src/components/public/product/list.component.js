@@ -25,13 +25,13 @@ export default class ProductsListPublic extends Component {
             const { web3 } = web3Contract;
 
             const { storeId, accountId } = this.props;
- 
+            this.setState({vendorAccountIndex: accountId})
             this.storeInstance = contract;
             getAccount((account) => {
                 this.setState({account: account});
                 getProducts({account, storeIndex: storeId, accountIndex: accountId,  web3, contract} ).then((products) => {
                     console.log('products',products)
-                    this.setState({products: products})
+                    this.setState({products})
                  });
                 
             });
@@ -43,7 +43,7 @@ export default class ProductsListPublic extends Component {
         const products = this.state.products.map((p, index)=>{
             return(<div key={index}>
                  <span>{p.name}</span> <span>{p.description}</span>  <span>{p.price}</span>   <span>{p.quantity}</span> 
-
+                 <Link to={`/product-details/${this.props.accountId}/${this.props.storeId}/${p.productId}`}>details</Link>
              
               </div>)
           })

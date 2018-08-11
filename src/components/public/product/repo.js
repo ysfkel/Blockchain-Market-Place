@@ -40,3 +40,22 @@ export const getProducts =({storeIndex, accountIndex, account, contract}) => {
      });
 }
 
+export const getProduct = ({ vendorAccountId, contract, web3 ,account, storeId, productId}) => {
+        return new Promise((resolve, reject) => {
+            console.log('====storeIndex, productId', storeId, productId, account)
+                 contract.getProductCustomer.call(vendorAccountId,storeId, productId, {from: account}).then((productResult) => {
+                       const product = helper.transformProduct({productResult, web3});
+                       resolve(product)
+                 })
+        })
+    
+}
+
+export const addItemToCart = ({vendor,  storeIndex,  productId, purchasedQuantity  , account, contract}) => {
+    return new Promise((resolve, reject) => {
+        contract.addItemToCart(vendor, storeIndex, productId, purchasedQuantity,  {from: account, gas: 3000000}).then((reesult) => {
+              resolve();
+        })
+    });
+}
+

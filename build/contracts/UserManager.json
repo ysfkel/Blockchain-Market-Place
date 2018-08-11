@@ -314,14 +314,14 @@
     "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/UserManager.sol",
     "exportedSymbols": {
       "UserManager": [
-        2121
+        2240
       ]
     },
-    "id": 2122,
+    "id": 2241,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2061,
+        "id": 2180,
         "literals": [
           "solidity",
           "^",
@@ -334,9 +334,9 @@
       {
         "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
         "file": "./Ownerble.sol",
-        "id": 2062,
+        "id": 2181,
         "nodeType": "ImportDirective",
-        "scope": 2122,
+        "scope": 2241,
         "sourceUnit": 370,
         "src": "25:24:10",
         "symbolAliases": [],
@@ -345,10 +345,10 @@
       {
         "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorManager.sol",
         "file": "./VendorManager.sol",
-        "id": 2063,
+        "id": 2182,
         "nodeType": "ImportDirective",
-        "scope": 2122,
-        "sourceUnit": 2580,
+        "scope": 2241,
+        "sourceUnit": 2699,
         "src": "50:29:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -356,9 +356,9 @@
       {
         "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/AdminUserManager.sol",
         "file": "./AdminUserManager.sol",
-        "id": 2064,
+        "id": 2183,
         "nodeType": "ImportDirective",
-        "scope": 2122,
+        "scope": 2241,
         "sourceUnit": 238,
         "src": "80:32:10",
         "symbolAliases": [],
@@ -370,7 +370,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2065,
+              "id": 2184,
               "name": "Ownerble",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 369,
@@ -380,7 +380,7 @@
                 "typeString": "contract Ownerble"
               }
             },
-            "id": 2066,
+            "id": 2185,
             "nodeType": "InheritanceSpecifier",
             "src": "138:8:10"
           },
@@ -388,7 +388,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2067,
+              "id": 2186,
               "name": "AdminUserManager",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 237,
@@ -398,7 +398,7 @@
                 "typeString": "contract AdminUserManager"
               }
             },
-            "id": 2068,
+            "id": 2187,
             "nodeType": "InheritanceSpecifier",
             "src": "148:16:10"
           },
@@ -406,17 +406,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2069,
+              "id": 2188,
               "name": "VendorManager",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2579,
+              "referencedDeclaration": 2698,
               "src": "166:13:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_VendorManager_$2579",
+                "typeIdentifier": "t_contract$_VendorManager_$2698",
                 "typeString": "contract VendorManager"
               }
             },
-            "id": 2070,
+            "id": 2189,
             "nodeType": "InheritanceSpecifier",
             "src": "166:13:10"
           }
@@ -425,17 +425,17 @@
           237,
           249,
           369,
-          2152,
-          2579
+          2271,
+          2698
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2121,
+        "id": 2240,
         "linearizedBaseContracts": [
-          2121,
-          2579,
-          2152,
+          2240,
+          2698,
+          2271,
           237,
           369,
           249
@@ -445,7 +445,7 @@
         "nodes": [
           {
             "body": {
-              "id": 2119,
+              "id": 2238,
               "nodeType": "Block",
               "src": "245:359:10",
               "statements": [
@@ -456,7 +456,7 @@
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
-                    "id": 2081,
+                    "id": 2200,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -467,34 +467,34 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 2075,
+                          "id": 2194,
                           "name": "vendors",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2130,
+                          "referencedDeclaration": 2249,
                           "src": "267:7:10",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2151_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2270_storage_$",
                             "typeString": "mapping(address => struct VendorBase.Vendor storage ref)"
                           }
                         },
-                        "id": 2078,
+                        "id": 2197,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 2076,
+                            "id": 2195,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2665,
+                            "referencedDeclaration": 2784,
                             "src": "275:3:10",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 2077,
+                          "id": 2196,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -515,18 +515,18 @@
                         "nodeType": "IndexAccess",
                         "src": "267:19:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Vendor_$2151_storage",
+                          "typeIdentifier": "t_struct$_Vendor_$2270_storage",
                           "typeString": "struct VendorBase.Vendor storage ref"
                         }
                       },
-                      "id": 2079,
+                      "id": 2198,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "isVendorOrApplicant",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2142,
+                      "referencedDeclaration": 2261,
                       "src": "267:39:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -538,7 +538,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 2080,
+                      "id": 2199,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -566,7 +566,7 @@
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
-                      "id": 2099,
+                      "id": 2218,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -577,7 +577,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 2093,
+                            "id": 2212,
                             "name": "adminstratorAccounts",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -588,23 +588,23 @@
                               "typeString": "mapping(address => struct AdminUserManager.Administrator storage ref)"
                             }
                           },
-                          "id": 2096,
+                          "id": 2215,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 2094,
+                              "id": 2213,
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2665,
+                              "referencedDeclaration": 2784,
                               "src": "425:3:10",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
                                 "typeString": "msg"
                               }
                             },
-                            "id": 2095,
+                            "id": 2214,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -629,7 +629,7 @@
                             "typeString": "struct AdminUserManager.Administrator storage ref"
                           }
                         },
-                        "id": 2097,
+                        "id": 2216,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -648,7 +648,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 2098,
+                        "id": 2217,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -670,7 +670,7 @@
                       }
                     },
                     "falseBody": {
-                      "id": 2116,
+                      "id": 2235,
                       "nodeType": "Block",
                       "src": "544:54:10",
                       "statements": [
@@ -682,7 +682,7 @@
                                 "argumentTypes": null,
                                 "expression": {
                                   "argumentTypes": null,
-                                  "id": 2112,
+                                  "id": 2231,
                                   "name": "AppRole",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
@@ -693,7 +693,7 @@
                                     "typeString": "type(enum Ownerble.AppRole)"
                                   }
                                 },
-                                "id": 2113,
+                                "id": 2232,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -715,7 +715,7 @@
                                   "typeString": "enum Ownerble.AppRole"
                                 }
                               ],
-                              "id": 2111,
+                              "id": 2230,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -728,7 +728,7 @@
                               },
                               "typeName": "uint"
                             },
-                            "id": 2114,
+                            "id": 2233,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -742,18 +742,18 @@
                               "typeString": "uint256"
                             }
                           },
-                          "functionReturnParameters": 2074,
-                          "id": 2115,
+                          "functionReturnParameters": 2193,
+                          "id": 2234,
                           "nodeType": "Return",
                           "src": "558:29:10"
                         }
                       ]
                     },
-                    "id": 2117,
+                    "id": 2236,
                     "nodeType": "IfStatement",
                     "src": "401:197:10",
                     "trueBody": {
-                      "id": 2110,
+                      "id": 2229,
                       "nodeType": "Block",
                       "src": "454:85:10",
                       "statements": [
@@ -770,7 +770,7 @@
                                       "argumentTypes": null,
                                       "baseExpression": {
                                         "argumentTypes": null,
-                                        "id": 2102,
+                                        "id": 2221,
                                         "name": "adminstratorAccounts",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
@@ -781,23 +781,23 @@
                                           "typeString": "mapping(address => struct AdminUserManager.Administrator storage ref)"
                                         }
                                       },
-                                      "id": 2105,
+                                      "id": 2224,
                                       "indexExpression": {
                                         "argumentTypes": null,
                                         "expression": {
                                           "argumentTypes": null,
-                                          "id": 2103,
+                                          "id": 2222,
                                           "name": "msg",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 2665,
+                                          "referencedDeclaration": 2784,
                                           "src": "510:3:10",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_magic_message",
                                             "typeString": "msg"
                                           }
                                         },
-                                        "id": 2104,
+                                        "id": 2223,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": false,
@@ -822,7 +822,7 @@
                                         "typeString": "struct AdminUserManager.Administrator storage ref"
                                       }
                                     },
-                                    "id": 2106,
+                                    "id": 2225,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
@@ -844,7 +844,7 @@
                                       "typeString": "enum Ownerble.AppRole"
                                     }
                                   ],
-                                  "id": 2101,
+                                  "id": 2220,
                                   "name": "AppRole",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
@@ -855,7 +855,7 @@
                                     "typeString": "type(enum Ownerble.AppRole)"
                                   }
                                 },
-                                "id": 2107,
+                                "id": 2226,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -877,7 +877,7 @@
                                   "typeString": "enum Ownerble.AppRole"
                                 }
                               ],
-                              "id": 2100,
+                              "id": 2219,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -890,7 +890,7 @@
                               },
                               "typeName": "uint"
                             },
-                            "id": 2108,
+                            "id": 2227,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -904,19 +904,19 @@
                               "typeString": "uint256"
                             }
                           },
-                          "functionReturnParameters": 2074,
-                          "id": 2109,
+                          "functionReturnParameters": 2193,
+                          "id": 2228,
                           "nodeType": "Return",
                           "src": "469:59:10"
                         }
                       ]
                     }
                   },
-                  "id": 2118,
+                  "id": 2237,
                   "nodeType": "IfStatement",
                   "src": "264:334:10",
                   "trueBody": {
-                    "id": 2092,
+                    "id": 2211,
                     "nodeType": "Block",
                     "src": "316:71:10",
                     "statements": [
@@ -933,34 +933,34 @@
                                     "argumentTypes": null,
                                     "baseExpression": {
                                       "argumentTypes": null,
-                                      "id": 2084,
+                                      "id": 2203,
                                       "name": "vendors",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 2130,
+                                      "referencedDeclaration": 2249,
                                       "src": "350:7:10",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2151_storage_$",
+                                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2270_storage_$",
                                         "typeString": "mapping(address => struct VendorBase.Vendor storage ref)"
                                       }
                                     },
-                                    "id": 2087,
+                                    "id": 2206,
                                     "indexExpression": {
                                       "argumentTypes": null,
                                       "expression": {
                                         "argumentTypes": null,
-                                        "id": 2085,
+                                        "id": 2204,
                                         "name": "msg",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 2665,
+                                        "referencedDeclaration": 2784,
                                         "src": "358:3:10",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_magic_message",
                                           "typeString": "msg"
                                         }
                                       },
-                                      "id": 2086,
+                                      "id": 2205,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -981,18 +981,18 @@
                                     "nodeType": "IndexAccess",
                                     "src": "350:19:10",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_Vendor_$2151_storage",
+                                      "typeIdentifier": "t_struct$_Vendor_$2270_storage",
                                       "typeString": "struct VendorBase.Vendor storage ref"
                                     }
                                   },
-                                  "id": 2088,
+                                  "id": 2207,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "role",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 2148,
+                                  "referencedDeclaration": 2267,
                                   "src": "350:24:10",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_enum$_AppRole_$346",
@@ -1007,7 +1007,7 @@
                                     "typeString": "enum Ownerble.AppRole"
                                   }
                                 ],
-                                "id": 2083,
+                                "id": 2202,
                                 "name": "AppRole",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -1018,7 +1018,7 @@
                                   "typeString": "type(enum Ownerble.AppRole)"
                                 }
                               },
-                              "id": 2089,
+                              "id": 2208,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1040,7 +1040,7 @@
                                 "typeString": "enum Ownerble.AppRole"
                               }
                             ],
-                            "id": 2082,
+                            "id": 2201,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1053,7 +1053,7 @@
                             },
                             "typeName": "uint"
                           },
-                          "id": 2090,
+                          "id": 2209,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1067,8 +1067,8 @@
                             "typeString": "uint256"
                           }
                         },
-                        "functionReturnParameters": 2074,
-                        "id": 2091,
+                        "functionReturnParameters": 2193,
+                        "id": 2210,
                         "nodeType": "Return",
                         "src": "330:46:10"
                       }
@@ -1078,7 +1078,7 @@
               ]
             },
             "documentation": null,
-            "id": 2120,
+            "id": 2239,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1086,22 +1086,22 @@
             "name": "getUserRole",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2071,
+              "id": 2190,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "216:2:10"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2074,
+              "id": 2193,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2073,
+                  "id": 2192,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2120,
+                  "scope": 2239,
                   "src": "239:4:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1110,7 +1110,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2072,
+                    "id": 2191,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "239:4:10",
@@ -1125,14 +1125,14 @@
               ],
               "src": "238:6:10"
             },
-            "scope": 2121,
+            "scope": 2240,
             "src": "196:408:10",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2122,
+        "scope": 2241,
         "src": "114:502:10"
       }
     ],
@@ -1142,14 +1142,14 @@
     "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/UserManager.sol",
     "exportedSymbols": {
       "UserManager": [
-        2121
+        2240
       ]
     },
-    "id": 2122,
+    "id": 2241,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2061,
+        "id": 2180,
         "literals": [
           "solidity",
           "^",
@@ -1162,9 +1162,9 @@
       {
         "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
         "file": "./Ownerble.sol",
-        "id": 2062,
+        "id": 2181,
         "nodeType": "ImportDirective",
-        "scope": 2122,
+        "scope": 2241,
         "sourceUnit": 370,
         "src": "25:24:10",
         "symbolAliases": [],
@@ -1173,10 +1173,10 @@
       {
         "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorManager.sol",
         "file": "./VendorManager.sol",
-        "id": 2063,
+        "id": 2182,
         "nodeType": "ImportDirective",
-        "scope": 2122,
-        "sourceUnit": 2580,
+        "scope": 2241,
+        "sourceUnit": 2699,
         "src": "50:29:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1184,9 +1184,9 @@
       {
         "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/AdminUserManager.sol",
         "file": "./AdminUserManager.sol",
-        "id": 2064,
+        "id": 2183,
         "nodeType": "ImportDirective",
-        "scope": 2122,
+        "scope": 2241,
         "sourceUnit": 238,
         "src": "80:32:10",
         "symbolAliases": [],
@@ -1198,7 +1198,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2065,
+              "id": 2184,
               "name": "Ownerble",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 369,
@@ -1208,7 +1208,7 @@
                 "typeString": "contract Ownerble"
               }
             },
-            "id": 2066,
+            "id": 2185,
             "nodeType": "InheritanceSpecifier",
             "src": "138:8:10"
           },
@@ -1216,7 +1216,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2067,
+              "id": 2186,
               "name": "AdminUserManager",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 237,
@@ -1226,7 +1226,7 @@
                 "typeString": "contract AdminUserManager"
               }
             },
-            "id": 2068,
+            "id": 2187,
             "nodeType": "InheritanceSpecifier",
             "src": "148:16:10"
           },
@@ -1234,17 +1234,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2069,
+              "id": 2188,
               "name": "VendorManager",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2579,
+              "referencedDeclaration": 2698,
               "src": "166:13:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_VendorManager_$2579",
+                "typeIdentifier": "t_contract$_VendorManager_$2698",
                 "typeString": "contract VendorManager"
               }
             },
-            "id": 2070,
+            "id": 2189,
             "nodeType": "InheritanceSpecifier",
             "src": "166:13:10"
           }
@@ -1253,17 +1253,17 @@
           237,
           249,
           369,
-          2152,
-          2579
+          2271,
+          2698
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2121,
+        "id": 2240,
         "linearizedBaseContracts": [
-          2121,
-          2579,
-          2152,
+          2240,
+          2698,
+          2271,
           237,
           369,
           249
@@ -1273,7 +1273,7 @@
         "nodes": [
           {
             "body": {
-              "id": 2119,
+              "id": 2238,
               "nodeType": "Block",
               "src": "245:359:10",
               "statements": [
@@ -1284,7 +1284,7 @@
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
-                    "id": 2081,
+                    "id": 2200,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1295,34 +1295,34 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 2075,
+                          "id": 2194,
                           "name": "vendors",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2130,
+                          "referencedDeclaration": 2249,
                           "src": "267:7:10",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2151_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2270_storage_$",
                             "typeString": "mapping(address => struct VendorBase.Vendor storage ref)"
                           }
                         },
-                        "id": 2078,
+                        "id": 2197,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 2076,
+                            "id": 2195,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2665,
+                            "referencedDeclaration": 2784,
                             "src": "275:3:10",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 2077,
+                          "id": 2196,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1343,18 +1343,18 @@
                         "nodeType": "IndexAccess",
                         "src": "267:19:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Vendor_$2151_storage",
+                          "typeIdentifier": "t_struct$_Vendor_$2270_storage",
                           "typeString": "struct VendorBase.Vendor storage ref"
                         }
                       },
-                      "id": 2079,
+                      "id": 2198,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "isVendorOrApplicant",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2142,
+                      "referencedDeclaration": 2261,
                       "src": "267:39:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -1366,7 +1366,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 2080,
+                      "id": 2199,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1394,7 +1394,7 @@
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
-                      "id": 2099,
+                      "id": 2218,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1405,7 +1405,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 2093,
+                            "id": 2212,
                             "name": "adminstratorAccounts",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -1416,23 +1416,23 @@
                               "typeString": "mapping(address => struct AdminUserManager.Administrator storage ref)"
                             }
                           },
-                          "id": 2096,
+                          "id": 2215,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 2094,
+                              "id": 2213,
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2665,
+                              "referencedDeclaration": 2784,
                               "src": "425:3:10",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
                                 "typeString": "msg"
                               }
                             },
-                            "id": 2095,
+                            "id": 2214,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1457,7 +1457,7 @@
                             "typeString": "struct AdminUserManager.Administrator storage ref"
                           }
                         },
-                        "id": 2097,
+                        "id": 2216,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -1476,7 +1476,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 2098,
+                        "id": 2217,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1498,7 +1498,7 @@
                       }
                     },
                     "falseBody": {
-                      "id": 2116,
+                      "id": 2235,
                       "nodeType": "Block",
                       "src": "544:54:10",
                       "statements": [
@@ -1510,7 +1510,7 @@
                                 "argumentTypes": null,
                                 "expression": {
                                   "argumentTypes": null,
-                                  "id": 2112,
+                                  "id": 2231,
                                   "name": "AppRole",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
@@ -1521,7 +1521,7 @@
                                     "typeString": "type(enum Ownerble.AppRole)"
                                   }
                                 },
-                                "id": 2113,
+                                "id": 2232,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -1543,7 +1543,7 @@
                                   "typeString": "enum Ownerble.AppRole"
                                 }
                               ],
-                              "id": 2111,
+                              "id": 2230,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1556,7 +1556,7 @@
                               },
                               "typeName": "uint"
                             },
-                            "id": 2114,
+                            "id": 2233,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1570,18 +1570,18 @@
                               "typeString": "uint256"
                             }
                           },
-                          "functionReturnParameters": 2074,
-                          "id": 2115,
+                          "functionReturnParameters": 2193,
+                          "id": 2234,
                           "nodeType": "Return",
                           "src": "558:29:10"
                         }
                       ]
                     },
-                    "id": 2117,
+                    "id": 2236,
                     "nodeType": "IfStatement",
                     "src": "401:197:10",
                     "trueBody": {
-                      "id": 2110,
+                      "id": 2229,
                       "nodeType": "Block",
                       "src": "454:85:10",
                       "statements": [
@@ -1598,7 +1598,7 @@
                                       "argumentTypes": null,
                                       "baseExpression": {
                                         "argumentTypes": null,
-                                        "id": 2102,
+                                        "id": 2221,
                                         "name": "adminstratorAccounts",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
@@ -1609,23 +1609,23 @@
                                           "typeString": "mapping(address => struct AdminUserManager.Administrator storage ref)"
                                         }
                                       },
-                                      "id": 2105,
+                                      "id": 2224,
                                       "indexExpression": {
                                         "argumentTypes": null,
                                         "expression": {
                                           "argumentTypes": null,
-                                          "id": 2103,
+                                          "id": 2222,
                                           "name": "msg",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 2665,
+                                          "referencedDeclaration": 2784,
                                           "src": "510:3:10",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_magic_message",
                                             "typeString": "msg"
                                           }
                                         },
-                                        "id": 2104,
+                                        "id": 2223,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": false,
@@ -1650,7 +1650,7 @@
                                         "typeString": "struct AdminUserManager.Administrator storage ref"
                                       }
                                     },
-                                    "id": 2106,
+                                    "id": 2225,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
@@ -1672,7 +1672,7 @@
                                       "typeString": "enum Ownerble.AppRole"
                                     }
                                   ],
-                                  "id": 2101,
+                                  "id": 2220,
                                   "name": "AppRole",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
@@ -1683,7 +1683,7 @@
                                     "typeString": "type(enum Ownerble.AppRole)"
                                   }
                                 },
-                                "id": 2107,
+                                "id": 2226,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -1705,7 +1705,7 @@
                                   "typeString": "enum Ownerble.AppRole"
                                 }
                               ],
-                              "id": 2100,
+                              "id": 2219,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1718,7 +1718,7 @@
                               },
                               "typeName": "uint"
                             },
-                            "id": 2108,
+                            "id": 2227,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1732,19 +1732,19 @@
                               "typeString": "uint256"
                             }
                           },
-                          "functionReturnParameters": 2074,
-                          "id": 2109,
+                          "functionReturnParameters": 2193,
+                          "id": 2228,
                           "nodeType": "Return",
                           "src": "469:59:10"
                         }
                       ]
                     }
                   },
-                  "id": 2118,
+                  "id": 2237,
                   "nodeType": "IfStatement",
                   "src": "264:334:10",
                   "trueBody": {
-                    "id": 2092,
+                    "id": 2211,
                     "nodeType": "Block",
                     "src": "316:71:10",
                     "statements": [
@@ -1761,34 +1761,34 @@
                                     "argumentTypes": null,
                                     "baseExpression": {
                                       "argumentTypes": null,
-                                      "id": 2084,
+                                      "id": 2203,
                                       "name": "vendors",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 2130,
+                                      "referencedDeclaration": 2249,
                                       "src": "350:7:10",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2151_storage_$",
+                                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$2270_storage_$",
                                         "typeString": "mapping(address => struct VendorBase.Vendor storage ref)"
                                       }
                                     },
-                                    "id": 2087,
+                                    "id": 2206,
                                     "indexExpression": {
                                       "argumentTypes": null,
                                       "expression": {
                                         "argumentTypes": null,
-                                        "id": 2085,
+                                        "id": 2204,
                                         "name": "msg",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 2665,
+                                        "referencedDeclaration": 2784,
                                         "src": "358:3:10",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_magic_message",
                                           "typeString": "msg"
                                         }
                                       },
-                                      "id": 2086,
+                                      "id": 2205,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -1809,18 +1809,18 @@
                                     "nodeType": "IndexAccess",
                                     "src": "350:19:10",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_Vendor_$2151_storage",
+                                      "typeIdentifier": "t_struct$_Vendor_$2270_storage",
                                       "typeString": "struct VendorBase.Vendor storage ref"
                                     }
                                   },
-                                  "id": 2088,
+                                  "id": 2207,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "role",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 2148,
+                                  "referencedDeclaration": 2267,
                                   "src": "350:24:10",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_enum$_AppRole_$346",
@@ -1835,7 +1835,7 @@
                                     "typeString": "enum Ownerble.AppRole"
                                   }
                                 ],
-                                "id": 2083,
+                                "id": 2202,
                                 "name": "AppRole",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -1846,7 +1846,7 @@
                                   "typeString": "type(enum Ownerble.AppRole)"
                                 }
                               },
-                              "id": 2089,
+                              "id": 2208,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1868,7 +1868,7 @@
                                 "typeString": "enum Ownerble.AppRole"
                               }
                             ],
-                            "id": 2082,
+                            "id": 2201,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1881,7 +1881,7 @@
                             },
                             "typeName": "uint"
                           },
-                          "id": 2090,
+                          "id": 2209,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1895,8 +1895,8 @@
                             "typeString": "uint256"
                           }
                         },
-                        "functionReturnParameters": 2074,
-                        "id": 2091,
+                        "functionReturnParameters": 2193,
+                        "id": 2210,
                         "nodeType": "Return",
                         "src": "330:46:10"
                       }
@@ -1906,7 +1906,7 @@
               ]
             },
             "documentation": null,
-            "id": 2120,
+            "id": 2239,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1914,22 +1914,22 @@
             "name": "getUserRole",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2071,
+              "id": 2190,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "216:2:10"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2074,
+              "id": 2193,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2073,
+                  "id": 2192,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2120,
+                  "scope": 2239,
                   "src": "239:4:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1938,7 +1938,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2072,
+                    "id": 2191,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "239:4:10",
@@ -1953,14 +1953,14 @@
               ],
               "src": "238:6:10"
             },
-            "scope": 2121,
+            "scope": 2240,
             "src": "196:408:10",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2122,
+        "scope": 2241,
         "src": "114:502:10"
       }
     ],
@@ -1972,5 +1972,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-08-07T19:41:28.700Z"
+  "updatedAt": "2018-08-11T15:48:12.866Z"
 }
