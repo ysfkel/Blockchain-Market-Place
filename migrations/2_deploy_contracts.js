@@ -1,4 +1,4 @@
-var MarketPlace = artifacts.require('./MarketPlace');
+var MarketPlace = artifacts.require('./MarketPlace.sol');
 const SafeMath = artifacts.require('./SafeMath.sol');
 
 module.exports = function(deployer) {
