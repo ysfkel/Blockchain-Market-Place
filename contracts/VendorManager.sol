@@ -9,6 +9,8 @@ contract VendorManager is Base, Ownerble, VendorBase {
     Vendor[] internal pendingVendors;
     Vendor[] internal approvedVendors;
     
+    event  VendorAccountRequested(bool status);
+    event  VendorAccountApproved(bool status);
 
     function getPendingVendorsCount() public view returns (uint) {
           if(pendingVendors.length>0) {
@@ -73,6 +75,8 @@ contract VendorManager is Base, Ownerble, VendorBase {
           vendors[msg.sender] = Vendor(_name, _email, _phone, AccountState.Pending, 
           msg.sender, true,  int(pendingVendors.length),getNotExistsIndex(), AppRole.VendorAwaitingApproval, 0);
           setPendingVendor(_name,_email,_phone);
+
+          emit VendorAccountRequested(true);
                                          
          return true;
     }
@@ -90,6 +94,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
           vendors[account].role = AppRole.Vendor;
           removeAccountFromPendingList(account);
           addAccountToApprovedList(account);
+
+          emit VendorAccountApproved(true);
+
           return true;
     }
     
@@ -99,6 +106,8 @@ contract VendorManager is Base, Ownerble, VendorBase {
           vendors[account].pendingListIndex = getNotExistsIndex();
           pendingVendors.length --;
            
+      
+
           return true;
     }
     

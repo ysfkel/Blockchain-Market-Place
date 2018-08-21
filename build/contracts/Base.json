@@ -11,14 +11,14 @@
     "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Base.sol",
     "exportedSymbols": {
       "Base": [
-        249
+        257
       ]
     },
-    "id": 250,
+    "id": 258,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 239,
+        "id": 247,
         "literals": [
           "solidity",
           "^",
@@ -34,23 +34,23 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 249,
+        "id": 257,
         "linearizedBaseContracts": [
-          249
+          257
         ],
         "name": "Base",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 247,
+              "id": 255,
               "nodeType": "Block",
               "src": "106:27:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 245,
+                    "id": 253,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -62,7 +62,7 @@
                     "subExpression": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 244,
+                      "id": 252,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -82,15 +82,15 @@
                       "typeString": "int_const -1"
                     }
                   },
-                  "functionReturnParameters": 243,
-                  "id": 246,
+                  "functionReturnParameters": 251,
+                  "id": 254,
                   "nodeType": "Return",
                   "src": "117:9:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 248,
+            "id": 256,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -98,22 +98,22 @@
             "name": "getNotExistsIndex",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 240,
+              "id": 248,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "75:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 243,
+              "id": 251,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 242,
+                  "id": 250,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 248,
+                  "scope": 256,
                   "src": "101:3:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -122,7 +122,7 @@
                     "typeString": "int256"
                   },
                   "typeName": {
-                    "id": 241,
+                    "id": 249,
                     "name": "int",
                     "nodeType": "ElementaryTypeName",
                     "src": "101:3:1",
@@ -137,14 +137,14 @@
               ],
               "src": "100:5:1"
             },
-            "scope": 249,
+            "scope": 257,
             "src": "49:84:1",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 250,
+        "scope": 258,
         "src": "26:109:1"
       }
     ],
@@ -154,14 +154,14 @@
     "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Base.sol",
     "exportedSymbols": {
       "Base": [
-        249
+        257
       ]
     },
-    "id": 250,
+    "id": 258,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 239,
+        "id": 247,
         "literals": [
           "solidity",
           "^",
@@ -177,23 +177,23 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 249,
+        "id": 257,
         "linearizedBaseContracts": [
-          249
+          257
         ],
         "name": "Base",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 247,
+              "id": 255,
               "nodeType": "Block",
               "src": "106:27:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 245,
+                    "id": 253,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -205,7 +205,7 @@
                     "subExpression": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 244,
+                      "id": 252,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -225,15 +225,15 @@
                       "typeString": "int_const -1"
                     }
                   },
-                  "functionReturnParameters": 243,
-                  "id": 246,
+                  "functionReturnParameters": 251,
+                  "id": 254,
                   "nodeType": "Return",
                   "src": "117:9:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 248,
+            "id": 256,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -241,22 +241,22 @@
             "name": "getNotExistsIndex",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 240,
+              "id": 248,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "75:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 243,
+              "id": 251,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 242,
+                  "id": 250,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 248,
+                  "scope": 256,
                   "src": "101:3:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -265,7 +265,7 @@
                     "typeString": "int256"
                   },
                   "typeName": {
-                    "id": 241,
+                    "id": 249,
                     "name": "int",
                     "nodeType": "ElementaryTypeName",
                     "src": "101:3:1",
@@ -280,14 +280,14 @@
               ],
               "src": "100:5:1"
             },
-            "scope": 249,
+            "scope": 257,
             "src": "49:84:1",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 250,
+        "scope": 258,
         "src": "26:109:1"
       }
     ],
@@ -299,5 +299,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-08-11T15:48:12.858Z"
+  "updatedAt": "2018-08-21T13:51:22.221Z"
 }

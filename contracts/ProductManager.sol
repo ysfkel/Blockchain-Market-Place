@@ -3,7 +3,10 @@ import "./StoreBase.sol";
 
 contract ProductManager is StoreBase {
    
-    
+    event ProductCreated(uint productId, uint productIdSlot);
+    event ProductUpdated(uint productId);
+    event ProductDeleted(uint productId);
+
     function getProductsIdsVendor(uint storeIndex) public view returns(uint[]) {
         return getProductsIds(msg.sender, storeIndex);
     }
@@ -68,6 +71,8 @@ contract ProductManager is StoreBase {
             //CREATE PRODUCT
           stores[msg.sender][storeIndex].products[productId] = Product(productName, description, price, productIdSlot, productId, quantity);
           
+          emit ProductCreated(productId, productIdSlot);
+
           return productIdSlot;
     }
     
@@ -77,6 +82,9 @@ contract ProductManager is StoreBase {
          stores[msg.sender][storeIndex].products[productId].description = description;
          stores[msg.sender][storeIndex].products[productId].price = price;
          stores[msg.sender][storeIndex].products[productId].quantity = quantity;
+
+         emit ProductUpdated(productId);
+
          return true;
     }
     
@@ -94,6 +102,8 @@ contract ProductManager is StoreBase {
           //copy the last product to the index of the product to remove
           stores[msg.sender][storeIndex].productIds[productIdIndex] = stores[msg.sender][storeIndex].productIds[productsLength - 1];
           stores[msg.sender][storeIndex].productIds.length --;
+
+          emit ProductDeleted(productId);
           
           return true;
     } 

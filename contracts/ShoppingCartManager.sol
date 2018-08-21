@@ -7,23 +7,26 @@ import "./VendorBase.sol";
 
 contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
     
+    event ItemInsertedToCart(uint cartSize);
+    event CartItemUpdated(uint productQuantity);
+    event CartItemDeleted(uint cartSize);
+    event PaymentCompleted(bool status);
 
-    
     function getCartItem(uint productId) public view returns(uint, bytes32, bytes32, uint, uint, uint, address){
         //get store index
         uint storeIndex = shoppingCarts[msg.sender].products[productId].storeIndex;
         uint productQuantityToPurchase = shoppingCarts[msg.sender].products[productId].productQuantity;
         address vendorAccount = shoppingCarts[msg.sender].products[productId].vendorAccount;
         //get product details
-        bytes32 productName = stores[vendorAccount][storeIndex].products[productId].name;
-        bytes32 productDescription = stores[vendorAccount][storeIndex].products[productId].description;
-        uint productPrice = stores[vendorAccount][storeIndex].products[productId].price;
+       // bytes32 memory productName = stores[vendorAccount][storeIndex].products[productId].name;
+       // bytes32 memory productDescription = stores[vendorAccount][storeIndex].products[productId].description;
+        //uint productPrice = stores[vendorAccount][storeIndex].products[productId].price;
       
         return (
             productId,
-            productName,
-            productDescription,
-            productPrice,
+            stores[vendorAccount][storeIndex].products[productId].name,//productName
+            stores[vendorAccount][storeIndex].products[productId].description, //productDescription,
+            stores[vendorAccount][storeIndex].products[productId].price,//productPrice,
             productQuantityToPurchase,
             storeIndex,
             vendorAccount
@@ -31,9 +34,25 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
       // return shoppingCarts[msg.sender].cartPrice;
     }
     
+ 
     function getCartPrice() public view returns(uint){
-        return shoppingCarts[msg.sender].cartPrice;
+       // return shoppingCarts[msg.sender].cartPrice;
+        uint cartPrice = 0;
+        for(uint i; i < shoppingCarts[msg.sender].productIds.length; i++) {
+           if(shoppingCarts[msg.sender].products[productId].purchaseComplete == false) {
+             uint productId = shoppingCarts[msg.sender].productIds[i];
+             ShoppingCartItem memory item = shoppingCarts[msg.sender].products[productId];
+             
+             uint productPrice = stores[item.vendorAccount][item.storeIndex].products[productId].price;
+             uint productQuantity = shoppingCarts[msg.sender].products[productId].productQuantity;
+             
+             cartPrice = SafeMath.add(cartPrice, SafeMath.mul(productPrice, productQuantity));
+           }
+        }
+        
+        return cartPrice;
     }
+    
     function getCartItemsCount() public view returns(uint){
         return shoppingCarts[msg.sender].productIds.length;
     }
@@ -60,8 +79,10 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
             storeIndex: storeIndex,
             purchaseComplete: false
           });
+
+          emit ItemInsertedToCart( shoppingCarts[msg.sender].productIds.length);
           //update cart price 
-        return addToCartPrice(vendorAccount, storeIndex, productId, productQuantity);
+        return  true;
 
     }
     
@@ -70,40 +91,14 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
         shoppingCarts[msg.sender].cartItemSlot[productId].initialized == true);
         
          shoppingCarts[msg.sender].products[productId].productQuantity = productQuantity;
-         
-        return updateCartPrice(vendorAccount, storeIndex, productId, productQuantity);
+
+        emit CartItemUpdated(productQuantity);
+
+         return true;
          
     }
     
-      
-    function addToCartPrice(address vendorAccount, uint storeIndex, uint productId, uint productQuantity) private returns(bool) {
-      
-         
-          
-         shoppingCarts[msg.sender].cartPrice = calculateCartPrice(
-           shoppingCarts[msg.sender].cartPrice,
-           stores[vendorAccount][storeIndex].products[productId].price,
-           productQuantity
-          );
-          
-          return true;
-    }
-    
-    function updateCartPrice(address vendorAccount, uint storeIndex, uint productId, uint productQuantity) private returns(bool) {
-      
-         uint price = stores[vendorAccount][storeIndex].products[productId].price;
-         uint currentProductQuantity = shoppingCarts[msg.sender].products[productId].productQuantity;
-         
-         //DEDUCT THE PRODUCTS OLD TOTAL BEFORE ADDING THE NEW
-         shoppingCarts[msg.sender].cartPrice =  deductDeletedCartItemPriceFromCartPrice(price,currentProductQuantity,
-         shoppingCarts[msg.sender].cartPrice);
-         
-          
-          
-          return addToCartPrice(vendorAccount, storeIndex, productId, productQuantity);
-    }
-    
-    
+   
     
     function deleteCartItem(uint productId ) public returns(bool) {
         //get product id index
@@ -111,18 +106,11 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
         //remove the deleted product id by exchanging position with last item
         shoppingCarts[msg.sender].productIds[productCartIndex] = shoppingCarts[msg.sender].productIds[shoppingCarts[msg.sender].productIds.length - 1];
          shoppingCarts[msg.sender].productIds.length --;
-        //
-        uint storeIndex = shoppingCarts[msg.sender].products[productId].storeIndex;
-        uint productQuantity = shoppingCarts[msg.sender].products[productId].productQuantity;
-        uint currentCartPrice = shoppingCarts[msg.sender].cartPrice;
-        //
+     
         delete shoppingCarts[msg.sender].products[productId];
         delete shoppingCarts[msg.sender].cartItemSlot[productId];
-        //
-        uint productPrice = stores[msg.sender][storeIndex].products[productId].price;
-        //UPDATE CART PRICE
-        shoppingCarts[msg.sender].cartPrice = deductDeletedCartItemPriceFromCartPrice(productPrice,
-        productQuantity, currentCartPrice);
+
+        emit CartItemDeleted(shoppingCarts[msg.sender].productIds.length);
         
         return true;
     }
@@ -133,16 +121,10 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
             return SafeMath.sub(currentCartPrice, (SafeMath.mul(productPrice, purchasedQuantity )));
     }
     
-    function calculateCartPrice(uint currentCartPrice, uint productPrice, uint quantity ) private pure returns(uint) {
-         
-         uint totalPrice = SafeMath.mul(productPrice, quantity);
-         uint newCartPrice = SafeMath.add(currentCartPrice, totalPrice);
-         return newCartPrice;
-    }
     
     function checkOut() public payable returns(bool) {
         require(shoppingCarts[msg.sender].productIds.length > 0);
-        require(msg.value >= shoppingCarts[msg.sender].cartPrice);
+        require(msg.value >= getCartPrice());
         uint customerBalance = msg.value;
         for(uint i = 0; i< shoppingCarts[msg.sender].productIds.length; i++) {
             //
@@ -177,6 +159,8 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
                     .sub(stores[vendorAccount][storeIndex].products[productId].quantity,
                         purchasedQuantity
                     );
+                    
+
                    
             
               }
@@ -185,6 +169,7 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
             
         }
         
+        emit PaymentCompleted(true);
          return true;
        //stores
         

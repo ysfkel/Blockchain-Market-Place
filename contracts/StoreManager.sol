@@ -6,11 +6,13 @@ import "./VendorBase.sol";
 
 contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserManager {
     
- 
+    event StoreCreated(bytes32 storeName, bytes32 description);
+    event StoreUpdated(bytes32 storeName, bytes32 description);
+    event StoreDeleteted(bool status);
+
     constructor() public {
     
     }
-    
         
      function createStore(bytes32 storeName, bytes32 description) public  returns(uint){
          //      vendors[account].state = AccountState.Approved;
@@ -26,6 +28,8 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
               vendorAccountsWithListedStores.length);
               vendorAccountsWithListedStores.push(msg.sender);
           }
+
+          emit StoreCreated(storeName, description);
  
           return  stores[msg.sender].length;
     }
@@ -35,6 +39,8 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
       
           stores[msg.sender][storeIndex].name = storeName;
           stores[msg.sender][storeIndex].description = description;
+
+          emit StoreCreated(storeName, description);
     }
     
        function deleteStore(uint storeIndex) public returns(bool) {
@@ -50,6 +56,8 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
                vendorAccountsWithListedStores.length--;
                delete vendorSlot[msg.sender];
           }
+
+          emit StoreDeleteted(true);
           
           return true;
     }

@@ -17,10 +17,12 @@ contract AdminUserManager is Ownerble{
          address account;
          bool isAdmin;
      }
+
+     event UserCreated(string name);
      
      function createContractOwner(string name, address account, uint role) private ownerOnly returns(bool){
       require(AppRole(role) == AppRole.Owner, "THE SPECIFIED ADMIN ROLE DOES NOT EXIST");
-       
+        
         return createUser(name, account, role);
     }
     
@@ -49,6 +51,7 @@ contract AdminUserManager is Ownerble{
           true
         ));
         
+        emit UserCreated(name);
         return true;
     }
     

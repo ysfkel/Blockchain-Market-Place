@@ -1,0 +1,11 @@
+const INITIAL_SUPPLY = 1000000;
+const TOKEN_PRICE = 1000000000000000;
+const TOKEN_NAME = 'SPINEL Token';
+const TOKEN_VERSION = 'SPINEL Token v1.0';
+const TOKEN_SYMBOL = 'SL';
+
+ module.exports.INITIAL_SUPPLY = INITIAL_SUPPLY;
+ module.exports.TOKEN_PRICE = TOKEN_PRICE;
+ module.exports.TOKEN_NAME = TOKEN_NAME;
+ module.exports.TOKEN_SYMBOL = TOKEN_SYMBOL;
+ module.exports.TOKEN_VERSION = TOKEN_VERSION;
