@@ -13,7 +13,8 @@ UserManager, ShoppingCartManager, Withdrawable{
     SpinelTokenSale tokenSaleContract;
     constructor(SpinelTokenSale _tokenSaleContract) public {
          tokenSaleContract = _tokenSaleContract;
-
+         tokenSaleContract_shoppingCart = _tokenSaleContract;
+        
     }
 }
 

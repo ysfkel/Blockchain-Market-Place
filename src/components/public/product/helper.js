@@ -3,10 +3,10 @@ export const transformProduct = ({productResult, web3}) => {
     return {
         name:  web3.toAscii(productResult[0]),
         description: web3.toAscii(productResult[1]),
-        price: productResult[2].toNumber(),
-        productId: productResult[3].toNumber(),
-        storeIndex: productResult[4].toNumber(),
+        price: web3.fromWei(productResult[2].toNumber(), 'ether'),
+        priceInSpinelToken: productResult[3].toNumber(),
+        quantity: productResult[4].toNumber(),
         vendor: productResult[5],
-        quantity: productResult[6].toNumber(),
+        productId: productResult[6].toNumber()
     }
 }

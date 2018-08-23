@@ -17,10 +17,9 @@ export const getProductsIds =({storeIndex, account}, contract) => {
     });
 }
 
-export const createProduct =({ name, quantity,price, description, account, storeIndex}, contract) => {
-       
+export const createProduct =({ name, quantity,price, description, account, storeIndex, priceInSpinelToken}, contract) => {
     return new Promise((resolve, reject) => {
-              contract.createProduct(storeIndex, name, description, price, quantity, {from:account})
+              contract.createProduct(storeIndex, name, description, price, quantity,priceInSpinelToken, {from:account})
               .then((result)=>{
                    console.log('...saved')
                    resolve();
@@ -31,11 +30,12 @@ export const createProduct =({ name, quantity,price, description, account, store
               })
      });
 }
-
-export const editProduct =({ name,quantity ,price, description, productId, account, storeIndex, contract}) => {
-
+//  editProduct(uint storeIndex, uint productId, bytes32 productName, bytes32 description, uint price, uint quantity, uint priceInSpinelToken) public  returns(bool) {
+    
+export const editProduct =({ name,quantity ,price, description, productId, account, storeIndex,priceInSpinelToken,contract}) => {
+  console.log(' name, price',name, price)
     return new Promise((resolve, reject) => {
-              contract.editProduct(storeIndex, productId, name, description, price, quantity,{from:account})
+              contract.editProduct(storeIndex, productId, name, description, price, quantity, priceInSpinelToken,{from:account})
               .then((result)=>{
                    console.log('...saved')
                    resolve();

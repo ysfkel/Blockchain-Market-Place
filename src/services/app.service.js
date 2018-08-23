@@ -21,10 +21,14 @@ export const getWebContract=(callback)=> {
   
 export const getAccount =(callback)=> {
     getWeb3Contract().then((web3Contract)=>{
-        console.log('--getAccount  333',)
-        web3Contract.web3.eth.getCoinbase((err, account) =>{
-            console.log('--account  333',account)
-            callback(account);   
+        const { web3 } = web3Contract;
+        web3.eth.getCoinbase((err, account) =>{
+            web3.eth.getBalance(account, function(err, balance) {
+                    const accountBalance = web3.fromWei(balance.toNumber(), 'ether')
+                    callback(account, accountBalance);   
+            })
+         
+          
         })
     });
 }

@@ -3,7 +3,8 @@ const truffleAssert = require('truffle-assertions');
 const TOKEN_NAME = require('../migrations/constants').TOKEN_NAME;
 const TOKEN_SYMBOL = require('../migrations/constants').TOKEN_SYMBOL;
 const TOKEN_VERSION = require('../migrations/constants').TOKEN_VERSION;
-let INITIAL_SUPPLY = 1000000;
+const INITIAL_SUPPLY = require('../migrations/constants').INITIAL_SUPPLY;
+
 const amountToApprove = 100;
 
 contract('SpinelToken', function(accounts) {
@@ -122,7 +123,7 @@ contract('SpinelToken', function(accounts) {
                         return tokenInstance.transferFrom.call(fromAccount,
                          toAccount, 10 , {from: spendingAccount});
                }).then(function(success) {
-                   console.log('success', success)
+            
                    assert.equal(success, true, 'expected success to equal true');
                         return tokenInstance.transferFrom(fromAccount,
                          toAccount, 10 , {from: spendingAccount});

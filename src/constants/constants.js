@@ -9,3 +9,5 @@ export const ROLE = {
     VENDOR_AWAITING_APPROVAL: 4, 
     CUSTOMER: 5
 }
+
+export const TOKEN_PRICE = 1000000000000000; //is 0.001 ether

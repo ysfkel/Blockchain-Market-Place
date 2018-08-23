@@ -17,4 +17,11 @@ contract VendorBase is Ownerble {
         AppRole role;
         uint balance;
     }
+
+ 
+    function getVendorBalance() public view returns(uint) {
+        require(vendors[msg.sender].state == AccountState.Approved);
+        
+        return vendors[msg.sender].balance;
+    }
 }

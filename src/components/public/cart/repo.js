@@ -18,7 +18,7 @@ export const getCartPrice = ({contract, account}) => {
       return new Promise((resolve, reject) => {
             contract.getCartPrice.call({from: account}).then((result) => {
                 console.log('result', result)
-                const cartPrice = result.toNumber();
+                const cartPrice = web3.fromWei(result.toNumber(), 'ether');
                 resolve(cartPrice);
             })
       })
@@ -41,7 +41,9 @@ export const getCartItem =({account, contract, web3}) => {
                    
                  }
                 
-             });
+             }).catch(function(e) {
+                  console.log('error while fetching cart items')
+             })
 
         })
         

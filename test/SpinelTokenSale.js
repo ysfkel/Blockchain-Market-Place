@@ -10,14 +10,14 @@ contract('SpinelTokenSale', function(accounts) {
     const tokensAvailableForPurchase = 10000;//750000;
     let initial_supply = (INITIAL_SUPPLY - tokensAvailableForPurchase);
 
-    const tokenPrice = TOKEN_PRICE; ; //in wei - smallest unit of ether
+    const tokenPrice = TOKEN_PRICE;  //in wei - smallest unit of ether
     const buyer = accounts[1];
     const admin = accounts[0];
     const numberOfTokens = 2;
 
     it('it initializes the contract with the correct values', function() {
            return SpinelTokenSale.deployed().then(function(instance) {
-               console.log('--SPINELinstance',instance)
+           
                 tokenSaleInstance = instance;
                return tokenSaleInstance.address;
            })
@@ -88,11 +88,8 @@ contract('SpinelTokenSale', function(accounts) {
                .then(assert.fail).catch(function(error) {
                      assert(error.message.indexOf('revert') >= 0, 'cannot purchase more tokens than available');
                      const amountToConvertToWei = 4000000000000000;
-                     return tokenSaleInstance.weiToSpinel(amountToConvertToWei);
-               }).then(function(tokens) {
-                   console.log('--tokens==', tokens)
-                    assert.equal(tokens.toNumber(), 4, 'Concertes wei to tokens');
-               })
+
+               });
           
            
     })

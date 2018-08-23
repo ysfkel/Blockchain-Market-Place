@@ -4,19 +4,26 @@ import "./Ownerble.sol";
 import "./StoreBase.sol";
 import './SafeMath.sol';
 import "./VendorBase.sol";
+import "./SpinelTokenSale.sol";
 
 contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
     
+    SpinelTokenSale internal tokenSaleContract_shoppingCart;
+
+
     event ItemInsertedToCart(uint cartSize);
     event CartItemUpdated(uint productQuantity);
     event CartItemDeleted(uint cartSize);
     event PaymentCompleted(bool status);
+    event PaymentByTokenCompleted(uint256 amount);
+    event PaymentByEtherCompleted(uint256 amount);
 
-    function getCartItem(uint productId) public view returns(uint, bytes32, bytes32, uint, uint, uint, address){
+    function getCartItem(uint productId) public view returns(uint, bytes32, uint, uint, uint, uint, address){
         //get store index
         uint storeIndex = shoppingCarts[msg.sender].products[productId].storeIndex;
         uint productQuantityToPurchase = shoppingCarts[msg.sender].products[productId].productQuantity;
         address vendorAccount = shoppingCarts[msg.sender].products[productId].vendorAccount;
+        uint priceInSpinelToken = stores[vendorAccount][storeIndex].products[productId].priceInSpinelToken;
         //get product details
        // bytes32 memory productName = stores[vendorAccount][storeIndex].products[productId].name;
        // bytes32 memory productDescription = stores[vendorAccount][storeIndex].products[productId].description;
@@ -25,8 +32,8 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
         return (
             productId,
             stores[vendorAccount][storeIndex].products[productId].name,//productName
-            stores[vendorAccount][storeIndex].products[productId].description, //productDescription,
             stores[vendorAccount][storeIndex].products[productId].price,//productPrice,
+            priceInSpinelToken,
             productQuantityToPurchase,
             storeIndex,
             vendorAccount
@@ -38,11 +45,17 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
     function getCartPrice() public view returns(uint){
        // return shoppingCarts[msg.sender].cartPrice;
         uint cartPrice = 0;
+       // uint productPrice ;
         for(uint i; i < shoppingCarts[msg.sender].productIds.length; i++) {
            if(shoppingCarts[msg.sender].products[productId].purchaseComplete == false) {
              uint productId = shoppingCarts[msg.sender].productIds[i];
              ShoppingCartItem memory item = shoppingCarts[msg.sender].products[productId];
              
+            //  if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
+            //        productPrice = stores[item.vendorAccount][item.storeIndex].products[productId].priceInSpinelToken;
+            //  } else {
+            //      productPrice = stores[item.vendorAccount][item.storeIndex].products[productId].price;
+            //  }
              uint productPrice = stores[item.vendorAccount][item.storeIndex].products[productId].price;
              uint productQuantity = shoppingCarts[msg.sender].products[productId].productQuantity;
              
@@ -52,6 +65,10 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
         
         return cartPrice;
     }
+
+    // function getCartPriceInTokenValue() public view returns(uint256) {
+    //       return tokenSaleContract_shoppingCart.toSpinel(getCartPrice());
+    // }
     
     function getCartItemsCount() public view returns(uint){
         return shoppingCarts[msg.sender].productIds.length;
@@ -61,8 +78,13 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
         return shoppingCarts[msg.sender].productIds;
     }
     function addItemToCart(address vendorAccount, uint storeIndex, uint productId, uint productQuantity) public returns(bool){
-        require(stores[vendorAccount][storeIndex].products[productId].productId > 0 && 
-        shoppingCarts[msg.sender].cartItemSlot[productId].initialized == false);
+        
+       // delete shoppingCarts[msg.sender].cartItemSlot[productId];
+        //check if quantity in the store is equql or greater than purchased quantity
+        require(stores[vendorAccount][storeIndex].products[productId].quantity >= productQuantity);
+        require(stores[vendorAccount][storeIndex].products[productId].productId >0);
+        // require(stores[vendorAccount][storeIndex].products[productId].productId > 0 && 
+        // shoppingCarts[msg.sender].cartItemSlot[productId].initialized == false);
         //require that the vendor account is approved
         require(vendors[vendorAccount].state == AccountState.Approved);
         //GET PRODUCT SLOT / INDEX IN THE CART PRODUCT IDS LIST
@@ -71,6 +93,7 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
         shoppingCarts[msg.sender].productIds.push(productId);
         //INITIALZE SLOT WHICH CONTAINS THE ID INDEX/ SLOT
         shoppingCarts[msg.sender].cartItemSlot[productId] = CartItemSlot(true, productSlot);
+   
                  
         //add product details
          shoppingCarts[msg.sender].products[productId] = ShoppingCartItem({
@@ -87,12 +110,19 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
     }
     
     function updateCartItem(address vendorAccount, uint storeIndex, uint productId, uint productQuantity) public returns(bool){
-        require(stores[vendorAccount][storeIndex].products[productId].productId > 0 && 
-        shoppingCarts[msg.sender].cartItemSlot[productId].initialized == true);
+        //check if quantity in the store is equql or greater than purchased quantity
+        require(stores[vendorAccount][storeIndex].products[productId].quantity >= productQuantity);
         
+        // require(stores[vendorAccount][storeIndex].products[productId].productId > 0 && 
+        // shoppingCarts[msg.sender].cartItemSlot[productId].initialized == true);
+
+           require(stores[vendorAccount][storeIndex].products[productId].productId > 0 );
+
+           
+
          shoppingCarts[msg.sender].products[productId].productQuantity = productQuantity;
 
-        emit CartItemUpdated(productQuantity);
+        emit CartItemUpdated(shoppingCarts[msg.sender].products[productId].productQuantity);
 
          return true;
          
@@ -120,8 +150,127 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
             
             return SafeMath.sub(currentCartPrice, (SafeMath.mul(productPrice, purchasedQuantity )));
     }
+
+    // function getCartPriceByPaymentMethod(uint256 paymentMethod)  public view returns(uint256) {
+
+    //     if(PaymentMethod(paymentMethod) == PaymentMethod.Token){
+    //         return getCartPriceInTokenValue();
+    //     } else {
+    //         return getCartPrice();
+    //     }
+    // }
+
+   
+
+    // function isCustomerBalanceSufficient(uint256 paymentMethod, uint customerBalanceInWei) public view returns(bool) {
+    //     if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
+    //         return tokenSaleContract_shoppingCart.getBalanceOf(msg.sender) >= getCartPrice(paymentMethod);//getCartPriceInTokenValue();
+    //     } else {
+    //         return customerBalanceInWei >= getCartPrice(paymentMethod);
+    //     }
+    // }
+
+    function getItemsPrice(uint256 paymentMethod,  address vendorAccount, uint256 storeIndex, uint productId) public view returns(uint256) {
+
+
+        if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
+               return stores[vendorAccount][storeIndex].products[productId].priceInSpinelToken;
+        } else {
+            return stores[vendorAccount][storeIndex].products[productId].price;
+        }
+    }
+
+  
+
+    function getTotalItemsPrice(uint256 productPrice, uint256 purchasedQuantity) public pure returns(uint256) {
+
+        uint256 totalItemsPrice = SafeMath.mul(productPrice, purchasedQuantity);
+
+        return totalItemsPrice;
+
+        // if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
+        //        return tokenSaleContract_shoppingCart.toSpinel(totalItemsPrice);
+        // } else {
+        //     return totalItemsPrice;
+        // }
+    }
+
+    function getcustomerBalance(uint256 paymentMethod, uint256 customerBalance) public view returns(uint256){
+         if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
+               return tokenSaleContract_shoppingCart.getBalanceOf(msg.sender);
+        } else {
+            return customerBalance;
+        }
+    }
+
+    function payVendor(uint256 paymentMethod, address customerAccount, address vendorAccount, uint256 storeIndex,
+     uint256 totalItemsPrice )
+      public  returns(bool) {
+        if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
+             tokenSaleContract_shoppingCart.transferFrom(customerAccount, vendorAccount, totalItemsPrice);
+             emit PaymentByTokenCompleted(totalItemsPrice);
+        } else {
+         
+          stores[vendorAccount][storeIndex].revenue = SafeMath.add(stores[vendorAccount][storeIndex].revenue, totalItemsPrice);
+                    //UPDATE RETRIEVABLE BALANCE
+          vendors[vendorAccount].balance = SafeMath.add(vendors[vendorAccount].balance, totalItemsPrice);
+          emit PaymentByEtherCompleted(totalItemsPrice);
+        }
+
+         
+                   
+    }
+
+//  function checkOutTokenPayment(uint256 paymentMethod) public payable returns(bool){
+//         require(shoppingCarts[msg.sender].productIds.length > 0);
+//         require(isCustomerBalanceSufficient(paymentMethod, msg.value));
+//         uint customerBalance = getcustomerBalance(paymentMethod, msg.value);
+//         for(uint i = 0; i< shoppingCarts[msg.sender].productIds.length; i++) {
+//             //
+//            uint productId = shoppingCarts[msg.sender].productIds[0];
+//             if(shoppingCarts[msg.sender].products[productId].purchaseComplete ==false) {
+            
+//                     uint purchasedQuantity = shoppingCarts[msg.sender].products[productId].productQuantity;
+//                     uint storeIndex = shoppingCarts[msg.sender].products[productId].storeIndex;
+//                     address vendorAccount = shoppingCarts[msg.sender].products[productId].vendorAccount;
+//                     //check if product exists
+//                     require(stores[vendorAccount][storeIndex].products[productId].productId > 0);
+//                     //check the quantity available equal to or greater than purchased quantity
+//                     require(stores[vendorAccount][storeIndex].products[productId].quantity >= purchasedQuantity);
+//                     //require the vendorAccount is a vendor
+//                     require(vendors[vendorAccount].state == AccountState.Approved);
+//                     // //GET PRODUCT PRIVPRODUCT
+//                     //
+//                     uint productPrice = getItemsPrice(paymentMethod, vendorAccount, storeIndex, productId);//stores[vendorAccount][storeIndex].products[productId].price;
+                    
+//                     uint totalItemsPrice = getTotalItemsPrice(productPrice, purchasedQuantity);
+                
+                     
+//                     require(customerBalance >= totalItemsPrice);
+                    
+//                      customerBalance = SafeMath.sub(customerBalance, totalItemsPrice);
+
+//                      shoppingCarts[msg.sender].products[productId].purchaseComplete = true;
+//                      //uint256 paymentMethod, address customerAccount, address vendorAccount, uint256 storeIndexuint256 totalItemsPrice
+//                      payVendor(paymentMethod, msg.sender,vendorAccount, storeIndex, totalItemsPrice);
+                   
+//                     // //
+                    
+//                     // //REDUCE PRODUCT quantity
+//                     // stores[vendorAccount][storeIndex].products[productId].quantity = SafeMath
+//                     // .sub(stores[vendorAccount][storeIndex].products[productId].quantity,
+//                     //     purchasedQuantity
+//                     // );
+                    
+//               }
+//         }
+
+//         emit PaymentCompleted(true);
+//          return true;
+//     }
+
     
-    
+   
     function checkOut() public payable returns(bool) {
         require(shoppingCarts[msg.sender].productIds.length > 0);
         require(msg.value >= getCartPrice());
@@ -134,6 +283,7 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
                     uint purchasedQuantity = shoppingCarts[msg.sender].products[productId].productQuantity;
                     uint storeIndex = shoppingCarts[msg.sender].products[productId].storeIndex;
                     address vendorAccount = shoppingCarts[msg.sender].products[productId].vendorAccount;
+                    //check if product exists
                     require(stores[vendorAccount][storeIndex].products[productId].productId > 0);
                     //check the quantity available equal to or greater than purchased quantity
                     require(stores[vendorAccount][storeIndex].products[productId].quantity >= purchasedQuantity);
@@ -160,6 +310,8 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
                         purchasedQuantity
                     );
                     
+                     //remove item from slot
+            
 
                    
             
@@ -170,6 +322,7 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
         }
         
         emit PaymentCompleted(true);
+        delete shoppingCarts[msg.sender];
          return true;
        //stores
         

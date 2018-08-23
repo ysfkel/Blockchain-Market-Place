@@ -5,6 +5,11 @@ contract StoreBase {
     enum Role {
         Admin, SuperAdmin
     }
+
+    enum PaymentMethod {
+        Ether,
+        Token
+    }
     
   struct CartItemSlot{
         bool initialized;
@@ -36,13 +41,14 @@ contract StoreBase {
         uint slot;
     }
     
-    struct Product {
+     struct Product {
         bytes32 name;
         bytes32 description;
         uint price;
         uint productIdSlot;
         uint productId;
         uint quantity;
+        uint priceInSpinelToken;
     }
     
     struct Store {

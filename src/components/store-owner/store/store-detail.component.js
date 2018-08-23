@@ -59,7 +59,7 @@ export default class StoreDetail extends Component {
         getWebContract((web3Contract) => {
             const { contract } =  web3Contract ;
             const { web3 } = web3Contract;
- 
+ console.log('storeId== ', storeId)
             this.storeInstance = contract;
             getAccount((account) => {
                 this.setState({account: account});

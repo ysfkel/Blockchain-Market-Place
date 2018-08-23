@@ -21,7 +21,7 @@ contract SpinelTokenSale {
 
     function buyTokens(uint _numberOfTokens) public payable {
         /** msg.value (in wei), must be sufficient to pay for the amunt of tokens being requested */
-        require(msg.value == (_numberOfTokens * tokenPrice));
+        require(msg.value == SafeMath.mul(_numberOfTokens,tokenPrice));
           /** tokens available for purchase must be greater or equal to the number of tokens to be purchased */
         require(tokenContract.balanceOf(this) >= _numberOfTokens);
         /** transfer inside of a require so that a revert happens if not successful */
@@ -37,6 +37,19 @@ contract SpinelTokenSale {
         //  selfdestruct(admin);
     }
 
+    //new
+    function getBalanceOf(address account) public view returns(uint256){
+        return tokenContract.balanceOf(account);
+    }
+    
+    function toSpinel(uint256 amountInWei) public view returns(uint256) {
+          return SafeMath.div(amountInWei,tokenPrice);
+    }
+
+    function transferFrom(address _from, address _to, uint256 _value) public returns(bool success) {
+         require(tokenContract.transferFrom(_from, _to, _value));
+         success = true;
+    }
 
   
 }

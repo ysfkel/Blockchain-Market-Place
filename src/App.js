@@ -1,11 +1,13 @@
 import React , { Component } from 'react';
 import { BrowserRouter as Router, Link , Route, Redirect } from 'react-router-dom';
 import StoreList from './components/store-owner/store/stores-list';
+import FinanceWithdrawal from './components/store-owner/finance/withdrawal.component'
 import StoreDetail from './components/store-owner/store/store-detail.component';
 import ProductList from './components/store-owner/product/product-list.component';
 import ProductUpdate from './components/store-owner/product/product-update.component';
 import ProductDetail from './components/public/product/product-detail.component';
 import ManageShoppingCart from './components/public/cart/manage-shopping-cart';
+import Checkout from './components/public/checkout/checkout.component';
 import PublicStoreListViewComponent from './components/public/store/list-view.component';
 import ProductListViewComponent from './components/public/product/list-view.component';
 import VendorRequestView from './components/public/vendor-request/vendor-request-view';
@@ -91,7 +93,9 @@ export default class App extends Component{
                                } 
                                {(this.state.role === ROLE.VENDOR) &&
                                  <span> <Link style={style.linkStyle} to="/create-store">Create store</Link> 
-                                 <Link style={style.linkStyle} to="/manage-stores">Manage Stores</Link> </span>
+                                 <Link style={style.linkStyle} to="/manage-stores">Manage Stores</Link> 
+                                  <Link style={style.linkStyle} to="/withdrawal">Finance</Link> 
+                                 </span>
                                   
                                } 
                                 <Link style={style.linkStyle}  to="/shopping-cart">Shopping cart</Link>
@@ -164,7 +168,7 @@ export default class App extends Component{
                            accountId={props.match.params.accountId} />}
                          /> 
 
-                    
+                          <Route exact path={'/withdrawal'} render={(props)=><FinanceWithdrawal/>} />
 
                            <Route 
                            path={'/vendor-request'}
@@ -190,9 +194,13 @@ export default class App extends Component{
                            path={'/create-admin-account'}
                            render={(props)=><AdminUserDetail />}/>
                            
-                           <Route path={'/shopping-cart'} render={(props)=><ManageShoppingCart/>} />
+                           <Route exact path={'/shopping-cart'} render={(props)=><ManageShoppingCart/>} />
+
+                           <Route exact path={'/checkout'} render={(props)=><Checkout/>}/>
                          
                          <Redirect from="/" exact to="/stores" />
+
+                         
                             
                       </div>
                    </Router>

@@ -52,7 +52,9 @@ export default class StoreList extends Component {
     render() {
         const stores = this.state.stores.map((store, index)=>{
               return(<div key={index}>
-                   <span>{store.name}</span> <span>{store.description}</span> 
+                   <span>{store.name}</span> <span>{store.description}
+                     <span>{store.revenue}</span>
+                   </span> 
                    <Link to={`/edit-store/${index}`}>details</Link>
                    <Link to={`/product/list/${index}`}>products</Link>
                    <button  type="button" onClick={()=>this.deleteStore(index)}>delete</button>

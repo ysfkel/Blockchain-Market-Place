@@ -74,6 +74,7 @@ contract VendorManager is Base, Ownerble, VendorBase {
            
           vendors[msg.sender] = Vendor(_name, _email, _phone, AccountState.Pending, 
           msg.sender, true,  int(pendingVendors.length),getNotExistsIndex(), AppRole.VendorAwaitingApproval, 0);
+         
           setPendingVendor(_name,_email,_phone);
 
           emit VendorAccountRequested(true);
@@ -88,7 +89,7 @@ contract VendorManager is Base, Ownerble, VendorBase {
          
     }
     
-    function approveVendorAccount(address account) public returns(bool) {
+    function approveVendorAccount(address account) public ownerOnly returns(bool) {
          require(vendors[account].isVendorOrApplicant == true);
           vendors[account].state = AccountState.Approved;
           vendors[account].role = AppRole.Vendor;

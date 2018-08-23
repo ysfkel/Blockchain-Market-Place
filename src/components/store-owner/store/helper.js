@@ -31,9 +31,11 @@ export const getStores = ({contract, web3 },account) => {
                             console.log('-storeResult',storeResult)
                             const name = web3.toAscii(storeResult[0]);
                             const description = web3.toAscii(storeResult[1]);
+                            const revenue =web3.fromWei(storeResult[2].toNumber());
                             stores.push({
                                 name,
-                                description
+                                description,
+                                revenue
                             })
                             console.log('-stores',stores)
                             if ( i=== (count-1)) {

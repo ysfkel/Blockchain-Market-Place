@@ -23,6 +23,7 @@ export default class ProductDetail extends Component{
 
     componentDidMount=() => { 
         const { storeId , productId , accountId} = this.props;  
+        const storeIndex = storeId;
         const vendorAccountId = accountId;             
         getWebContract((web3Contract) => {
             const { contract } =  web3Contract ;
@@ -30,7 +31,7 @@ export default class ProductDetail extends Component{
  
             this.storeInstance = contract;
             getAccount((account) => {
-                 this.setState({account: account});
+                 this.setState({account: account, storeIndex});
                 if(storeId && productId) {
                     REPO.getProduct({ vendorAccountId,contract, web3 ,account, storeId, productId})
                   .then((product) => {

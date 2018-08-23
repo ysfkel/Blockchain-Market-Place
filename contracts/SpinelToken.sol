@@ -10,6 +10,8 @@ contract SpinelToken {
        //standard - not part of ERC20 standard
     string public standard = 'SPINEL Token v1.0';
 
+    address owner;
+
     event  Transfer(
         address indexed _from,
         address indexed _to,
@@ -27,6 +29,7 @@ contract SpinelToken {
     mapping(address => mapping(address => uint256)) public allowance;
 
     constructor(uint256 _initialSupply) public {
+         owner = msg.sender;
          balanceOf[msg.sender] = _initialSupply;
                   //allocate the initial supply
          totalSupply = _initialSupply;
@@ -52,6 +55,10 @@ contract SpinelToken {
          success = true;
     }
 
+    function approveAdmin(address _spender, uint256 _value) public returns(bool) {
+          return approve(_spender, _value);
+    }
+
     function transferFrom(address _from, address _to, uint256 _value) public returns(bool success) {
          require(_value <= balanceOf[_from]);
          require(_value <= allowance[_from][msg.sender]);
@@ -61,6 +68,5 @@ contract SpinelToken {
          allowance[_from] [msg.sender]-= _value; 
          emit Transfer(_from, _to, _value);
          success = true;
-
     }
 }
