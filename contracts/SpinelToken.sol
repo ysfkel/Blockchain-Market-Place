@@ -69,4 +69,8 @@ contract SpinelToken {
          emit Transfer(_from, _to, _value);
          success = true;
     }
+
+    function getOwner() public view returns(address) {
+         return owner;
+    }
 }

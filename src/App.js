@@ -8,6 +8,8 @@ import ProductUpdate from './components/store-owner/product/product-update.compo
 import ProductDetail from './components/public/product/product-detail.component';
 import ManageShoppingCart from './components/public/cart/manage-shopping-cart';
 import Checkout from './components/public/checkout/checkout.component';
+import CheckoutTokenPay from './components/public/checkout-token/checkout-token.component';
+import TokenSale from './components/public/token-sale/token-sale.component';
 import PublicStoreListViewComponent from './components/public/store/list-view.component';
 import ProductListViewComponent from './components/public/product/list-view.component';
 import VendorRequestView from './components/public/vendor-request/vendor-request-view';
@@ -15,6 +17,7 @@ import ManageVendors from './components/admin/manage-vendors/manage-vendors';
 import VendorDetail from './components/admin/manage-vendors/vendor/vendor-detail.component';
 import AdminList from './components/admin/manage-admins/admin/admin-list.component';
 import AdminUserDetail from './components/admin/manage-admins/admin/admin-detail.component';
+import ManageTokenSale from './components/admin/manage-token-sale/manage-token-sale.component';
 import Web3 from 'web3';
 import TruffleContract from 'truffle-contract';
 import MarketPlace from '../build/contracts/MarketPlace.json';
@@ -48,12 +51,9 @@ export default class App extends Component{
     }
 
     componentDidMount() {
-      console.log('-getContract', )
         appService.getContract((contract) => {
             this.storeInstance = contract;
-            console.log('-contract', contract)
             appService.getAccount((account) => {
-              console.log('-******account', account)
                 this.setState({account: account});
                 this.getUserRole();
             });
@@ -65,7 +65,7 @@ export default class App extends Component{
 
     getUserRole =() => {
         accountService.getUserRole(this.storeInstance, this.state.account).then((role) => {
-                console.log('--user role', role);
+            
                 this.setState({role});
 
         })
@@ -89,7 +89,11 @@ export default class App extends Component{
                                } 
                         
                                {(this.state.role === ROLE.OWNER || this.state.role === ROLE.ADMIN || this.state.role === ROLE.SUPER_ADMIN) &&
-                                   <Link style={style.linkStyle} to="/manage-vendors">Manage vendors</Link>   
+                                  <span>
+                                      <Link style={style.linkStyle} to="/manage-vendors">Manage vendors</Link>   
+
+                                   <Link style={style.linkStyle} to="/manage-token-sale">Manage Token Sale </Link>
+                                  </span>
                                } 
                                {(this.state.role === ROLE.VENDOR) &&
                                  <span> <Link style={style.linkStyle} to="/create-store">Create store</Link> 
@@ -101,6 +105,7 @@ export default class App extends Component{
                                 <Link style={style.linkStyle}  to="/shopping-cart">Shopping cart</Link>
                                <Link style={style.linkStyle} to="/stores">Stores</Link>
                                <Link style={style.linkStyle} to="/products">Products</Link>
+                               <Link style={style.linkStyle} to="/token-sale">Buy Tokens</Link>
                                { this.state.role === ROLE.CUSTOMER &&
                                  <Link style={style.linkStyle} to="/vendor-request">Vendor Request</Link>
                                }
@@ -197,7 +202,10 @@ export default class App extends Component{
                            <Route exact path={'/shopping-cart'} render={(props)=><ManageShoppingCart/>} />
 
                            <Route exact path={'/checkout'} render={(props)=><Checkout/>}/>
-                         
+
+                           <Route exact path={'/checkout-token-pay'} render={(props)=><CheckoutTokenPay/>}/>
+                           <Route exact path={'/manage-token-sale'} render={(props)=><ManageTokenSale/>} />
+                         <Route exact path={'/token-sale'} render={(props)=><TokenSale/>}/>
                          <Redirect from="/" exact to="/stores" />
 
                          

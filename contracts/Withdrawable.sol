@@ -18,6 +18,8 @@ import "./Ownerble.sol";
 
 contract Withdrawable is Ownerble, VendorBase {
     
+    event WithdrawalCompletedSuccessfully(uint amount);
+
     function withdraw() public returns (bool) {
         
         require(vendors[msg.sender].state == AccountState.Approved);
@@ -31,10 +33,15 @@ contract Withdrawable is Ownerble, VendorBase {
                 vendors[msg.sender].balance = balance;
                 return false;
             }
+
+            emit WithdrawalCompletedSuccessfully(balance);
         }
         
         return true;
         
     }
+
+
+
     
 }

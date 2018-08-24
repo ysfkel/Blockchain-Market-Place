@@ -11,14 +11,14 @@
     "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/StoreBase.sol",
     "exportedSymbols": {
       "StoreBase": [
-        2495
+        2390
       ]
     },
-    "id": 2496,
+    "id": 2391,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2405,
+        "id": 2300,
         "literals": [
           "solidity",
           "^",
@@ -34,25 +34,25 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2495,
+        "id": 2390,
         "linearizedBaseContracts": [
-          2495
+          2390
         ],
         "name": "StoreBase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "StoreBase.Role",
-            "id": 2408,
+            "id": 2303,
             "members": [
               {
-                "id": 2406,
+                "id": 2301,
                 "name": "Admin",
                 "nodeType": "EnumValue",
                 "src": "76:5:10"
               },
               {
-                "id": 2407,
+                "id": 2302,
                 "name": "SuperAdmin",
                 "nodeType": "EnumValue",
                 "src": "83:10:10"
@@ -64,16 +64,16 @@
           },
           {
             "canonicalName": "StoreBase.PaymentMethod",
-            "id": 2411,
+            "id": 2306,
             "members": [
               {
-                "id": 2409,
+                "id": 2304,
                 "name": "Ether",
                 "nodeType": "EnumValue",
                 "src": "134:5:10"
               },
               {
-                "id": 2410,
+                "id": 2305,
                 "name": "Token",
                 "nodeType": "EnumValue",
                 "src": "149:5:10"
@@ -85,14 +85,14 @@
           },
           {
             "canonicalName": "StoreBase.CartItemSlot",
-            "id": 2416,
+            "id": 2311,
             "members": [
               {
                 "constant": false,
-                "id": 2413,
+                "id": 2308,
                 "name": "initialized",
                 "nodeType": "VariableDeclaration",
-                "scope": 2416,
+                "scope": 2311,
                 "src": "197:16:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -101,7 +101,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2412,
+                  "id": 2307,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "197:4:10",
@@ -115,10 +115,10 @@
               },
               {
                 "constant": false,
-                "id": 2415,
+                "id": 2310,
                 "name": "slot",
                 "nodeType": "VariableDeclaration",
-                "scope": 2416,
+                "scope": 2311,
                 "src": "223:9:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -127,7 +127,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2414,
+                  "id": 2309,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "223:4:10",
@@ -142,20 +142,20 @@
             ],
             "name": "CartItemSlot",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "168:71:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.ShoppingCartItem",
-            "id": 2425,
+            "id": 2320,
             "members": [
               {
                 "constant": false,
-                "id": 2418,
+                "id": 2313,
                 "name": "productQuantity",
                 "nodeType": "VariableDeclaration",
-                "scope": 2425,
+                "scope": 2320,
                 "src": "304:20:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -164,7 +164,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2417,
+                  "id": 2312,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "304:4:10",
@@ -178,10 +178,10 @@
               },
               {
                 "constant": false,
-                "id": 2420,
+                "id": 2315,
                 "name": "vendorAccount",
                 "nodeType": "VariableDeclaration",
-                "scope": 2425,
+                "scope": 2320,
                 "src": "334:21:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -190,7 +190,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2419,
+                  "id": 2314,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "334:7:10",
@@ -204,10 +204,10 @@
               },
               {
                 "constant": false,
-                "id": 2422,
+                "id": 2317,
                 "name": "storeIndex",
                 "nodeType": "VariableDeclaration",
-                "scope": 2425,
+                "scope": 2320,
                 "src": "365:15:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -216,7 +216,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2421,
+                  "id": 2316,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "365:4:10",
@@ -230,10 +230,10 @@
               },
               {
                 "constant": false,
-                "id": 2424,
+                "id": 2319,
                 "name": "purchaseComplete",
                 "nodeType": "VariableDeclaration",
-                "scope": 2425,
+                "scope": 2320,
                 "src": "390:21:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -242,7 +242,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2423,
+                  "id": 2318,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "390:4:10",
@@ -257,31 +257,31 @@
             ],
             "name": "ShoppingCartItem",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "244:174:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.ShoppingCart",
-            "id": 2439,
+            "id": 2334,
             "members": [
               {
                 "constant": false,
-                "id": 2429,
+                "id": 2324,
                 "name": "cartItemSlot",
                 "nodeType": "VariableDeclaration",
-                "scope": 2439,
+                "scope": 2334,
                 "src": "455:42:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_CartItemSlot_$2416_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_CartItemSlot_$2311_storage_$",
                   "typeString": "mapping(uint256 => struct StoreBase.CartItemSlot)"
                 },
                 "typeName": {
-                  "id": 2428,
+                  "id": 2323,
                   "keyType": {
-                    "id": 2426,
+                    "id": 2321,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "463:4:10",
@@ -293,18 +293,18 @@
                   "nodeType": "Mapping",
                   "src": "455:29:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_CartItemSlot_$2416_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_CartItemSlot_$2311_storage_$",
                     "typeString": "mapping(uint256 => struct StoreBase.CartItemSlot)"
                   },
                   "valueType": {
                     "contractScope": null,
-                    "id": 2427,
+                    "id": 2322,
                     "name": "CartItemSlot",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2416,
+                    "referencedDeclaration": 2311,
                     "src": "471:12:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_CartItemSlot_$2416_storage_ptr",
+                      "typeIdentifier": "t_struct$_CartItemSlot_$2311_storage_ptr",
                       "typeString": "struct StoreBase.CartItemSlot"
                     }
                   }
@@ -314,21 +314,21 @@
               },
               {
                 "constant": false,
-                "id": 2433,
+                "id": 2328,
                 "name": "products",
                 "nodeType": "VariableDeclaration",
-                "scope": 2439,
+                "scope": 2334,
                 "src": "504:41:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ShoppingCartItem_$2425_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ShoppingCartItem_$2320_storage_$",
                   "typeString": "mapping(uint256 => struct StoreBase.ShoppingCartItem)"
                 },
                 "typeName": {
-                  "id": 2432,
+                  "id": 2327,
                   "keyType": {
-                    "id": 2430,
+                    "id": 2325,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "512:4:10",
@@ -340,18 +340,18 @@
                   "nodeType": "Mapping",
                   "src": "504:32:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ShoppingCartItem_$2425_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ShoppingCartItem_$2320_storage_$",
                     "typeString": "mapping(uint256 => struct StoreBase.ShoppingCartItem)"
                   },
                   "valueType": {
                     "contractScope": null,
-                    "id": 2431,
+                    "id": 2326,
                     "name": "ShoppingCartItem",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2425,
+                    "referencedDeclaration": 2320,
                     "src": "519:16:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ShoppingCartItem_$2425_storage_ptr",
+                      "typeIdentifier": "t_struct$_ShoppingCartItem_$2320_storage_ptr",
                       "typeString": "struct StoreBase.ShoppingCartItem"
                     }
                   }
@@ -361,10 +361,10 @@
               },
               {
                 "constant": false,
-                "id": 2436,
+                "id": 2331,
                 "name": "productIds",
                 "nodeType": "VariableDeclaration",
-                "scope": 2439,
+                "scope": 2334,
                 "src": "552:17:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -374,7 +374,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 2434,
+                    "id": 2329,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "552:4:10",
@@ -383,7 +383,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2435,
+                  "id": 2330,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "552:6:10",
@@ -397,10 +397,10 @@
               },
               {
                 "constant": false,
-                "id": 2438,
+                "id": 2333,
                 "name": "cartPrice",
                 "nodeType": "VariableDeclaration",
-                "scope": 2439,
+                "scope": 2334,
                 "src": "576:14:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -409,7 +409,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2437,
+                  "id": 2332,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "576:4:10",
@@ -424,27 +424,27 @@
             ],
             "name": "ShoppingCart",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "428:169:10",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 2443,
+            "id": 2338,
             "name": "shoppingCarts",
             "nodeType": "VariableDeclaration",
-            "scope": 2495,
+            "scope": 2390,
             "src": "607:46:10",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ShoppingCart_$2439_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ShoppingCart_$2334_storage_$",
               "typeString": "mapping(address => struct StoreBase.ShoppingCart)"
             },
             "typeName": {
-              "id": 2442,
+              "id": 2337,
               "keyType": {
-                "id": 2440,
+                "id": 2335,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "615:7:10",
@@ -456,18 +456,18 @@
               "nodeType": "Mapping",
               "src": "607:32:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ShoppingCart_$2439_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ShoppingCart_$2334_storage_$",
                 "typeString": "mapping(address => struct StoreBase.ShoppingCart)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 2441,
+                "id": 2336,
                 "name": "ShoppingCart",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 2439,
+                "referencedDeclaration": 2334,
                 "src": "626:12:10",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ShoppingCart_$2439_storage_ptr",
+                  "typeIdentifier": "t_struct$_ShoppingCart_$2334_storage_ptr",
                   "typeString": "struct StoreBase.ShoppingCart"
                 }
               }
@@ -477,30 +477,30 @@
           },
           {
             "canonicalName": "StoreBase.StoreUser",
-            "id": 2446,
+            "id": 2341,
             "members": [
               {
                 "constant": false,
-                "id": 2445,
+                "id": 2340,
                 "name": "role",
                 "nodeType": "VariableDeclaration",
-                "scope": 2446,
+                "scope": 2341,
                 "src": "687:9:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_Role_$2408",
+                  "typeIdentifier": "t_enum$_Role_$2303",
                   "typeString": "enum StoreBase.Role"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 2444,
+                  "id": 2339,
                   "name": "Role",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 2408,
+                  "referencedDeclaration": 2303,
                   "src": "687:4:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Role_$2408",
+                    "typeIdentifier": "t_enum$_Role_$2303",
                     "typeString": "enum StoreBase.Role"
                   }
                 },
@@ -510,20 +510,20 @@
             ],
             "name": "StoreUser",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "660:43:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.VendorSlot",
-            "id": 2451,
+            "id": 2346,
             "members": [
               {
                 "constant": false,
-                "id": 2448,
+                "id": 2343,
                 "name": "initialized",
                 "nodeType": "VariableDeclaration",
-                "scope": 2451,
+                "scope": 2346,
                 "src": "740:16:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -532,7 +532,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2447,
+                  "id": 2342,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "740:4:10",
@@ -546,10 +546,10 @@
               },
               {
                 "constant": false,
-                "id": 2450,
+                "id": 2345,
                 "name": "slot",
                 "nodeType": "VariableDeclaration",
-                "scope": 2451,
+                "scope": 2346,
                 "src": "766:9:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -558,7 +558,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2449,
+                  "id": 2344,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "766:4:10",
@@ -573,20 +573,20 @@
             ],
             "name": "VendorSlot",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "713:69:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.Product",
-            "id": 2466,
+            "id": 2361,
             "members": [
               {
                 "constant": false,
-                "id": 2453,
+                "id": 2348,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "818:12:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -595,7 +595,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 2452,
+                  "id": 2347,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "818:7:10",
@@ -609,10 +609,10 @@
               },
               {
                 "constant": false,
-                "id": 2455,
+                "id": 2350,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "840:19:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -621,7 +621,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 2454,
+                  "id": 2349,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "840:7:10",
@@ -635,10 +635,10 @@
               },
               {
                 "constant": false,
-                "id": 2457,
+                "id": 2352,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "869:10:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -647,7 +647,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2456,
+                  "id": 2351,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "869:4:10",
@@ -661,10 +661,10 @@
               },
               {
                 "constant": false,
-                "id": 2459,
+                "id": 2354,
                 "name": "productIdSlot",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "889:18:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -673,7 +673,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2458,
+                  "id": 2353,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "889:4:10",
@@ -687,10 +687,10 @@
               },
               {
                 "constant": false,
-                "id": 2461,
+                "id": 2356,
                 "name": "productId",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "917:14:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -699,7 +699,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2460,
+                  "id": 2355,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "917:4:10",
@@ -713,10 +713,10 @@
               },
               {
                 "constant": false,
-                "id": 2463,
+                "id": 2358,
                 "name": "quantity",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "941:13:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -725,7 +725,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2462,
+                  "id": 2357,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "941:4:10",
@@ -739,10 +739,10 @@
               },
               {
                 "constant": false,
-                "id": 2465,
+                "id": 2360,
                 "name": "priceInSpinelToken",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "964:23:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -751,7 +751,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2464,
+                  "id": 2359,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "964:4:10",
@@ -766,20 +766,20 @@
             ],
             "name": "Product",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "793:201:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.Store",
-            "id": 2482,
+            "id": 2377,
             "members": [
               {
                 "constant": false,
-                "id": 2468,
+                "id": 2363,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1027:12:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -788,7 +788,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 2467,
+                  "id": 2362,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1027:7:10",
@@ -802,10 +802,10 @@
               },
               {
                 "constant": false,
-                "id": 2470,
+                "id": 2365,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1049:19:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -814,7 +814,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 2469,
+                  "id": 2364,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1049:7:10",
@@ -828,10 +828,10 @@
               },
               {
                 "constant": false,
-                "id": 2472,
+                "id": 2367,
                 "name": "revenue",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1078:12:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -840,7 +840,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2471,
+                  "id": 2366,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1078:4:10",
@@ -854,10 +854,10 @@
               },
               {
                 "constant": false,
-                "id": 2475,
+                "id": 2370,
                 "name": "productIds",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1100:17:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -867,7 +867,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 2473,
+                    "id": 2368,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1100:4:10",
@@ -876,7 +876,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2474,
+                  "id": 2369,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "1100:6:10",
@@ -890,10 +890,10 @@
               },
               {
                 "constant": false,
-                "id": 2477,
+                "id": 2372,
                 "name": "productIdIncrement",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1127:23:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -902,7 +902,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2476,
+                  "id": 2371,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1127:4:10",
@@ -916,21 +916,21 @@
               },
               {
                 "constant": false,
-                "id": 2481,
+                "id": 2376,
                 "name": "products",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1160:33:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2466_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2361_storage_$",
                   "typeString": "mapping(uint256 => struct StoreBase.Product)"
                 },
                 "typeName": {
-                  "id": 2480,
+                  "id": 2375,
                   "keyType": {
-                    "id": 2478,
+                    "id": 2373,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1168:4:10",
@@ -942,18 +942,18 @@
                   "nodeType": "Mapping",
                   "src": "1160:24:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2466_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2361_storage_$",
                     "typeString": "mapping(uint256 => struct StoreBase.Product)"
                   },
                   "valueType": {
                     "contractScope": null,
-                    "id": 2479,
+                    "id": 2374,
                     "name": "Product",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2466,
+                    "referencedDeclaration": 2361,
                     "src": "1176:7:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Product_$2466_storage_ptr",
+                      "typeIdentifier": "t_struct$_Product_$2361_storage_ptr",
                       "typeString": "struct StoreBase.Product"
                     }
                   }
@@ -964,16 +964,16 @@
             ],
             "name": "Store",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "1004:196:10",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 2485,
+            "id": 2380,
             "name": "vendorAccountsWithListedStores",
             "nodeType": "VariableDeclaration",
-            "scope": 2495,
+            "scope": 2390,
             "src": "1210:49:10",
             "stateVariable": true,
             "storageLocation": "default",
@@ -983,7 +983,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 2483,
+                "id": 2378,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1210:7:10",
@@ -992,7 +992,7 @@
                   "typeString": "address"
                 }
               },
-              "id": 2484,
+              "id": 2379,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "1210:9:10",
@@ -1006,21 +1006,21 @@
           },
           {
             "constant": false,
-            "id": 2489,
+            "id": 2384,
             "name": "vendorSlot",
             "nodeType": "VariableDeclaration",
-            "scope": 2495,
+            "scope": 2390,
             "src": "1265:50:10",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VendorSlot_$2451_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VendorSlot_$2346_storage_$",
               "typeString": "mapping(address => struct StoreBase.VendorSlot)"
             },
             "typeName": {
-              "id": 2488,
+              "id": 2383,
               "keyType": {
-                "id": 2486,
+                "id": 2381,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1273:7:10",
@@ -1032,18 +1032,18 @@
               "nodeType": "Mapping",
               "src": "1265:30:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VendorSlot_$2451_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VendorSlot_$2346_storage_$",
                 "typeString": "mapping(address => struct StoreBase.VendorSlot)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 2487,
+                "id": 2382,
                 "name": "VendorSlot",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 2451,
+                "referencedDeclaration": 2346,
                 "src": "1284:10:10",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_VendorSlot_$2451_storage_ptr",
+                  "typeIdentifier": "t_struct$_VendorSlot_$2346_storage_ptr",
                   "typeString": "struct StoreBase.VendorSlot"
                 }
               }
@@ -1053,21 +1053,21 @@
           },
           {
             "constant": false,
-            "id": 2494,
+            "id": 2389,
             "name": "stores",
             "nodeType": "VariableDeclaration",
-            "scope": 2495,
+            "scope": 2390,
             "src": "1321:43:10",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2482_storage_$dyn_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2377_storage_$dyn_storage_$",
               "typeString": "mapping(address => struct StoreBase.Store[])"
             },
             "typeName": {
-              "id": 2493,
+              "id": 2388,
               "keyType": {
-                "id": 2490,
+                "id": 2385,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1329:7:10",
@@ -1079,28 +1079,28 @@
               "nodeType": "Mapping",
               "src": "1321:27:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2482_storage_$dyn_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2377_storage_$dyn_storage_$",
                 "typeString": "mapping(address => struct StoreBase.Store[])"
               },
               "valueType": {
                 "baseType": {
                   "contractScope": null,
-                  "id": 2491,
+                  "id": 2386,
                   "name": "Store",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 2482,
+                  "referencedDeclaration": 2377,
                   "src": "1340:5:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Store_$2482_storage_ptr",
+                    "typeIdentifier": "t_struct$_Store_$2377_storage_ptr",
                     "typeString": "struct StoreBase.Store"
                   }
                 },
-                "id": 2492,
+                "id": 2387,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1340:7:10",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_array$_t_struct$_Store_$2482_storage_$dyn_storage_ptr",
+                  "typeIdentifier": "t_array$_t_struct$_Store_$2377_storage_$dyn_storage_ptr",
                   "typeString": "struct StoreBase.Store[]"
                 }
               }
@@ -1109,7 +1109,7 @@
             "visibility": "internal"
           }
         ],
-        "scope": 2496,
+        "scope": 2391,
         "src": "26:1350:10"
       }
     ],
@@ -1119,14 +1119,14 @@
     "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/StoreBase.sol",
     "exportedSymbols": {
       "StoreBase": [
-        2495
+        2390
       ]
     },
-    "id": 2496,
+    "id": 2391,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2405,
+        "id": 2300,
         "literals": [
           "solidity",
           "^",
@@ -1142,25 +1142,25 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2495,
+        "id": 2390,
         "linearizedBaseContracts": [
-          2495
+          2390
         ],
         "name": "StoreBase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "StoreBase.Role",
-            "id": 2408,
+            "id": 2303,
             "members": [
               {
-                "id": 2406,
+                "id": 2301,
                 "name": "Admin",
                 "nodeType": "EnumValue",
                 "src": "76:5:10"
               },
               {
-                "id": 2407,
+                "id": 2302,
                 "name": "SuperAdmin",
                 "nodeType": "EnumValue",
                 "src": "83:10:10"
@@ -1172,16 +1172,16 @@
           },
           {
             "canonicalName": "StoreBase.PaymentMethod",
-            "id": 2411,
+            "id": 2306,
             "members": [
               {
-                "id": 2409,
+                "id": 2304,
                 "name": "Ether",
                 "nodeType": "EnumValue",
                 "src": "134:5:10"
               },
               {
-                "id": 2410,
+                "id": 2305,
                 "name": "Token",
                 "nodeType": "EnumValue",
                 "src": "149:5:10"
@@ -1193,14 +1193,14 @@
           },
           {
             "canonicalName": "StoreBase.CartItemSlot",
-            "id": 2416,
+            "id": 2311,
             "members": [
               {
                 "constant": false,
-                "id": 2413,
+                "id": 2308,
                 "name": "initialized",
                 "nodeType": "VariableDeclaration",
-                "scope": 2416,
+                "scope": 2311,
                 "src": "197:16:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1209,7 +1209,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2412,
+                  "id": 2307,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "197:4:10",
@@ -1223,10 +1223,10 @@
               },
               {
                 "constant": false,
-                "id": 2415,
+                "id": 2310,
                 "name": "slot",
                 "nodeType": "VariableDeclaration",
-                "scope": 2416,
+                "scope": 2311,
                 "src": "223:9:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1235,7 +1235,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2414,
+                  "id": 2309,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "223:4:10",
@@ -1250,20 +1250,20 @@
             ],
             "name": "CartItemSlot",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "168:71:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.ShoppingCartItem",
-            "id": 2425,
+            "id": 2320,
             "members": [
               {
                 "constant": false,
-                "id": 2418,
+                "id": 2313,
                 "name": "productQuantity",
                 "nodeType": "VariableDeclaration",
-                "scope": 2425,
+                "scope": 2320,
                 "src": "304:20:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1272,7 +1272,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2417,
+                  "id": 2312,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "304:4:10",
@@ -1286,10 +1286,10 @@
               },
               {
                 "constant": false,
-                "id": 2420,
+                "id": 2315,
                 "name": "vendorAccount",
                 "nodeType": "VariableDeclaration",
-                "scope": 2425,
+                "scope": 2320,
                 "src": "334:21:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1298,7 +1298,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2419,
+                  "id": 2314,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "334:7:10",
@@ -1312,10 +1312,10 @@
               },
               {
                 "constant": false,
-                "id": 2422,
+                "id": 2317,
                 "name": "storeIndex",
                 "nodeType": "VariableDeclaration",
-                "scope": 2425,
+                "scope": 2320,
                 "src": "365:15:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1324,7 +1324,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2421,
+                  "id": 2316,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "365:4:10",
@@ -1338,10 +1338,10 @@
               },
               {
                 "constant": false,
-                "id": 2424,
+                "id": 2319,
                 "name": "purchaseComplete",
                 "nodeType": "VariableDeclaration",
-                "scope": 2425,
+                "scope": 2320,
                 "src": "390:21:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1350,7 +1350,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2423,
+                  "id": 2318,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "390:4:10",
@@ -1365,31 +1365,31 @@
             ],
             "name": "ShoppingCartItem",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "244:174:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.ShoppingCart",
-            "id": 2439,
+            "id": 2334,
             "members": [
               {
                 "constant": false,
-                "id": 2429,
+                "id": 2324,
                 "name": "cartItemSlot",
                 "nodeType": "VariableDeclaration",
-                "scope": 2439,
+                "scope": 2334,
                 "src": "455:42:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_CartItemSlot_$2416_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_CartItemSlot_$2311_storage_$",
                   "typeString": "mapping(uint256 => struct StoreBase.CartItemSlot)"
                 },
                 "typeName": {
-                  "id": 2428,
+                  "id": 2323,
                   "keyType": {
-                    "id": 2426,
+                    "id": 2321,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "463:4:10",
@@ -1401,18 +1401,18 @@
                   "nodeType": "Mapping",
                   "src": "455:29:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_CartItemSlot_$2416_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_CartItemSlot_$2311_storage_$",
                     "typeString": "mapping(uint256 => struct StoreBase.CartItemSlot)"
                   },
                   "valueType": {
                     "contractScope": null,
-                    "id": 2427,
+                    "id": 2322,
                     "name": "CartItemSlot",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2416,
+                    "referencedDeclaration": 2311,
                     "src": "471:12:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_CartItemSlot_$2416_storage_ptr",
+                      "typeIdentifier": "t_struct$_CartItemSlot_$2311_storage_ptr",
                       "typeString": "struct StoreBase.CartItemSlot"
                     }
                   }
@@ -1422,21 +1422,21 @@
               },
               {
                 "constant": false,
-                "id": 2433,
+                "id": 2328,
                 "name": "products",
                 "nodeType": "VariableDeclaration",
-                "scope": 2439,
+                "scope": 2334,
                 "src": "504:41:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ShoppingCartItem_$2425_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ShoppingCartItem_$2320_storage_$",
                   "typeString": "mapping(uint256 => struct StoreBase.ShoppingCartItem)"
                 },
                 "typeName": {
-                  "id": 2432,
+                  "id": 2327,
                   "keyType": {
-                    "id": 2430,
+                    "id": 2325,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "512:4:10",
@@ -1448,18 +1448,18 @@
                   "nodeType": "Mapping",
                   "src": "504:32:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ShoppingCartItem_$2425_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ShoppingCartItem_$2320_storage_$",
                     "typeString": "mapping(uint256 => struct StoreBase.ShoppingCartItem)"
                   },
                   "valueType": {
                     "contractScope": null,
-                    "id": 2431,
+                    "id": 2326,
                     "name": "ShoppingCartItem",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2425,
+                    "referencedDeclaration": 2320,
                     "src": "519:16:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ShoppingCartItem_$2425_storage_ptr",
+                      "typeIdentifier": "t_struct$_ShoppingCartItem_$2320_storage_ptr",
                       "typeString": "struct StoreBase.ShoppingCartItem"
                     }
                   }
@@ -1469,10 +1469,10 @@
               },
               {
                 "constant": false,
-                "id": 2436,
+                "id": 2331,
                 "name": "productIds",
                 "nodeType": "VariableDeclaration",
-                "scope": 2439,
+                "scope": 2334,
                 "src": "552:17:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1482,7 +1482,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 2434,
+                    "id": 2329,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "552:4:10",
@@ -1491,7 +1491,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2435,
+                  "id": 2330,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "552:6:10",
@@ -1505,10 +1505,10 @@
               },
               {
                 "constant": false,
-                "id": 2438,
+                "id": 2333,
                 "name": "cartPrice",
                 "nodeType": "VariableDeclaration",
-                "scope": 2439,
+                "scope": 2334,
                 "src": "576:14:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1517,7 +1517,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2437,
+                  "id": 2332,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "576:4:10",
@@ -1532,27 +1532,27 @@
             ],
             "name": "ShoppingCart",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "428:169:10",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 2443,
+            "id": 2338,
             "name": "shoppingCarts",
             "nodeType": "VariableDeclaration",
-            "scope": 2495,
+            "scope": 2390,
             "src": "607:46:10",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ShoppingCart_$2439_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ShoppingCart_$2334_storage_$",
               "typeString": "mapping(address => struct StoreBase.ShoppingCart)"
             },
             "typeName": {
-              "id": 2442,
+              "id": 2337,
               "keyType": {
-                "id": 2440,
+                "id": 2335,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "615:7:10",
@@ -1564,18 +1564,18 @@
               "nodeType": "Mapping",
               "src": "607:32:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ShoppingCart_$2439_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ShoppingCart_$2334_storage_$",
                 "typeString": "mapping(address => struct StoreBase.ShoppingCart)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 2441,
+                "id": 2336,
                 "name": "ShoppingCart",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 2439,
+                "referencedDeclaration": 2334,
                 "src": "626:12:10",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ShoppingCart_$2439_storage_ptr",
+                  "typeIdentifier": "t_struct$_ShoppingCart_$2334_storage_ptr",
                   "typeString": "struct StoreBase.ShoppingCart"
                 }
               }
@@ -1585,30 +1585,30 @@
           },
           {
             "canonicalName": "StoreBase.StoreUser",
-            "id": 2446,
+            "id": 2341,
             "members": [
               {
                 "constant": false,
-                "id": 2445,
+                "id": 2340,
                 "name": "role",
                 "nodeType": "VariableDeclaration",
-                "scope": 2446,
+                "scope": 2341,
                 "src": "687:9:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_Role_$2408",
+                  "typeIdentifier": "t_enum$_Role_$2303",
                   "typeString": "enum StoreBase.Role"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 2444,
+                  "id": 2339,
                   "name": "Role",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 2408,
+                  "referencedDeclaration": 2303,
                   "src": "687:4:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Role_$2408",
+                    "typeIdentifier": "t_enum$_Role_$2303",
                     "typeString": "enum StoreBase.Role"
                   }
                 },
@@ -1618,20 +1618,20 @@
             ],
             "name": "StoreUser",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "660:43:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.VendorSlot",
-            "id": 2451,
+            "id": 2346,
             "members": [
               {
                 "constant": false,
-                "id": 2448,
+                "id": 2343,
                 "name": "initialized",
                 "nodeType": "VariableDeclaration",
-                "scope": 2451,
+                "scope": 2346,
                 "src": "740:16:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1640,7 +1640,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2447,
+                  "id": 2342,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "740:4:10",
@@ -1654,10 +1654,10 @@
               },
               {
                 "constant": false,
-                "id": 2450,
+                "id": 2345,
                 "name": "slot",
                 "nodeType": "VariableDeclaration",
-                "scope": 2451,
+                "scope": 2346,
                 "src": "766:9:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1666,7 +1666,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2449,
+                  "id": 2344,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "766:4:10",
@@ -1681,20 +1681,20 @@
             ],
             "name": "VendorSlot",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "713:69:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.Product",
-            "id": 2466,
+            "id": 2361,
             "members": [
               {
                 "constant": false,
-                "id": 2453,
+                "id": 2348,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "818:12:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1703,7 +1703,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 2452,
+                  "id": 2347,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "818:7:10",
@@ -1717,10 +1717,10 @@
               },
               {
                 "constant": false,
-                "id": 2455,
+                "id": 2350,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "840:19:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1729,7 +1729,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 2454,
+                  "id": 2349,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "840:7:10",
@@ -1743,10 +1743,10 @@
               },
               {
                 "constant": false,
-                "id": 2457,
+                "id": 2352,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "869:10:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1755,7 +1755,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2456,
+                  "id": 2351,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "869:4:10",
@@ -1769,10 +1769,10 @@
               },
               {
                 "constant": false,
-                "id": 2459,
+                "id": 2354,
                 "name": "productIdSlot",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "889:18:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1781,7 +1781,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2458,
+                  "id": 2353,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "889:4:10",
@@ -1795,10 +1795,10 @@
               },
               {
                 "constant": false,
-                "id": 2461,
+                "id": 2356,
                 "name": "productId",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "917:14:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1807,7 +1807,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2460,
+                  "id": 2355,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "917:4:10",
@@ -1821,10 +1821,10 @@
               },
               {
                 "constant": false,
-                "id": 2463,
+                "id": 2358,
                 "name": "quantity",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "941:13:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1833,7 +1833,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2462,
+                  "id": 2357,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "941:4:10",
@@ -1847,10 +1847,10 @@
               },
               {
                 "constant": false,
-                "id": 2465,
+                "id": 2360,
                 "name": "priceInSpinelToken",
                 "nodeType": "VariableDeclaration",
-                "scope": 2466,
+                "scope": 2361,
                 "src": "964:23:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1859,7 +1859,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2464,
+                  "id": 2359,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "964:4:10",
@@ -1874,20 +1874,20 @@
             ],
             "name": "Product",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "793:201:10",
             "visibility": "public"
           },
           {
             "canonicalName": "StoreBase.Store",
-            "id": 2482,
+            "id": 2377,
             "members": [
               {
                 "constant": false,
-                "id": 2468,
+                "id": 2363,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1027:12:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1896,7 +1896,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 2467,
+                  "id": 2362,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1027:7:10",
@@ -1910,10 +1910,10 @@
               },
               {
                 "constant": false,
-                "id": 2470,
+                "id": 2365,
                 "name": "description",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1049:19:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1922,7 +1922,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 2469,
+                  "id": 2364,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1049:7:10",
@@ -1936,10 +1936,10 @@
               },
               {
                 "constant": false,
-                "id": 2472,
+                "id": 2367,
                 "name": "revenue",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1078:12:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1948,7 +1948,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2471,
+                  "id": 2366,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1078:4:10",
@@ -1962,10 +1962,10 @@
               },
               {
                 "constant": false,
-                "id": 2475,
+                "id": 2370,
                 "name": "productIds",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1100:17:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1975,7 +1975,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 2473,
+                    "id": 2368,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1100:4:10",
@@ -1984,7 +1984,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 2474,
+                  "id": 2369,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "1100:6:10",
@@ -1998,10 +1998,10 @@
               },
               {
                 "constant": false,
-                "id": 2477,
+                "id": 2372,
                 "name": "productIdIncrement",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1127:23:10",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2010,7 +2010,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2476,
+                  "id": 2371,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1127:4:10",
@@ -2024,21 +2024,21 @@
               },
               {
                 "constant": false,
-                "id": 2481,
+                "id": 2376,
                 "name": "products",
                 "nodeType": "VariableDeclaration",
-                "scope": 2482,
+                "scope": 2377,
                 "src": "1160:33:10",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2466_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2361_storage_$",
                   "typeString": "mapping(uint256 => struct StoreBase.Product)"
                 },
                 "typeName": {
-                  "id": 2480,
+                  "id": 2375,
                   "keyType": {
-                    "id": 2478,
+                    "id": 2373,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1168:4:10",
@@ -2050,18 +2050,18 @@
                   "nodeType": "Mapping",
                   "src": "1160:24:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2466_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2361_storage_$",
                     "typeString": "mapping(uint256 => struct StoreBase.Product)"
                   },
                   "valueType": {
                     "contractScope": null,
-                    "id": 2479,
+                    "id": 2374,
                     "name": "Product",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2466,
+                    "referencedDeclaration": 2361,
                     "src": "1176:7:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Product_$2466_storage_ptr",
+                      "typeIdentifier": "t_struct$_Product_$2361_storage_ptr",
                       "typeString": "struct StoreBase.Product"
                     }
                   }
@@ -2072,16 +2072,16 @@
             ],
             "name": "Store",
             "nodeType": "StructDefinition",
-            "scope": 2495,
+            "scope": 2390,
             "src": "1004:196:10",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 2485,
+            "id": 2380,
             "name": "vendorAccountsWithListedStores",
             "nodeType": "VariableDeclaration",
-            "scope": 2495,
+            "scope": 2390,
             "src": "1210:49:10",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2091,7 +2091,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 2483,
+                "id": 2378,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1210:7:10",
@@ -2100,7 +2100,7 @@
                   "typeString": "address"
                 }
               },
-              "id": 2484,
+              "id": 2379,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "1210:9:10",
@@ -2114,21 +2114,21 @@
           },
           {
             "constant": false,
-            "id": 2489,
+            "id": 2384,
             "name": "vendorSlot",
             "nodeType": "VariableDeclaration",
-            "scope": 2495,
+            "scope": 2390,
             "src": "1265:50:10",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VendorSlot_$2451_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VendorSlot_$2346_storage_$",
               "typeString": "mapping(address => struct StoreBase.VendorSlot)"
             },
             "typeName": {
-              "id": 2488,
+              "id": 2383,
               "keyType": {
-                "id": 2486,
+                "id": 2381,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1273:7:10",
@@ -2140,18 +2140,18 @@
               "nodeType": "Mapping",
               "src": "1265:30:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VendorSlot_$2451_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_VendorSlot_$2346_storage_$",
                 "typeString": "mapping(address => struct StoreBase.VendorSlot)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 2487,
+                "id": 2382,
                 "name": "VendorSlot",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 2451,
+                "referencedDeclaration": 2346,
                 "src": "1284:10:10",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_VendorSlot_$2451_storage_ptr",
+                  "typeIdentifier": "t_struct$_VendorSlot_$2346_storage_ptr",
                   "typeString": "struct StoreBase.VendorSlot"
                 }
               }
@@ -2161,21 +2161,21 @@
           },
           {
             "constant": false,
-            "id": 2494,
+            "id": 2389,
             "name": "stores",
             "nodeType": "VariableDeclaration",
-            "scope": 2495,
+            "scope": 2390,
             "src": "1321:43:10",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2482_storage_$dyn_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2377_storage_$dyn_storage_$",
               "typeString": "mapping(address => struct StoreBase.Store[])"
             },
             "typeName": {
-              "id": 2493,
+              "id": 2388,
               "keyType": {
-                "id": 2490,
+                "id": 2385,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1329:7:10",
@@ -2187,28 +2187,28 @@
               "nodeType": "Mapping",
               "src": "1321:27:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2482_storage_$dyn_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2377_storage_$dyn_storage_$",
                 "typeString": "mapping(address => struct StoreBase.Store[])"
               },
               "valueType": {
                 "baseType": {
                   "contractScope": null,
-                  "id": 2491,
+                  "id": 2386,
                   "name": "Store",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 2482,
+                  "referencedDeclaration": 2377,
                   "src": "1340:5:10",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Store_$2482_storage_ptr",
+                    "typeIdentifier": "t_struct$_Store_$2377_storage_ptr",
                     "typeString": "struct StoreBase.Store"
                   }
                 },
-                "id": 2492,
+                "id": 2387,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "1340:7:10",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_array$_t_struct$_Store_$2482_storage_$dyn_storage_ptr",
+                  "typeIdentifier": "t_array$_t_struct$_Store_$2377_storage_$dyn_storage_ptr",
                   "typeString": "struct StoreBase.Store[]"
                 }
               }
@@ -2217,7 +2217,7 @@
             "visibility": "internal"
           }
         ],
-        "scope": 2496,
+        "scope": 2391,
         "src": "26:1350:10"
       }
     ],
@@ -2229,5 +2229,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-08-23T12:05:25.130Z"
+  "updatedAt": "2018-08-24T16:54:26.845Z"
 }

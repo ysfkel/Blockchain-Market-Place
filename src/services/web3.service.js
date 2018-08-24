@@ -1,12 +1,14 @@
 
 import Web3 from 'web3';
 import MarketPlace from '../../build/contracts/MarketPlace.json';
+import SpinelToken from '../../build/contracts/SpinelToken.json';
+import SpinelTokenSale from '../../build/contracts/SpinelTokenSale.json';
 // import web3
 
 export const getWeb3Contract = () =>{
    
    return new Promise((res, rej)=>{
-       let _web3, web3Provider,contract;
+       let _web3, web3Provider;
         if(typeof web3 != 'undefined') {
             web3Provider = web3.currentProvider;
         } else {
@@ -14,12 +16,19 @@ export const getWeb3Contract = () =>{
         }
 
         _web3 = new Web3(web3Provider);
-   console.log('--_web3', _web3)
-        contract= TruffleContract(MarketPlace);
+  
+        const tokenContract = TruffleContract(SpinelToken);
+        const tokenSaleContract = TruffleContract(SpinelTokenSale);
+        const contract= TruffleContract(MarketPlace);
+
         contract.setProvider(web3Provider);
+        tokenContract.setProvider(web3Provider);
+        tokenSaleContract.setProvider(web3Provider);
         res(
             {
                 contract,
+                tokenContract,
+                tokenSaleContract,
                 web3: _web3
             }
         );

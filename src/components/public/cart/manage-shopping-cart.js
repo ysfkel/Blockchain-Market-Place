@@ -126,7 +126,11 @@ import {  Link} from 'react-router-dom';
                     </TableBody>
                 </Table>
 
-                  <Link  to="/checkout">checkout</Link>
+                  <Link  to="/checkout">checkout (Pay with Ether)</Link>
+
+                          <Link  to="/checkout-token-pay">checkout (Pay with Token)</Link>
+
+                         
             </Paper>
             </div>
             );

@@ -18,6 +18,22 @@ export const getWebContract=(callback)=> {
       })
     });
   }
+
+  export const getTokenSaleContract=(callback)=> {
+    getWeb3Contract().then((web3Contract)=>{
+          web3Contract.tokenSaleContract.deployed().then((tokenSaleContract)=>{
+            callback({web3:web3Contract.web3, tokenSaleContract});
+      })
+    });
+  }
+
+    export const getTokenContract=(callback)=> {
+    getWeb3Contract().then((web3Contract)=>{
+          web3Contract.tokenContract.deployed().then((tokenContract)=>{
+            callback({web3:web3Contract.web3, tokenContract});
+      })
+    });
+  }
   
 export const getAccount =(callback)=> {
     getWeb3Contract().then((web3Contract)=>{

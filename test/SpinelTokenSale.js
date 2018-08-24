@@ -107,9 +107,10 @@ contract('SpinelTokenSale', function(accounts) {
               /** try end token sale from account other than admin */
               return tokenSaleInstance.endSale({from: buyer});
            })
-           .then(assert.fail)
+          .then(assert.fail)
            .catch(function(error) {
-                  assert(error.message.indexOf('revert') >=0, 'must be admin to end sale');
+            // .then(function(){
+                 assert(error.message.indexOf('revert') >=0, 'must be admin to end sale');
                   return tokenSaleInstance.endSale({from: admin});
            })
            .then(function(receipt) {
@@ -118,11 +119,17 @@ contract('SpinelTokenSale', function(accounts) {
            .then(function(balance) {    
                  const tokensNotSold = ( initial_supply + (tokensAvailableForPurchase - numberOfTokens));
                  assert.equal(balance.toNumber(),tokensNotSold, 'returns all unsold dapp tokens to admin');
-               //  return tokenSaleInstance.tokenPrice();
+                 //return tokenSaleInstance.tokenPrice();
            })
-        //    .then(function(tokenPrice) {
-        //          assert.equal(tokenPrice.toNumber(), 0, 'token price was reset');
-        //    })
+           .then(function(tokenPrice) {
+                // assert.equal(tokenPrice.toNumber(), 0, 'token price was reset');
+
+                 return tokenSaleInstance.getContractAddress({
+                       from: admin
+                 });
+           }).then(function(address) {
+                console.log('--contract address', address)
+           })
     });
     
 })

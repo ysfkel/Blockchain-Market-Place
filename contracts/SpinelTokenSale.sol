@@ -23,6 +23,7 @@ contract SpinelTokenSale {
         /** msg.value (in wei), must be sufficient to pay for the amunt of tokens being requested */
         require(msg.value == SafeMath.mul(_numberOfTokens,tokenPrice));
           /** tokens available for purchase must be greater or equal to the number of tokens to be purchased */
+       // require(tokenContract.balanceOf(this) >= _numberOfTokens);
         require(tokenContract.balanceOf(this) >= _numberOfTokens);
         /** transfer inside of a require so that a revert happens if not successful */
         require(tokenContract.transfer(msg.sender, _numberOfTokens));
@@ -34,22 +35,23 @@ contract SpinelTokenSale {
        //require admin
         require(msg.sender == admin);
         require(tokenContract.transfer(admin, tokenContract.balanceOf(this)));
-        //  selfdestruct(admin);
+  
+        admin.transfer(address(this).balance);
     }
 
+    
     //new
     function getBalanceOf(address account) public view returns(uint256){
         return tokenContract.balanceOf(account);
     }
     
-    function toSpinel(uint256 amountInWei) public view returns(uint256) {
-          return SafeMath.div(amountInWei,tokenPrice);
+    function getContractAddress() public view returns(address) {
+       require(msg.sender == admin);
+          return address(this);
+        
     }
 
-    function transferFrom(address _from, address _to, uint256 _value) public returns(bool success) {
-         require(tokenContract.transferFrom(_from, _to, _value));
-         success = true;
-    }
+  
 
   
 }

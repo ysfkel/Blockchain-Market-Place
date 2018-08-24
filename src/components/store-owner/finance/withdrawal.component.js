@@ -32,7 +32,12 @@ import * as REPO from './repo';
                 this.storeInstance = contract;
                 getAccount((account, balance) => {
                     this.setState({account: account, balance});
-            
+                REPO.getVendorBalance({account: this.state.account, 
+                contract: this.storeInstance, web3: this.web3}).then((vendorBalance)=>{
+                                 console.log('updated!', vendorBalance)
+                      this.setState({vendorBalance});
+       
+                 })
                         
 
                 });
@@ -58,9 +63,9 @@ import * as REPO from './repo';
           if(this.state.amount <= this.state.balance) {
             let { cartPrice } = this.state;
             // cartPrice = this.web3.toWei(cartPrice);
-            // REPO.checkOut({account: this.state.account, contract: this.storeInstance, cartPrice}).then(()=>{
-            //     console.log('updated!')
-            // })
+            REPO.withdraw({account: this.state.account, contract: this.storeInstance, web3: this.web3}).then(()=>{
+                console.log('updated!')
+            })
           }
         }
 
@@ -74,6 +79,7 @@ import * as REPO from './repo';
                 
                     <h1>WITHDRAW FUNDS</h1>
             <Paper>
+               <h3>{this.state.vendorBalance} Ether</h3>
                  <form noValidate autoComplete="off">
                     <TextField
                     type="text"

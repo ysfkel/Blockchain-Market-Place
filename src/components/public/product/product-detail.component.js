@@ -35,7 +35,7 @@ export default class ProductDetail extends Component{
                 if(storeId && productId) {
                     REPO.getProduct({ vendorAccountId,contract, web3 ,account, storeId, productId})
                   .then((product) => {
-                      console.log('--product', product)
+                  
                       this.setState({...product})
                   });
                 }
@@ -55,7 +55,7 @@ export default class ProductDetail extends Component{
     //     });
     // }
      handleAdToCart = (e) => {
-         console.log('-HIT')
+        
         e.preventDefault();
             const { vendor,  storeIndex,  productId, purchasedQuantity, account } = this.state;
             const contract = this.storeInstance;

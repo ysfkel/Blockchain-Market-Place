@@ -258,12 +258,12 @@ contract('MarketPlace', function(accounts) {
                         from: vendor.account
                 })
           })
-          .then(function(_productQuantity) {
-            assert.equal(_productQuantity.toNumber(), (productQuantity - updated_productQuantity_cart), 'should deduct product quantity after checkout')
-             return tokenSaleInstance.getBalanceOf(customerAccount,{
-                 from: owner
-             });
-          })
+        //   .then(function(_productQuantity) {
+        //     assert.equal(_productQuantity.toNumber(), (productQuantity - updated_productQuantity_cart), 'should deduct product quantity after checkout')
+        //      return tokenSaleInstance.getBalanceOf(customerAccount,{
+        //          from: owner
+        //      });
+        //   })
                .then(function(receipt) {
          
           //  assert.equal(receipt.logs.length, 1, ' triggers 1 event');
@@ -288,6 +288,17 @@ contract('MarketPlace', function(accounts) {
                      value: updated_cartPrice
                });
           }) 
+        //   .then(function() {
+        //        return tokenInstance.getOwner();
+        //   })
+        //   .then(function(owner) {
+        //      console.log('--token instanc 1', owner);
+        //      return tokenSaleInstance.getOwner();
+        //   })
+        //    .then(function(owner) {
+        //      console.log('--token instance 2', owner);
+         
+        //   })
         //  .then(function() {
         //           return contractInstance.addItemToCart(
         //                 vendor.account,

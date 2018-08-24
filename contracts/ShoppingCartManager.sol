@@ -195,31 +195,31 @@ contract ShoppingCartManager is Ownerble, StoreBase, VendorBase {
         // }
     }
 
-    function getcustomerBalance(uint256 paymentMethod, uint256 customerBalance) public view returns(uint256){
-         if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
-               return tokenSaleContract_shoppingCart.getBalanceOf(msg.sender);
-        } else {
-            return customerBalance;
-        }
-    }
+    // function getcustomerBalance(uint256 paymentMethod, uint256 customerBalance) public view returns(uint256){
+    //      if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
+    //            return tokenSaleContract_shoppingCart.getBalanceOf(msg.sender);
+    //     } else {
+    //         return customerBalance;
+    //     }
+    // }
 
-    function payVendor(uint256 paymentMethod, address customerAccount, address vendorAccount, uint256 storeIndex,
-     uint256 totalItemsPrice )
-      public  returns(bool) {
-        if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
-             tokenSaleContract_shoppingCart.transferFrom(customerAccount, vendorAccount, totalItemsPrice);
-             emit PaymentByTokenCompleted(totalItemsPrice);
-        } else {
+    // function payVendor(uint256 paymentMethod, address customerAccount, address vendorAccount, uint256 storeIndex,
+    //  uint256 totalItemsPrice )
+    //   public  returns(bool) {
+    //     if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
+    //          tokenSaleContract_shoppingCart.transferFrom(customerAccount, vendorAccount, totalItemsPrice);
+    //          emit PaymentByTokenCompleted(totalItemsPrice);
+    //     } else {
          
-          stores[vendorAccount][storeIndex].revenue = SafeMath.add(stores[vendorAccount][storeIndex].revenue, totalItemsPrice);
-                    //UPDATE RETRIEVABLE BALANCE
-          vendors[vendorAccount].balance = SafeMath.add(vendors[vendorAccount].balance, totalItemsPrice);
-          emit PaymentByEtherCompleted(totalItemsPrice);
-        }
+    //       stores[vendorAccount][storeIndex].revenue = SafeMath.add(stores[vendorAccount][storeIndex].revenue, totalItemsPrice);
+    //                 //UPDATE RETRIEVABLE BALANCE
+    //       vendors[vendorAccount].balance = SafeMath.add(vendors[vendorAccount].balance, totalItemsPrice);
+    //       emit PaymentByEtherCompleted(totalItemsPrice);
+    //     }
 
          
                    
-    }
+    // }
 
 //  function checkOutTokenPayment(uint256 paymentMethod) public payable returns(bool){
 //         require(shoppingCarts[msg.sender].productIds.length > 0);

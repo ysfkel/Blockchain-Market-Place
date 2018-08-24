@@ -91,9 +91,9 @@ export default class ProductEdit extends Component{
         const name =  e.target.name;
         const value = e.target.value;
         if(value > -1) {
-              console.log('value amount--', value)
+         
         const tokens = helper.etherToSpinel({value, web3});
-         console.log('token amount', tokens)
+ 
         this.setState(prev=>{
                 prev['price']= value;
                 prev['priceInSpinelToken'] = tokens;

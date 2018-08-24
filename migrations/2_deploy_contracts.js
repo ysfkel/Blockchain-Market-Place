@@ -8,15 +8,17 @@ const TOKEN_PRICE =  require('./constants').TOKEN_PRICE;
 
 const owner = '0x627306090abab3a6e1400e9345bc60c78a8bef57';
 
+console.log('--INITIAL_SUPPLY', INITIAL_SUPPLY, 'price', TOKEN_PRICE)
 module.exports = function(deployer) {
-     deployer.deploy(SpinelToken, INITIAL_SUPPLY, {from: owner})
+     deployer.deploy(SpinelToken, INITIAL_SUPPLY)
         .then(function() {
-          //  console.log('===--TOKEN_PRICE', TOKEN_PRICE, SpinelToken.address)
-           return deployer.deploy(SpinelTokenSale, SpinelToken.address, TOKEN_PRICE, {from: owner})
+           return deployer.deploy(SpinelTokenSale, SpinelToken.address, TOKEN_PRICE,
+           {from: owner})
             .then(function() {
+              console.log('--TC ADDRESS', SpinelToken.address)
+              console.log('--TCS ADDRESS', SpinelTokenSale.address)
               return deployer.deploy(SafeMath)//.then(() => {
                .then(function() {
-                  // console.log('--======---===SpinelTokenSale.address', SpinelTokenSale.address)
                      deployer.link(SafeMath, MarketPlace);
                     return deployer.deploy(MarketPlace, SpinelTokenSale.address, {from: owner})
                 })

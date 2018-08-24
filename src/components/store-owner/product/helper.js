@@ -22,10 +22,11 @@ export const etherToWei =({value, web3}) => {
 }
 
 export const etherToSpinel =({value, web3}) => {
-        console.log('amount 2',value)
+     
     const ether = etherToWei({value, web3});
     const token = ether / TOKEN_PRICE;
     console.log('token 3',token)
     return token;
     //TOKEN_PRICE
 }
+
