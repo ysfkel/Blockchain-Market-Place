@@ -5,15 +5,14 @@ import './UserManager.sol';
 import "./Ownerble.sol";
 import "./ShoppingCartManager.sol";
 import "./Withdrawable.sol";
-import "./SpinelTokenSale.sol";
+import "./SpinelToken.sol";
 
 contract MarketPlace is Ownerble, StoreManager, ProductManager,
 UserManager, ShoppingCartManager, Withdrawable{
 
-    SpinelTokenSale tokenSaleContract;
-    constructor(SpinelTokenSale _tokenSaleContract) public {
-         tokenSaleContract = _tokenSaleContract;
-         tokenSaleContract_shoppingCart = _tokenSaleContract;
+   
+    constructor(SpinelToken tokenContract ) public {
+         tokenContract_shoppingCart = tokenContract;
         
     }
 }

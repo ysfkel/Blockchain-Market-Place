@@ -1,6 +1,6 @@
 
 export const buyTokens =({ tokenAmount, price ,account, tokenSaleContract}) => {
-    console.log('price----', tokenAmount, price ,account)
+
     return new Promise((resolve, reject) => {
               tokenSaleContract
               .buyTokens(tokenAmount, {from:account, value:price, 

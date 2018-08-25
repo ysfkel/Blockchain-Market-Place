@@ -8,6 +8,7 @@ import ProductUpdate from './components/store-owner/product/product-update.compo
 import ProductDetail from './components/public/product/product-detail.component';
 import ManageShoppingCart from './components/public/cart/manage-shopping-cart';
 import Checkout from './components/public/checkout/checkout.component';
+import OrderHistory from './components/public/order-history/order-history.component';
 import CheckoutTokenPay from './components/public/checkout-token/checkout-token.component';
 import TokenSale from './components/public/token-sale/token-sale.component';
 import PublicStoreListViewComponent from './components/public/store/list-view.component';
@@ -106,6 +107,7 @@ export default class App extends Component{
                                <Link style={style.linkStyle} to="/stores">Stores</Link>
                                <Link style={style.linkStyle} to="/products">Products</Link>
                                <Link style={style.linkStyle} to="/token-sale">Buy Tokens</Link>
+                               <Link style={style.linkStyle} to="/order-history">Order History</Link>
                                { this.state.role === ROLE.CUSTOMER &&
                                  <Link style={style.linkStyle} to="/vendor-request">Vendor Request</Link>
                                }
@@ -202,7 +204,7 @@ export default class App extends Component{
                            <Route exact path={'/shopping-cart'} render={(props)=><ManageShoppingCart/>} />
 
                            <Route exact path={'/checkout'} render={(props)=><Checkout/>}/>
-
+                           <Route exact path={'/order-history'} render={(props)=><OrderHistory/>}/>
                            <Route exact path={'/checkout-token-pay'} render={(props)=><CheckoutTokenPay/>}/>
                            <Route exact path={'/manage-token-sale'} render={(props)=><ManageTokenSale/>} />
                          <Route exact path={'/token-sale'} render={(props)=><TokenSale/>}/>

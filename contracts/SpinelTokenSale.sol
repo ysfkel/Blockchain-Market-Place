@@ -38,7 +38,8 @@ contract SpinelTokenSale {
   
         admin.transfer(address(this).balance);
     }
-
+   
+    // tokenSaleContract_shoppingCart.transferFrom(customerAccount, vendorAccount, totalItemsPrice);
     
     //new
     function getBalanceOf(address account) public view returns(uint256){

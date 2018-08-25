@@ -20,7 +20,7 @@ module.exports = function(deployer) {
               return deployer.deploy(SafeMath)//.then(() => {
                .then(function() {
                      deployer.link(SafeMath, MarketPlace);
-                    return deployer.deploy(MarketPlace, SpinelTokenSale.address, {from: owner})
+                    return deployer.deploy(MarketPlace, SpinelToken.address, {from: owner})
                 })
               }).catch(err=>console.log)
 

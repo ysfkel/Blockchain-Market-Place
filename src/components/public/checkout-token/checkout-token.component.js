@@ -21,7 +21,7 @@ export default class CheckoutTokenPay extends Component {
                cartPrice:0
             }
             this.web3;
-         
+            this.tokenContract;
             this.handlePayment=this.handlePayment.bind(this);
          
         }
@@ -43,7 +43,7 @@ export default class CheckoutTokenPay extends Component {
                                     this.setState({products})
                             });
 
-                            xREPO.getCartPrice({ contract ,account})
+                            REPO.getCartPrice({ contract ,account})
                             .then(cartPrice => {
                                     this.setState({cartPrice});
                             });
@@ -51,15 +51,16 @@ export default class CheckoutTokenPay extends Component {
 
                             
 
-                     services.getTokenSaleContract((tokenSaleContractResult) => {
-                          const { tokenSaleContract } =  tokenSaleContractResult ;
-                          console.log('--tokenSaleContract',tokenSaleContractResult, tokenSaleContract)
-                          REPO.getTokenBalance({ account, tokenSaleContract})
+                     services.getTokenContract((tokenContractResult) => {
+                          const { tokenContract } =  tokenContractResult ;
+                          this.tokenContract = tokenContract;
+                          console.log('--tokenSaleContract',tokenContractResult, tokenContract)
+                          REPO.getTokenBalance({ account, tokenContract})
                             .then((tokenBalance) =>{
                                     console.log('--tokenBalance', tokenBalance)
                                 this.setState({tokenBalance})
                             });
-                     })
+                     });
                 });
                 
             })
@@ -70,10 +71,19 @@ export default class CheckoutTokenPay extends Component {
 
         handlePayment = () => {
           if(this.state.balance >= this.state.cartPrice) {
-            let { cartPrice } = this.state;
-            cartPrice = this.web3.toWei(cartPrice);
-            REPO.checkOut({account: this.state.account, contract: this.storeInstance, cartPrice}).then(()=>{
-                console.log('updated!')
+            const { cartPrice } = this.state;
+            const storeInstance = this.storeInstance;
+            const tokenContract = this.tokenContract;
+            const { account } = this.state;
+            //cartPrice = this.web3.toWei(cartPrice);
+            //checkOutByToken = ({ account, amountToApprove, contract ,tokenContract, spenderContractAddress}
+            REPO.checkOutByToken({
+                account, 
+                cartPrice,
+                storeInstance,
+                tokenContract
+                }).then(()=>{
+                console.log('purchase updated!')
             })
           }
         }
@@ -88,11 +98,7 @@ export default class CheckoutTokenPay extends Component {
                     <TableCell numeric>{product.price}</TableCell> 
                      <TableCell numeric>{product.priceInSpinelToken}</TableCell> 
                     <TableCell numeric>{product.quantity}</TableCell> 
-                           <TableCell >
-                              <Button type="button" onClick={(e)=>this.handlePayment()}>
-                                PAY
-                            </Button>
-                           </TableCell>  
+                         
                     </TableRow>
                 )
         })
@@ -108,9 +114,7 @@ export default class CheckoutTokenPay extends Component {
                             <TableCell numeric>Price (ETH)</TableCell>
                               <TableCell numeric>Price (SL)</TableCell>
                             <TableCell numeric>Quantity </TableCell>
-                              <TableCell >
-                             
-                            </TableCell>
+                            
                         </TableRow>
                     </TableHead> 
                     <TableBody>
@@ -120,6 +124,11 @@ export default class CheckoutTokenPay extends Component {
                             <TableCell>Cart Price: {this.state.cartPrice} / Your balance {this.state.balance} Ether / {this.state.tokenBalance} SL</TableCell>
                         
                         </TableRow>
+                            <TableRow>
+                           <Button type="button" onClick={(e)=>this.handlePayment()}>
+                                PAY
+                            </Button>
+                               </TableRow>
                     </TableBody>
                 </Table>
             </Paper>

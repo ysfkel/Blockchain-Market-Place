@@ -16,8 +16,8 @@ export const getProductsIds =({ account, contract}) => {
 
 export const getCartPrice = ({contract, account}) => {
       return new Promise((resolve, reject) => {
-            contract.getCartPrice.call({from: account}).then((result) => {
-                console.log('result', result)
+            contract.getCartPrice.call(0,{from: account}).then((result) => {
+             
                 const cartPrice = web3.fromWei(result.toNumber(), 'ether');
                 resolve(cartPrice);
             })
