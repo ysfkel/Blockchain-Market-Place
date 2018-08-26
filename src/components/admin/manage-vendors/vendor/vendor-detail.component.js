@@ -7,8 +7,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import {  Link  } from 'react-router-dom';
+import * as styles from './styles';
+import Paper from '@material-ui/core/Paper';
 
 export default class VendorDetail extends Component {
        
@@ -86,16 +87,16 @@ export default class VendorDetail extends Component {
     render() {
         
         return(
-            <div>
-              <h1>VENDOR DETAILS</h1>
-              <Card >
+            <div style={styles.formContainer}>
+              <h3>VENDOR DETAILS</h3>
+              <Paper style={styles.innerContainer} >
                     <CardContent>
                        {this.renderVendors()}
                     </CardContent>
                     <CardActions>
                        {this.renderAction()}
                     </CardActions>
-                </Card>
+                </Paper>
             </div>
         );
     }

@@ -18,7 +18,7 @@ contract VendorBase is Ownerble {
         uint balance;
     }
 
- 
+    //RETURNS THE VENDORS RETRIEVABLE BALANCE
     function getVendorBalance() public view returns(uint) {
         require(vendors[msg.sender].state == AccountState.Approved);
         

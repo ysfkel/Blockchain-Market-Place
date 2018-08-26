@@ -11,7 +11,8 @@ import {  Link  } from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
-
+import Paper from '@material-ui/core/Paper';
+import * as styles from './styles';
 
 export default class AdminUserDetail extends Component {
        
@@ -109,6 +110,7 @@ export default class AdminUserDetail extends Component {
           } else {
               return(
                 <TextField
+                  style={styles.input}
                 id="account"
                 label="Account"
                 value={admin.account}
@@ -125,12 +127,15 @@ export default class AdminUserDetail extends Component {
     render() {
         const { admin } = this.state;
         return(
+        
             <form onSubmit={this.handleSubmit} >
-              <h1>MANAGE ADMINISTRATORS</h1>
-              <Card >
+             <div style={styles.formContainer}>
+             <h3>MANAGE ADMINISTRATORS</h3>
+              <Paper style={styles.innerContainer} >
                     <CardContent>
                             <div>
                         <TextField
+                            style={styles.input}
                             id="name"
                             label="Name"
                             value={this.state.admin.name}
@@ -143,6 +148,7 @@ export default class AdminUserDetail extends Component {
                         </div>
                         <div>
                             <Select
+                                     style={styles.input}
                                     value={this.state.admin.role}
                                     onChange={this.handleChange("role")}
                                     inputProps={{
@@ -165,7 +171,8 @@ export default class AdminUserDetail extends Component {
                     <CardActions>
                         <Button type="submit" size="small">SAVE</Button>
                     </CardActions>
-                  </Card>
+                  </Paper>
+                  </div>
                 </form>
         );
     }

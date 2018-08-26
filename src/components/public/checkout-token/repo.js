@@ -2,7 +2,7 @@
 export const getCartPrice = ({contract, account}) => {
       return new Promise((resolve, reject) => {
             contract.getCartPrice.call(1,{from: account}).then((result) => {
-                console.log('result', result)
+   
                 const cartPrice = result.toNumber()
                 resolve(cartPrice);
             })
@@ -16,7 +16,6 @@ export const getTokenBalance =({ account, tokenContract}) => {
           .then((result)=>{
             const balance = result.toNumber();
 
-            console.log('--balance', balance);
              resolve(balance)
           })
     });

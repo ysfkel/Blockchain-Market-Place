@@ -40,4 +40,18 @@ export const transferAmount = ({ contract, web3 ,account}) => {
                        resolve(result)
                  })
         })
+
+        
+}
+
+
+export const getAmountOfTokensOnSale = ({tokenContract,saleContractAddress}) => {
+       return new Promise((resolve, reject) => {
+              tokenContract
+              .balanceOf.call(saleContractAddress)
+              .then((balance) => {
+                    
+                    resolve(balance.toNumber());
+              })
+       })
 }

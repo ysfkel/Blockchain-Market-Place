@@ -1,8 +1,15 @@
 import React, { Component }from 'react';
 import * as appService  from '../../../../services/app.service';
 import * as accountService from '../services/account.service';
-
 import {  Link  } from 'react-router-dom';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import * as styles from './styles';
 
 export default class AdminList extends Component {
        
@@ -41,27 +48,42 @@ export default class AdminList extends Component {
             })
         }
 
-    
-    renderList =() => {
-      
-        return this.state.users.map((user, index)=>{
-            return(<div key={index}>
-                 <span>{user.name}</span> <span>{user.roleText}</span>  <span>{user.account}</span>   
-                <Link to={`/update-admin-account/${user.account}`}>Details</Link>
-                 </div>)
-         });
-    }
+      renderList =() => {
 
+          return this.state.users.map((user, index)=>{
+                return(
+                    <TableRow key={index}>
+                    <TableCell>{user.name}</TableCell> 
+                    <TableCell >{user.roleText}</TableCell> 
+                     <TableCell >{user.account}</TableCell> 
+                       <TableCell > <Link to={`/update-admin-account/${user.account}`}>Details</Link></TableCell>    
+                    </TableRow>
+                )
+        })
+    }
     render() {
-        
-        return(
-            <div>
-              <h1>ADMIN USERS LIST</h1>
-              <Link to={`/create-admin-account`}>CREATE</Link>
-              <p>
-               {this.renderList()}
-              </p>
-            </div>
+
+          return(
+               <div style={styles.container}>
+                       <h1>ADMIN USERS LIST</h1>
+                <Paper>
+                
+                    <Table>   
+                        <TableHead>
+                            <TableRow>
+                                <TableCell >Name</TableCell>
+                                <TableCell >ROLE</TableCell>
+                                <TableCell >ACCOUNT</TableCell>
+                                       <TableCell > </TableCell>
+                            </TableRow>
+                        </TableHead> 
+                        <TableBody>
+                    
+                         {this.renderList()}
+                        </TableBody>
+                    </Table>
+                    </Paper>
+                </div>
         );
     }
 

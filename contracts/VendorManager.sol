@@ -4,6 +4,10 @@ import "./UserManager.sol";
 import "./Base.sol";
 import "./VendorBase.sol"; 
 
+/**
+  USED BY THE APP OWNER TO MANAGE
+  VENDORS
+ */
 contract VendorManager is Base, Ownerble, VendorBase {
     
     Vendor[] internal pendingVendors;
@@ -12,6 +16,10 @@ contract VendorManager is Base, Ownerble, VendorBase {
     event  VendorAccountRequested(bool status);
     event  VendorAccountApproved(bool status);
 
+    /**
+      RETURNS THE LSIT OF USERS THAT HAVE PLACED A REQUEST
+      FOR A VENDOR ACCOUNT
+     */
     function getPendingVendorsCount() public view returns (uint) {
           if(pendingVendors.length>0) {
                 return pendingVendors.length;
@@ -20,6 +28,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
          
     }
     
+    /**
+      RETURNS THE LIST OF APPROVED VENDORS
+     */
     function getApprovedVendorsCount() public view returns (uint) {
         if(approvedVendors.length>0) {
                return approvedVendors.length;
@@ -27,6 +38,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
           return 0;
     }
     
+    /**
+      RETURNS THE NUMBER OF PENDING VENDORS
+     */
     function getPendingVendors() public view returns (uint) {
           if(pendingVendors.length>0) {
                return pendingVendors.length;
@@ -34,6 +48,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
           return 0;
     }
     
+    /**
+      RETURNS APPROVED VENDOR
+     */
     function getApprovedVendorByIndex(uint index) public view returns (string, string, string, uint, address) {
          require(index < approvedVendors.length, "Invalid index");
           return(
@@ -45,6 +62,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
           );
     }
     
+    /**
+      RETURNS PENDING VENDOR
+     */
      function getPendingVendorByIndex(uint index) public view returns (string, string, string, uint, address) {
          require(index < pendingVendors.length, "Invalid index");
           return(
@@ -56,6 +76,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
           );
     }
     
+    /**
+      RETURNS APPROVED VENDOR
+     */
      function getVendorByAddress(address account) public view returns (string, string, string, uint, address) {
          require(vendors[account].isVendorOrApplicant);
           return(
@@ -68,10 +91,14 @@ contract VendorManager is Base, Ownerble, VendorBase {
     }
     
     
-    
+    /**
+      ALLOWS USERS TO PLACE REQUEST FOR A VENDOR ACCOUNT
+     */
     function requestVendorAccount(string _name, string _email,  string _phone) public returns(bool) {
+         //REVERT IF THE USER HAS ALREADY PLACED A REQUEST FOR A VENDOR ACCOUNT
           require(vendors[msg.sender].isVendorOrApplicant == false, "REQUEST IS IN PROCESS");
            
+           //ADD THE USER TO THE LIST OF  VENDORS AS PENDING
           vendors[msg.sender] = Vendor(_name, _email, _phone, AccountState.Pending, 
           msg.sender, true,  int(pendingVendors.length),getNotExistsIndex(), AppRole.VendorAwaitingApproval, 0);
          
@@ -89,6 +116,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
          
     }
     
+    /**
+      APPROVE A USER TO BECOME A VENDOR
+     */
     function approveVendorAccount(address account) public ownerOnly returns(bool) {
          require(vendors[account].isVendorOrApplicant == true);
           vendors[account].state = AccountState.Approved;
@@ -101,6 +131,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
           return true;
     }
     
+    /**
+      REMOVES APPROVED VENDOR FROM PENDING VENDORS LIST
+     */
     function removeAccountFromPendingList(address account) private returns(bool) {
           require(vendors[account].pendingListIndex > -1);
           pendingVendors[uint(vendors[account].pendingListIndex)] = pendingVendors[pendingVendors.length - 1];
@@ -112,6 +145,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
           return true;
     }
     
+    /**
+      ADDS APPROVED VENDOR TO APPROVED VENDORS LIST
+     */
     function addAccountToApprovedList(address account) private returns(bool) {
           vendors[account].approveListIndex = int(approvedVendors.length);
           approvedVendors.push(vendors[account]);

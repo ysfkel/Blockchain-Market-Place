@@ -24,13 +24,24 @@ export const withdraw =({account,contract, web3}) => {
               contract.withdraw({from:account, gas:3000000})
               .then((result)=>{
                    console.log('...withdrwal completed');
-
-                   //const balance = web3.fromWei(result.toNumber(),'ether');
-                   resolve();
+                     resolve();
               })
               .then((e)=>{
                   
                   reject(e)
               })
      });
+}
+
+export const getTokenBalance =({ account, tokenContract}) => {
+
+    return new Promise((resolve, reject) => {
+          tokenContract.balanceOf.call(account, {from:account})
+          .then((result)=>{
+            const balance = result.toNumber();
+
+            console.log('--balance', balance);
+             resolve(balance)
+          })
+    });
 }

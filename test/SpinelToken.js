@@ -129,7 +129,7 @@ contract('SpinelToken', function(accounts) {
                          toAccount, 10 , {from: spendingAccount});
                })
                .then(function(receipt) {
-                      assert.equal(receipt.logs.length, 1, 'triggers one event');
+                      assert.equal(receipt.logs.length, 2, 'triggers one event');
                       assert.equal(receipt.logs[0].event, 'Transfer', 'should be the "Transfer" event'); 
                       assert.equal(receipt.logs[0].args._from, fromAccount, 'logs the account the tokens are transfered from'); 
                       assert.equal(receipt.logs[0].args._to, toAccount, 'logs the account the tokens are transfered to'); 

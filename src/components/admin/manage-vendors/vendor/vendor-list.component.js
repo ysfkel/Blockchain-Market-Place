@@ -2,8 +2,15 @@ import React, { Component }from 'react';
 import { getWeb3Contract } from '../../../../services/web3.service';
 import * as appService  from '../../../../services/app.service';
 import * as accountService from '../services/account.service';
-
 import {  Link  } from 'react-router-dom';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import * as styles from './styles';
 
 class VendorList extends Component {
        
@@ -66,23 +73,44 @@ class VendorList extends Component {
 
     
     renderVendors =() => {
-        return this.state.allVendors.map((vendor, index)=>{
-            return(<div key={index}>
-                 <span>{vendor.name}</span> <span>{vendor.email}</span>  <span>{vendor.phone}</span>   <span>{vendor.statusText}</span> 
-                <Link to={`/manage-vendor/${vendor.account}`}>Details</Link>
-                 </div>)
-      });
+
+          return this.state.allVendors.map((vendor, index)=>{
+                return(
+                    <TableRow key={index}>
+                    <TableCell>{vendor.name}</TableCell> 
+                    <TableCell >{vendor.email}</TableCell> 
+                     <TableCell >{vendor.phone}</TableCell> 
+                    <TableCell >{vendor.statusText}</TableCell> 
+                       <TableCell > <Link to={`/manage-vendor/${vendor.account}`}>Details</Link></TableCell>    
+                    </TableRow>
+                )
+        })
     }
 
     render() {
         
         return(
-            <div>
-              <h1>VENDOR LIST</h1>
-              <p>
-               {this.renderVendors()}
-              </p>
-            </div>
+               <div style={styles.container}>
+                     <h3>VENDOR LIST</h3>
+                <Paper>
+                
+                    <Table>   
+                        <TableHead>
+                            <TableRow>
+                                <TableCell >Name</TableCell>
+                                <TableCell >Email</TableCell>
+                                <TableCell >Phone</TableCell>
+                                <TableCell >Account Status </TableCell>
+                                       <TableCell > </TableCell>
+                            </TableRow>
+                        </TableHead> 
+                        <TableBody>
+                    
+                         {this.renderVendors()}
+                        </TableBody>
+                    </Table>
+                    </Paper>
+                </div>
         );
     }
 

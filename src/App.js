@@ -107,6 +107,7 @@ export default class App extends Component{
                                <Link style={style.linkStyle} to="/stores">Stores</Link>
                                <Link style={style.linkStyle} to="/token-sale">Buy Tokens</Link>
                                <Link style={style.linkStyle} to="/order-history">Order History</Link>
+                               
                                { this.state.role === ROLE.CUSTOMER &&
                                  <Link style={style.linkStyle} to="/vendor-request">Vendor Request</Link>
                                }

@@ -51,16 +51,10 @@ contract('MarketPlace', function(accounts) {
         })
 
         .then(function(userRole) {
-            console.log('--=userRole[0].toNumber()', userRole.toNumber())
            assert.equal(userRole.toNumber(), 4, ' user role 4');
-            // assert.equal(receipt.logs.length, 1, ' triggers 1 event');
-            // const expectedEventName = 'VendorAccountRequested';
-            // assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-            // assert.equal(receipt.logs[0].args.status, true, ' logs the status of vendor account request');
-
+          
             return contractInstance.getPendingVendorsCount();
             
-            //
         })
         .then(function(pendingVendorsCount) {
                assert.equal(pendingVendorsCount.toNumber(), 1, 'pending vendors should equal 1');

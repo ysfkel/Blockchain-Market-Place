@@ -197,10 +197,10 @@ contract('MarketPlace', function(accounts) {
          
           })
           .then(function(receipt) {
-            // assert.equal(receipt.logs.length, 1, ' triggers 1 event');
-            // const expectedEventName = 'CartItemUpdated';
-            // assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-            // assert.equal(receipt.logs[0].args.productQuantity, 4, ' logs the updated item quantity');
+            assert.equal(receipt.logs.length, 1, ' triggers 1 event');
+            const expectedEventName = 'CartItemUpdated';
+            assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
+            assert.equal(receipt.logs[0].args.productQuantity.toNumber(), 10, ' logs the updated item quantity');
 
          
              return contractInstance.getCartPrice(
@@ -212,32 +212,20 @@ contract('MarketPlace', function(accounts) {
           .then(function(cartPrice) {
                 const _cartPrice = cartPrice.toNumber();
                 const price = (updated_productQuantity_cart * productPrice_in_spinel);
-                console.log('===CART PRICEEEE------------', _cartPrice, price);
-             
-                assert.equal(_cartPrice,price, 'returns product price' );
+                 assert.equal(_cartPrice,price, 'returns product price' );
          
                return contractInstance.checkOutTokenPayment(
                    0,{
-                     from:  customerAccount
+                     from:  customerAccount,
+                     value: updated_cartPrice
                })
           })
-          .then(assert.fail).catch(function(error) {
-             // console.log('==REVERT ERROR', error)
-               assert(error.message.indexOf('revert') >=0, 'revert if cart amount was not sent new one');
-
-                 return contractInstance.checkOutTokenPayment(
-                     0,
-                     {
-                     from:  customerAccount,
-                    value: updated_cartPrice
-               });
-          }) 
           .then(function(receipt) {
              const price = (updated_productQuantity_cart * productPrice);
              assert.equal(receipt.logs.length,2, ' triggers 1 event');
              const expectedEventName = 'PaymentByEtherCompleted';
              assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-             assert.equal(receipt.logs[0].args.amount, price , ' logs the updated item quantity');
+             assert.equal(receipt.logs[0].args.amount.toNumber(), price , ' logs the updated item quantity');
 
           
               return contractInstance.getVendorBalance({
@@ -245,7 +233,7 @@ contract('MarketPlace', function(accounts) {
               });
           })
           .then(function(vendorBalance) {
-              //   assert.equal(vendorBalance.toNumber(), updated_cartPrice, 'vendor balance if updated' )
+                 assert.equal(vendorBalance.toNumber(), updated_cartPrice, 'vendor balance is updated' )
                 return contractInstance.getProductQuantity(
                        storeIndex,
                        productId,
@@ -253,8 +241,9 @@ contract('MarketPlace', function(accounts) {
                         from: vendor.account
                 })
           })
-               .then(function(receipt) {
-         
+               .then(function(productQuantity) {
+          
+                     assert.equal(productQuantity.toNumber(), 90, 'product quantity is updated' )
                     return contractInstance.addItemToCart(
                         vendor.account,
                         storeIndex,
@@ -285,56 +274,56 @@ contract('MarketPlace', function(accounts) {
                      from:  customerAccount
                });
           }) 
-          .then(function(receipt) {
-             assert.equal(receipt.logs.length, 2, ' triggers 1 event');
-             const expectedEventName = 'PaymentByTokenCompleted';
-             assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-             assert.equal(receipt.logs[0].args.amount.toNumber(), (productPrice_in_spinel * productQuantity_cart), ' logs product price');
+        //   .then(function(receipt) {
+        //      assert.equal(receipt.logs.length, 2, ' triggers 1 event');
+        //      const expectedEventName = 'PaymentByTokenCompleted';
+        //      assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
+        //      assert.equal(receipt.logs[0].args.amount.toNumber(), (productPrice_in_spinel * productQuantity_cart), ' logs product price');
             
               
-               return contractInstance.getCustomerOrdersHistoryCount({
-                   from: customerAccount
-               });
-          })
-          .then(function(customerOrdersHistoryCount) {
-                const count = customerOrdersHistoryCount.toNumber();
-                assert.equal(count, 2, 'customer orders count is 1')
-                return contractInstance
-                .getOrderTransaction(2, 0, {
-                    from: customerAccount
-                });
-          })
-          .then(function(orderTransaction) {
-            //  assert.equal(receipt.logs.length, 2, ' triggers 1 event');
-            //  const expectedEventName = 'PaymentByTokenCompleted';
-             assert.equal(orderTransaction[5], 1, 'paymentMethod is '+1);
-             assert.equal(orderTransaction[3], vendorAccount, 'vendorAccount is '+vendorAccount);
+        //        return contractInstance.getCustomerOrdersHistoryCount({
+        //            from: customerAccount
+        //        });
+        //   })
+        //   .then(function(customerOrdersHistoryCount) {
+        //         const count = customerOrdersHistoryCount.toNumber();
+        //         assert.equal(count, 2, 'customer orders count is 1')
+        //         return contractInstance
+        //         .getOrderTransaction(2, 0, {
+        //             from: customerAccount
+        //         });
+        //   })
+        //   .then(function(orderTransaction) {
+        //     //  assert.equal(receipt.logs.length, 2, ' triggers 1 event');
+        //     //  const expectedEventName = 'PaymentByTokenCompleted';
+        //      assert.equal(orderTransaction[5], 1, 'paymentMethod is '+1);
+        //      assert.equal(orderTransaction[3], vendorAccount, 'vendorAccount is '+vendorAccount);
             
              
-                    return contractInstance.addItemToCart(
-                        vendor.account,
-                        storeIndex,
-                        productId,
-                        productQuantity_cart,
-                            {
-                            from:  customerAccount
-                            })
-                 // })
-          })
-           .then(function(receipt) {
+        //             return contractInstance.addItemToCart(
+        //                 vendor.account,
+        //                 storeIndex,
+        //                 productId,
+        //                 productQuantity_cart,
+        //                     {
+        //                     from:  customerAccount
+        //                     })
+        //          // })
+        //   })
+        //    .then(function(receipt) {
             
-            assert.equal(receipt.logs.length, 1, ' triggers 1 event');
-            const expectedEventName = 'ItemInsertedToCart';
-            assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-            assert.equal(receipt.logs[0].args.cartSize, 1, ' logs the cartSize');
+        //     assert.equal(receipt.logs.length, 1, ' triggers 1 event');
+        //     const expectedEventName = 'ItemInsertedToCart';
+        //     assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
+        //     assert.equal(receipt.logs[0].args.cartSize, 1, ' logs the cartSize');
 
-              return contractInstance.checkOutTokenPayment(
-                     0,
-                     {
-                     from:  customerAccount,
-                           value: updated_cartPrice
-               });
-          })
+        //       return contractInstance.checkOutTokenPayment(
+        //              0,
+        //              {
+        //              from:  customerAccount,
+        //                    value: updated_cartPrice
+        //        });
+        //   })
         //   .then(function(owner) {
         //      console.log('--token instanc 1', owner);
         //      return tokenSaleInstance.getOwner();

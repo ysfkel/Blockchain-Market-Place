@@ -119,17 +119,9 @@ contract('SpinelTokenSale', function(accounts) {
            .then(function(balance) {    
                  const tokensNotSold = ( initial_supply + (tokensAvailableForPurchase - numberOfTokens));
                  assert.equal(balance.toNumber(),tokensNotSold, 'returns all unsold dapp tokens to admin');
-                 //return tokenSaleInstance.tokenPrice();
+              
            })
-           .then(function(tokenPrice) {
-                // assert.equal(tokenPrice.toNumber(), 0, 'token price was reset');
-
-                 return tokenSaleInstance.getContractAddress({
-                       from: admin
-                 });
-           }).then(function(address) {
-                console.log('--contract address', address)
-           })
+           
     });
     
 })

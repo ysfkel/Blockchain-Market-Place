@@ -81,12 +81,13 @@ class ProductList extends Component {
         const { storeIndex, productId } = this.state;
 
         const products = this.state.products.map((p, index)=>{
-             const { name, description, price, productId } = p;
+             const { name, description, price, productId, quantity } = p;
                 return(
                     <TableRow key={index}>
                         <TableCell>{name}</TableCell> 
                         <TableCell>{description}</TableCell> 
                         <TableCell>{price} </TableCell> 
+                        <TableCell>{quantity} </TableCell> 
                         <TableCell><Link to={`/product-edit/${storeIndex}/${productId}`}>Update</Link></TableCell>
                         <TableCell> <button  type="button" onClick={()=>this.deleteProduct({storeIndex, productId})}>delete</button></TableCell>
                        
@@ -109,6 +110,7 @@ class ProductList extends Component {
                                 <TableCell >Name</TableCell>
                                 <TableCell >Desccription)</TableCell>
                                 <TableCell >Price (Ether)</TableCell>
+                                 <TableCell >Quantity</TableCell>
                                 <TableCell ></TableCell>
                                 <TableCell ></TableCell>
                             </TableRow>

@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import * as REPO from './repo';
+import * as styles from './styles';
 
 export default class ManageTokenSale extends Component {
        
@@ -40,8 +41,7 @@ export default class ManageTokenSale extends Component {
                                this.setState({
                                    tokenSaleContractAddress
                                })
-                          })
-                          console.log('--tokenSaleContract',tokenSaleContractResult, tokenSaleContract)    
+                          })   
                 });
 
                  services.getTokenContract((tokenContractResult) => {
@@ -53,6 +53,7 @@ export default class ManageTokenSale extends Component {
                           .then((totalTokenSupply)=>{
                                this.setState({totalTokenSupply})
                           })
+                          this.getAmountOftokensOnSale();
   
                 });
               
@@ -60,6 +61,14 @@ export default class ManageTokenSale extends Component {
             
          });
        }
+
+    getAmountOftokensOnSale =() => {
+          const saleContractAddress = this.tokenSaleContract.address;
+          REPO.getAmountOfTokensOnSale({ saleContractAddress , tokenContract: this.tokenContract})
+          .then((amontOfTokensOnSale) => {
+               this.setState({amontOfTokensOnSale});
+          }) 
+    }
 
     handleApprove =() => {
         REPO.transferAmountToTokenSaleContract({  
@@ -85,14 +94,17 @@ export default class ManageTokenSale extends Component {
     render() {
         
         return(
-            <div>
+         <div style={styles.formContainer}>
+             <Paper style={styles.innerContainer}>
               <h1>MANAGE TOKEN SALE</h1>
                   <div><h3>Total Token Supply: {this.state.totalTokenSupply}</h3></div>
+                  <div>Total tokens on sale {this.state.amontOfTokensOnSale}</div>
                   <div>
                      <TextField
+                        style={styles.input}
                         type="number"
                         id="name"
-                        label=" to Sell"
+                        label="Enter amount of tokens to sell"
                         value={this.state.amount}
                         onChange={this.handleChange}
                         margin="normal"
@@ -101,6 +113,7 @@ export default class ManageTokenSale extends Component {
                   <Button type="button" onClick={(e)=>this.handleApprove()}>
                         APPROVE AMOUNT
                  </Button>
+             </Paper>
             </div>
         );
     }

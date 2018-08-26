@@ -159,10 +159,6 @@ export default class ProductEdit extends Component{
               showUpdateProductImage:true,
               imageUploadInProgress:false
           });
-          // const { productId, storeIndex, account } = this.state;
-          
-        //    REPO.updateProductImage({ contract: this.storeInstance, 
-        //    imageHash, storeIndex, productId, account})
         })
      
     }
