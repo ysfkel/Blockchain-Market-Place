@@ -9,7 +9,7 @@ export const getUserStoreCount =(contract,account) => {
                   console.log('result count', result, result.toNumber())
                   resolve(result.toNumber())
               })
-              .then((e)=>{
+              .catch((e)=>{
                   console.log('--error', e)
                   reject(e)
               })

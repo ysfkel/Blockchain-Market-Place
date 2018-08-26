@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import {  Link} from 'react-router-dom';
+import * as styles from './styles';
 
 export default class OrderHistory extends Component {
 
@@ -71,7 +72,7 @@ export default class OrderHistory extends Component {
                     //    <h1>ORDER 3</h1>
                  <Paper>
             
-                <Table>   
+                <Table >   
                     <TableHead>
                         <TableRow>
                             <TableCell >Vendor</TableCell>
@@ -98,9 +99,8 @@ export default class OrderHistory extends Component {
      
 
         render() {
-            console.log('this.state.orderHistory--', this.state.orderHistory.length);
-            const orderHistory = this.state.orderHistory.map((order, index)=>{
-                           console.log('==order--', order);
+             const orderHistory = this.state.orderHistory.map((order, index)=>{
+            
                 const renderedOrder = this.renderOrder(order);
                 return(
                       <div>
@@ -111,9 +111,9 @@ export default class OrderHistory extends Component {
             })
 
         return(
-              <div>
+              <div style={styles.container}>
                  <h1>ORDER HISTORY</h1>
-              {orderHistory}
+                  {orderHistory}
               </div>
         );
 

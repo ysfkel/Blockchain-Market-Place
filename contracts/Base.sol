@@ -1,5 +1,6 @@
 
-pragma solidity ^0.4.18;
+pragma solidity 0.4.24;
+
 contract Base{
     
    function getNotExistsIndex() internal pure returns (int) {

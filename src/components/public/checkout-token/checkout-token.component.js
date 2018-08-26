@@ -10,6 +10,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import {  Link} from 'react-router-dom';
+import ApproveTokenPay from './approve-token-pay';
+import * as styles from './styles';
 
 export default class CheckoutTokenPay extends Component {
 
@@ -18,11 +20,15 @@ export default class CheckoutTokenPay extends Component {
             this.state = {
                products:[], 
                account:'',
-               cartPrice:0
+               cartPrice:0,
+               showApproveTokenPay: false
             }
             this.web3;
             this.tokenContract;
+            this.storeInstance;
             this.handlePayment=this.handlePayment.bind(this);
+            this.handleClose = this.handleClose.bind(this);
+            this.handleClickOpen = this.handleClickOpen.bind(this);
          
         }
         
@@ -36,10 +42,14 @@ export default class CheckoutTokenPay extends Component {
                 this.storeInstance = contract;
                 services.getAccount((account, balance) => {
 
-                           this.setState({account: account, balance});
+                           this.setState({
+                              account: account, 
+                              balance,
+                              storeContractAddress: this.storeInstance.address
+                           });
                             xREPO.getCartItem({ contract, web3 ,account})
                             .then((products) => {
-                                    console.log('--product', products)
+                                 
                                     this.setState({products})
                             });
 
@@ -54,10 +64,11 @@ export default class CheckoutTokenPay extends Component {
                      services.getTokenContract((tokenContractResult) => {
                           const { tokenContract } =  tokenContractResult ;
                           this.tokenContract = tokenContract;
-                          console.log('--tokenSaleContract',tokenContractResult, tokenContract)
-                          REPO.getTokenBalance({ account, tokenContract})
+                          this.listenForApprovalEvent();
+
+                           REPO.getTokenBalance({ account, tokenContract})
                             .then((tokenBalance) =>{
-                                    console.log('--tokenBalance', tokenBalance)
+                       
                                 this.setState({tokenBalance})
                             });
                      });
@@ -66,22 +77,34 @@ export default class CheckoutTokenPay extends Component {
             })
         }
 
+        listenForApprovalEvent = () => {
+            this.tokenContract
+            .Approval({},{
+                fromBlock:0,
+                toBlock:'latest'
+            })
+            .watch(() => {
+                this.handleClose();
+                console.log('approved')
+            })
+        }
 
-        
+
+        handleClickOpen = () => {
+           this.setState({ showApproveTokenPay: true });
+       };
+
+         handleClose = () => {
+           this.setState({ showApproveTokenPay: false });
+        };
 
         handlePayment = () => {
           if(this.state.balance >= this.state.cartPrice) {
-            const { cartPrice } = this.state;
             const storeInstance = this.storeInstance;
-            const tokenContract = this.tokenContract;
             const { account } = this.state;
-            //cartPrice = this.web3.toWei(cartPrice);
-            //checkOutByToken = ({ account, amountToApprove, contract ,tokenContract, spenderContractAddress}
             REPO.checkOutByToken({
                 account, 
-                cartPrice,
-                storeInstance,
-                tokenContract
+                storeInstance
                 }).then(()=>{
                 console.log('purchase updated!')
             })
@@ -103,7 +126,7 @@ export default class CheckoutTokenPay extends Component {
                 )
         })
             return(
-            <div>
+            <div style={styles.container}>
                     <h1>SHOPPING CART</h1>
             <Paper>
             
@@ -128,10 +151,22 @@ export default class CheckoutTokenPay extends Component {
                            <Button type="button" onClick={(e)=>this.handlePayment()}>
                                 PAY
                             </Button>
+
+                             <Button onClick={this.handleClickOpen}>Open form dialog</Button>
+       
                                </TableRow>
                     </TableBody>
                 </Table>
             </Paper>
+            <ApproveTokenPay 
+              account={this.state.account} 
+              cartPrice={this.state.cartPrice}
+              open={this.state.showApproveTokenPay} 
+              handleClose={this.handleClose}
+              tokenContract={this.tokenContract}
+              balance={this.state.balance}
+              storeContractAddress={this.state.storeContractAddress}
+              />
             </div>
             );
         }

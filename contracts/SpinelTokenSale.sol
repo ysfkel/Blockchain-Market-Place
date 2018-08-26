@@ -1,4 +1,4 @@
-pragma solidity ^0.4.2;
+pragma solidity 0.4.24;
 import './SpinelToken.sol';
 import "./SafeMath.sol";
 

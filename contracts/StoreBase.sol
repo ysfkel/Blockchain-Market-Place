@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity 0.4.24;
 
 contract StoreBase {
     
@@ -51,6 +51,7 @@ contract StoreBase {
         uint productId;
         uint quantity;
         uint priceInSpinelToken;
+        string imageHash;
     }
     
     struct Store {

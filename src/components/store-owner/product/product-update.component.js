@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getAccount, getWebContract} from '../../../services/app.service';
 import * as REPO from './repo';
 import * as helper from './helper';
-
+import ipfs from '../../../ipfs';
 export default class ProductEdit extends Component{
       
     constructor(props) {
@@ -14,7 +14,9 @@ export default class ProductEdit extends Component{
             price:0,
             quantity:0,
             priceInSpinelToken: 0,
-            account:''
+            account:'',
+            imageHash:'',
+            buffer: null
         }
         this.web3;
         this.productNameInput='name';
@@ -24,18 +26,21 @@ export default class ProductEdit extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handlePriceChange = this.handlePriceChange.bind(this);
+        this.captureFile = this.captureFile.bind(this);
+        this.onSubmitFileForm = this.onSubmitFileForm.bind(this);
     }
 
     componentDidMount=() => { 
-        const { storeId , productId } = this.props;   
+        const { storeId, productId  } = this.props;   
         const storeIndex = storeId;            
         getWebContract((web3Contract) => {
             const { contract } =  web3Contract ;
             const { web3 } = web3Contract;
             this.web3 = web3;
             this.storeInstance = contract;
+            this.listenForEvents({contract})
             getAccount((account) => {
-                this.setState({account: account, storeIndex});
+                this.setState({account: account, storeIndex, isUpdatable:(productId!==undefined)});
                 if(storeId && productId) {
                   REPO.getProduct({ contract, web3 ,account, storeId, productId})
                   .then((product) => {
@@ -47,17 +52,26 @@ export default class ProductEdit extends Component{
         })
      }
 
-     isUpdatable=()=> {
-           return this.state.storeIndex!==undefined && this.state.productId !=undefined;
-     }
+    listenForEvents = ({contract}) => {
+   
+           contract.ProductCreated({}, {
+               fromBlock:0,
+               toBlock: 'latest'
+           }).watch((error, event) => {
+                const productId = event.args.productId.toNumber()
+                console.log('-event', event, productId)
+                this.setState({productId});
+           });
+    
+      } 
 
      handleSubmit = (e) => {
         e.preventDefault();
         if( this.storeInstance ) {
            let { name,quantity, price,priceInSpinelToken, description, productId, storeIndex, account} = this.state;
-            console.log('---prod price', price)
+         
             price = this.web3.toWei(price);
-         if(this.isUpdatable()) {
+         if(this.state.isUpdatable) {
             const { productId} = this.state;
             const contract = this.storeInstance;
             REPO.editProduct({ name, price,priceInSpinelToken,quantity ,description, productId, storeIndex, account, contract}).then(r=>console.log)
@@ -103,8 +117,39 @@ export default class ProductEdit extends Component{
       
         
     }
+    
+    captureFile = (e) => {
+       e.preventDefault();
+       const file = e.target.files[0];
+       const reader = new FileReader();
+       reader.readAsArrayBuffer(file);
+       reader.onloadend = () => {
+           this.setState({buffer: Buffer(reader.result)});
+       }
 
-    //etherToSpinel
+    }
+
+    onSubmitFileForm = (e) => {
+          e.preventDefault();
+        ipfs.files.add(this.state.buffer, (error, result) => {
+             if(error) {
+                 console.error(error);
+             }
+          
+             const imageHash = result[0].hash;
+             console.log('imageHash - ', imageHash)
+              this.setState({
+                 imageHash: imageHash
+             })
+
+           const { productId, storeIndex, account } = this.state;
+
+           REPO.updateProductImage({ contract: this.storeInstance, 
+           imageHash, storeIndex, productId, account})
+        })
+       console.log('submit file');
+    }
+
 
     render() {
         return(
@@ -130,11 +175,20 @@ export default class ProductEdit extends Component{
                         <textarea name={this.productDescriptionInput}  value={this.state.description} onChange={this.handleChange}></textarea>
                     </div>
 
-                   
+                    
 
                     <div>
                        <button type="submit">Save</button>
                    </div>
+                </form>
+
+                <form onSubmit={this.onSubmitFileForm}>
+                   <h2>UPLOAD</h2>
+                   <div>
+                       <img src={`https://ipfs.io/ipfs/${this.state.imageHash}`} alt=""/>
+                       <input type="file" onChange={this.captureFile}/>
+                       <input type="submit"/>
+                     </div>
                 </form>
             </div>
         );

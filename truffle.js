@@ -22,6 +22,11 @@ module.exports = {
         network_id:'*'
        // gas: 670000000000,
     },
+     ropsten: {
+      host: "localhost",
+      port: 8545,
+      network_id: "3"
+    }
   },
 
   solc: {

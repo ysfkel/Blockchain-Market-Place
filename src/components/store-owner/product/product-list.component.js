@@ -20,11 +20,11 @@ class ProductList extends Component {
         getWebContract((web3Contract) => {
             const { contract } =  web3Contract ;
             const { web3 } = web3Contract;
-            const storeIndex = this.props.storeId;
+            const storeIndex = storeId;
         
             this.storeInstance = contract;
             getAccount((account) => {
-                this.setState({account: account});
+                this.setState({account: account, storeIndex});
                 getProducts({account, storeIndex , web3},contract ).then((products) => {
                       console.log('products',products)
                       this.setState({products: products, storeIndex})
@@ -52,7 +52,7 @@ class ProductList extends Component {
 
    //
     render() {
-        const { storeIndex } = this.state;
+        const { storeIndex, productId } = this.state;
         const products = this.state.products.map((p, index)=>{
             const { name, description, price, productId } = p;
             return(<div key={index}>

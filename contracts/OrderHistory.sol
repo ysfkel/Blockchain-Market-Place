@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity 0.4.24;
 import "./StoreBase.sol";
 
 contract OrderHistory is StoreBase{
@@ -9,7 +9,8 @@ contract OrderHistory is StoreBase{
          
     }
     
-    function createOrderHistory(uint256 orderId, uint grandTotal, uint245 paymentMethod) public returns(bool) {
+    function createOrderHistory(uint256 orderId, uint grandTotal, 
+    uint256 paymentMethod) public returns(bool) {
          orderHistory[msg.sender][orderId].timeStamp = now;
          orderHistory[msg.sender][orderId].grandTotal = grandTotal;
          orderHistory[msg.sender][orderId].grandTotal = paymentMethod;

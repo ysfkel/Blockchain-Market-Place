@@ -71,83 +71,159 @@ contract('MarketPlace', function(accounts) {
         //
        
         //
-        .then(function(receipt) {
-             assert.equal(receipt.logs.length, 1, ' triggers 1 event');
-            const expectedEventName = 'StoreCreated';
-            assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-            assert.equal(receipt.logs[0].args.storesSize, 1, ' logs the store size');
+        // .then(function(receipt) {
+        //      assert.equal(receipt.logs.length, 1, ' triggers 1 event');
+        //     const expectedEventName = 'StoreCreated';
+        //     assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
+        //     assert.equal(receipt.logs[0].args.storesSize, 1, ' logs the store size');
 
-            //createProduct(uint storeIndex,bytes32 productName, bytes32 description, uint price, uint quantity
-             const storeIndex = 0;
-             return contractInstance.createProduct(
+        //     //createProduct(uint storeIndex,bytes32 productName, bytes32 description, uint price, uint quantity
+        //      const storeIndex = 0;
+        //      return contractInstance.createProduct(
+        //          storeIndex,
+        //          product.name,
+        //          product.description,
+        //          productPrice,
+        //           //3000000000000000,
+        //           100,
+        //           productPrice_in_spinel,
+        //         {
+        //               from: customer.account
+        //         }
+        //      );
+         
+        //   }).then(function(receipt) {
+         
+        //     assert.equal(receipt.logs.length, 1, ' triggers 1 event');
+        //     const expectedEventName = 'ProductCreated';
+        //     assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
+        //     assert.equal(receipt.logs[0].args.productId, 1, ' logs the productId');
+        //     assert.equal(receipt.logs[0].args.productIdSlot, 0 , ' logs the productIdSlot')
+         
+        //            const storeIndex = 0;
+        //             const productId = 1;
+        //             return contractInstance.getProductVendor(
+        //                 storeIndex,
+        //                 productId,
+        //                     {
+        //                     from: customer.account
+        //                     }
+        //             );  
+        //   })
+        //    .then(function(product) {
+        //        assert.equal(product[2].toNumber(),productPrice, 'Product name should be '+product.name);
+               
+        //                const storeIndex = 0;
+        //             const productId = 1;
+        //        return contractInstance.editProduct(
+        //            storeIndex,
+        //            productId,
+        //             'updated product name',
+        //             'updated product description',
+        //              4000000000000000,
+        //              120,
+        //              productPrice_in_spinel,
+        //             {
+        //                   from: customer.account 
+        //             }
+        //        );
+        //   }).then(function(receipt) {
+        //     assert.equal(receipt.logs.length, 1, ' triggers 1 event');
+        //     const expectedEventName = 'ProductUpdated';
+        //     assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
+
+        //             const storeIndex = 0;
+        //             const productId = 1; 
+        //      return contractInstance.deleteProduct(
+        //         storeIndex,
+        //         productId,
+        //         {
+        //              from: customer.account 
+        //         }
+        //      );
+        //   })
+        //   .then(function(receipt) {
+        //      assert.equal(receipt.logs.length, 1, ' triggers 1 event');
+        //     const expectedEventName = 'ProductDeleted';
+        //     assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
+        //     assert.equal(receipt.logs[0].args.productId, 1, 'deleted product id:1');
+        //        return contractInstance.createProduct(
+        //          storeIndex,
+        //          product.name,
+        //          product.description,
+        //          productPrice,
+        //           //3000000000000000,
+        //           100,
+        //           productPrice_in_spinel,
+        //         {
+        //               from: customer.account
+        //         }
+        //      );
+        //   })
+          .then(function() {
+               const storeIndex = 0;
+              return contractInstance.createProduct(
                  storeIndex,
                  product.name,
                  product.description,
                  productPrice,
-                  //3000000000000000,
                   100,
                   productPrice_in_spinel,
                 {
                       from: customer.account
                 }
-             );
-         
-          }).then(function(receipt) {
-         
+             ); 
+          })
+          .then(function(receipt) {
+      
             assert.equal(receipt.logs.length, 1, ' triggers 1 event');
             const expectedEventName = 'ProductCreated';
             assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
             assert.equal(receipt.logs[0].args.productId, 1, ' logs the productId');
             assert.equal(receipt.logs[0].args.productIdSlot, 0 , ' logs the productIdSlot')
-         
-                   const storeIndex = 0;
-                    const productId = 1;
-                    return contractInstance.getProductVendor(
-                        storeIndex,
-                        productId,
-                            {
-                            from: customer.account
-                            }
-                    );  
-          })
-           .then(function(product) {
-               assert.equal(product[2].toNumber(),productPrice, 'Product name should be '+product.name);
-               
-                       const storeIndex = 0;
-                    const productId = 1;
-               return contractInstance.editProduct(
-                   storeIndex,
-                   productId,
-                    'updated product name',
-                    'updated product description',
-                     4000000000000000,
-                     120,
-                     productPrice_in_spinel,
-                    {
-                          from: customer.account 
-                    }
-               );
-          }).then(function(receipt) {
-            assert.equal(receipt.logs.length, 1, ' triggers 1 event');
-            const expectedEventName = 'ProductUpdated';
-            assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
 
-                    const storeIndex = 0;
-                    const productId = 1; 
-             return contractInstance.deleteProduct(
-                storeIndex,
-                productId,
-                {
-                     from: customer.account 
-                }
-             );
+  
+              return contractInstance.getProductsIdsVendor.call(0,{ from: customer.account})
+               
+     
+          })
+          .then(function(count) {
+              console.log('-count', count)
+            assert.equal(count.length,1, ' product count is '+count);
+               const storeIndex = 0;
+                return contractInstance.createProduct(
+                    storeIndex,
+                    product.name,
+                    product.description,
+                    productPrice,
+                    100,
+                    productPrice_in_spinel,
+                    {
+                        from: customer.account
+                    }
+                ); 
+
+                
+           
           })
           .then(function(receipt) {
-             assert.equal(receipt.logs.length, 1, ' triggers 1 event');
-            const expectedEventName = 'ProductDeleted';
+              console.log('receipt', receipt.logs[0].args)
+                   assert.equal(receipt.logs.length, 1, ' triggers 1 event');
+            const expectedEventName = 'ProductCreated';
             assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-            assert.equal(receipt.logs[0].args.productId, 1, 'deleted product id:1');
+           assert.equal(receipt.logs[0].args.productId.toNumber(), 2, ' logs the productId');
+            assert.equal(receipt.logs[0].args.productIdSlot.toNumber(), 1 , ' logs the productIdSlot')
 
+             return contractInstance.getProductsIdsVendor.call(0,{ from: customer.account})
+             
+          })
+            .then(function(count) {
+              console.log('-count', count)
+            assert.equal(count.length,2, ' product count is '+count);
+
+               
+                
+           
           })
            // TESTED
            //GET PRODUCT AFTER DELETE

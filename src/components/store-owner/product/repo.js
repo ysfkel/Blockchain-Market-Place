@@ -4,20 +4,37 @@ import * as helper from './helper';
 export const getProductsIds =({storeIndex, account}, contract) => {
 
     return new Promise((resolve, reject) => {
+            console.log('-- storeIndex', storeIndex)
           contract.getProductsIdsVendor.call(storeIndex,{from:account})
           .then((result)=>{
               console.log('result count', result)
               const ids = result.map(i=>i.toNumber());
              resolve(ids)
           })
-          .then((e)=>{
+          .catch((e)=>{
               console.log('--error at getProductsIds', e)
               reject(e)
           })
     });
 }
 
+
+// export const listenForEvents: function({contractInstance}) {
+   
+//            contractInstance.ProductCreated({}, {
+//                fromBlock:0,
+//                toBlock: 'latest'
+//            }).watch((error, event) => {
+//                 console.log('-event', event)
+//            });
+    
+// } 
+
+
 export const createProduct =({ name, quantity,price, description, account, storeIndex, priceInSpinelToken}, contract) => {
+  
+  console.log('CREATE PRODUCT',  storeIndex, name, description, price, quantity,priceInSpinelToken)
+   
     return new Promise((resolve, reject) => {
               contract.createProduct(storeIndex, name, description, price, quantity,priceInSpinelToken, {from:account})
               .then((result)=>{
@@ -30,8 +47,20 @@ export const createProduct =({ name, quantity,price, description, account, store
               })
      });
 }
-//  editProduct(uint storeIndex, uint productId, bytes32 productName, bytes32 description, uint price, uint quantity, uint priceInSpinelToken) public  returns(bool) {
-    
+
+export const updateProductImage = ({contract, imageHash, account, storeIndex, productId}) => {
+   return new Promise((resolve, reject) => {
+              contract.updateProductImage(imageHash, storeIndex, productId, {from:account})
+              .then((result)=>{
+                   console.log('...image saved')
+                   resolve();
+              })
+              .then((e)=>{
+                  
+                  reject(e)
+              })
+     });
+}
 export const editProduct =({ name,quantity ,price, description, productId, account, storeIndex,priceInSpinelToken,contract}) => {
   console.log(' name, price',name, price)
     return new Promise((resolve, reject) => {

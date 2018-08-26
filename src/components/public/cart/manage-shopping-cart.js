@@ -1,16 +1,17 @@
-    import React, { Component } from 'react';
-    import { getAccount, getWebContract} from '../../../services/app.service';
-    import * as REPO from './repo';
-    import Table from '@material-ui/core/Table';
-    import TableBody from '@material-ui/core/TableBody';
-    import TableCell from '@material-ui/core/TableCell';
-    import TableHead from '@material-ui/core/TableHead';
-    import TableRow from '@material-ui/core/TableRow';
-    import Paper from '@material-ui/core/Paper';
-    import Button from '@material-ui/core/Button';
+import React, { Component } from 'react';
+import { getAccount, getWebContract} from '../../../services/app.service';
+import * as REPO from './repo';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 import {  Link} from 'react-router-dom';
+import * as styles from './styles';
 
-    export default class ManageShoppingCart extends Component {
+export default class ManageShoppingCart extends Component {
 
         constructor(props) {
             super(props)
@@ -99,7 +100,7 @@ import {  Link} from 'react-router-dom';
                 )
         })
             return(
-            <div>
+            <div style={styles.container}>
                     <h1>SHOPPING CART</h1>
             <Paper>
             
@@ -125,10 +126,20 @@ import {  Link} from 'react-router-dom';
                         </TableRow>
                     </TableBody>
                 </Table>
+                
+                  <Link  to="/checkout">
+                     <Button >
+                          checkout (Pay with Ether)
+                     </Button> 
+                  </Link>
 
-                  <Link  to="/checkout">checkout (Pay with Ether)</Link>
+                   
+                  <Link  to="/checkout-token-pay">
+                     <Button href="#text-buttons" >
+                         checkout (Pay with Token)
+                     </Button> 
+                  </Link>
 
-                          <Link  to="/checkout-token-pay">checkout (Pay with Token)</Link>
 
                          
             </Paper>

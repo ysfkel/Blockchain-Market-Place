@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getAccount, getWebContract} from '../../../services/app.service';
 import * as REPO from './repo';
 
+
 export default class ProductDetail extends Component{
       
     constructor(props) {
@@ -22,6 +23,7 @@ export default class ProductDetail extends Component{
     }
 
     componentDidMount=() => { 
+   
         const { storeId , productId , accountId} = this.props;  
         const storeIndex = storeId;
         const vendorAccountId = accountId;             
@@ -31,7 +33,7 @@ export default class ProductDetail extends Component{
  
             this.storeInstance = contract;
             getAccount((account) => {
-                 this.setState({account: account, storeIndex});
+                 this.setState({account: account, storeIndex, productId});
                 if(storeId && productId) {
                     REPO.getProduct({ vendorAccountId,contract, web3 ,account, storeId, productId})
                   .then((product) => {
@@ -87,6 +89,10 @@ export default class ProductDetail extends Component{
         return(
             <div>
                 <h1>Product Details</h1>
+                  <div>
+                     <img src={`https://ipfs.io/ipfs/${this.state.imageHash}`} alt=""/>
+                      
+                  </div>
                    <div>
                        <strong> {this.state.name} </strong>
                     </div>
@@ -100,7 +106,7 @@ export default class ProductDetail extends Component{
                     <div>
                         <strong> {this.state.description}</strong>
                     </div>
-
+          
                    
 
                     <div>

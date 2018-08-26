@@ -22,25 +22,38 @@ export const getTokenBalance =({ account, tokenContract}) => {
     });
 }
 
-export const checkOutByToken = ({ account, cartPrice, storeInstance ,tokenContract}) => {
-     const address = storeInstance.address;
-    console.log('--storeInstance addres',address , account, cartPrice)
+export const checkOutByToken = ({ account, storeInstance }) => {
+ 
      return new Promise((resolve, reject) => {
-            
-             tokenContract.approve(
-                         address,
-                        cartPrice, {
-                        from: account, gas: 3000000
-                    })
-                    .then(() => {
-                          console.log('approval complete')
-                          storeInstance.checkOutTokenPayment(
+         
+         storeInstance.checkOutTokenPayment(
                                 1,//paymentMethod token
-                                {
+                          {
                                 from:  account, gas: 3000000
                          }).then(() => {
                               console.log('checkout complete')
                          })
+                         .catch((e)=> {
+                         console.log('error', e)
+                        })
+             
+    });
+      
+        
+}
+
+
+export const approveTokenPay = ({ account, cartPrice,storeContractAddress, tokenContract}) => {
+   console.log(account, cartPrice,storeContractAddress, tokenContract)
+     return new Promise((resolve, reject) => {
+            
+             tokenContract.approve(
+                        storeContractAddress,
+                        cartPrice, {
+                        from: account, gas: 3000000
+                    })
+                    .then(() => {
+                        resolve();
                     })
                     .catch((e)=> {
                          console.log('error', e)
