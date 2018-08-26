@@ -3,6 +3,13 @@ import { getAccount, getWebContract} from '../../../services/app.service';
 import * as REPO from './repo';
 import * as helper from './helper';
 import ipfs from '../../../ipfs';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import * as styles from './styles';
+import CardMedia from '@material-ui/core/CardMedia';
+import UpdateProductImageDialog from './update-product-image-dialog';
+
 export default class ProductEdit extends Component{
       
     constructor(props) {
@@ -16,7 +23,10 @@ export default class ProductEdit extends Component{
             priceInSpinelToken: 0,
             account:'',
             imageHash:'',
-            buffer: null
+            buffer: null,
+            formSubmitted: false,
+            showUpdateProductImage: false,
+            imageUploadInProgress: false
         }
         this.web3;
         this.productNameInput='name';
@@ -28,6 +38,8 @@ export default class ProductEdit extends Component{
         this.handlePriceChange = this.handlePriceChange.bind(this);
         this.captureFile = this.captureFile.bind(this);
         this.onSubmitFileForm = this.onSubmitFileForm.bind(this);
+        this.handleOpenUpdateImageDialog=this.handleOpenUpdateImageDialog.bind(this);
+        this.handleCloseUpdateImageDialog=this.handleCloseUpdateImageDialog.bind(this);
     }
 
     componentDidMount=() => { 
@@ -58,9 +70,11 @@ export default class ProductEdit extends Component{
                fromBlock:0,
                toBlock: 'latest'
            }).watch((error, event) => {
-                const productId = event.args.productId.toNumber()
-                console.log('-event', event, productId)
-                this.setState({productId});
+               
+               if(this.state.formSubmitted) {
+                    const productId = event.args.productId.toNumber()
+                    this.setState({productId});
+               }
            });
     
       } 
@@ -77,11 +91,11 @@ export default class ProductEdit extends Component{
             REPO.editProduct({ name, price,priceInSpinelToken,quantity ,description, productId, storeIndex, account, contract}).then(r=>console.log)
             .catch(console.log);
          } else {
-           //  const { name,quantity, price, priceInSpinelToken,description, account} = this.state;
              const storeIndex = this.props.storeId;
            
             REPO.createProduct({ name, price, priceInSpinelToken,quantity,description, account, storeIndex},this.storeInstance).then(r=>console.log)
              .catch(console.log);
+             this.setState({formSubmitted:true});
         }
       }
     }
@@ -131,49 +145,114 @@ export default class ProductEdit extends Component{
 
     onSubmitFileForm = (e) => {
           e.preventDefault();
+          this.setState({imageUploadInProgress:true})
         ipfs.files.add(this.state.buffer, (error, result) => {
              if(error) {
                  console.error(error);
              }
           
              const imageHash = result[0].hash;
-             console.log('imageHash - ', imageHash)
               this.setState({
                  imageHash: imageHash
              })
-
-           const { productId, storeIndex, account } = this.state;
-
-           REPO.updateProductImage({ contract: this.storeInstance, 
-           imageHash, storeIndex, productId, account})
+          this.setState({
+              showUpdateProductImage:true,
+              imageUploadInProgress:false
+          });
+          // const { productId, storeIndex, account } = this.state;
+          
+        //    REPO.updateProductImage({ contract: this.storeInstance, 
+        //    imageHash, storeIndex, productId, account})
         })
-       console.log('submit file');
+     
     }
 
 
-    render() {
-        return(
-            <div>
-                <h1>Product Details</h1>
 
+      handleOpenUpdateImageDialog = () => {
+           this.setState({ showUpdateProductImage: true });
+       };
+
+     handleCloseUpdateImageDialog = () => {
+           this.setState({ showUpdateProductImage: false });
+        };
+           
+ render() {
+        return(
+            <div style={styles.formContainer}>
+              <Paper style={styles.innerContainer}>
+                  <h3>Product Details</h3>
+                 {!this.state.productId &&  
+                  <p >
+                     ( Upload Product Image after product has been created)
+                  </p>
+                 }
                 <form onSubmit={this.handleSubmit}>
+                  
                    <div>
-                       <input type="text" placeholder="name" name={this.productNameInput} value={this.state.name} onChange={this.handleChange}/>
+                      
+                        <TextField
+                            style={styles.input}
+                            type="text"
+                            id="name"
+                            label="Name"
+                            name={this.productNameInput}
+                            value={this.state.name}
+                            onChange={this.handleChange}
+                            margin="normal"
+                            />
                     </div>
 
                      <div>
-                      <input type="number" placeholder="price" name={this.productPriceInput} value={this.state.price} onChange={this.handlePriceChange}/>
+                       <TextField
+                            style={styles.input}
+                            type="text"
+                            id="price"
+                            label="Price"
+                            name={this.productPriceInput}
+                            value={this.state.price}
+                            onChange={this.handlePriceChange}
+                            margin="normal"
+                            />
                     </div>
 
                       <div>
-                      <input type="number" placeholder="price in spinel" name={'priceInSpinelToken'} value={this.state.priceInSpinelToken} />
+                        <TextField
+                           style={styles.input}
+                            type="text"
+                            id="priceInSpinelToken"
+                            label="price in spinel"
+                            name={'priceInSpinelToken'}
+                            value={this.state.priceInSpinelToken}
+                            margin="normal"
+                            />
                     </div>
                     <div>
-                      <input type="number" placeholder="quantity" name={this.productQuantityInput} value={this.state.quantity} onChange={this.handleChange}/>
+                       <TextField
+                            style={styles.input}
+                            type="text"
+                            id="quantity"
+                            label="Quantity"
+                            name={this.productQuantityInput}
+                            value={this.state.quantity}
+                            onChange={this.handleChange}
+                            margin="normal"
+                            />
+                     
                     </div>
                     <div>
-                        <textarea name={this.productDescriptionInput}  value={this.state.description} onChange={this.handleChange}></textarea>
-                    </div>
+                      <TextField
+                         style={styles.input}
+                        id="multiline-flexible"
+                        label="Description"
+                        multiline
+                        rowsMax="4"
+                        name={this.productDescriptionInput}
+                        value={this.state.description}
+                        onChange={this.handleChange}
+                        margin="normal"
+                        />
+                     </div>
 
                     
 
@@ -182,15 +261,40 @@ export default class ProductEdit extends Component{
                    </div>
                 </form>
 
-                <form onSubmit={this.onSubmitFileForm}>
-                   <h2>UPLOAD</h2>
+                {this.state.productId &&  
+                    <form onSubmit={this.onSubmitFileForm}>
+                   <h3>Upload Product Image</h3>
+                   {this.state.imageUploadInProgress &&
+                       <span>...please wait, we are upoading your image to ipfs :)</span>
+                   }
                    <div>
-                       <img src={`https://ipfs.io/ipfs/${this.state.imageHash}`} alt=""/>
+             
+                        <CardMedia
+                            style={styles.image}
+                            component="img"
+                            image={`https://ipfs.io/ipfs/${this.state.imageHash}`}
+                            title="Shop"
+                        />
+
                        <input type="file" onChange={this.captureFile}/>
-                       <input type="submit"/>
+                       <input type="submit" value="UPLOAD IMAGE"/>
                      </div>
+
+                     <UpdateProductImageDialog
+                      open={this.state.showUpdateProductImage}
+                      handleClose={this.handleCloseUpdateImageDialog} 
+                      storeInstance={this.storeInstance} 
+                      imageHash={this.state.imageHash} 
+                      storeIndex={this.props.storeId} 
+                      productId={this.state.productId}
+                      account={this.state.account}
+                     />
                 </form>
+
+                }
+              </Paper>
             </div>
         );
     }
 }
+

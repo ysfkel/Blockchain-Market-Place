@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StoreListPublic from './list.component';
+import * as styles from './styles';
 
 export default class PublicStoreListViewComponent extends Component {
 
@@ -9,8 +10,8 @@ export default class PublicStoreListViewComponent extends Component {
 
     render() {
         return(
-            <div>
-               <h1>STORES</h1>
+            <div style={styles.storeContainer} >
+          
                
                <StoreListPublic/>
 

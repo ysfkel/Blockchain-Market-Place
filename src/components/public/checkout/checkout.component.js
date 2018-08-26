@@ -36,7 +36,7 @@ export default class Checkout extends Component {
                 this.storeInstance = contract;
                 getAccount((account, balance) => {
                     this.setState({account: account, balance});
-                // if(storeId && productId) {
+             
                         xREPO.getCartItem({ contract, web3 ,account})
                         .then((products) => {
                             console.log('--product', products)
@@ -47,7 +47,7 @@ export default class Checkout extends Component {
                         .then(cartPrice => {
                               this.setState({cartPrice});
                         })
-                    // }
+                    
                 });
                 
             })

@@ -269,7 +269,7 @@
         "id": 349,
         "nodeType": "ImportDirective",
         "scope": 616,
-        "sourceUnit": 2997,
+        "sourceUnit": 3027,
         "src": "24:25:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -283,10 +283,10 @@
               "id": 350,
               "name": "StoreBase",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2996,
+              "referencedDeclaration": 3026,
               "src": "76:9:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StoreBase_$2996",
+                "typeIdentifier": "t_contract$_StoreBase_$3026",
                 "typeString": "contract StoreBase"
               }
             },
@@ -296,7 +296,7 @@
           }
         ],
         "contractDependencies": [
-          2996
+          3026
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -304,7 +304,7 @@
         "id": 615,
         "linearizedBaseContracts": [
           615,
-          2996
+          3026
         ],
         "name": "OrderHistory",
         "nodeType": "ContractDefinition",
@@ -369,10 +369,10 @@
                             "name": "orderHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2995,
+                            "referencedDeclaration": 3025,
                             "src": "273:12:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                               "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                             }
                           },
@@ -385,7 +385,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4101,
+                              "referencedDeclaration": 4131,
                               "src": "286:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -413,7 +413,7 @@
                           "nodeType": "IndexAccess",
                           "src": "273:24:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                             "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                           }
                         },
@@ -438,7 +438,7 @@
                         "nodeType": "IndexAccess",
                         "src": "273:33:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Order_$2967_storage",
+                          "typeIdentifier": "t_struct$_Order_$2997_storage",
                           "typeString": "struct StoreBase.Order storage ref"
                         }
                       },
@@ -449,7 +449,7 @@
                       "lValueRequested": true,
                       "memberName": "timeStamp",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2962,
+                      "referencedDeclaration": 2992,
                       "src": "273:43:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -464,7 +464,7 @@
                       "name": "now",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4103,
+                      "referencedDeclaration": 4133,
                       "src": "319:3:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -501,10 +501,10 @@
                             "name": "orderHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2995,
+                            "referencedDeclaration": 3025,
                             "src": "333:12:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                               "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                             }
                           },
@@ -517,7 +517,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4101,
+                              "referencedDeclaration": 4131,
                               "src": "346:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -545,7 +545,7 @@
                           "nodeType": "IndexAccess",
                           "src": "333:24:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                             "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                           }
                         },
@@ -570,7 +570,7 @@
                         "nodeType": "IndexAccess",
                         "src": "333:33:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Order_$2967_storage",
+                          "typeIdentifier": "t_struct$_Order_$2997_storage",
                           "typeString": "struct StoreBase.Order storage ref"
                         }
                       },
@@ -581,7 +581,7 @@
                       "lValueRequested": true,
                       "memberName": "grandTotal",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2964,
+                      "referencedDeclaration": 2994,
                       "src": "333:44:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -633,10 +633,10 @@
                             "name": "orderHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2995,
+                            "referencedDeclaration": 3025,
                             "src": "401:12:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                               "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                             }
                           },
@@ -649,7 +649,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4101,
+                              "referencedDeclaration": 4131,
                               "src": "414:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -677,7 +677,7 @@
                           "nodeType": "IndexAccess",
                           "src": "401:24:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                             "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                           }
                         },
@@ -702,7 +702,7 @@
                         "nodeType": "IndexAccess",
                         "src": "401:33:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Order_$2967_storage",
+                          "typeIdentifier": "t_struct$_Order_$2997_storage",
                           "typeString": "struct StoreBase.Order storage ref"
                         }
                       },
@@ -713,7 +713,7 @@
                       "lValueRequested": true,
                       "memberName": "grandTotal",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2964,
+                      "referencedDeclaration": 2994,
                       "src": "401:44:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -926,10 +926,10 @@
                               "name": "orderHistory",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2995,
+                              "referencedDeclaration": 3025,
                               "src": "611:12:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                 "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                               }
                             },
@@ -942,7 +942,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4101,
+                                "referencedDeclaration": 4131,
                                 "src": "624:3:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -970,7 +970,7 @@
                             "nodeType": "IndexAccess",
                             "src": "611:24:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                               "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                             }
                           },
@@ -995,7 +995,7 @@
                           "nodeType": "IndexAccess",
                           "src": "611:33:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$2967_storage",
+                            "typeIdentifier": "t_struct$_Order_$2997_storage",
                             "typeString": "struct StoreBase.Order storage ref"
                           }
                         },
@@ -1006,7 +1006,7 @@
                         "lValueRequested": false,
                         "memberName": "timeStamp",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2962,
+                        "referencedDeclaration": 2992,
                         "src": "611:43:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1025,10 +1025,10 @@
                               "name": "orderHistory",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2995,
+                              "referencedDeclaration": 3025,
                               "src": "671:12:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                 "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                               }
                             },
@@ -1041,7 +1041,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4101,
+                                "referencedDeclaration": 4131,
                                 "src": "684:3:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -1069,7 +1069,7 @@
                             "nodeType": "IndexAccess",
                             "src": "671:24:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                               "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                             }
                           },
@@ -1094,7 +1094,7 @@
                           "nodeType": "IndexAccess",
                           "src": "671:33:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$2967_storage",
+                            "typeIdentifier": "t_struct$_Order_$2997_storage",
                             "typeString": "struct StoreBase.Order storage ref"
                           }
                         },
@@ -1105,7 +1105,7 @@
                         "lValueRequested": false,
                         "memberName": "grandTotal",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2964,
+                        "referencedDeclaration": 2994,
                         "src": "671:44:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1262,7 +1262,7 @@
                         "name": "customerOrdersCount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2989,
+                        "referencedDeclaration": 3019,
                         "src": "836:19:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -1278,7 +1278,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4101,
+                          "referencedDeclaration": 4131,
                           "src": "856:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1331,7 +1331,7 @@
                           "name": "customerOrdersCount",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2989,
+                          "referencedDeclaration": 3019,
                           "src": "871:19:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -1347,7 +1347,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4101,
+                            "referencedDeclaration": 4131,
                             "src": "891:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1403,7 +1403,7 @@
                       "name": "customerOrdersCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2989,
+                      "referencedDeclaration": 3019,
                       "src": "921:19:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -1419,7 +1419,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4101,
+                        "referencedDeclaration": 4131,
                         "src": "941:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1527,7 +1527,7 @@
                       "name": "customerOrdersCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2989,
+                      "referencedDeclaration": 3019,
                       "src": "1068:19:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -1543,7 +1543,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4101,
+                        "referencedDeclaration": 4131,
                         "src": "1088:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1678,10 +1678,10 @@
                                       "name": "stores",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 2979,
+                                      "referencedDeclaration": 3009,
                                       "src": "1496:6:4",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2940_storage_$dyn_storage_$",
+                                        "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2970_storage_$dyn_storage_$",
                                         "typeString": "mapping(address => struct StoreBase.Store storage ref[] storage ref)"
                                       }
                                     },
@@ -1706,7 +1706,7 @@
                                     "nodeType": "IndexAccess",
                                     "src": "1496:21:4",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_array$_t_struct$_Store_$2940_storage_$dyn_storage",
+                                      "typeIdentifier": "t_array$_t_struct$_Store_$2970_storage_$dyn_storage",
                                       "typeString": "struct StoreBase.Store storage ref[] storage ref"
                                     }
                                   },
@@ -1731,7 +1731,7 @@
                                   "nodeType": "IndexAccess",
                                   "src": "1496:33:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Store_$2940_storage",
+                                    "typeIdentifier": "t_struct$_Store_$2970_storage",
                                     "typeString": "struct StoreBase.Store storage ref"
                                   }
                                 },
@@ -1742,10 +1742,10 @@
                                 "lValueRequested": false,
                                 "memberName": "products",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 2939,
+                                "referencedDeclaration": 2969,
                                 "src": "1496:42:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2924_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2954_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Product storage ref)"
                                 }
                               },
@@ -1770,7 +1770,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1496:53:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Product_$2924_storage",
+                                "typeIdentifier": "t_struct$_Product_$2954_storage",
                                 "typeString": "struct StoreBase.Product storage ref"
                               }
                             },
@@ -1781,7 +1781,7 @@
                             "lValueRequested": false,
                             "memberName": "name",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2909,
+                            "referencedDeclaration": 2939,
                             "src": "1496:58:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -1852,10 +1852,10 @@
                                   "name": "stores",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2979,
+                                  "referencedDeclaration": 3009,
                                   "src": "1665:6:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2940_storage_$dyn_storage_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2970_storage_$dyn_storage_$",
                                     "typeString": "mapping(address => struct StoreBase.Store storage ref[] storage ref)"
                                   }
                                 },
@@ -1880,7 +1880,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "1665:21:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_array$_t_struct$_Store_$2940_storage_$dyn_storage",
+                                  "typeIdentifier": "t_array$_t_struct$_Store_$2970_storage_$dyn_storage",
                                   "typeString": "struct StoreBase.Store storage ref[] storage ref"
                                 }
                               },
@@ -1905,7 +1905,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1665:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Store_$2940_storage",
+                                "typeIdentifier": "t_struct$_Store_$2970_storage",
                                 "typeString": "struct StoreBase.Store storage ref"
                               }
                             },
@@ -1916,7 +1916,7 @@
                             "lValueRequested": false,
                             "memberName": "name",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2926,
+                            "referencedDeclaration": 2956,
                             "src": "1665:38:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -1976,10 +1976,10 @@
                           "name": "TransactionHistory",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2957,
+                          "referencedDeclaration": 2987,
                           "src": "1441:18:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_TransactionHistory_$2957_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_TransactionHistory_$2987_storage_ptr_$",
                             "typeString": "type(struct StoreBase.TransactionHistory storage pointer)"
                           }
                         },
@@ -1993,7 +1993,7 @@
                         "nodeType": "FunctionCall",
                         "src": "1441:303:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TransactionHistory_$2957_memory",
+                          "typeIdentifier": "t_struct$_TransactionHistory_$2987_memory",
                           "typeString": "struct StoreBase.TransactionHistory memory"
                         }
                       }
@@ -2001,7 +2001,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_TransactionHistory_$2957_memory",
+                          "typeIdentifier": "t_struct$_TransactionHistory_$2987_memory",
                           "typeString": "struct StoreBase.TransactionHistory memory"
                         }
                       ],
@@ -2017,10 +2017,10 @@
                               "name": "orderHistory",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2995,
+                              "referencedDeclaration": 3025,
                               "src": "1389:12:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                 "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                               }
                             },
@@ -2033,7 +2033,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4101,
+                                "referencedDeclaration": 4131,
                                 "src": "1402:3:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -2061,7 +2061,7 @@
                             "nodeType": "IndexAccess",
                             "src": "1389:24:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                               "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                             }
                           },
@@ -2086,7 +2086,7 @@
                           "nodeType": "IndexAccess",
                           "src": "1389:33:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$2967_storage",
+                            "typeIdentifier": "t_struct$_Order_$2997_storage",
                             "typeString": "struct StoreBase.Order storage ref"
                           }
                         },
@@ -2097,10 +2097,10 @@
                         "lValueRequested": false,
                         "memberName": "transactions",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2960,
+                        "referencedDeclaration": 2990,
                         "src": "1389:46:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                           "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                         }
                       },
@@ -2114,7 +2114,7 @@
                       "referencedDeclaration": null,
                       "src": "1389:51:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_TransactionHistory_$2957_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_TransactionHistory_$2987_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct StoreBase.TransactionHistory storage ref) returns (uint256)"
                       }
                     },
@@ -2451,10 +2451,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2059:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -2467,7 +2467,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2072:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -2495,7 +2495,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2059:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -2520,7 +2520,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2059:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -2531,10 +2531,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2059:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -2559,7 +2559,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2059:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -2570,7 +2570,7 @@
                         "lValueRequested": false,
                         "memberName": "productName",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2944,
+                        "referencedDeclaration": 2974,
                         "src": "2059:76:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -2593,10 +2593,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2150:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -2609,7 +2609,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2163:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -2637,7 +2637,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2150:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -2662,7 +2662,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2150:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -2673,10 +2673,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2150:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -2701,7 +2701,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2150:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -2712,7 +2712,7 @@
                         "lValueRequested": false,
                         "memberName": "quantity",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2946,
+                        "referencedDeclaration": 2976,
                         "src": "2150:73:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2735,10 +2735,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2238:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -2751,7 +2751,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2251:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -2779,7 +2779,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2238:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -2804,7 +2804,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2238:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -2815,10 +2815,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2238:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -2843,7 +2843,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2238:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -2854,7 +2854,7 @@
                         "lValueRequested": false,
                         "memberName": "price",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2948,
+                        "referencedDeclaration": 2978,
                         "src": "2238:70:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2877,10 +2877,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2323:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -2893,7 +2893,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2336:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -2921,7 +2921,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2323:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -2946,7 +2946,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2323:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -2957,10 +2957,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2323:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -2985,7 +2985,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2323:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -2996,7 +2996,7 @@
                         "lValueRequested": false,
                         "memberName": "vendor",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2952,
+                        "referencedDeclaration": 2982,
                         "src": "2323:71:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3019,10 +3019,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2409:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -3035,7 +3035,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2422:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -3063,7 +3063,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2409:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -3088,7 +3088,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2409:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -3099,10 +3099,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2409:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -3127,7 +3127,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2409:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -3138,7 +3138,7 @@
                         "lValueRequested": false,
                         "memberName": "storeName",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2954,
+                        "referencedDeclaration": 2984,
                         "src": "2409:74:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -3161,10 +3161,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2498:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -3177,7 +3177,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2511:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -3205,7 +3205,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2498:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -3230,7 +3230,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2498:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -3241,10 +3241,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2498:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -3269,7 +3269,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2498:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -3280,7 +3280,7 @@
                         "lValueRequested": false,
                         "memberName": "paymentMethod",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2956,
+                        "referencedDeclaration": 2986,
                         "src": "2498:78:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3566,10 +3566,10 @@
                             "name": "orderHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2995,
+                            "referencedDeclaration": 3025,
                             "src": "2701:12:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                               "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                             }
                           },
@@ -3582,7 +3582,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4101,
+                              "referencedDeclaration": 4131,
                               "src": "2714:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -3610,7 +3610,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2701:24:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                             "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                           }
                         },
@@ -3635,7 +3635,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2701:33:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Order_$2967_storage",
+                          "typeIdentifier": "t_struct$_Order_$2997_storage",
                           "typeString": "struct StoreBase.Order storage ref"
                         }
                       },
@@ -3646,10 +3646,10 @@
                       "lValueRequested": false,
                       "memberName": "transactions",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2960,
+                      "referencedDeclaration": 2990,
                       "src": "2701:46:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                        "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                         "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                       }
                     },
@@ -3788,7 +3788,7 @@
         "id": 349,
         "nodeType": "ImportDirective",
         "scope": 616,
-        "sourceUnit": 2997,
+        "sourceUnit": 3027,
         "src": "24:25:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3802,10 +3802,10 @@
               "id": 350,
               "name": "StoreBase",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2996,
+              "referencedDeclaration": 3026,
               "src": "76:9:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StoreBase_$2996",
+                "typeIdentifier": "t_contract$_StoreBase_$3026",
                 "typeString": "contract StoreBase"
               }
             },
@@ -3815,7 +3815,7 @@
           }
         ],
         "contractDependencies": [
-          2996
+          3026
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -3823,7 +3823,7 @@
         "id": 615,
         "linearizedBaseContracts": [
           615,
-          2996
+          3026
         ],
         "name": "OrderHistory",
         "nodeType": "ContractDefinition",
@@ -3888,10 +3888,10 @@
                             "name": "orderHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2995,
+                            "referencedDeclaration": 3025,
                             "src": "273:12:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                               "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                             }
                           },
@@ -3904,7 +3904,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4101,
+                              "referencedDeclaration": 4131,
                               "src": "286:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -3932,7 +3932,7 @@
                           "nodeType": "IndexAccess",
                           "src": "273:24:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                             "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                           }
                         },
@@ -3957,7 +3957,7 @@
                         "nodeType": "IndexAccess",
                         "src": "273:33:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Order_$2967_storage",
+                          "typeIdentifier": "t_struct$_Order_$2997_storage",
                           "typeString": "struct StoreBase.Order storage ref"
                         }
                       },
@@ -3968,7 +3968,7 @@
                       "lValueRequested": true,
                       "memberName": "timeStamp",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2962,
+                      "referencedDeclaration": 2992,
                       "src": "273:43:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -3983,7 +3983,7 @@
                       "name": "now",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4103,
+                      "referencedDeclaration": 4133,
                       "src": "319:3:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4020,10 +4020,10 @@
                             "name": "orderHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2995,
+                            "referencedDeclaration": 3025,
                             "src": "333:12:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                               "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                             }
                           },
@@ -4036,7 +4036,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4101,
+                              "referencedDeclaration": 4131,
                               "src": "346:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -4064,7 +4064,7 @@
                           "nodeType": "IndexAccess",
                           "src": "333:24:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                             "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                           }
                         },
@@ -4089,7 +4089,7 @@
                         "nodeType": "IndexAccess",
                         "src": "333:33:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Order_$2967_storage",
+                          "typeIdentifier": "t_struct$_Order_$2997_storage",
                           "typeString": "struct StoreBase.Order storage ref"
                         }
                       },
@@ -4100,7 +4100,7 @@
                       "lValueRequested": true,
                       "memberName": "grandTotal",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2964,
+                      "referencedDeclaration": 2994,
                       "src": "333:44:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4152,10 +4152,10 @@
                             "name": "orderHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2995,
+                            "referencedDeclaration": 3025,
                             "src": "401:12:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                               "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                             }
                           },
@@ -4168,7 +4168,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4101,
+                              "referencedDeclaration": 4131,
                               "src": "414:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -4196,7 +4196,7 @@
                           "nodeType": "IndexAccess",
                           "src": "401:24:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                             "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                           }
                         },
@@ -4221,7 +4221,7 @@
                         "nodeType": "IndexAccess",
                         "src": "401:33:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Order_$2967_storage",
+                          "typeIdentifier": "t_struct$_Order_$2997_storage",
                           "typeString": "struct StoreBase.Order storage ref"
                         }
                       },
@@ -4232,7 +4232,7 @@
                       "lValueRequested": true,
                       "memberName": "grandTotal",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2964,
+                      "referencedDeclaration": 2994,
                       "src": "401:44:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4445,10 +4445,10 @@
                               "name": "orderHistory",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2995,
+                              "referencedDeclaration": 3025,
                               "src": "611:12:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                 "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                               }
                             },
@@ -4461,7 +4461,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4101,
+                                "referencedDeclaration": 4131,
                                 "src": "624:3:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -4489,7 +4489,7 @@
                             "nodeType": "IndexAccess",
                             "src": "611:24:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                               "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                             }
                           },
@@ -4514,7 +4514,7 @@
                           "nodeType": "IndexAccess",
                           "src": "611:33:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$2967_storage",
+                            "typeIdentifier": "t_struct$_Order_$2997_storage",
                             "typeString": "struct StoreBase.Order storage ref"
                           }
                         },
@@ -4525,7 +4525,7 @@
                         "lValueRequested": false,
                         "memberName": "timeStamp",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2962,
+                        "referencedDeclaration": 2992,
                         "src": "611:43:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4544,10 +4544,10 @@
                               "name": "orderHistory",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2995,
+                              "referencedDeclaration": 3025,
                               "src": "671:12:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                 "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                               }
                             },
@@ -4560,7 +4560,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4101,
+                                "referencedDeclaration": 4131,
                                 "src": "684:3:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -4588,7 +4588,7 @@
                             "nodeType": "IndexAccess",
                             "src": "671:24:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                               "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                             }
                           },
@@ -4613,7 +4613,7 @@
                           "nodeType": "IndexAccess",
                           "src": "671:33:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$2967_storage",
+                            "typeIdentifier": "t_struct$_Order_$2997_storage",
                             "typeString": "struct StoreBase.Order storage ref"
                           }
                         },
@@ -4624,7 +4624,7 @@
                         "lValueRequested": false,
                         "memberName": "grandTotal",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2964,
+                        "referencedDeclaration": 2994,
                         "src": "671:44:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4781,7 +4781,7 @@
                         "name": "customerOrdersCount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2989,
+                        "referencedDeclaration": 3019,
                         "src": "836:19:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -4797,7 +4797,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4101,
+                          "referencedDeclaration": 4131,
                           "src": "856:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -4850,7 +4850,7 @@
                           "name": "customerOrdersCount",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2989,
+                          "referencedDeclaration": 3019,
                           "src": "871:19:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -4866,7 +4866,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4101,
+                            "referencedDeclaration": 4131,
                             "src": "891:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -4922,7 +4922,7 @@
                       "name": "customerOrdersCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2989,
+                      "referencedDeclaration": 3019,
                       "src": "921:19:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -4938,7 +4938,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4101,
+                        "referencedDeclaration": 4131,
                         "src": "941:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -5046,7 +5046,7 @@
                       "name": "customerOrdersCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2989,
+                      "referencedDeclaration": 3019,
                       "src": "1068:19:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -5062,7 +5062,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4101,
+                        "referencedDeclaration": 4131,
                         "src": "1088:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -5197,10 +5197,10 @@
                                       "name": "stores",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 2979,
+                                      "referencedDeclaration": 3009,
                                       "src": "1496:6:4",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2940_storage_$dyn_storage_$",
+                                        "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2970_storage_$dyn_storage_$",
                                         "typeString": "mapping(address => struct StoreBase.Store storage ref[] storage ref)"
                                       }
                                     },
@@ -5225,7 +5225,7 @@
                                     "nodeType": "IndexAccess",
                                     "src": "1496:21:4",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_array$_t_struct$_Store_$2940_storage_$dyn_storage",
+                                      "typeIdentifier": "t_array$_t_struct$_Store_$2970_storage_$dyn_storage",
                                       "typeString": "struct StoreBase.Store storage ref[] storage ref"
                                     }
                                   },
@@ -5250,7 +5250,7 @@
                                   "nodeType": "IndexAccess",
                                   "src": "1496:33:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Store_$2940_storage",
+                                    "typeIdentifier": "t_struct$_Store_$2970_storage",
                                     "typeString": "struct StoreBase.Store storage ref"
                                   }
                                 },
@@ -5261,10 +5261,10 @@
                                 "lValueRequested": false,
                                 "memberName": "products",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 2939,
+                                "referencedDeclaration": 2969,
                                 "src": "1496:42:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2924_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Product_$2954_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Product storage ref)"
                                 }
                               },
@@ -5289,7 +5289,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1496:53:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Product_$2924_storage",
+                                "typeIdentifier": "t_struct$_Product_$2954_storage",
                                 "typeString": "struct StoreBase.Product storage ref"
                               }
                             },
@@ -5300,7 +5300,7 @@
                             "lValueRequested": false,
                             "memberName": "name",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2909,
+                            "referencedDeclaration": 2939,
                             "src": "1496:58:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -5371,10 +5371,10 @@
                                   "name": "stores",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2979,
+                                  "referencedDeclaration": 3009,
                                   "src": "1665:6:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2940_storage_$dyn_storage_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Store_$2970_storage_$dyn_storage_$",
                                     "typeString": "mapping(address => struct StoreBase.Store storage ref[] storage ref)"
                                   }
                                 },
@@ -5399,7 +5399,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "1665:21:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_array$_t_struct$_Store_$2940_storage_$dyn_storage",
+                                  "typeIdentifier": "t_array$_t_struct$_Store_$2970_storage_$dyn_storage",
                                   "typeString": "struct StoreBase.Store storage ref[] storage ref"
                                 }
                               },
@@ -5424,7 +5424,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1665:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Store_$2940_storage",
+                                "typeIdentifier": "t_struct$_Store_$2970_storage",
                                 "typeString": "struct StoreBase.Store storage ref"
                               }
                             },
@@ -5435,7 +5435,7 @@
                             "lValueRequested": false,
                             "memberName": "name",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2926,
+                            "referencedDeclaration": 2956,
                             "src": "1665:38:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -5495,10 +5495,10 @@
                           "name": "TransactionHistory",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2957,
+                          "referencedDeclaration": 2987,
                           "src": "1441:18:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_TransactionHistory_$2957_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_TransactionHistory_$2987_storage_ptr_$",
                             "typeString": "type(struct StoreBase.TransactionHistory storage pointer)"
                           }
                         },
@@ -5512,7 +5512,7 @@
                         "nodeType": "FunctionCall",
                         "src": "1441:303:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_TransactionHistory_$2957_memory",
+                          "typeIdentifier": "t_struct$_TransactionHistory_$2987_memory",
                           "typeString": "struct StoreBase.TransactionHistory memory"
                         }
                       }
@@ -5520,7 +5520,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_TransactionHistory_$2957_memory",
+                          "typeIdentifier": "t_struct$_TransactionHistory_$2987_memory",
                           "typeString": "struct StoreBase.TransactionHistory memory"
                         }
                       ],
@@ -5536,10 +5536,10 @@
                               "name": "orderHistory",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2995,
+                              "referencedDeclaration": 3025,
                               "src": "1389:12:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                 "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                               }
                             },
@@ -5552,7 +5552,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4101,
+                                "referencedDeclaration": 4131,
                                 "src": "1402:3:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -5580,7 +5580,7 @@
                             "nodeType": "IndexAccess",
                             "src": "1389:24:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                               "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                             }
                           },
@@ -5605,7 +5605,7 @@
                           "nodeType": "IndexAccess",
                           "src": "1389:33:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Order_$2967_storage",
+                            "typeIdentifier": "t_struct$_Order_$2997_storage",
                             "typeString": "struct StoreBase.Order storage ref"
                           }
                         },
@@ -5616,10 +5616,10 @@
                         "lValueRequested": false,
                         "memberName": "transactions",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2960,
+                        "referencedDeclaration": 2990,
                         "src": "1389:46:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                           "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                         }
                       },
@@ -5633,7 +5633,7 @@
                       "referencedDeclaration": null,
                       "src": "1389:51:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_TransactionHistory_$2957_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_TransactionHistory_$2987_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct StoreBase.TransactionHistory storage ref) returns (uint256)"
                       }
                     },
@@ -5970,10 +5970,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2059:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -5986,7 +5986,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2072:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -6014,7 +6014,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2059:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -6039,7 +6039,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2059:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -6050,10 +6050,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2059:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -6078,7 +6078,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2059:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -6089,7 +6089,7 @@
                         "lValueRequested": false,
                         "memberName": "productName",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2944,
+                        "referencedDeclaration": 2974,
                         "src": "2059:76:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -6112,10 +6112,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2150:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -6128,7 +6128,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2163:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -6156,7 +6156,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2150:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -6181,7 +6181,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2150:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -6192,10 +6192,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2150:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -6220,7 +6220,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2150:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -6231,7 +6231,7 @@
                         "lValueRequested": false,
                         "memberName": "quantity",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2946,
+                        "referencedDeclaration": 2976,
                         "src": "2150:73:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -6254,10 +6254,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2238:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -6270,7 +6270,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2251:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -6298,7 +6298,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2238:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -6323,7 +6323,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2238:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -6334,10 +6334,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2238:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -6362,7 +6362,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2238:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -6373,7 +6373,7 @@
                         "lValueRequested": false,
                         "memberName": "price",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2948,
+                        "referencedDeclaration": 2978,
                         "src": "2238:70:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -6396,10 +6396,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2323:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -6412,7 +6412,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2336:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -6440,7 +6440,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2323:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -6465,7 +6465,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2323:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -6476,10 +6476,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2323:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -6504,7 +6504,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2323:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -6515,7 +6515,7 @@
                         "lValueRequested": false,
                         "memberName": "vendor",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2952,
+                        "referencedDeclaration": 2982,
                         "src": "2323:71:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -6538,10 +6538,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2409:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -6554,7 +6554,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2422:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -6582,7 +6582,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2409:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -6607,7 +6607,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2409:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -6618,10 +6618,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2409:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -6646,7 +6646,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2409:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -6657,7 +6657,7 @@
                         "lValueRequested": false,
                         "memberName": "storeName",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2954,
+                        "referencedDeclaration": 2984,
                         "src": "2409:74:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -6680,10 +6680,10 @@
                                   "name": "orderHistory",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2995,
+                                  "referencedDeclaration": 3025,
                                   "src": "2498:12:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                                     "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                                   }
                                 },
@@ -6696,7 +6696,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 4101,
+                                    "referencedDeclaration": 4131,
                                     "src": "2511:3:4",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -6724,7 +6724,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2498:24:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                                   "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                                 }
                               },
@@ -6749,7 +6749,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2498:33:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Order_$2967_storage",
+                                "typeIdentifier": "t_struct$_Order_$2997_storage",
                                 "typeString": "struct StoreBase.Order storage ref"
                               }
                             },
@@ -6760,10 +6760,10 @@
                             "lValueRequested": false,
                             "memberName": "transactions",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2960,
+                            "referencedDeclaration": 2990,
                             "src": "2498:46:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                               "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                             }
                           },
@@ -6788,7 +6788,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2498:64:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_TransactionHistory_$2957_storage",
+                            "typeIdentifier": "t_struct$_TransactionHistory_$2987_storage",
                             "typeString": "struct StoreBase.TransactionHistory storage ref"
                           }
                         },
@@ -6799,7 +6799,7 @@
                         "lValueRequested": false,
                         "memberName": "paymentMethod",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 2956,
+                        "referencedDeclaration": 2986,
                         "src": "2498:78:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -7085,10 +7085,10 @@
                             "name": "orderHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2995,
+                            "referencedDeclaration": 3025,
                             "src": "2701:12:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$_$",
                               "typeString": "mapping(address => mapping(uint256 => struct StoreBase.Order storage ref))"
                             }
                           },
@@ -7101,7 +7101,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4101,
+                              "referencedDeclaration": 4131,
                               "src": "2714:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -7129,7 +7129,7 @@
                           "nodeType": "IndexAccess",
                           "src": "2701:24:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2967_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Order_$2997_storage_$",
                             "typeString": "mapping(uint256 => struct StoreBase.Order storage ref)"
                           }
                         },
@@ -7154,7 +7154,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2701:33:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Order_$2967_storage",
+                          "typeIdentifier": "t_struct$_Order_$2997_storage",
                           "typeString": "struct StoreBase.Order storage ref"
                         }
                       },
@@ -7165,10 +7165,10 @@
                       "lValueRequested": false,
                       "memberName": "transactions",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2960,
+                      "referencedDeclaration": 2990,
                       "src": "2701:46:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2957_storage_$dyn_storage",
+                        "typeIdentifier": "t_array$_t_struct$_TransactionHistory_$2987_storage_$dyn_storage",
                         "typeString": "struct StoreBase.TransactionHistory storage ref[] storage ref"
                       }
                     },
@@ -7287,5 +7287,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-08-26T05:54:48.005Z"
+  "updatedAt": "2018-08-26T11:20:04.412Z"
 }

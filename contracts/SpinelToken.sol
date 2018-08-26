@@ -24,6 +24,10 @@ contract SpinelToken {
         uint256 _value
     );
 
+    event TokenBalance(
+        uint256 indexed _balance
+    );
+
     mapping(address => uint256) public balanceOf;
     //account A , approves account C, to spend x tokens
     mapping(address => mapping(address => uint256)) public allowance;
@@ -55,6 +59,11 @@ contract SpinelToken {
          success = true;
     }
 
+     function clearApproval(address _spender) public returns(bool success) {
+         delete allowance[msg.sender][_spender];
+         success = true;
+    }
+
     function approveAdmin(address _spender, uint256 _value) public returns(bool) {
           return approve(_spender, _value);
     }
@@ -67,6 +76,7 @@ contract SpinelToken {
         balanceOf[_to] += _value;
          allowance[_from] [msg.sender]-= _value; 
          emit Transfer(_from, _to, _value);
+         emit TokenBalance(balanceOf[_from]);
          success = true;
     }
 

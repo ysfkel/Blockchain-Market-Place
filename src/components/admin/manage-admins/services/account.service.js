@@ -66,14 +66,6 @@ export const createAdminUser =(newAccount, storeContract, account) =>  {
     })
 }
 
-// export const getUserAccount =(storeContract,userAccount) => {
-//     return  new Promise((resolve, reject) => {
-//         storeContract.getVendorByAddress.call(userAccount, {from:userAccount}).then((result)=>{
-//                 resolve(processVendor(result));  
-//         });      
-//     });             
-// }
-
 
 export const processUser =(adminResult) => {
     const roleNumber = adminResult[1].toNumber();

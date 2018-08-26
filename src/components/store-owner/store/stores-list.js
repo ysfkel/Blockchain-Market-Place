@@ -3,6 +3,14 @@ import {  Link  } from 'react-router-dom';
 import { getUserStoreCount } from './helper';
 import * as appService  from '../../../services/app.service';
 import { getStores } from './helper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import * as styles from './styles';
 
 export default class StoreList extends Component {
    
@@ -50,21 +58,45 @@ export default class StoreList extends Component {
     }
     
     render() {
-        const stores = this.state.stores.map((store, index)=>{
-              return(<div key={index}>
-                   <span>{store.name}</span> <span>{store.description}
-                     <span>{store.revenue}</span>
-                   </span> 
-                   <Link to={`/edit-store/${index}`}>details</Link>
-                   <Link to={`/product/list/${index}`}>products</Link>
-                   <button  type="button" onClick={()=>this.deleteStore(index)}>delete</button>
-                </div>)
+
+           const stores = this.state.stores.map((store, index)=>{
+                return(
+                    <TableRow key={index}>
+                        <TableCell>{store.name}</TableCell> 
+                        <TableCell>{store.description}</TableCell> 
+                        <TableCell>{store.revenue}</TableCell> 
+                        <TableCell><Link to={`/edit-store/${index}`}>details</Link></TableCell>
+                        <TableCell><Link to={`/product/list/${index}`}>products</Link></TableCell>
+                        <TableCell><button  type="button" onClick={()=>this.deleteStore(index)}>delete</button>
+                        </TableCell>      
+                    </TableRow>
+                )
         })
         return(
-            <div>
-            <h1>MANAGE STORES</h1>
+            <div style={styles.container}>
+              <h1>MANAGE STORES</h1>
+                 <Paper>
+                
+                    <Table>   
+                        <TableHead>
+                            <TableRow>
+                                <TableCell >Name</TableCell>
+                                <TableCell >Desccription)</TableCell>
+                                <TableCell >Revenue</TableCell>
+                            </TableRow>
+                        </TableHead> 
+                        <TableBody>
+                    
+                        {stores}
+                                <TableRow>
+                                <div style={{padding:'10px'}}>
+                                </div>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                    </Paper>
 
-            {stores}
+          
             </div>
         )
     }

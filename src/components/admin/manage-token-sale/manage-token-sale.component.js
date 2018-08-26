@@ -1,7 +1,6 @@
 import React, { Component }from 'react';
 import * as services  from '../../../services/app.service';
 import * as accountService from '../../../services/account.service';
-// import * as services from '../../../services/app.service';
 import {  Link  } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -54,7 +53,7 @@ export default class ManageTokenSale extends Component {
                           .then((totalTokenSupply)=>{
                                this.setState({totalTokenSupply})
                           })
-                          console.log('--tokenContract',tokenContractResult, tokenContract)    
+  
                 });
               
             });
@@ -69,7 +68,7 @@ export default class ManageTokenSale extends Component {
          amountToSell:this.state.amountToSell, 
          contractAddress:this.state.tokenSaleContractAddress
          }).then(()=>{
-              console.log('--transfer completed successfully')
+        
          })
     }
 

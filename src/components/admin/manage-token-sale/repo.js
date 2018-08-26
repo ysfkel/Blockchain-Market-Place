@@ -4,8 +4,6 @@ export const getTotalSupply = ({  contract, web3 ,account}) => {
         return new Promise((resolve, reject) => {
          
                  contract.totalSupply.call({from: account}).then((totalSupplyResult) => {
-                        console.log('==totalSupplyResult', totalSupplyResult);
-                          console.log('==totalSupplyResult', totalSupplyResult.toNumber());
                        resolve(totalSupplyResult.toNumber())
                  })
         })

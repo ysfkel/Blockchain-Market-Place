@@ -1,5 +1,5 @@
 import { getAccount, getContract, getWeb3 } from '../../../services/app.service';
-
+import * as styles from './styles';
 
 export const getUserStoreCount =(contract,account) => {
 

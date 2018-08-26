@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import {  Link} from 'react-router-dom';
 import * as styles from './styles';
+import EmptyCart from '../empty-cart/empty-cart.component';
 
 export default class ManageShoppingCart extends Component {
 
@@ -35,10 +36,8 @@ export default class ManageShoppingCart extends Component {
                 this.storeInstance = contract;
                 getAccount((account) => {
                     this.setState({account: account});
-                // if(storeId && productId) {
                         REPO.getCartItem({ contract, web3 ,account})
                         .then((products) => {
-                            console.log('--product', products)
                             this.setState({products})
                         });
 
@@ -46,7 +45,6 @@ export default class ManageShoppingCart extends Component {
                         .then(cartPrice => {
                               this.setState({cartPrice});
                         })
-                    // }
                 });
                 
             })
@@ -79,7 +77,10 @@ export default class ManageShoppingCart extends Component {
                 console.log('item deleted')
             })
         }
-
+        
+        hasProductsInCart = () => {
+             return this.state.products.length > 0;
+        }
 
         render() {
             const products = this.state.products.map((product, index)=>{
@@ -100,50 +101,63 @@ export default class ManageShoppingCart extends Component {
                 )
         })
             return(
-            <div style={styles.container}>
+            <div>
+               {!this.hasProductsInCart() &&
+                 <div style={styles.container}>
+                   <EmptyCart/>
+                </div>
+               }
+               {this.hasProductsInCart() &&
+
+                     <div style={styles.container}>
                     <h1>SHOPPING CART</h1>
-            <Paper>
-            
-                <Table>   
-                    <TableHead>
+                <Paper>
+                
+                    <Table>   
+                        <TableHead>
+                            <TableRow>
+                                <TableCell >Name</TableCell>
+                                <TableCell numeric>Price</TableCell>
+                                <TableCell numeric>Quantity </TableCell>
+                                <TableCell > </TableCell>
+                            </TableRow>
+                        </TableHead> 
+                        <TableBody>
+                    
+                        {products}
                         <TableRow>
-                            <TableCell >Name</TableCell>
-                            <TableCell numeric>Price</TableCell>
-                            <TableCell numeric>Quantity </TableCell>
-                            <TableCell > </TableCell>
-                        </TableRow>
-                    </TableHead> 
-                    <TableBody>
-                
-                    {products}
-                    <TableRow>
-                            <TableCell>Cart Price: {this.state.cartPrice}</TableCell>
-                            <TableCell >
-                            <Button type="button" onClick={(e)=>this.handleUpdate()}>
-                                UPDATE CART
-                            </Button>
-                            </TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
-                
-                  <Link  to="/checkout">
-                     <Button >
-                          checkout (Pay with Ether)
-                     </Button> 
-                  </Link>
+                                <TableCell>Cart Price: {this.state.cartPrice}</TableCell>
+                                <TableCell >
+                                <Button type="button" onClick={(e)=>this.handleUpdate()}>
+                                    UPDATE CART
+                                </Button>
+                                </TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                    
+                    <Link  to="/checkout">
+                        <Button >
+                            checkout (Pay with Ether)
+                        </Button> 
+                    </Link>
 
-                   
-                  <Link  to="/checkout-token-pay">
-                     <Button href="#text-buttons" >
-                         checkout (Pay with Token)
-                     </Button> 
-                  </Link>
+                    
+                    <Link  to="/checkout-token-pay">
+                        <Button href="#text-buttons" >
+                            checkout (Pay with Token)
+                        </Button> 
+                    </Link>
 
 
-                         
-            </Paper>
+                            
+                </Paper>
             </div>
+
+               }
+            </div>
+
+            
             );
         }
     }

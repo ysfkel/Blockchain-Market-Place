@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import * as helper from './helper';
 import { etherToWei, etherToSpinel } from '../../store-owner/product/helper';
+import * as styles from './styles';
 
 export default class TokenSale extends Component {
 
@@ -102,14 +103,15 @@ export default class TokenSale extends Component {
         render() {
           
             return(
-            <div>  
+            <div style={styles.container}>  
                    
                 
-                    <h1> SPINEL TOKEN SALE</h1>
-            <Paper>
-               <h3>{this.state.tokenPriceInEther} Ether</h3>
+                    <h1> BUY SPINEL TOKENS</h1>
+            <Paper style={{padding: '24px'}}>
+               <h3> You are buying { this.state.tokenAmount } Tokens, will cost {this.state.tokenPriceInEther} Ether</h3>
                  <form noValidate autoComplete="off">
                     <TextField
+                    style={{width:'100%'}}
                     type="number"
                     id="name"
                     label="Amount"
@@ -117,13 +119,11 @@ export default class TokenSale extends Component {
                     onChange={this.handleChange}
                     margin="normal"
                     />
-      
-     
-                </form>
+                  </form>
 
                   <Button type="button" onClick={(e)=>this.handleBuyTokens()}>
                                 BUY TOKENS
-                            </Button>
+                  </Button>
             </Paper>
             </div>
             );

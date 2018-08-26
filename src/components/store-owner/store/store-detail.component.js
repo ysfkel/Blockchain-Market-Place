@@ -2,6 +2,10 @@ import React , { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getAccount, getWebContract} from '../../../services/app.service';
 import { getStore } from './helper';
+import * as styles from './styles';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 export default class StoreDetail extends Component {
      
@@ -59,7 +63,7 @@ export default class StoreDetail extends Component {
         getWebContract((web3Contract) => {
             const { contract } =  web3Contract ;
             const { web3 } = web3Contract;
- console.log('storeId== ', storeId)
+
             this.storeInstance = contract;
             getAccount((account) => {
                 this.setState({account: account});
@@ -76,21 +80,73 @@ export default class StoreDetail extends Component {
    
      render() {
         return(
-            <div>
-                 <h1>STORE DETAIL</h1>
-                 <Link to={`/product-add/${this.props.storeId }`}>add product</Link>
-                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                       <input type="text" name={this.storeNameInput} value={this.state.name} onChange={this.handleChange}/>
+
+            <div style={styles.formContainer}>
+              <Paper style={styles.innerContainer}>
+                  <h3>PRODUCT DETAILS</h3>
+
+                <form onSubmit={this.handleSubmit}>
+                  
+                   <div>
+                      
+                        <TextField
+                            style={styles.input}
+                            type="text"
+                            id="name"
+                            label="Name"
+                            name={this.storeNameInput}
+                            value={this.state.name} 
+                            onChange={this.handleChange}
+                            margin="normal"
+                            />
                     </div>
+
+                      <div>
+                          <TextField
+                           style={styles.input}
+                            id="multiline-flexible"
+                            label="Description"
+                            multiline
+                            rowsMax="4"
+                            name={this.storeDescriptionInput} 
+                            value={this.state.description}
+                            onChange={this.handleChange}
+                            margin="normal"
+                        />
+                      </div>
+                   
+
                     <div>
-                       <textarea name={this.storeDescriptionInput}  value={this.state.description} onChange={this.handleChange}></textarea>
-                    </div>
-                    <div>
-                        <button type="submit">Save</button>
-                    </div>
-                 </form>
+                        <Button type="submit" variant="contained"  >
+                           SAVE
+                        </Button>
+                   </div>
+                </form>
+
+                
+              </Paper>
             </div>
+
         )
     }
 }
+
+
+
+
+
+            // <div>
+            //      <h1>STORE DETAIL</h1>
+            //      <Link to={`/product-add/${this.props.storeId }`}>add product</Link>
+            //      <form onSubmit={this.handleSubmit}>
+            //         // <div>
+            //         //    <input type="text" name={this.storeNameInput} value={this.state.name} onChange={this.handleChange}/>
+            //         // </div>
+            //         // <div>
+            //         //    <textarea name={this.storeDescriptionInput}  value={this.state.description} onChange={this.handleChange}></textarea>
+            //         // </div>
+            //         // <div>
+            //         //     <button type="submit">Save</button>
+            //         // </div>
+            //      </form>
+            // </div>

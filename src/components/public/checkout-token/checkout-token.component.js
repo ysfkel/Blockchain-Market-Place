@@ -9,9 +9,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import {  Link} from 'react-router-dom';
 import ApproveTokenPay from './approve-token-pay';
 import * as styles from './styles';
+import InsufficientBalnace from '../insufficient-balance/insufficient-balance.component';
 
 export default class CheckoutTokenPay extends Component {
 
@@ -21,7 +21,9 @@ export default class CheckoutTokenPay extends Component {
                products:[], 
                account:'',
                cartPrice:0,
-               showApproveTokenPay: false
+               showApproveTokenPay: false,
+               allowPayment: false,
+               paymentSubmitted: false
             }
             this.web3;
             this.tokenContract;
@@ -65,6 +67,8 @@ export default class CheckoutTokenPay extends Component {
                           const { tokenContract } =  tokenContractResult ;
                           this.tokenContract = tokenContract;
                           this.listenForApprovalEvent();
+                          this.listendForPaymentCompleted();
+                          this.listendForTokenBalanceEvent();
 
                            REPO.getTokenBalance({ account, tokenContract})
                             .then((tokenBalance) =>{
@@ -83,10 +87,51 @@ export default class CheckoutTokenPay extends Component {
                 fromBlock:0,
                 toBlock:'latest'
             })
-            .watch(() => {
+            .watch((error, event) => {
+              
                 this.handleClose();
-                console.log('approved')
+                this.setState({
+                    allowPayment: true
+                })
+       
             })
+        }
+
+        listendForPaymentCompleted = () => {
+             this.storeInstance
+             .PaymentCompleted({}, {
+                 fromBlock:0,
+                 toBlock:'latest'
+             })
+             .watch((error, event) => {
+                 console.log('payment completed');
+                  if(!error && this.state.paymentSubmitted) {
+                    
+                      REPO.clearApproval({
+                          spender: this.state.storeContractAddress,
+                          account: this.state.account,
+                          tokenContract: this.tokenContract
+                      })
+                      .then((isCleared) => {
+                           console.log('approval cleared')
+                      })
+                  }
+
+             })
+        }
+
+        listendForTokenBalanceEvent = () => {
+              this.tokenContract
+              .TokenBalance({},{
+                  fromBlock:0,
+                  toBlock: 'latest'
+              })
+              .watch((error, event) => {
+                  if(!error && this.state.paymentSubmitted) {
+                       const balance = event.args._balance;
+                       this.setState({balance});
+                  }
+              })
         }
 
 
@@ -97,10 +142,13 @@ export default class CheckoutTokenPay extends Component {
          handleClose = () => {
            this.setState({ showApproveTokenPay: false });
         };
-
+        hasSufficientBalance = () => {
+             return this.state.tokenBalance >= this.state.cartPrice;
+        }
         handlePayment = () => {
-          if(this.state.balance >= this.state.cartPrice) {
+          if(this.hasSufficientBalance()) {
             const storeInstance = this.storeInstance;
+            this.setState({paymentSubmitted:true});
             const { account } = this.state;
             REPO.checkOutByToken({
                 account, 
@@ -126,48 +174,63 @@ export default class CheckoutTokenPay extends Component {
                 )
         })
             return(
-            <div style={styles.container}>
-                    <h1>SHOPPING CART</h1>
-            <Paper>
-            
-                <Table>   
-                    <TableHead>
-                        <TableRow>
-                            <TableCell >Name</TableCell>
-                            <TableCell numeric>Price (ETH)</TableCell>
-                              <TableCell numeric>Price (SL)</TableCell>
-                            <TableCell numeric>Quantity </TableCell>
-                            
-                        </TableRow>
-                    </TableHead> 
-                    <TableBody>
+                 <div>
+                {!this.hasSufficientBalance() &&
+                    <div style={styles.container}>
+                      <InsufficientBalnace/>
+                      </div>
+                }
+               {this.hasSufficientBalance() && 
+                 <div style={styles.container}>
+                        <h1>SHOPPING CART</h1>
+                <Paper>
                 
-                    {products}
-                    <TableRow>
-                            <TableCell>Cart Price: {this.state.cartPrice} / Your balance {this.state.balance} Ether / {this.state.tokenBalance} SL</TableCell>
-                        
-                        </TableRow>
+                    <Table>   
+                        <TableHead>
                             <TableRow>
-                           <Button type="button" onClick={(e)=>this.handlePayment()}>
-                                PAY
-                            </Button>
-
-                             <Button onClick={this.handleClickOpen}>Open form dialog</Button>
-       
-                               </TableRow>
-                    </TableBody>
-                </Table>
-            </Paper>
-            <ApproveTokenPay 
-              account={this.state.account} 
-              cartPrice={this.state.cartPrice}
-              open={this.state.showApproveTokenPay} 
-              handleClose={this.handleClose}
-              tokenContract={this.tokenContract}
-              balance={this.state.balance}
-              storeContractAddress={this.state.storeContractAddress}
-              />
-            </div>
-            );
+                                <TableCell >Name</TableCell>
+                                <TableCell numeric>Price (ETH)</TableCell>
+                                <TableCell numeric>Price (SL)</TableCell>
+                                <TableCell numeric>Quantity </TableCell>
+                                
+                            </TableRow>
+                        </TableHead> 
+                        <TableBody>
+                    
+                        {products}
+                        <TableRow>
+                            <TableCell>Cart Price: {this.state.cartPrice} SL TOKENS / Your balance  {this.state.tokenBalance} SL</TableCell>
+                            
+                            </TableRow>
+                                <TableRow>
+                                <div style={{padding:'10px'}}>
+                                {this.state.allowPayment &&
+                                <Button type="button" onClick={(e)=>this.handlePayment()}>
+                                    COMPLETE PAYMENT
+                                </Button>
+                                }
+                                { !this.state.allowPayment &&
+                                    <span style={{fontSize: '12px' }}>YOU ARE ABOUT TO A PAYMENT OF {this.state.cartPrice} SPINEL TOKENS  <Button  onClick={this.handleClickOpen}>APPROVE THIS TRANSACTION</Button> </span>
+                                }
+                                </div>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                    </Paper>
+                    <ApproveTokenPay 
+                    account={this.state.account} 
+                    cartPrice={this.state.cartPrice}
+                    open={this.state.showApproveTokenPay} 
+                    handleClose={this.handleClose}
+                    tokenContract={this.tokenContract}
+                    balance={this.state.balance}
+                    storeContractAddress={this.state.storeContractAddress}
+                />
+                </div>
+             
+             
+                }
+                 </div>
+               );
         }
     }

@@ -62,3 +62,14 @@ export const approveTokenPay = ({ account, cartPrice,storeContractAddress, token
       
         
 }
+
+export const clearApproval = ({account, spender, tokenContract }) => {
+
+     return new Promise((resolve, reject ) =>  {
+             tokenContract
+            .clearApproval(spender, {from: account})
+            .then(function(iscleared) {
+                  resolve(iscleared);
+            })
+     })
+}

@@ -7,6 +7,6 @@ export const transformProduct = ({productResult, web3}) => {
         priceInSpinelToken: productResult[3].toNumber(),
         quantity: productResult[4].toNumber(),
         storeIndex: productResult[5].toNumber(),
-        vendorAccount: productResult[6]//.toNumber(),
+        vendorAccount: productResult[6]
     }
 }

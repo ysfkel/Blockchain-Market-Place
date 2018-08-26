@@ -6,30 +6,29 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { approveTokenPay } from './repo';
+import { updateProductImage } from './repo';
 
-export default class ApproveTokenPay extends React.Component {
+export default class UpdateProductImageDialog extends React.Component {
     constructor(props) {
         super(props);
-        this.handleApprove = this.handleApprove.bind(this);
+        this.handleUpdateProductImage = this.handleUpdateProductImage.bind(this);
     }
 
     componentDidMount() {
         
     }
 
-        handleApprove = () => {
-          if(this.props.balance >= this.props.cartPrice) {
-            const { cartPrice, account,  tokenContract, storeContractAddress,  } = this.props;
-             approveTokenPay({
-                account, 
-                cartPrice,
-                storeContractAddress,
-                tokenContract
-                }).then(()=>{
-                console.log('purchase updated!')
-            })
-          }
+        handleUpdateProductImage = () => {
+            const { storeInstance, imageHash,  storeIndex, productId, account } = this.props;
+            console.log( storeInstance, imageHash,  storeIndex, productId, account)
+          
+            updateProductImage({ contract: storeInstance, 
+               imageHash, storeIndex, productId, account
+             })
+             .then(()=>{
+                 this.props.handleClose();
+             })
+        
         }
 
 
@@ -39,24 +38,24 @@ export default class ApproveTokenPay extends React.Component {
 
         <Dialog
           open={this.props.open}
-        //   onClose={this.props.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">TOKENS TRANSFER APPROVAL</DialogTitle>
+          <DialogTitle id="form-dialog-title">UPDATE PPRODUCT IMAGE</DialogTitle>
           <DialogContent>
             <DialogContentText>
               <p>
-                  By Clicking on the Approve button, you give us the 
-              approval to transfer a total of { this.props.cartPrice} SPINEL
-             Tokens to make payment for the products in your shopping cart
+                Your product image has been upload to IPFS Storage.
+                click the "UPDATE" button to update your product details 
+                with the new image.
+                (Confirm the transaction by clicking on confirm button on metamask)
               </p>
             </DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button 
-              onClick={this.handleApprove} 
+              onClick={this.handleUpdateProductImage} 
              color="primary">
-              Approve
+              UPDATE 
             </Button>
             <Button 
               onClick={this.props.handleClose} 

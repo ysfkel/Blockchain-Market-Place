@@ -2,6 +2,8 @@ import React , { Component } from 'react';
 import {  Link  } from 'react-router-dom';
 import { getAccount, getWebContract} from '../../../services/app.service';
 import * as REPO from './repo';
+import StoreListItem from './item.component';
+import * as styles from './styles';
 
 export default class StoreListPublic extends Component {
    
@@ -41,16 +43,15 @@ export default class StoreListPublic extends Component {
     
     render() {
         const stores = this.state.stores.map((store, index)=>{
-              return(<div key={index}>
-                   <span>{store.name}</span> <span>{store.description}</span> 
-                   <Link to={`/store-detail/${index}`}>details</Link>
-                   <Link to={`/products-catalog/${store.actIdx}/${store.storeId}`}>products</Link>
-           
-                </div>)
+              return(
+                   <div key={index} style={styles.storeItemContainer} >
+                     <StoreListItem store={store}/>
+                   </div>
+                )
         })
         return(
             <div>
-            <h3> STORES LIST</h3>
+            <h1> STORES LIST</h1>
 
             {stores}
             </div>
