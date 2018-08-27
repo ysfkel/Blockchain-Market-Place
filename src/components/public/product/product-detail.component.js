@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { getAccount, getWebContract} from '../../../services/app.service';
 import * as REPO from './repo';
-
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import * as styles from './styles';
 
 export default class ProductDetail extends Component{
       
@@ -45,17 +51,6 @@ export default class ProductDetail extends Component{
             
         })
      }
-
-    //  isUpdatable=()=> {
-    //        return this.state.storeIndex!==undefined && this.state.productId !=undefined;
-    //  }
-    //  export const addItemToCart = ({vendorAccount,  storeIndex,  productId,  productQuantity, contract}) => {
-    //     return new Promise((resolve, reject) => {
-    //         contract.addItemToCart(vendorAccount, storeIndex, productId, productQuantity,  {from: account, gas: 3000000}).then((reesult) => {
-    //               resolve();
-    //         })
-    //     });
-    // }
      handleAdToCart = (e) => {
         
         e.preventDefault();
@@ -63,13 +58,6 @@ export default class ProductDetail extends Component{
             const contract = this.storeInstance;
             REPO.addItemToCart({ vendor,  storeIndex,  productId, purchasedQuantity  , account, contract}).then(r=>console.log)
             .catch(console.log);
-        
-        //   else {
-        //      const { name,quantity, price, description, account} = this.state;
-        //      const storeIndex = this.props.storeId;
-        //     REPO.createProduct({ name, price, quantity,description, account, storeIndex},this.storeInstance).then(r=>console.log)
-        //      .catch(console.log);
-        // }
       
     }
 
@@ -87,38 +75,71 @@ export default class ProductDetail extends Component{
 
     render() {
         return(
-            <div>
-                <h1>Product Details</h1>
-                  <div>
-                     <img src={`https://ipfs.io/ipfs/${this.state.imageHash}`} alt=""/>
-                      
-                  </div>
-                   <div>
-                       <strong> {this.state.name} </strong>
-                    </div>
-
-                     <div>
-                      <strong> {this.state.price} </strong>
-                    </div>
-                    <div>
-                      <strong> {this.state.quantity} </strong>
-                    </div>
-                    <div>
-                        <strong> {this.state.description}</strong>
-                    </div>
-          
-                   
-
-                    <div>
+            <Card style={styles.container}>
+            <CardMedia
+               style={styles.image}
+              component="img"
+              image={`https://ipfs.io/ipfs/${this.state.imageHash}`}
+              title="Shop"
+            />
+           
+            <CardContent>
+              <Typography gutterBottom variant="headline" component="h3">
+                {this.state.name}
+              </Typography>
+              <Typography >
+                 {this.state.price}
+              </Typography>
+              <Typography >
+                 {this.state.quantity}
+              </Typography>
+              <Typography >
+                 {this.state.description}
+              </Typography>
+              <div>
                        <form onSubmit={this.handleAdToCart}>
                        <input type="text" placeholder="name" name={this.productQuantityInput} value={this.state.purchasedQuantity} onChange={this.handleChange}/>
                     
                        <button type="submit">Add to cart</button>
                        </form>
                    </div>
-   
-            </div>
+               
+            </CardContent>
+           
+          </Card>
+           
         );
     }
 }
 
+{/* <div>
+<h1>Product Details</h1>
+  <div>
+     <img src={`https://ipfs.io/ipfs/${this.state.imageHash}`} alt=""/>
+      
+  </div>
+   <div>
+       <strong> {this.state.name} </strong>
+    </div>
+
+     <div>
+      <strong> {this.state.price} </strong>
+    </div>
+    <div>
+      <strong> {this.state.quantity} </strong>
+    </div>
+    <div>
+        <strong> {this.state.description}</strong>
+    </div>
+
+   
+
+    <div>
+       <form onSubmit={this.handleAdToCart}>
+       <input type="text" placeholder="name" name={this.productQuantityInput} value={this.state.purchasedQuantity} onChange={this.handleChange}/>
+    
+       <button type="submit">Add to cart</button>
+       </form>
+   </div>
+
+</div> */}
