@@ -23,10 +23,10 @@ contract AdminUserManager is Ownerble{
       /**
       * @dev CREATES THE CONTRACT OWNER - ADDRESS THAT DEPLOYS THE CONTRACT
       * @param name of contract owner
-      * @param address of contract owner
+      * @param account of contract owner
       * @param role of contract owner
       * @return name of contract owner 
-      * @return address of contract owner
+      * @return account of contract owner
       * @return role of contract owner 
       */
      function createContractOwner(string name, address account, uint role) private ownerOnly returns(bool){
@@ -38,10 +38,10 @@ contract AdminUserManager is Ownerble{
      /**
       * @dev ALLOWS THE CONTRACT OWNER TO CREATE AN ADMIN USER
       * @param name of admin 
-      * @param address of admin 
+      * @param account of admin 
       * @return role of admin  
       * @return name of admin  
-      * @return address of admin
+      * @return account of admin
       * @return role of admin     
       */
     function createAdminUser(string name, address account, uint role) public ownerOnly returns(bool){
@@ -54,10 +54,10 @@ contract AdminUserManager is Ownerble{
     /**
       * @dev ALLOWS THE CONTRACT OWNER TO CREATE AN ADMIN USER
       * @param name of admin 
-      * @param address of admin 
+      * @param account of admin 
       * @return role of admin  
       * @return name of admin  
-      * @return address of admin
+      * @return account of admin
       * @return role of admin     
       */
     function createUser(string name, address account, uint role) private  ownerOnly returns(bool) {
@@ -95,7 +95,7 @@ contract AdminUserManager is Ownerble{
    
      /**
       * @dev   RETURNS THE LIST OF ADMIN USERS 
-      * @param index of admin user
+      * @param account of admin user
       * @return name of admin user 
       * @return role of admin user 
       * @return address of admin user 
@@ -115,7 +115,7 @@ contract AdminUserManager is Ownerble{
       * @param index of admin user
       * @return name of admin user 
       * @return role of admin user 
-      * @return address of admin user 
+      * @return account of admin user 
       */
     function getAdminUserByIndex(uint index) public ownerOnly view returns(string, uint, address) {
         require(index < adminstratorAccountsList.length);

@@ -7,60 +7,94 @@ import "./VendorBase.sol";
  */
 contract ProductManager is Ownerble, StoreBase , VendorBase{
    
-   /**
-     EVENT TRIGGERED WHEN A PRODUCT GETS CREATED
-    */
+     /**
+      * @dev EMITS A PRODUCT GETS CREATED EVENT
+      * @param productId Id of product
+      * @param productIdSlot Index of product
+      */
     event ProductCreated(uint productId, uint productIdSlot);
     /**
-     EVENT TRIGGERED WHEN A PRODUCT GETS UPDATED
+     
     */
+     /**
+      * @dev EMITS A PRODUCT GETS UPDATED EVENT
+      * @param productId Id of product
+      */
     event ProductUpdated(uint productId);
-    /**
-     EVENT TRIGGERED WHEN A PRODUCT GETS DELETED
-    */
-    event ProductDeleted(uint productId);
-    /**
-     EVENT TRIGGERED WHEN A PRODUCT IMAGE HASH IS  UPDATED
-    */
-    event ImageUpdated(string imageHash, uint256 storeIndex, uint256 productId);
 
     /**
-     EVENT TRIGGERED WHEN A PRODUCT GETS CREATED
-    */
+      * @dev EMITS  A PRODUCT GETS DELETED EVENT
+      * @param productId Id of product 
+      */
+    event ProductDeleted(uint productId);
+    
+      /**
+      * @dev EMITS  A PRODUCT IMAGE UPDATED  EVENT
+      * @param imageHash image hash 
+      * @param storeIndex array index of store 
+      * @param productId array index of prodct
+      */
+    event ImageUpdated(string imageHash, uint256 storeIndex, uint256 productId);
+
+    
+     /**
+      * @dev RETURNS PRODUCT ID ARRAY
+      * @param storeIndex index of store in array
+      * @return uint[] array of product ids
+      */
     function getProductsIdsVendor(uint storeIndex) public view returns(uint[]) {
         return getProductsIds(msg.sender, storeIndex);
     }
     
-    /**
-      RETURNS THE IDS OF PRODUCTS IN A SPECIFIED VENDORS STORE
-     */
+    
+       /**
+      * @dev RETURNS PRODUCT ID ARRAY
+      * @param accountIndex array index of vendor account
+      * @return uint[] array of product ids
+      */
      function getProductsIdsCustomer(uint accountIndex, uint storeIndex) public view returns(uint[]) {
         return (
           stores[vendorAccountsWithListedStores[accountIndex]][storeIndex].productIds    
         );
     }
     
-    /**
-      RETURNS THE IDS OF PRODUCTS IN A SPECIFIED VENDORS STORE
-     */
+      /**
+      * @dev RETURNS PRODUCT ID ARRAY
+      * @param accountIndex array index of vendor account
+      * @return uint[] array of product ids
+      */
      function getProductsIds(address account, uint storeIndex) public view returns(uint[]) {
         return (
           stores[account][storeIndex].productIds    
         );
     }
     
-    /**
-      RETURNS NUMBER OF PRODUCTS  FOR A VENDOR STORE
-     */
+    
+      /**
+      * @dev RETURNS NUMBER OF PRODUCTS FOR A VENDOR STORE
+      * @param storeIndex array index of store
+      * @return uint count of products 
+      */
     function getProductsCount(uint storeIndex) public view returns(uint) {
         return (
           stores[msg.sender][storeIndex].productIds.length    
         );
     }
 
-    /**
-      RETURNS THE VENDORS PRODUCTS FOR A SPECIFIED STORE
-     */
+
+      /**
+      * @dev RETURNS THE VENDORS PRODUCTS FOR A SPECIFIED STORE
+      * @param storeIndex array index of store 
+      * @param productId id of product
+      * @return name name of product  
+      * @return description description of product  
+      * @return price price of product in ether 
+      * @return princeInSpinelToken product price in tokens
+      * @return quantity quantity of product 
+      * @return imageHash image hash  
+      * @return msg.sender vendors address  
+      * @return productId Id or product 
+      */
     function getProductVendor(uint storeIndex, uint productId) public constant 
        returns(bytes32,bytes32, uint, uint, uint , string, address, uint) {
                return (
@@ -78,6 +112,19 @@ contract ProductManager is Ownerble, StoreBase , VendorBase{
      /**
       RETURNS THE VENDORS PRODUCTS FOR A SPECIFIED STORE
      */
+
+       /**
+      * @dev RETURNS THE VENDORS PRODUCTS FOR A SPECIFIED STORE
+      * @param productId Id of product
+      * @param productIdSlot Index of product
+      * @param price price of product
+      * @param quantity quantity of product
+      * @param totalItemsPrice total Price of product
+      * @param vendorAccount vendor acoount
+      * @param storeIndex index of store in array
+      * @param paymentMethod payment method
+      * @return bool 
+      */
       function getProductCustomer(uint accountIndex, uint storeIndex, uint productId) public constant returns(bytes32,
        bytes32, uint, uint,  string, address, uint) {
           address vendor = vendorAccountsWithListedStores[accountIndex];

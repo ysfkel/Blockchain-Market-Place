@@ -13,9 +13,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity 0.4.24;\n\ncontract Ownerble {\n    \n    constructor() internal{\n         createOwner();\n    }\n    \n    enum AccountState {\n        Pending,\n        Approved\n    }\n    enum AppRole {\n        Owner, SuperAdmin, Admin,\n        Vendor, VendorAwaitingApproval, Customer\n    }\n    \n    address private  owner;\n    \n     function createOwner() private {\n          owner = msg.sender;\n     }\n    \n    modifier ownerOnly() {\n        require(msg.sender == owner);\n        _;\n    }\n}",
-  "sourcePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
+  "sourcePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
   "ast": {
-    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
+    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
     "exportedSymbols": {
       "Ownerble": [
         657
@@ -246,7 +246,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4131,
+                        "referencedDeclaration": 4155,
                         "src": "379:3:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -335,7 +335,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4131,
+                            "referencedDeclaration": 4155,
                             "src": "446:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -389,10 +389,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4134,
-                        4135
+                        4158,
+                        4159
                       ],
-                      "referencedDeclaration": 4134,
+                      "referencedDeclaration": 4158,
                       "src": "438:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -445,7 +445,7 @@
     "src": "0:486:5"
   },
   "legacyAST": {
-    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
+    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
     "exportedSymbols": {
       "Ownerble": [
         657
@@ -676,7 +676,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4131,
+                        "referencedDeclaration": 4155,
                         "src": "379:3:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -765,7 +765,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4131,
+                            "referencedDeclaration": 4155,
                             "src": "446:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -819,10 +819,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4134,
-                        4135
+                        4158,
+                        4159
                       ],
-                      "referencedDeclaration": 4134,
+                      "referencedDeclaration": 4158,
                       "src": "438:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -879,6 +879,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2018-08-26T21:39:50.345Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-08-27T04:26:05.816Z"
 }

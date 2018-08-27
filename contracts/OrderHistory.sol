@@ -47,7 +47,7 @@ contract OrderHistory is StoreBase{
     }
 
     /**
-      * @RETURNS ORDER HISTORY COUNT FOR A PARTICULAR ADDRESS
+      * @dev RETURNS ORDER HISTORY COUNT FOR A PARTICULAR ADDRESS
       * @return uint256 count of order history
       */
      function getCustomerOrdersHistoryCount() public view returns(uint256){
