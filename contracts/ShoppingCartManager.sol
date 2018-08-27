@@ -375,6 +375,8 @@ contract ShoppingCartManager is Ownerble, StoreBase,
             * @return bool true if success
             */
   function checkOutTokenPayment(uint256 paymentMethod, uint256 paymentDateTimeStamp) public payable returns(bool){
+       
+        require(PaymentMethod(paymentMethod) == PaymentMethod.Token || PaymentMethod(paymentMethod) == PaymentMethod.Ether);
         require(shoppingCarts[msg.sender].productIds.length > 0);
         //REVERT IF THE CUSTOMER DOES NOT HAVE SUFFICIEN BALANCE TO COVER THE CART PRICE
         require(isCustomerBalanceSufficient(paymentMethod, msg.value));
