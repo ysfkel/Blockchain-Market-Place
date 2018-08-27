@@ -18,8 +18,16 @@ import "./Ownerble.sol";
 /**@title Withdrawable allows vendors to withdraw funcds to their wallet */
 contract Withdrawable is Ownerble, VendorBase {
     
+    /**
+            * @dev EMITS FUNDS WITHDRWAL SUCCESS
+            * @amount true if success
+            */
     event WithdrawalCompletedSuccessfully(uint amount);
 
+        /**
+            * @dev WITHDRWAS VENDORS FUNDS
+            * @return bool true if success
+            */
     function withdraw() public returns (bool) {
         
         require(vendors[msg.sender].state == AccountState.Approved);
