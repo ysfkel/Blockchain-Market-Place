@@ -41,7 +41,7 @@ contract OrderHistory is StoreBase{
       * @dev GENERATES ORDER HISTORY ID
       * @return uint256 next item id
       */
-    function incrementCustomerOrdersHistory() public  returns(uint256){
+    function incrementCustomerOrdersHistory() internal  returns(uint256){
          
         customerOrdersCount[msg.sender]= ++customerOrdersCount[msg.sender];
          return  customerOrdersCount[msg.sender];
