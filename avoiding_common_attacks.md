@@ -18,6 +18,9 @@ The following measures were taking in order to ensure the smart contracts are no
                -  Better code readability
                -  code sharing via function calls
                -  better maintanability of code
+   ### Poison data
+        - To protech smart contracts that accept arguments against wrong data, require statements were used to through exceptions for
+           invalid data.
        
       
    
