@@ -3,6 +3,8 @@ import {  Link  } from 'react-router-dom';
 import { getWeb3Contract } from '../../../services/web3.service';
 import { getAccount, getWebContract} from '../../../services/app.service';
  import { getProducts } from './repo';
+import ProductListItem from './item.component';
+import * as styles from './styles';
 
 export default class ProductsListPublic extends Component {
    
@@ -41,15 +43,14 @@ export default class ProductsListPublic extends Component {
     
     render() {
         const products = this.state.products.map((p, index)=>{
-            return(<div key={index}>
-                 <span>{p.name}</span> <span>{p.description}</span>  <span>{p.price}</span>   <span>{p.quantity}</span> 
-                 <Link to={`/product-details/${this.props.accountId}/${this.props.storeId}/${p.productId}`}>details</Link>
-             
+            return(<div key={index} style={styles.listContainer}>
+                    <ProductListItem product={p} accountId={this.props.accountId} storeId={this.props.storeId} />
+                
               </div>)
           })
         return(
             <div>
-              <h1>PRODUCT LIST</h1>
+              <h3>PRODUCT LIST</h3>
               <p>
               {products}
               </p>

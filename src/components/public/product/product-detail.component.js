@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import * as styles from './styles';
+import TextField from '@material-ui/core/TextField';
 
 export default class ProductDetail extends Component{
       
@@ -85,22 +86,34 @@ export default class ProductDetail extends Component{
            
             <CardContent>
               <Typography gutterBottom variant="headline" component="h3">
-                {this.state.name}
+              <label>Name :</label> {this.state.name}
               </Typography>
               <Typography >
-                 {this.state.price}
+              <label>Price:</label>  {this.state.price}
               </Typography>
               <Typography >
-                 {this.state.quantity}
+              <label>Quantity:</label>  {this.state.quantity}
               </Typography>
               <Typography >
-                 {this.state.description}
+                  
+              <label>Description:</label> {this.state.description}
               </Typography>
               <div>
                        <form onSubmit={this.handleAdToCart}>
-                       <input type="text" placeholder="name" name={this.productQuantityInput} value={this.state.purchasedQuantity} onChange={this.handleChange}/>
+                       <TextField
+                         style={styles.input}
+                        label="Quantity"
+                        name={this.productQuantityInput}
+                        onChange={this.handleChange}
+                        value={this.state.purchasedQuantity}
+                        margin="normal"
+                        />
+                      
                     
-                       <button type="submit">Add to cart</button>
+            
+                       <Button type="submit" >
+                       Add to cart
+                                </Button>
                        </form>
                    </div>
                

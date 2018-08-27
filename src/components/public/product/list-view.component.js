@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProductsListPublic from './list.component';
+import * as styles from './styles';
 
 export default class ProductListViewComponent extends Component {
 
@@ -9,9 +10,7 @@ export default class ProductListViewComponent extends Component {
 
     render() {
         return(
-            <div>
-               <h1>Products</h1>
-               
+            <div style={styles.productsListContainer}>
               <ProductsListPublic storeId={this.props.storeId}
                accountId={this.props.accountId}/>
 
