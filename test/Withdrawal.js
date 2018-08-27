@@ -13,7 +13,7 @@ contract('Withdrawable', function(accounts) {
                account: customerAccount
             }
  
-    it('managers vendors', function(){
+    it('Approves vendor account', function(){
 
         return MarketPlace.deployed().then(function(instance){
             contractInstance = instance;
