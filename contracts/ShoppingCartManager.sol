@@ -256,7 +256,7 @@ contract ShoppingCartManager is Ownerble, StoreBase,
 
       /**
       * @dev RETURNS THE PRICE (IN ETHER OR TOKEN OF AN ITEM IN THE SHOPPING CART ACCORDING TO THE PAYMENT METHOD
-      * @param paymentMethod patment method ether or token
+      * @param paymentMethod payment method ether or token
       * @param vendorAccount vendors address
       * @param storeIndex array index of store
       * @param productId product id
@@ -275,10 +275,13 @@ contract ShoppingCartManager is Ownerble, StoreBase,
         }
     }
 
-  
-    /**
-      CALCULATES THE TOTAL PRICE OF A SHOPPING CART ITEM
-     */
+
+     /**
+      * @dev  CALCULATES THE TOTAL PRICE OF A SHOPPING CART ITEM
+      * @param productPrice product price
+      * @param purchasedQuantity product quantity
+      * @return totalItemsPricetotal item price
+      */
     function getTotalItemsPrice(uint256 productPrice, uint256 purchasedQuantity) public pure returns(uint256) {
 
         uint256 totalItemsPrice = SafeMath.mul(productPrice, purchasedQuantity);
@@ -286,10 +289,12 @@ contract ShoppingCartManager is Ownerble, StoreBase,
         return totalItemsPrice;
     }
 
-   /**
-     RETURNS THE BALANCE OF THE CUSTOMER (ETHER OR TOKEN) ACCORDING 
-     TO THE CUSTOMERS CHOSEN PAYMENT METHOD
-    */
+       /**
+      * @dev  RETURNS THE BALANCE OF THE CUSTOMER (ETHER OR TOKEN) ACCORDING TO THE CUSTOMERS CHOSEN PAYMENT METHOD
+      * @param paymentMethod, payment method - ether or token
+      * @param customerBalance customers ether balance
+      * @return uint256 customers balance ether / token
+      */
     function getcustomerBalance(uint256 paymentMethod, uint256 customerBalance) public view returns(uint256){
          if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
                //RETURN CUSTOMERS TOKEN BALANCE IF CUSTOMER IS PAYING IN TOKENS
@@ -300,10 +305,15 @@ contract ShoppingCartManager is Ownerble, StoreBase,
         }
     }
 
-    /**
-      COMPLETES PURCHASE BY MAKING PAYMENT TO VENDOR OF ITEM
-      PURCHASED BY CUSTOMER
-     */
+
+       /**
+      * @dev   COMPLETES PURCHASE BY MAKING PAYMENT TO VENDOR OF ITEM PURCHASED BY CUSTOMER
+      * @param paymentMethod, payment method - ether or token
+      * @param customerBalance customers ether balance
+      * @param vendorAccount vendor address
+      * @param storeIndex arrray index of store
+      * @return bool true if success
+      */
     function payVendor(uint256 paymentMethod, address customerAccount, address vendorAccount, uint256 storeIndex,
      uint256 totalItemsPrice )
       public  returns(bool) {
@@ -326,10 +336,15 @@ contract ShoppingCartManager is Ownerble, StoreBase,
         }                
     }
 
-             /**
-               ADDS THE ORDER ITEM TO THE ORDER HISTORY
-               VIEWABLE BY THE CUSTOMER FROM HIS / HER DASHBOARD INTERFACE
-              */
+         
+            /**
+            * @dev  ADDS THE ORDER ITEM TO THE ORDER HISTORY VIEWABLE BY THE CUSTOMER FROM HIS / HER DASHBOARD INTERFACE
+            * @param paymentMethod, payment method - ether or token
+            * @param customerBalance customers ether balance
+            * @param vendorAccount vendor address
+            * @param storeIndex arrray index of store
+            * @return bool true if success
+            */
             function _createOrderHistory(
             address vendorAccount,
             uint256 productId,
