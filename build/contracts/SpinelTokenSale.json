@@ -405,7 +405,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4168,
+                        "referencedDeclaration": 4177,
                         "src": "379:3:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -641,7 +641,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4168,
+                            "referencedDeclaration": 4177,
                             "src": "649:3:10",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -764,10 +764,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "641:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -816,7 +816,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4203,
+                              "referencedDeclaration": 4212,
                               "src": "926:4:10",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_SpinelTokenSale_$2926",
@@ -905,10 +905,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "894:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -948,7 +948,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4168,
+                              "referencedDeclaration": 4177,
                               "src": "1079:3:10",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1047,10 +1047,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "1048:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1133,7 +1133,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4168,
+                          "referencedDeclaration": 4177,
                           "src": "1169:3:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1293,7 +1293,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4168,
+                            "referencedDeclaration": 4177,
                             "src": "1277:3:10",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1347,10 +1347,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "1269:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1404,7 +1404,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4203,
+                                "referencedDeclaration": 4212,
                                 "src": "1369:4:10",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_SpinelTokenSale_$2926",
@@ -1525,10 +1525,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "1307:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1568,7 +1568,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4203,
+                              "referencedDeclaration": 4212,
                               "src": "1412:4:10",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_SpinelTokenSale_$2926",
@@ -1895,7 +1895,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4168,
+                            "referencedDeclaration": 4177,
                             "src": "1767:3:10",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1949,10 +1949,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "1759:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1987,7 +1987,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4203,
+                        "referencedDeclaration": 4212,
                         "src": "1814:4:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_SpinelTokenSale_$2926",
@@ -2364,7 +2364,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4168,
+                        "referencedDeclaration": 4177,
                         "src": "379:3:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -2600,7 +2600,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4168,
+                            "referencedDeclaration": 4177,
                             "src": "649:3:10",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -2723,10 +2723,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "641:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2775,7 +2775,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4203,
+                              "referencedDeclaration": 4212,
                               "src": "926:4:10",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_SpinelTokenSale_$2926",
@@ -2864,10 +2864,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "894:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2907,7 +2907,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4168,
+                              "referencedDeclaration": 4177,
                               "src": "1079:3:10",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -3006,10 +3006,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "1048:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3092,7 +3092,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4168,
+                          "referencedDeclaration": 4177,
                           "src": "1169:3:10",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3252,7 +3252,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4168,
+                            "referencedDeclaration": 4177,
                             "src": "1277:3:10",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -3306,10 +3306,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "1269:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3363,7 +3363,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4203,
+                                "referencedDeclaration": 4212,
                                 "src": "1369:4:10",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_SpinelTokenSale_$2926",
@@ -3484,10 +3484,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "1307:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3527,7 +3527,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 4203,
+                              "referencedDeclaration": 4212,
                               "src": "1412:4:10",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_SpinelTokenSale_$2926",
@@ -3854,7 +3854,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4168,
+                            "referencedDeclaration": 4177,
                             "src": "1767:3:10",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -3908,10 +3908,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4171,
-                        4172
+                        4180,
+                        4181
                       ],
-                      "referencedDeclaration": 4171,
+                      "referencedDeclaration": 4180,
                       "src": "1759:7:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3946,7 +3946,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4203,
+                        "referencedDeclaration": 4212,
                         "src": "1814:4:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_SpinelTokenSale_$2926",
@@ -4070,10 +4070,10 @@
     "1535387251700": {
       "events": {},
       "links": {},
-      "address": "0x943f79db33cf8c2c06d0a3a2820baac22d9c3b67",
-      "transactionHash": "0x72d6b48185a775b25adbdb64f682d22c98b67f3995f0f3f52867a098efda4107"
+      "address": "0x5acc23c31d05be16cbf4b51455f2ce9f4ebb28bf",
+      "transactionHash": "0x6f5a352d5071adc40f2c38743b2763bf79c9b0bfac782d73de7c25b1feff07b1"
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-08-27T16:53:24.433Z"
+  "updatedAt": "2018-08-27T17:51:40.084Z"
 }
