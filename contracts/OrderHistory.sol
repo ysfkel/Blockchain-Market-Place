@@ -1,6 +1,7 @@
 pragma solidity 0.4.24;
 import "./StoreBase.sol";
 
+/** @title Order history contract . */
 contract OrderHistory is StoreBase{
     
  

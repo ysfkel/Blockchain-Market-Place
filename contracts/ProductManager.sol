@@ -2,9 +2,7 @@ pragma solidity 0.4.24;
 import "./StoreBase.sol";
 import "./VendorBase.sol";
 
-/**
-  THIS CONTRACT IS USED BY STORE OWNERS TO MANAGE  STORE PRODUCTS
- */
+ /** @title product manager contract -  used by store owners for managing products . */
 contract ProductManager is Ownerble, StoreBase , VendorBase{
    
      /**
@@ -217,8 +215,12 @@ contract ProductManager is Ownerble, StoreBase , VendorBase{
          return true;
     }
     
-     /**
-       DELETES THE SPEFICIED PRODUCT
+
+     /** 
+      * @dev DELETES THE SPEFICIED PRODUCT
+      * @param storeIndex array index of store
+      * @param productId array index of product
+      * @return bool true if success 
      */
      function deleteProduct(uint storeIndex, uint productId) public returns(bool) {
           require(vendors[msg.sender].state == AccountState.Approved);

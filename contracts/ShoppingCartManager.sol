@@ -8,16 +8,41 @@ import "./SpinelTokenSale.sol";
 import "./SpinelToken.sol";
 import "./OrderHistory.sol";
 
+ /** @title shopping cart manager */
 contract ShoppingCartManager is Ownerble, StoreBase,
  VendorBase, OrderHistory{
     
     SpinelToken internal tokenContract_shoppingCart;
-
+   
+    /**
+      * @dev EMITS CART ITEM INSERTED EVENT
+      * @param cartSize shopping cart size
+      */
     event ItemInsertedToCart(uint cartSize);
+    /**
+      * @dev EMITS CART ITEM UPDATED EVENT
+      * @param productQuantity shopping cart product quanity
+      */
     event CartItemUpdated(uint productQuantity);
+    /**
+      * @dev EMITS CART ITEM DELETED EVENT
+      * @param cartSize size of shopping cart
+      */
     event CartItemDeleted(uint cartSize);
+    /**
+      * @dev EMITS CART PAYMENT COMPLETED EVENT
+      * @param status true if success
+      */
     event PaymentCompleted(bool status);
+    /**
+      * @dev EMITS CART PRICE IN TOKEN EVENT
+      * @param amount total cart price
+      */
     event PaymentByTokenCompleted(uint256 amount);
+    /**
+      * @dev EMITS CART IN ETHER EVENT
+      * @param amount total cart price
+      */
     event PaymentByEtherCompleted(uint256 amount);
 
      /**
