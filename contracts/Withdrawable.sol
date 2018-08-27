@@ -15,7 +15,7 @@ import "./Ownerble.sol";
   CONTRACT
 */
 
-
+/**@title Withdrawable allows vendors to withdraw funcds to their wallet */
 contract Withdrawable is Ownerble, VendorBase {
     
     event WithdrawalCompletedSuccessfully(uint amount);

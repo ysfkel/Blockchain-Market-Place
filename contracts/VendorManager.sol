@@ -10,7 +10,15 @@ contract VendorManager is Base, Ownerble, VendorBase {
     Vendor[] internal pendingVendors;
     Vendor[] internal approvedVendors;
     
+     /**
+            * @dev EMITS VENDOR ACCOUNT REQUESTED EVENT
+            * @param status true if success 
+            */
     event  VendorAccountRequested(bool status);
+    /**
+            * @dev EMITS VENDOR ACCOUNT APPROVEDEVENT
+            * @param status true if success 
+            */
     event  VendorAccountApproved(bool status);
 
      /**
