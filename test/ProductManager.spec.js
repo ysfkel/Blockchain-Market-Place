@@ -2,12 +2,15 @@ const truffleAssert = require('truffle-assertions');
 const MarketPlace = artifacts.require('./MarketPlace');
 const TOKEN_PRICE =  require('../migrations/constants').TOKEN_PRICE;
 
-contract('MarketPlace', function(accounts) {
+/**
+ * Tests the functionality of the functions in
+ * the product manager contract
+ */
+contract('ProducManager ', function(accounts) {
     
     let contractInstance;
     const owner = accounts[0];
     const customerAccount = accounts[1];
-    const nonVendorAccount = accounts[3];
      const productPrice = 5110123153968011000000;
     const productPrice_in_spinel = productPrice/ TOKEN_PRICE;
      const customer = {
@@ -20,8 +23,6 @@ contract('MarketPlace', function(accounts) {
         name: 'product name',
         description: 'product description'
     }
-    const updatedStoreName = 'store updated';
-    const updatedStoreDescription= 'store description';
  
     it('Product Mnager ', function(){
 

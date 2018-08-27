@@ -5,6 +5,11 @@ const TOKEN_PRICE =  require('../migrations/constants').TOKEN_PRICE;
 const SpinelTokenSale = artifacts.require('./SpinelTokenSale');
 const SpinelToken = artifacts.require('./SpinelToken');
 
+/**
+ * Tests if an order is archived by the OrderHistory Contract 
+ * after the customer checks out by completing the purcahse journey
+ * i.e shopping and making payment.
+ */
 contract('Order History', function(accounts) {
     
     let contractInstance;
