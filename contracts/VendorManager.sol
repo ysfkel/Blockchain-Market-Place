@@ -131,16 +131,26 @@ contract VendorManager is Base, Ownerble, VendorBase {
          return true;
     }
     
+    /**
+            * @dev ADDS USER TO PENDING VENDORS
+            * @param index array index of vendor
+            * @return _name name of user
+            * @return _email email of user
+            * @return _phone phone number of user
+            * @return number count of pending vendors
+            */
     function setPendingVendor(string _name, string _email,  string _phone) private returns (uint){
 
          pendingVendors.push(Vendor(_name, _email, _phone, AccountState.Pending,
          msg.sender, true, int(pendingVendors.length),getNotExistsIndex(),AppRole.VendorAwaitingApproval,0)) -1;
          
     }
-    
-    /**
-      APPROVE A USER TO BECOME A VENDOR
-     */
+
+     /**
+            * @dev APPROVE A USER TO BECOME A VENDOR
+            * @param account address of vendor
+            * @return bool trufe if success 
+            */
     function approveVendorAccount(address account) public ownerOnly returns(bool) {
          require(vendors[account].isVendorOrApplicant == true);
           vendors[account].state = AccountState.Approved;
@@ -153,9 +163,12 @@ contract VendorManager is Base, Ownerble, VendorBase {
           return true;
     }
     
-    /**
-      REMOVES APPROVED VENDOR FROM PENDING VENDORS LIST
-     */
+
+     /**
+            * @dev REMOVES APPROVED VENDOR FROM PENDING VENDORS LIST
+            * @param account address of vendor
+            * @return bool true if success 
+            */
     function removeAccountFromPendingList(address account) private returns(bool) {
           require(vendors[account].pendingListIndex > -1);
           pendingVendors[uint(vendors[account].pendingListIndex)] = pendingVendors[pendingVendors.length - 1];
@@ -167,9 +180,12 @@ contract VendorManager is Base, Ownerble, VendorBase {
           return true;
     }
     
-    /**
-      ADDS APPROVED VENDOR TO APPROVED VENDORS LIST
-     */
+
+      /**
+            * @dev ADDS APPROVED VENDOR TO APPROVED VENDORS LIST
+            * @param account address of vendor
+            * @return bool true if success 
+            */
     function addAccountToApprovedList(address account) private returns(bool) {
           vendors[account].approveListIndex = int(approvedVendors.length);
           approvedVendors.push(vendors[account]);
