@@ -87,7 +87,20 @@ Compile and migrate the smart contracts to the local blockchain
 
 ### Running tests
 
-Explain what these tests test and why
+ This project constaians a suite of tests that verify the functionality of the contracts code
+ 
+ These tests cover the following contracts
+ -OrderHIstoryManager: Tests verify if the customers order is archived in order history after purchase is completed
+ -ProductManager: Tests the functionality of adding, updtating and deleting products
+ -ShoppingCartManager: Test the functionality of adding item to a cart, updating, deleting an item and completing purchase
+                        as well is products quantity reduction and payment made to the respective vendors
+ -SpinelToken: Tests the functionality of the ERC20 TOKEN
+ -SpinelTokenSale: Tests the functionality of allowing users to buy Tokens
+ -StoreManager: Tests the functionality of the StoreMnager -  Adding, editting and deleting stores 
+ -VendorManager: Tests the functionality of VendorManager which allows admin/owner to manage vendors
+ -Withdrawable: Tests the functionality of allowing vendors to move funds to their wallet
+ 
+ 
 
 ```
 Give an example
@@ -107,30 +120,18 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Truffle](https://truffleframework.com/) - Truffle Framework
+* [React](https://reactjs.org/) - UI Library
+* [Solidity](https://solidity.readthedocs.io/en/v0.4.24/) - Programming language
+* [Ethereum](https://www.ethereum.org/) - Blockchain Protocol
+* [IPFS](https://rometools.github.io/rome/) - decentralized file storage
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+ 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Yusuf Kelo** - *Initial work* - [Blockchain-Market-Place](https://github.com/ysfkel/Blockchain-Market-Place)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
