@@ -374,10 +374,12 @@ contract ShoppingCartManager is Ownerble, StoreBase,
                 );
             }
 
-  /**
-    WHEN TRIGGERED, MAKES PAYMENT FOR ALL 
-    ITEMS IN THE CUSTOMERS SHOPPING CART
-   */
+ 
+   /**
+            * @dev  WHEN TRIGGERED, MAKES PAYMENT FOR ALL ITEMS IN THE CUSTOMERS SHOPPING CART
+            * @param paymentMethod, payment method - ether or token
+            * @return bool true if success
+            */
   function checkOutTokenPayment(uint256 paymentMethod) public payable returns(bool){
         require(shoppingCarts[msg.sender].productIds.length > 0);
         //REVERT IF THE CUSTOMER DOES NOT HAVE SUFFICIEN BALANCE TO COVER THE CART PRICE
