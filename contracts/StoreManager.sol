@@ -18,9 +18,13 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
     
     }
         
-     /**
-       CREATES A NEW STORE FOR A VENDOR
-      */
+
+            /**
+            * @dev  CREATES A NEW STORE FOR A VENDOR
+            * @param storeName store name
+            * @param description store description
+            * @return uint count of stores
+            */
      function createStore(bytes32 storeName, bytes32 description) public  returns(uint){
          require(vendors[msg.sender].state == AccountState.Approved);
           Store memory store;
@@ -42,9 +46,14 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
           return  stores[msg.sender].length;
     }
     
-    /**
-     UPDATEES A STORE
-     */
+
+     /**
+            * @dev  UPDATEES A STORE
+            * @param storeIndex array index of store
+            * @param storeName store name
+            * @param description store description
+            * @return bool true if success 
+            */
     function editStore(uint storeIndex, bytes32 storeName, bytes32 description) public returns(bool) {
        require(vendors[msg.sender].state == AccountState.Approved);
         require(stores[msg.sender].length > 0 && (storeIndex < stores[msg.sender].length));
@@ -55,7 +64,11 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
           emit StoreUpdated(storeName, description);
     }
     
-     //DELETES A STORE
+     /**
+            * @dev DELETES A STORE
+            * @param storeIndex array index of store
+            * @return bool true if success 
+            */
        function deleteStore(uint storeIndex) public returns(bool) {
           require(vendors[msg.sender].state == AccountState.Approved);
           
@@ -79,8 +92,15 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
           return true;
     }
     
- 
-    // RETURNS THE VENDORS STORE DETAILS
+
+    /**
+            * @dev RETURNS THE VENDORS STORE DETAILS
+            * @param storeIndex array index of store
+            * @return name name of store
+            * @return description description of store
+            * @return revenue revenue of store
+            * @return storeIndex array index of store
+            */
     function getStorePrivate(uint storeIndex) public view returns(bytes32, bytes32, uint, uint){
           uint revenue =  stores[msg.sender][storeIndex].revenue;
           return (
@@ -91,8 +111,16 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
          );
 
     }
-    
-    //RETURNS STORE DETAILS
+
+     /**
+            * @dev RETURNS STORE DETAILS
+            * @param accountIndex array index of vendor account
+            * @param storeIndex array index of store
+            * @return name name of store
+            * @return description description of store
+            * @return storeIndex array index of store
+            * @return accountIndex array index of vendor account
+            */
     function getStorePublic(uint accountIndex, uint storeIndex) public view returns(bytes32, bytes32, uint, uint){
         //check if the account is in accounts with listed store and the account has a store 
         require(accountIndex < vendorAccountsWithListedStores.length && stores[vendorAccountsWithListedStores[accountIndex]].length > 0);
@@ -100,7 +128,16 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
           return getStore(accountIndex, storeIndex);
     }
     
-    //RETURNS STORE DETAILS
+
+    /**
+            * @dev RETURNS STORE DETAILS
+            * @param accountIndex array index of vendor account
+            * @param storeIndex array index of store
+            * @return name name of store
+            * @return description description of store
+            * @return storeIndex array index of store
+            * @return accountIndex array index of vendor account
+            */
     function getStore(uint accountIndex, uint storeIndex) private view returns (bytes32, bytes32, uint, uint) {
           address user = vendorAccountsWithListedStores[accountIndex];
           
@@ -112,17 +149,29 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
          );
     }
     
-    // RETURNS THE NUMBER OF  VENDORS WITH ACTIVE STORES
+    /**
+            * @dev RETURNS THE NUMBER OF  VENDORS WITH ACTIVE STORES
+            * @param accountIndex array index of vendor account
+            * @return number  of vendors with active stores
+            */
     function getVendorAccountsWithListedStoresCount() public view returns(uint) {
           return vendorAccountsWithListedStores.length;
     }
     
-    //RETURNS THE NUMBER OF STORES FOR A PARTICULAR VENDOR
+ 
+    /**
+            * @dev RETURNS THE NUMBER OF STORES FOR A PARTICULAR VENDOR
+            * @return number of  stores
+            */
     function getUserStoreCount() public view returns(uint) {
            return stores[msg.sender].length;
     }
     
-       //RETURNS THE NUMBER OF STORES FOR A PARTICULAR VENDOR
+       /**
+            * @dev RETURNS THE NUMBER OF STORES FOR A PARTICULAR VENDOR
+            * @param accountIndex array index of vendor account
+            * @return number of  stores
+            */
     function getVendorStoreCountPublic(uint accountIndex) public view returns(uint, uint) {
           
           
