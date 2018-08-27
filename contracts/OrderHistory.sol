@@ -21,7 +21,7 @@ contract OrderHistory is StoreBase{
         require(PaymentMethod(paymentMethod) == PaymentMethod.Token || PaymentMethod(paymentMethod) == PaymentMethod.Ether);
          orderHistory[msg.sender][orderId].timeStamp = paymentDateTimeStamp;
          orderHistory[msg.sender][orderId].grandTotal = grandTotal;
-         orderHistory[msg.sender][orderId].grandTotal = paymentMethod;
+         orderHistory[msg.sender][orderId].paymentMethod = paymentMethod;
          return true;
     }
     
