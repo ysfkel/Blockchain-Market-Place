@@ -104,13 +104,18 @@ contract VendorManager is Base, Ownerble, VendorBase {
               vendors[account].phone,
               uint(vendors[account].state),
               vendors[account].account
-          );
+          ); 
     }
     
-    
-    /**
-      ALLOWS USERS TO PLACE REQUEST FOR A VENDOR ACCOUNT
-     */
+
+      /**
+            * @dev ALLOWS USERS TO PLACE REQUEST FOR A VENDOR ACCOUNT
+            * @param index array index of vendor
+            * @return _name name of user
+            * @return _email email of user
+            * @return _phone phone number of user
+            * @return bool true if success
+            */
     function requestVendorAccount(string _name, string _email,  string _phone) public returns(bool) {
          //REVERT IF THE USER HAS ALREADY PLACED A REQUEST FOR A VENDOR ACCOUNT
           require(vendors[msg.sender].isVendorOrApplicant == false, "REQUEST IS IN PROCESS");
