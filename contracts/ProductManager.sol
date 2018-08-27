@@ -109,21 +109,20 @@ contract ProductManager is Ownerble, StoreBase , VendorBase{
               );
      }
      
-     /**
-      RETURNS THE VENDORS PRODUCTS FOR A SPECIFIED STORE
-     */
-
+     
        /**
       * @dev RETURNS THE VENDORS PRODUCTS FOR A SPECIFIED STORE
-      * @param productId Id of product
-      * @param productIdSlot Index of product
-      * @param price price of product
-      * @param quantity quantity of product
-      * @param totalItemsPrice total Price of product
-      * @param vendorAccount vendor acoount
-      * @param storeIndex index of store in array
-      * @param paymentMethod payment method
-      * @return bool 
+      * @param accountIndex array index of vendor account
+      * @param storeIndex array index of store
+      * @param productId product ID
+      * @return name name of product  
+      * @return description description of product  
+      * @return price price of product in ether 
+      * @return princeInSpinelToken product price in tokens
+      * @return quantity quantity of product 
+      * @return imageHash image hash  
+      * @return msg.sender vendors address  
+      * @return productId Id or product 
       */
       function getProductCustomer(uint accountIndex, uint storeIndex, uint productId) public constant returns(bytes32,
        bytes32, uint, uint,  string, address, uint) {
@@ -142,16 +141,21 @@ contract ProductManager is Ownerble, StoreBase , VendorBase{
      
   
 
-   /**
-      RETURNS THE QUANTITY OF PRODUCTS IN SPECIFIED STORE
+   /** 
+      * @dev RETURNS THE QUANTITY OF PRODUCTS IN SPECIFIED STORE
+      * @param storeIndex array index of store index of vendor account
+      * @param productId array index of product
+      * @return uint quantity of products in store  
      */
     function getProductQuantity(uint storeIndex, uint productId) public view returns(uint) {
           return stores[msg.sender][storeIndex].products[productId].quantity;
     } 
 
-
-      /**
-       UPDATES PRODUCT IMAGE
+     /** 
+      * @dev UPDATES PRODUCT IMAGE
+      * @param imageHash image hash
+      * @param storeIndex array index of store index of vendor account
+      * @param productId array index of product 
      */
      function updateProductImage(string imageHash, uint256 storeIndex, uint256 productId ) public returns(bool) {
         require(vendors[msg.sender].state == AccountState.Approved);
@@ -159,8 +163,14 @@ contract ProductManager is Ownerble, StoreBase , VendorBase{
           emit ImageUpdated(imageHash, storeIndex, productId);
      }
     
-    /**
-      CREATE A NEW PRODUCT
+     /** 
+      * @dev CREATES A NEW PRODUCT
+      * @param productName product name
+      * @param description product description
+      * @param price product price
+      * @param quantity product quantity
+      * @param product price in spinel token
+      * @return productIdSlot array index of product id 
      */
     function createProduct(uint storeIndex,bytes32 productName, bytes32 description, 
        uint price, uint quantity, uint priceInSpinelToken) public returns(uint) {
@@ -184,8 +194,16 @@ contract ProductManager is Ownerble, StoreBase , VendorBase{
           return productIdSlot;
     }
 
-     /**
-       UPDATES THE SPEFICIED PRODUCT
+      /** 
+      * @dev UPDATES THE SPEFICIED PRODUCT
+      * @param storeIndex array index of store
+      * @param productId array index of product
+      * @param productName product name
+      * @param description product description
+      * @param price product price
+      * @param quantity product quantity
+      * @param product price in spinel token
+      * @return bool true if success 
      */
       function editProduct(uint storeIndex, uint productId, bytes32 productName, bytes32 description, uint price, uint quantity, uint priceInSpinelToken) public  returns(bool) {
          require(vendors[msg.sender].state == AccountState.Approved);
