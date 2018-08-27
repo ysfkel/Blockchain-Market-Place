@@ -11,9 +11,7 @@ import * as styles from './styles';
 
 export default class TokenSale extends Component {
 
-/*
-         prev['tokenAmount'] = tokenAmount;
-                prev['tokenPriceInEther'] = tokenPriceInEther; */
+
     constructor(props) {
             super(props)
             this.state = {
@@ -21,7 +19,8 @@ export default class TokenSale extends Component {
                price:0,
                tokenAmount:0,
                tokenPriceInEther:0,
-               amountOfTokensOnSale: 0
+               amountOfTokensOnSale: 0,
+               userTokenBalance:0
             }
             this.web3;
             this.tokenContract;
@@ -54,6 +53,7 @@ export default class TokenSale extends Component {
                           this.tokenContract = tokenContract;
 
                           this.getAmountOftokensOnSale();
+                          this.getTokenBalance();
   
                 });
 
@@ -68,6 +68,14 @@ export default class TokenSale extends Component {
           REPO.getAmountOfTokensOnSale({ saleContractAddress , tokenContract: this.tokenContract})
           .then((amountOfTokensOnSale) => {
                this.setState({amountOfTokensOnSale});
+          }) 
+    }
+
+     getTokenBalance =() => {
+     
+          REPO.getTokenBalance({ account: this.state.account , tokenContract: this.tokenContract})
+          .then((userTokenBalance) => {
+               this.setState({userTokenBalance});
           }) 
     }
 
@@ -125,6 +133,15 @@ export default class TokenSale extends Component {
                 {this.state.amountOfTokensOnSale <= 0 && 
                     <p>There are currently no Tokens on sale, you may contact the owner to place some tokens on sale</p>
                 }
+                <p>
+                  {this.state.userTokenBalance <= 0 &&
+                      <strong>You currently have no tokens</strong>
+                   }
+                   {this.state.userTokenBalance >0 && 
+                   <strong>Your token balance is { this.state.userTokenBalance } SL </strong>
+                   }
+                </p>
+                
                  <form noValidate autoComplete="off">
                     <TextField
                     style={{width:'100%'}}

@@ -33,7 +33,7 @@ export default class FinanceWithdrawal extends Component {
                     this.setState({account: account, balance});
                         REPO.getVendorBalance({account: this.state.account, 
                         contract: this.storeInstance, web3: this.web3}).then((vendorBalance)=>{
-                                        console.log('updated!', vendorBalance)
+
                             this.setState({vendorBalance});
                         
                         })

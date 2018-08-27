@@ -2,7 +2,7 @@ import * as appHelper from '../../../../helpers/helpers';
 
 export const getAdminUsersCount =(storeContract, account, callback) => {
     if(storeContract && account && callback) {
-        console.log('-storeContract', storeContract)
+
         storeContract.getAdminUsersCount.call({from:account}).then(result=>{
        
             callback(result.toNumber());

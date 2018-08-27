@@ -6,7 +6,7 @@ export const getUserStoreCount =(contract,account) => {
         return new Promise((resolve, reject) => {
               contract.getUserStoreCount.call({from:account})
               .then((result)=>{
-                  console.log('result count', result, result.toNumber())
+
                   resolve(result.toNumber())
               })
               .catch((e)=>{
@@ -28,7 +28,7 @@ export const getStores = ({contract, web3 },account) => {
                     for(let i=0; i<count; i++) {
 
                         contract.getStorePrivate(i, {from:account}).then((storeResult)=>{
-                            console.log('-storeResult',storeResult)
+                       
                             const name = web3.toAscii(storeResult[0]);
                             const description = web3.toAscii(storeResult[1]);
                             const revenue =web3.fromWei(storeResult[2].toNumber());
@@ -37,7 +37,7 @@ export const getStores = ({contract, web3 },account) => {
                                 description,
                                 revenue
                             })
-                            console.log('-stores',stores)
+                        
                             if ( i=== (count-1)) {
                                 resolve(stores);
                             }

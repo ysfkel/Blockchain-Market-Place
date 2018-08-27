@@ -2,17 +2,17 @@ import * as helper from './helper';
 
 
 export const getProductsIds =({storeIndex, accountIndex, account, contract}) => {
-  console.log('--accountIndex, storeIndex', accountIndex, storeIndex, account)
+
     return new Promise((resolve, reject) => {
           contract.getProductsIdsCustomer.call(accountIndex, storeIndex,{from:account})
           .then((result)=>{
-              console.log('result count', result)
+           
               const ids = result.map(i=>i.toNumber());
-                 console.log('result count  45', ids)
+             
              resolve(ids)
           })
           .catch((e)=>{
-              console.log('--error 34', e)
+              console.log('--error', e)
               reject(e)
           })
     });
@@ -24,8 +24,7 @@ export const getProducts =({storeIndex, accountIndex, account, contract}) => {
         getProductsIds({storeIndex, accountIndex, account, web3, contract}).then((productIds) => {
        
              const promise  = productIds.map((productId) => {
-                 console.log('==accountIndex, storeIndex, productId', accountIndex, storeIndex, productId)
-                 //uint accountIndex, uint storeIndex, uint productId
+            
                    return contract.getProductCustomer.call(accountIndex, storeIndex, productId, {from: account});
              });
              Promise.all(promise).then((result) => {
@@ -58,6 +57,7 @@ export const getProduct = ({ vendorAccountId, contract, web3 ,account, storeId, 
 //address vendorAccount, uint storeIndex, uint productId, uint productQuantity
 export const addItemToCart = ({vendor,  storeIndex,  productId, purchasedQuantity  , account, contract}) => {
     return new Promise((resolve, reject) => {
+        console.log(vendor, storeIndex, productId, purchasedQuantity)
         contract.addItemToCart(vendor, storeIndex, productId, purchasedQuantity,  {from: account, gas: 3000000}).then((reesult) => {
               resolve();
         })

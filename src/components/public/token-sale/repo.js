@@ -26,3 +26,15 @@ export const getAmountOfTokensOnSale = ({tokenContract,saleContractAddress}) => 
               })
        })
 }
+
+export const getTokenBalance =({ account, tokenContract}) => {
+
+    return new Promise((resolve, reject) => {
+          tokenContract.balanceOf.call(account, {from:account})
+          .then((result)=>{
+            const balance = result.toNumber();
+
+             resolve(balance)
+          })
+    });
+}

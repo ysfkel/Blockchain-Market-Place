@@ -39,7 +39,7 @@ export default class Checkout extends Component {
              
                         xREPO.getCartItem({ contract, web3 ,account})
                         .then((products) => {
-                            console.log('--product', products)
+                         
                             this.setState({products})
                         });
 

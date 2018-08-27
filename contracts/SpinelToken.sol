@@ -97,6 +97,8 @@ contract SpinelToken {
          success = true;
     }
 
+    
+
      /**
       * @dev approves an account to spend tokens on behalf of another account
       * @param _spender address to approve 

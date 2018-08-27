@@ -19,8 +19,10 @@ export default class ApproveTokenPay extends React.Component {
     }
 
         handleApprove = () => {
+           this.props.approveSubmitted();
           if(this.props.balance >= this.props.cartPrice) {
             const { cartPrice, account,  tokenContract, storeContractAddress,  } = this.props;
+           
              approveTokenPay({
                 account, 
                 cartPrice,

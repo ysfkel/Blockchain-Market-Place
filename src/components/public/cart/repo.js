@@ -27,7 +27,7 @@ export const getCartPrice = ({contract, account}) => {
 export const getCartItem =({account, contract, web3}) => {
     return new Promise((resolve, reject) => {
         getProductsIds({ account, web3, contract}).then((productIds) => {
-
+         
              const promise  = productIds.map((productId) => {
                    return contract.getCartItem.call( productId, {from: account});
              });
