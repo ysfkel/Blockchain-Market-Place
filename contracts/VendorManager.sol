@@ -97,7 +97,7 @@ contract VendorManager is Base, Ownerble, VendorBase {
     
      /**
             * @dev RETURNS APPROVED VENDOR
-            * @param index array index of vendor
+            * @param account address of vendor
             * @return name name of vendor
             * @return email email of vendor
             * @return phone phone number of vendor
@@ -118,10 +118,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
 
       /**
             * @dev ALLOWS USERS TO PLACE REQUEST FOR A VENDOR ACCOUNT
-            * @param index array index of vendor
-            * @return _name name of user
-            * @return _email email of user
-            * @return _phone phone number of user
+            * @param _name name of user
+            * @param _email email of user
+            * @param _phone phone number of user
             * @return bool true if success
             */
     function requestVendorAccount(string _name, string _email,  string _phone) public returns(bool) {
@@ -141,10 +140,9 @@ contract VendorManager is Base, Ownerble, VendorBase {
     
     /**
             * @dev ADDS USER TO PENDING VENDORS
-            * @param index array index of vendor
-            * @return _name name of user
-            * @return _email email of user
-            * @return _phone phone number of user
+            * @param _name name of user
+            * @param _email email of user
+            * @param _phone phone number of user
             * @return number count of pending vendors
             */
     function setPendingVendor(string _name, string _email,  string _phone) private returns (uint){

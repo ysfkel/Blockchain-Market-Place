@@ -20,7 +20,7 @@ contract Withdrawable is Ownerble, VendorBase {
     
     /**
             * @dev EMITS FUNDS WITHDRWAL SUCCESS
-            * @amount true if success
+            * @param amount true if success
             */
     event WithdrawalCompletedSuccessfully(uint amount);
 

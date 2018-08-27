@@ -151,7 +151,6 @@ contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserMan
     
     /**
             * @dev RETURNS THE NUMBER OF  VENDORS WITH ACTIVE STORES
-            * @param accountIndex array index of vendor account
             * @return number  of vendors with active stores
             */
     function getVendorAccountsWithListedStoresCount() public view returns(uint) {

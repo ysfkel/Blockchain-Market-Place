@@ -58,7 +58,7 @@ contract ProductManager is Ownerble, StoreBase , VendorBase{
     
       /**
       * @dev RETURNS PRODUCT ID ARRAY
-      * @param accountIndex array index of vendor account
+      * @param account address of vendor 
       * @return uint[] array of product ids
       */
      function getProductsIds(address account, uint storeIndex) public view returns(uint[]) {
@@ -163,11 +163,12 @@ contract ProductManager is Ownerble, StoreBase , VendorBase{
     
      /** 
       * @dev CREATES A NEW PRODUCT
+      * @param storeIndex array index of store
       * @param productName product name
       * @param description product description
       * @param price product price
       * @param quantity product quantity
-      * @param product price in spinel token
+      * @param priceInSpinelToken price in spinel token
       * @return productIdSlot array index of product id 
      */
     function createProduct(uint storeIndex,bytes32 productName, bytes32 description, 
@@ -200,7 +201,7 @@ contract ProductManager is Ownerble, StoreBase , VendorBase{
       * @param description product description
       * @param price product price
       * @param quantity product quantity
-      * @param product price in spinel token
+      * @param priceInSpinelToken price in spinel token
       * @return bool true if success 
      */
       function editProduct(uint storeIndex, uint productId, bytes32 productName, bytes32 description, uint price, uint quantity, uint priceInSpinelToken) public  returns(bool) {

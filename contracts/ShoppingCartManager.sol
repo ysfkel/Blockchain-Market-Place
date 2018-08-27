@@ -262,7 +262,7 @@ contract ShoppingCartManager is Ownerble, StoreBase,
       * @param productId product id
       * @return uint productprice
       */
-    function getItemsPrice(uint256 paymentMethod,  address vendorAccount, uint256 storeIndex, uint productId) public view returns(uint256) {
+    function getItemsPrice(uint256 paymentMethod, address vendorAccount, uint256 storeIndex, uint productId) public view returns(uint256) {
          
         if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
             //IF CUSTOMERS PAYMENT METHOD IS TOKEN
@@ -291,7 +291,7 @@ contract ShoppingCartManager is Ownerble, StoreBase,
 
        /**
       * @dev  RETURNS THE BALANCE OF THE CUSTOMER (ETHER OR TOKEN) ACCORDING TO THE CUSTOMERS CHOSEN PAYMENT METHOD
-      * @param paymentMethod, payment method - ether or token
+      * @param paymentMethod payment method - ether or token
       * @param customerBalance customers ether balance
       * @return uint256 customers balance ether / token
       */
@@ -308,8 +308,8 @@ contract ShoppingCartManager is Ownerble, StoreBase,
 
        /**
       * @dev   COMPLETES PURCHASE BY MAKING PAYMENT TO VENDOR OF ITEM PURCHASED BY CUSTOMER
-      * @param paymentMethod, payment method - ether or token
-      * @param customerBalance customers ether balance
+      * @param paymentMethod payment method - ether or token
+      * @param customerAccount customer address
       * @param vendorAccount vendor address
       * @param storeIndex arrray index of store
       * @return bool true if success
@@ -339,10 +339,12 @@ contract ShoppingCartManager is Ownerble, StoreBase,
          
             /**
             * @dev  ADDS THE ORDER ITEM TO THE ORDER HISTORY VIEWABLE BY THE CUSTOMER FROM HIS / HER DASHBOARD INTERFACE
-            * @param paymentMethod, payment method - ether or token
-            * @param customerBalance customers ether balance
             * @param vendorAccount vendor address
+            * @param productId product Id
+            * @param price product price 
             * @param storeIndex arrray index of store
+            * @param quantity product quantity 
+            * @param paymentMethod payment method - ether or token
             * @return bool true if success
             */
             function _createOrderHistory(
@@ -377,7 +379,7 @@ contract ShoppingCartManager is Ownerble, StoreBase,
  
    /**
             * @dev  WHEN TRIGGERED, MAKES PAYMENT FOR ALL ITEMS IN THE CUSTOMERS SHOPPING CART
-            * @param paymentMethod, payment method - ether or token
+            * @param paymentMethod payment method - ether or token
             * @return bool true if success
             */
   function checkOutTokenPayment(uint256 paymentMethod) public payable returns(bool){
