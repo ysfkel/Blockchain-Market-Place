@@ -1,6 +1,7 @@
 pragma solidity 0.4.24;
 import "./Ownerble.sol";
 
+/**@title vendors base contract */
 contract VendorBase is Ownerble {
     
     mapping(address => Vendor) internal vendors;
@@ -18,7 +19,10 @@ contract VendorBase is Ownerble {
         uint balance;
     }
 
-    //RETURNS THE VENDORS RETRIEVABLE BALANCE
+    /**
+            * @dev RETURNS THE VENDORS RETRIEVABLE BALANCE
+            * @return balance vendors balance - ether
+            */
     function getVendorBalance() public view returns(uint) {
         require(vendors[msg.sender].state == AccountState.Approved);
         

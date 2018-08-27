@@ -4,10 +4,7 @@ import "./UserManager.sol";
 import "./Base.sol";
 import "./VendorBase.sol"; 
 
-/**
-  USED BY THE APP OWNER TO MANAGE
-  VENDORS
- */
+/**@title USED BY THE APP OWNER TO MANAGE VENDORS */
 contract VendorManager is Base, Ownerble, VendorBase {
     
     Vendor[] internal pendingVendors;
@@ -16,10 +13,10 @@ contract VendorManager is Base, Ownerble, VendorBase {
     event  VendorAccountRequested(bool status);
     event  VendorAccountApproved(bool status);
 
-    /**
-      RETURNS THE LSIT OF USERS THAT HAVE PLACED A REQUEST
-      FOR A VENDOR ACCOUNT
-     */
+     /**
+            * @dev RETURNS THE LSIT OF USERS THAT HAVE PLACED A REQUEST FOR A VENDOR ACCOUNT
+            * @return uint number of pending vendors 
+            */
     function getPendingVendorsCount() public view returns (uint) {
           if(pendingVendors.length>0) {
                 return pendingVendors.length;
@@ -27,10 +24,11 @@ contract VendorManager is Base, Ownerble, VendorBase {
           return 0;
          
     }
-    
-    /**
-      RETURNS THE LIST OF APPROVED VENDORS
-     */
+
+       /**
+            * @dev RETURNS THE LIST OF APPROVED VENDORS
+            * @return uint number of approved vendors 
+            */
     function getApprovedVendorsCount() public view returns (uint) {
         if(approvedVendors.length>0) {
                return approvedVendors.length;
@@ -38,9 +36,10 @@ contract VendorManager is Base, Ownerble, VendorBase {
           return 0;
     }
     
-    /**
-      RETURNS THE NUMBER OF PENDING VENDORS
-     */
+     /**
+            * @dev RETURNS THE NUMBER OF PENDING VENDORS
+            * @return uint number of approved vendors 
+            */
     function getPendingVendors() public view returns (uint) {
           if(pendingVendors.length>0) {
                return pendingVendors.length;
@@ -48,9 +47,15 @@ contract VendorManager is Base, Ownerble, VendorBase {
           return 0;
     }
     
-    /**
-      RETURNS APPROVED VENDOR
-     */
+     /**
+            * @dev RETURNS APPROVED VENDOR
+            * @param index array index of vendor
+            * @return name name of vendor
+            * @return email email of vendor
+            * @return phone phone number of vendor
+            * @return state vendor status - approved / pending 
+            * @return account vendor address
+            */
     function getApprovedVendorByIndex(uint index) public view returns (string, string, string, uint, address) {
          require(index < approvedVendors.length, "Invalid index");
           return(
@@ -61,10 +66,16 @@ contract VendorManager is Base, Ownerble, VendorBase {
               approvedVendors[index].account
           );
     }
-    
-    /**
-      RETURNS PENDING VENDOR
-     */
+
+     /**
+            * @dev RETURNS PENDING VENDOR
+            * @param index array index of vendor
+            * @return name name of vendor
+            * @return email email of vendor
+            * @return phone phone number of vendor
+            * @return state vendor status - approved / pending 
+            * @return account vendor address
+            */
      function getPendingVendorByIndex(uint index) public view returns (string, string, string, uint, address) {
          require(index < pendingVendors.length, "Invalid index");
           return(
@@ -76,9 +87,15 @@ contract VendorManager is Base, Ownerble, VendorBase {
           );
     }
     
-    /**
-      RETURNS APPROVED VENDOR
-     */
+     /**
+            * @dev RETURNS APPROVED VENDOR
+            * @param index array index of vendor
+            * @return name name of vendor
+            * @return email email of vendor
+            * @return phone phone number of vendor
+            * @return state vendor status - approved / pending 
+            * @return account vendor address
+            */
      function getVendorByAddress(address account) public view returns (string, string, string, uint, address) {
          require(vendors[account].isVendorOrApplicant);
           return(
