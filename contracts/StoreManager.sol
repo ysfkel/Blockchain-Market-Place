@@ -4,10 +4,7 @@ import "./Ownerble.sol";
 import "./StoreBase.sol";
 import "./VendorBase.sol";
 
-/**
-  THIS CONTRACT IS USED BY VENDORS 
-  TO MANAGE STORES
- */
+/**@title StoreManager - manages vendors stores */
 contract StoreManager is Ownerble, StoreBase, VendorBase {//is Ownerble, UserManager {
     
     event StoreCreated(uint256 storesSize);

@@ -3,13 +3,13 @@ import "./Ownerble.sol";
 import "./VendorManager.sol";
 import "./AdminUserManager.sol";
 
-/**@title managers users inherits Ownerble, AdminUserManager, VendorManager */
+/**@title UserManager inherits the User manager contracts  */
 contract UserManager is Ownerble, AdminUserManager, VendorManager {
     
     /**
-            * @dev  RETURNS USER ROLE
-            * @return uint user role 
-            */
+      * @dev returns user role
+      * @return uint integer representing user role
+      */
     function getUserRole() public view returns(uint) {
         
         if(vendors[msg.sender].isVendorOrApplicant == true) {
