@@ -45,8 +45,16 @@ contract ShoppingCartManager is Ownerble, StoreBase,
       */
     event PaymentByEtherCompleted(uint256 amount);
 
-     /**
-       RETURNS THE DETAILS OF SHOPPING CART ITEM
+       /**
+      * @dev RETURNS THE DETAILS OF SHOPPING CART ITEM
+      * @param productId array index of product
+      * @return name name of product  
+      * @return description description of product  
+      * @return price price of product in ether 
+      * @return princeInSpinelToken product price in tokens
+      * @return productQuantityToPurchase quantity of product 
+      * @return storeIndex array index of store 
+      * @return vendorAccount vendors address 
       */
     function getCartItem(uint productId) public view returns(uint, bytes32, uint, uint, uint, uint, address){
         //get store index
@@ -69,9 +77,10 @@ contract ShoppingCartManager is Ownerble, StoreBase,
         );
     }
     
- 
-    /**
-       CALCULATES THE TOTAL PRICE OF SHOPPING CART 
+       /**
+      * @dev CALCULATES THE TOTAL PRICE OF SHOPPING CART 
+      * @param paymentMethod payment method - ETher or Token
+      * @return cartPrice total cart price 
       */
     function getCartPrice(uint256 paymentMethod) public view returns(uint256){
         require(PaymentMethod(paymentMethod) == PaymentMethod.Token ||
