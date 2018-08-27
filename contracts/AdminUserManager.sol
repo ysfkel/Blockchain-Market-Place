@@ -1,6 +1,6 @@
 pragma solidity 0.4.24;
 import "./Ownerble.sol";
-
+/** @title Admin User Manager. */
 contract AdminUserManager is Ownerble{
     
     constructor() public {
@@ -19,8 +19,15 @@ contract AdminUserManager is Ownerble{
      }
 
      event UserCreated(string name);
-     /**
-        CREATES THE CONTRACT OWNER - ADDRESS THAT DEPLOYS THE CONTRACT
+     
+      /**
+      * @dev CREATES THE CONTRACT OWNER - ADDRESS THAT DEPLOYS THE CONTRACT
+      * @param name of contract owner
+      * @param address of contract owner
+      * @param role of contract owner
+      * @return name of contract owner 
+      * @return address of contract owner
+      * @return role of contract owner 
       */
      function createContractOwner(string name, address account, uint role) private ownerOnly returns(bool){
       require(AppRole(role) == AppRole.Owner, "THE SPECIFIED ADMIN ROLE DOES NOT EXIST");
@@ -28,9 +35,14 @@ contract AdminUserManager is Ownerble{
         return createUser(name, account, role);
     }
     
-    
      /**
-        ALLOWS THE CONTRACT OWNER TO CREATE AN ADMIN USER
+      * @dev ALLOWS THE CONTRACT OWNER TO CREATE AN ADMIN USER
+      * @param name of admin 
+      * @param address of admin 
+      * @return role of admin  
+      * @return name of admin  
+      * @return address of admin
+      * @return role of admin     
       */
     function createAdminUser(string name, address account, uint role) public ownerOnly returns(bool){
       require(AppRole(role) == AppRole.SuperAdmin || AppRole(role) == AppRole.Admin,
@@ -40,8 +52,14 @@ contract AdminUserManager is Ownerble{
     }
 
     /**
-      ALLOWS THE CONTRACT OWNER TO CREATE A NEW USER
-     */
+      * @dev ALLOWS THE CONTRACT OWNER TO CREATE AN ADMIN USER
+      * @param name of admin 
+      * @param address of admin 
+      * @return role of admin  
+      * @return name of admin  
+      * @return address of admin
+      * @return role of admin     
+      */
     function createUser(string name, address account, uint role) private  ownerOnly returns(bool) {
           
          adminstratorAccounts[account] = Administrator(
@@ -62,9 +80,10 @@ contract AdminUserManager is Ownerble{
         return true;
     }
     
-    /**
-      RETURNS THE NUMBER OF ADMIN USERS
-     */
+     /**
+      * @dev  RETURNS THE NUMBER OF ADMIN USERS
+      * @return size of number of admins array
+      */
     function getAdminUsersCount() public ownerOnly view returns (uint) {
         
           if(adminstratorAccountsList.length > 0) {
@@ -73,9 +92,14 @@ contract AdminUserManager is Ownerble{
           return 0;
     }
     
-    /**
-      RETURNS THE LIST OF ADMIN USERS 
-     */
+   
+     /**
+      * @dev   RETURNS THE LIST OF ADMIN USERS 
+      * @param index of admin user
+      * @return name of admin user 
+      * @return role of admin user 
+      * @return address of admin user 
+      */
      function getAdminUserByAddress(address account) public ownerOnly view returns(string, uint, address) {
         require(adminstratorAccounts[account].isAdmin);
         
@@ -86,9 +110,13 @@ contract AdminUserManager is Ownerble{
         );
     }
     
-    /**
-      RETURNS THE LIST OF ADMIN USERS
-     */
+     /**
+      * @dev   RETURNS THE LIST OF ADMIN USERS 
+      * @param index of admin user
+      * @return name of admin user 
+      * @return role of admin user 
+      * @return address of admin user 
+      */
     function getAdminUserByIndex(uint index) public ownerOnly view returns(string, uint, address) {
         require(index < adminstratorAccountsList.length);
         
