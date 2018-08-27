@@ -177,11 +177,8 @@ contract ShoppingCartManager is Ownerble, StoreBase,
 
     }
     
-    /**
-      UPDATES CART ITEM QUANTITY
-     */
        /**
-      * @dev ADDS ITEM TO SHOPPING CART
+      * @dev UPDATES CART ITEM QUANTITY
       * @param vendorAccount vendor address 
       * @param storeIndex array index of store
       * @param productId product id
@@ -204,9 +201,11 @@ contract ShoppingCartManager is Ownerble, StoreBase,
     }
     
    
-    /**
-      DELETES CART ITEM
-     */
+         /**
+      * @dev  DELETES CART ITEM
+      * @param productId product id
+      * @return bool true if success 
+      */
     function deleteCartItem(uint productId ) public returns(bool) {
         //get product id index
         uint productCartIndex = shoppingCarts[msg.sender].cartItemSlot[productId].slot;
@@ -235,9 +234,12 @@ contract ShoppingCartManager is Ownerble, StoreBase,
             return SafeMath.sub(currentCartPrice, (SafeMath.mul(productPrice, purchasedQuantity )));
     }
 
-    /**
-       CHECKS IF THE CUSTOMERS BALANCE (ETHER OR TOKEN ) IS SUFFICIENT TO PAY FOR THE TOTAL CART PRICE
-     */
+       /**
+      * @dev CHECKS IF THE CUSTOMERS BALANCE (ETHER OR TOKEN ) IS SUFFICIENT TO PAY FOR THE TOTAL CART PRICE
+      * @param paymentMethod patment method ether or token
+      * @param customerBalanceInWei customers ether balance
+      * @return bool true if success 
+      */
     function isCustomerBalanceSufficient(uint256 paymentMethod, uint customerBalanceInWei) public view returns(bool) {
         
         if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
@@ -252,11 +254,14 @@ contract ShoppingCartManager is Ownerble, StoreBase,
         }
     }
 
-    /**
-      RETURNS THE PRICE (IN ETHER OR TOKEN ) 
-      OF AN ITEM IN THE SHOPPING CART ACCORDING TO THE PAYMENT METHOD
-      
-     */
+      /**
+      * @dev RETURNS THE PRICE (IN ETHER OR TOKEN OF AN ITEM IN THE SHOPPING CART ACCORDING TO THE PAYMENT METHOD
+      * @param paymentMethod patment method ether or token
+      * @param vendorAccount vendors address
+      * @param storeIndex array index of store
+      * @param productId product id
+      * @return uint productprice
+      */
     function getItemsPrice(uint256 paymentMethod,  address vendorAccount, uint256 storeIndex, uint productId) public view returns(uint256) {
          
         if(PaymentMethod(paymentMethod) == PaymentMethod.Token) {
