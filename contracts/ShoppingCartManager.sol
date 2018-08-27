@@ -347,15 +347,7 @@ contract ShoppingCartManager is Ownerble, StoreBase,
             * @param paymentMethod payment method - ether or token
             * @return bool true if success
             */
-            function _createOrderHistory(
-            address vendorAccount,
-            uint256 productId,
-            uint price,
-            uint256 storeIndex, 
-            uint256 quantity,
-            uint256 paymentMethod
-
-            ) private returns(bool) {
+            function _createOrderHistory(address vendorAccount,uint256 productId,uint price,uint256 storeIndex, uint256 quantity, uint256 paymentMethod) private returns(bool) {
                 //GET THE COUNT OF THE ITEMS IN THE CUSTOMERS ORDER HISTORY
                 uint256 currentOrderHistoryCount = getCustomerOrdersHistoryCount();
                 //DETERMINE THE ID OF CURRENT ORDER ITEM
@@ -382,7 +374,7 @@ contract ShoppingCartManager is Ownerble, StoreBase,
             * @param paymentMethod payment method - ether or token
             * @return bool true if success
             */
-  function checkOutTokenPayment(uint256 paymentMethod) public payable returns(bool){
+  function checkOutTokenPayment(uint256 paymentMethod, uint256 paymentDateTimeStamp) public payable returns(bool){
         require(shoppingCarts[msg.sender].productIds.length > 0);
         //REVERT IF THE CUSTOMER DOES NOT HAVE SUFFICIEN BALANCE TO COVER THE CART PRICE
         require(isCustomerBalanceSufficient(paymentMethod, msg.value));
@@ -410,9 +402,9 @@ contract ShoppingCartManager is Ownerble, StoreBase,
                     //require the vendorAccount is a vendor
                     require(vendors[vendorAccount].state == AccountState.Approved);
                      // GET THE PRODUCT PRICE
-                    uint productPrice = getItemsPrice(paymentMethod, vendorAccount, storeIndex, productId);
+                   // uint productPrice = getItemsPrice(paymentMethod, vendorAccount, storeIndex, productId);
                     // CALCULATE THE TOTAL PRICE
-                    uint totalItemsPrice = getTotalItemsPrice(productPrice, purchasedQuantity);
+                    uint totalItemsPrice = getTotalItemsPrice(getItemsPrice(paymentMethod, vendorAccount, storeIndex, productId), purchasedQuantity);
                 
                     // REVERT IF THE PRICE OF THE ITEM IS GREATER THE THE CUSTOMERS 
                     // REMANING BALANCE
@@ -429,8 +421,7 @@ contract ShoppingCartManager is Ownerble, StoreBase,
                       purchasedQuantity );
 
                        // ADD ITEM TO ORDER HISTORY
-                     _createOrderHistory(vendorAccount,productId, productPrice,storeIndex,
-                      purchasedQuantity, paymentMethod);
+                     _createOrderHistory(vendorAccount,productId, getItemsPrice(paymentMethod, vendorAccount, storeIndex, productId),storeIndex, purchasedQuantity, paymentMethod);
 
 
                     
@@ -439,7 +430,7 @@ contract ShoppingCartManager is Ownerble, StoreBase,
         // INCREMENT THE ORDER HISTORY
         incrementCustomerOrdersHistory();
         // CREATE THE ORDRE HISTORY
-        createOrderHistory(getCustomerOrdersHistoryCount(),getCartPrice(paymentMethod), paymentMethod);
+        createOrderHistory(getCustomerOrdersHistoryCount(),getCartPrice(paymentMethod), paymentMethod, paymentDateTimeStamp);
         emit PaymentCompleted(true);
         //DELETE SHOPPING CART
         delete shoppingCarts[msg.sender].products[productId];

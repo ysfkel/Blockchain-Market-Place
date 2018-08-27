@@ -3,8 +3,8 @@
 export const checkOut =({ account, contract, cartPrice}) => {
 
     return new Promise((resolve, reject) => {
-     
-          contract.checkOutTokenPayment(0,
+        const checkoutTimeStamp = (new Date()).getTime();
+          contract.checkOutTokenPayment(0,checkoutTimeStamp,
               {from:account, 
           value: cartPrice,
           gas: 3000000})

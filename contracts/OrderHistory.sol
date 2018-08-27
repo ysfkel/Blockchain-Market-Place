@@ -17,8 +17,8 @@ contract OrderHistory is StoreBase{
       * @return bool 
       */
     function createOrderHistory(uint256 orderId, uint grandTotal, 
-        uint256 paymentMethod) public returns(bool) {
-         orderHistory[msg.sender][orderId].timeStamp = now;
+        uint256 paymentMethod, uint256 paymentDateTimeStamp) public returns(bool) {
+         orderHistory[msg.sender][orderId].timeStamp = paymentDateTimeStamp;
          orderHistory[msg.sender][orderId].grandTotal = grandTotal;
          orderHistory[msg.sender][orderId].grandTotal = paymentMethod;
          return true;

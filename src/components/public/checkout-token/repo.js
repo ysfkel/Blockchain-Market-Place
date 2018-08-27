@@ -24,9 +24,10 @@ export const getTokenBalance =({ account, tokenContract}) => {
 export const checkOutByToken = ({ account, storeInstance }) => {
  
      return new Promise((resolve, reject) => {
-         
+         const checkoutTimeStamp = (new Date()).getTime();
          storeInstance.checkOutTokenPayment(
                                 1,//paymentMethod token
+                                checkoutTimeStamp,
                           {
                                 from:  account, gas: 3000000
                          }).then(() => {

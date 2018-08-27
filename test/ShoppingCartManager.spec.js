@@ -213,9 +213,9 @@ contract('MarketPlace', function(accounts) {
                 const _cartPrice = cartPrice.toNumber();
                 const price = (updated_productQuantity_cart * productPrice_in_spinel);
                  assert.equal(_cartPrice,price, 'returns product price' );
-         
+                 const checkoutTimeStamp = (new Date()).getTime();
                return contractInstance.checkOutTokenPayment(
-                   0,{
+                   0,checkoutTimeStamp ,{
                      from:  customerAccount,
                      value: updated_cartPrice
                })
@@ -267,9 +267,9 @@ contract('MarketPlace', function(accounts) {
              assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
              assert.equal(receipt.logs[0].args._spender, contractInstance.address, ' logs _spender');
              assert.equal(receipt.logs[0].args._value, amountToApprove, ' logs the amountToApprove');
-            
+             const checkoutTimeStamp = (new Date()).getTime();
                  return contractInstance.checkOutTokenPayment(
-                     1,
+                     1,checkoutTimeStamp,
                      {
                      from:  customerAccount
                });
