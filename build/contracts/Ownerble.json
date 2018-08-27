@@ -13,9 +13,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity 0.4.24;\n\ncontract Ownerble {\n    \n    constructor() internal{\n         createOwner();\n    }\n    \n    enum AccountState {\n        Pending,\n        Approved\n    }\n    enum AppRole {\n        Owner, SuperAdmin, Admin,\n        Vendor, VendorAwaitingApproval, Customer\n    }\n    \n    address private  owner;\n    \n     function createOwner() private {\n          owner = msg.sender;\n     }\n    \n    modifier ownerOnly() {\n        require(msg.sender == owner);\n        _;\n    }\n}",
-  "sourcePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
+  "sourcePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
   "ast": {
-    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
+    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
     "exportedSymbols": {
       "Ownerble": [
         659
@@ -445,7 +445,7 @@
     "src": "0:486:5"
   },
   "legacyAST": {
-    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
+    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
     "exportedSymbols": {
       "Ownerble": [
         659
@@ -879,6 +879,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-27T08:56:23.896Z"
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-08-27T16:29:07.860Z"
 }

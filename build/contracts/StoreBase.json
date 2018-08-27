@@ -44,14 +44,14 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50610116806100206000396000f30060806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638a3046ba8114604d578063dd62ed3e14608a575b600080fd5b348015605857600080fd5b50607873ffffffffffffffffffffffffffffffffffffffff6004351660bb565b60408051918252519081900360200190f35b348015609557600080fd5b50607873ffffffffffffffffffffffffffffffffffffffff6004358116906024351660cd565b60056020526000908152604090205481565b6004602090815260009283526040808420909152908252902054815600a165627a7a723058204e738a469dff467601dad86d54284a6b56e71a9e1968ef2cc15b7e953a91aa9f0029",
-  "deployedBytecode": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638a3046ba8114604d578063dd62ed3e14608a575b600080fd5b348015605857600080fd5b50607873ffffffffffffffffffffffffffffffffffffffff6004351660bb565b60408051918252519081900360200190f35b348015609557600080fd5b50607873ffffffffffffffffffffffffffffffffffffffff6004358116906024351660cd565b60056020526000908152604090205481565b6004602090815260009283526040808420909152908252902054815600a165627a7a723058204e738a469dff467601dad86d54284a6b56e71a9e1968ef2cc15b7e953a91aa9f0029",
+  "bytecode": "0x608060405234801561001057600080fd5b50610116806100206000396000f30060806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638a3046ba8114604d578063dd62ed3e14608a575b600080fd5b348015605857600080fd5b50607873ffffffffffffffffffffffffffffffffffffffff6004351660bb565b60408051918252519081900360200190f35b348015609557600080fd5b50607873ffffffffffffffffffffffffffffffffffffffff6004358116906024351660cd565b60056020526000908152604090205481565b6004602090815260009283526040808420909152908252902054815600a165627a7a723058206c997dee58d3bd4afaa078172aae8e62971ddea57e89037852d1b63e6b8736640029",
+  "deployedBytecode": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638a3046ba8114604d578063dd62ed3e14608a575b600080fd5b348015605857600080fd5b50607873ffffffffffffffffffffffffffffffffffffffff6004351660bb565b60408051918252519081900360200190f35b348015609557600080fd5b50607873ffffffffffffffffffffffffffffffffffffffff6004358116906024351660cd565b60056020526000908152604090205481565b6004602090815260009283526040808420909152908252902054815600a165627a7a723058206c997dee58d3bd4afaa078172aae8e62971ddea57e89037852d1b63e6b8736640029",
   "sourceMap": "25:1972:11:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:1972:11;;;;;;;",
   "deployedSourceMap": "25:1972:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;1875:51;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1875:51:11;;;;;;;;;;;;;;;;;;;;;;;1798:64;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1798:64:11;;;;;;;;;;;;1875:51;;;;;;;;;;;;;:::o;1798:64::-;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "pragma solidity 0.4.24;\n\ncontract StoreBase {\n    \n    enum Role {\n        Admin, SuperAdmin\n    }\n\n    enum PaymentMethod {\n        Ether,\n        Token\n    }\n    \n  struct CartItemSlot{\n        bool initialized;\n        uint slot;\n    }\n\n    \n    struct ShoppingCartItem {\n       // uint productId;\n        uint productQuantity;\n        address vendorAccount;\n        uint storeIndex;\n        bool purchaseComplete;\n    }\n    \n    struct ShoppingCart {\n     mapping(uint => CartItemSlot) cartItemSlot;\n     mapping(uint=> ShoppingCartItem) products;\n     uint[] productIds;\n     uint cartPrice;\n    }\n    \n    mapping(address => ShoppingCart) shoppingCarts;\n\n    struct StoreUser {\n        Role role;\n    }\n    \n    struct VendorSlot{\n        bool initialized;\n        uint slot;\n    }\n    \n     struct Product {\n        bytes32 name;\n        bytes32 description;\n        uint price;\n        uint productIdSlot;\n        uint productId;\n        uint quantity;\n        uint priceInSpinelToken;\n        string imageHash;\n    }\n    \n    struct Store {\n        bytes32 name;\n        bytes32 description;\n        uint revenue;\n        uint[] productIds;\n        uint productIdIncrement;\n        mapping(uint => Product) products;\n    }\n\n    struct TransactionHistory {\n        uint256 productId;\n        bytes32 productName;\n        uint quantity;\n        uint price;\n        uint totalPrice;\n        address vendor;\n        bytes32 storeName;\n        uint256 paymentMethod;\n    }\n\n    struct Order {\n        TransactionHistory[] transactions;\n        uint timeStamp;\n        uint grandTotal;\n        uint paymentMethod;\n    }\n    \n    address[] internal vendorAccountsWithListedStores;\n    mapping(address => VendorSlot) internal vendorSlot;\n    mapping(address => Store[]) internal stores;  \n   \n    mapping(address => mapping(address => uint256)) public allowance;\n      \n    mapping(address => uint) public customerOrdersCount;\n    mapping(address => mapping(uint => Order)) orderHistory; \n\n    \n}\n",
-  "sourcePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/StoreBase.sol",
+  "sourcePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/StoreBase.sol",
   "ast": {
-    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/StoreBase.sol",
+    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/StoreBase.sol",
     "exportedSymbols": {
       "StoreBase": [
         3056
@@ -1705,7 +1705,7 @@
     "src": "0:1998:11"
   },
   "legacyAST": {
-    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/StoreBase.sol",
+    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/StoreBase.sol",
     "exportedSymbols": {
       "StoreBase": [
         3056
@@ -3363,6 +3363,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-27T08:56:23.946Z"
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-08-27T16:29:07.867Z"
 }

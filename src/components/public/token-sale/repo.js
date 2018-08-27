@@ -15,3 +15,14 @@ export const buyTokens =({ tokenAmount, price ,account, tokenSaleContract}) => {
               })
      });
 }
+
+export const getAmountOfTokensOnSale = ({tokenContract,saleContractAddress}) => {
+       return new Promise((resolve, reject) => {
+              tokenContract
+              .balanceOf.call(saleContractAddress)
+              .then((balance) => {
+                    
+                    resolve(balance.toNumber());
+              })
+       })
+}

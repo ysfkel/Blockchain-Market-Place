@@ -12,7 +12,7 @@ export const getWeb3Contract = () =>{
         if(typeof web3 != 'undefined') {
             web3Provider = web3.currentProvider;
         } else {
-            web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:9545');
+            web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:8545');
         }
 
         _web3 = new Web3(web3Provider);

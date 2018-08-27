@@ -6,7 +6,9 @@ const INITIAL_SUPPLY =  require('./constants').INITIAL_SUPPLY;
 const TOKEN_PRICE =  require('./constants').TOKEN_PRICE;
 
 
-const OWNER = '0x627306090abab3a6e1400e9345bc60c78a8bef57';
+const OWNER = '0x2a4c8dd9eae5f968e93ea02662c6c02078f5e480';
+
+//'0x627306090abab3a6e1400e9345bc60c78a8bef57';
 
 module.exports = function(deployer) {
      deployer.deploy(SpinelToken, INITIAL_SUPPLY)
