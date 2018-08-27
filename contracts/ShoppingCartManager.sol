@@ -120,17 +120,31 @@ contract ShoppingCartManager is Ownerble, StoreBase,
         return cartPrice;
     }
 
-    //RETURNS THE COUNT OF ITEMS IN THE SHOPPING CART
+     /**
+      * @dev RETURNS THE COUNT OF ITEMS IN THE SHOPPING CART
+      * @return uint number of items  in the shopping cart
+      */
     function getCartItemsCount() public view returns(uint){
         return shoppingCarts[msg.sender].productIds.length;
     }
     
-    // RETURNS THE IDS OF ITEMS IN THE SHOPPING CART
+    
+    /**
+      * @dev RETURNS THE IDS OF ITEMS IN THE SHOPPING CART
+      * @return uint[] array of ids in the shopping cart
+      */
     function getCartItemsIds() public view returns(uint[]){
         return shoppingCarts[msg.sender].productIds;
     }
 
-    //ADDS ITEM TO SHOPPING CART
+       /**
+      * @dev ADDS ITEM TO SHOPPING CART
+      * @param vendorAccount vendor address 
+      * @param storeIndex array index of store
+      * @param productId product id
+      * @param productQuantity product quantity
+      * @return bool true if success 
+      */
     function addItemToCart(address vendorAccount, uint storeIndex, uint productId, uint productQuantity) public returns(bool){
         
    
@@ -166,6 +180,14 @@ contract ShoppingCartManager is Ownerble, StoreBase,
     /**
       UPDATES CART ITEM QUANTITY
      */
+       /**
+      * @dev ADDS ITEM TO SHOPPING CART
+      * @param vendorAccount vendor address 
+      * @param storeIndex array index of store
+      * @param productId product id
+      * @param productQuantity product quantity
+      * @return bool true if success 
+      */
     function updateCartItem(address vendorAccount, uint storeIndex, uint productId, uint productQuantity) public returns(bool){
         //check if quantity in the store is equql or greater than purchased quantity
         require(stores[vendorAccount][storeIndex].products[productId].quantity >= productQuantity);
