@@ -25,7 +25,7 @@ contract('MarketPlace', function(accounts) {
     const productName = 'product name';
     const productDescription = 'product description';
     const productPrice = 380000000000000000;//1000000000000000000; //1 ether
-    const productPrice_in_spinel = 10//productPrice/ TOKEN_PRICE;
+    const productPrice_in_spinel = 10
     const productQuantity = 100;
 
     const productQuantity_cart =10;
@@ -274,125 +274,6 @@ contract('MarketPlace', function(accounts) {
                      from:  customerAccount
                });
           }) 
-        //   .then(function(receipt) {
-        //      assert.equal(receipt.logs.length, 2, ' triggers 1 event');
-        //      const expectedEventName = 'PaymentByTokenCompleted';
-        //      assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-        //      assert.equal(receipt.logs[0].args.amount.toNumber(), (productPrice_in_spinel * productQuantity_cart), ' logs product price');
-            
-              
-        //        return contractInstance.getCustomerOrdersHistoryCount({
-        //            from: customerAccount
-        //        });
-        //   })
-        //   .then(function(customerOrdersHistoryCount) {
-        //         const count = customerOrdersHistoryCount.toNumber();
-        //         assert.equal(count, 2, 'customer orders count is 1')
-        //         return contractInstance
-        //         .getOrderTransaction(2, 0, {
-        //             from: customerAccount
-        //         });
-        //   })
-        //   .then(function(orderTransaction) {
-        //     //  assert.equal(receipt.logs.length, 2, ' triggers 1 event');
-        //     //  const expectedEventName = 'PaymentByTokenCompleted';
-        //      assert.equal(orderTransaction[5], 1, 'paymentMethod is '+1);
-        //      assert.equal(orderTransaction[3], vendorAccount, 'vendorAccount is '+vendorAccount);
-            
-             
-        //             return contractInstance.addItemToCart(
-        //                 vendor.account,
-        //                 storeIndex,
-        //                 productId,
-        //                 productQuantity_cart,
-        //                     {
-        //                     from:  customerAccount
-        //                     })
-        //          // })
-        //   })
-        //    .then(function(receipt) {
-            
-        //     assert.equal(receipt.logs.length, 1, ' triggers 1 event');
-        //     const expectedEventName = 'ItemInsertedToCart';
-        //     assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-        //     assert.equal(receipt.logs[0].args.cartSize, 1, ' logs the cartSize');
-
-        //       return contractInstance.checkOutTokenPayment(
-        //              0,
-        //              {
-        //              from:  customerAccount,
-        //                    value: updated_cartPrice
-        //        });
-        //   })
-        //   .then(function(owner) {
-        //      console.log('--token instanc 1', owner);
-        //      return tokenSaleInstance.getOwner();
-        //   })
-        //    .then(function(owner) {
-        //      console.log('--token instance 2', owner);
-         
-        //   })
-        //  .then(function() {
-        //           return contractInstance.addItemToCart(
-        //                 vendor.account,
-        //                 storeIndex,
-        //                 productId,
-        //                 productQuantity_cart,
-        //                     {
-        //                     from:  customerAccount
-        //                     }
-        //             ); 
-        //   })
-        //   .then(function(balance) {
-        //       //  console.log('---NIGGA BALANCE', balance.toNumber())
-
-        //         return contractInstance.checkOutTokenPayment(
-        //             1,
-        //             {
-        //                 from: customerAccount,
-        //                 value: (productPrice* productQuantity_cart)
-        //             }
-        //         );
-        //         // return contractInstance.getCartPrice(
-        //         //     0,
-        //         //     {
-        //         //         from: customerAccount
-        //         //     }
-        //         // )
-        //   })
-        //   .then(function(r) {
-        //       console.log('======price',r.toNumber())
-        //   })
-     
-        //    .then(function(receipt) {
-        //        console.log('receipt.logs[0].args.amount', receipt.logs[0].args.amount.toNumber())
-        //      assert.equal(receipt.logs.length, 2, ' triggers 1 event');
-        //      const expectedEventName = 'PaymentByTokenCompleted';
-        //      assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
-        //      assert.equal(receipt.logs[0].args.amount, true, ' logs the updated item quantity');
-
-        //       return tokenSaleInstance.getBalanceOf(
-        //          vendor.account
-        //       );
-        //     //   return contractInstance.getVendorBalance({
-        //     //       from: vendor.account
-        //     //   });
-        //   })
-        //   .then(function(balance) {
-        //         console.log('==balance', balance.toNumber());
-        //   })
-        //   .then(function(balance) {
-        //         console.log('---NIGGA CUSTOMER BALANCE', balance.toNumber())
-        //        //token price 1000000000000000
-        //         return tokenSaleInstance.getNumberOfTokensForWei(
-        //               3000000000000000
-        //         )
-        //   })
-        //   .then(function(tokens) {
-        //            console.log('---====NIGGA tokens BALANCE', tokens.toNumber())
-        //   })
-          
-           
        
     })
    
