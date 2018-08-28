@@ -82,11 +82,11 @@ Compile and migrate the smart contracts to the local blockchain
   
    Use metamask to switch between accounts Note , run ganache - cli and import three accounst into meta mask
  - OWNER ACCOUNT
-   - 1) Switch to Owner account
-    -2) In the migrations folder, the 2_deploy_contract migration, set Owner to the address you choose to be owner / Admin
-       - 'run truffle migrate' to deploy
-    -3) If the application loads and the menu displays the owners account , you are all set to begin, else check your network settings.
-    -4) Click on 'manage Tokan Sale' and enter the amount of tokens you wish to sell to customers. click sale and confirm transaction with
+    - 1) Switch to Owner account
+    - 2) In the migrations folder, the 2_deploy_contract migration, set Owner to the address you choose to be owner / Admin
+         'run truffle migrate' to deploy
+    - 3) If the application loads and the menu displays the owners account , you are all set to begin, else check your network settings.
+    - 4) Click on 'manage Tokan Sale' and enter the amount of tokens you wish to sell to customers. click sale and confirm transaction with
        meta mask.
   - VENDOR ACCOUNT:
       -5)Switch to vendor account, refresh page, click on 'Vendor Request' and confirm transaction with metamask.
