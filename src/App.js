@@ -85,7 +85,7 @@ export default class App extends Component{
                       <AppBar position="static" color="default">
                         <Toolbar style={style.toolbar}>
                               <div style={style.linksContainer}>
-                              {this.staate.account &&
+                              {this.state.account &&
                                 <strong style={style.linkStyle}>Your Account [{this.state.account}]</strong>
                               }   
                               {!this.state.account &&
