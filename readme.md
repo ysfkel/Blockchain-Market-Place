@@ -65,24 +65,62 @@ Compile and migrate the smart contracts to the local blockchain
 ```
  truffle migrate
 ```
-
-
-
 ## Running the application
 
   to test the application
-  you should have 3 accounts from the ganache cli
+  you should have 3 accounts from  ganache cli
   
-  Choose and account for each role that you will test
-  - Owner -  deploying accont -  
-             click on manage tokens menu tab to enter amount to tokens to sell to customers
-  - Vendor: use the account you choose for this role to request a venodr account,
-            then switch to the owner account using meta mask, and approve the vendor request
-            switch back to the vendor account to create stores and add products
-            
-  - customer: use this account to test purchasing of items 
-               select any store, and , click on the products list 
-               select a product and enter quantity and add to cart
+  choose set aside one account for the foloowing role: 
+  - Owner / Admin : Will approve potential vendors request for a vendor account
+  - Vendor - Will place a vendor request, if accepted by admin, the following options will appear after switching back to vendor account
+             from meta mask
+             - Create Store, Manage Stores.
+             
+  - Customer: Will browse stores, products and make purchases.
+  
+  ## Running the application 2 - Application flow.
+  
+   Use metamask to switch between accounts
+ - OWNER ACCOUNT
+   1) Switch to Owner account
+   2) In the migrations folder, the 2_deploy_contract migration, set Owner to the address you choose to be owner / Admin
+       - 'run truffle migrate' to deploy
+   3) If the application loads and the menu displays the owners account , you are all set to begin, else check your network settings.
+   4) Click on 'manage Tokan Sale' and enter the amount of tokens you wish to sell to customers. click sale and confirm transaction with
+       meta mask.
+  - VENDOR ACCOUNT:
+    5)Switch to vendor account, refresh page, click on 'Vendor Request' and confirm transaction with metamask.
+  - OWNER ACCOUNT:
+     6) Switch back to Owner account, click on 'Manage Vendors'
+     7) click on the pending vendor account to navigate to details
+     8) Click on 'Approve Vendor'
+  - VENDOR ACCOUNT:
+     9) Switch back to vendor account using metamask.
+     10) Click on create Store,
+     11) enter store name and description and save
+     12 confirm transaction with metamask
+     14) Click on Manage stores
+     15) Click on products
+     16) click on 'Add Product'
+     17) Enter product details and save
+     18 Confirm transaction with metamask - 
+     19) when the transaction is completed, image upload will appear which uploads product image IPFS
+     20) select a image file and click upload - wait for upload to comple and a dialog will appear which will prompt you
+          to update the product which is saved on the blockchain with the uploaded file hash
+     21) When the modal appears, click update and confirm transaction with  metamask.
+    
+   - CUSTOMER:
+      22) Switch to customer account
+      23) refersh browser and click on Stores
+      24) when stores page appears select a store and click 'shop'to open the stores products list
+      25) selected a product 
+      26) enter quantity and click add to cart , confirm transaction with metamask
+      28) click on shopping cart
+      29) select payment method ether or Token
+      30) if Token
+      31) buy tokens from the 'buy token page' - make sure you buy enough tokens to pay for the cart price
+      32) click on 
+      
                
 
 ### Running tests
