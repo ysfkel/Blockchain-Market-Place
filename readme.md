@@ -70,8 +70,8 @@ Compile and migrate the smart contracts to the local blockchain
   to test the application
   you should have 3 accounts from  ganache cli
   
-  choose set aside one account for the foloowing role: 
-  - Owner / Admin : Will approve potential vendors request for a vendor account
+  choose set aside one account for each of the following roles: 
+  - Owner / Admin : Will approve potential vendor's request for a vendor account
   - Vendor - Will place a vendor request, if accepted by admin, the following options will appear after switching back to vendor account
              from meta mask
              - Create Store, Manage Stores.
@@ -79,6 +79,7 @@ Compile and migrate the smart contracts to the local blockchain
   - Customer: Will browse stores, products and make purchases.
   
   ## Running the application 2 - Application flow.
+  - Open the migrations folder, in the contracts migration, replace the 'OWNER' account (which will be used for contracts deployment) with the address of the account you have chosen to be OWNER.
   
    Use metamask to switch between accounts Note , run ganache - cli and import three accounst into meta mask
  - OWNER ACCOUNT
