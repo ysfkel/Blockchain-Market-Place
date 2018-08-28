@@ -86,10 +86,10 @@ Compile and migrate the smart contracts to the local blockchain
     - 2) In the migrations folder, the 2_deploy_contract migration, set Owner to the address you choose to be owner / Admin
          'run truffle migrate' to deploy
     - 3) If the application loads and the menu displays the owners account , you are all set to begin, else check your network settings.
-    - 4) Click on 'manage Tokan Sale' and enter the amount of tokens you wish to sell to customers. click sale and confirm transaction with
-       meta mask.
+    - 4) Click on 'manage Tokan Sale' and enter the amount of tokens you wish to sell to customers. click sale and confirm transaction with meta mask.
+    
   - VENDOR ACCOUNT:
-      -5)Switch to vendor account, refresh page, click on 'Vendor Request' and confirm transaction with metamask.
+      - 5)Switch to vendor account, refresh page, click on 'Vendor Request' and confirm transaction with metamask.
   - OWNER ACCOUNT:
      - 6) Switch back to Owner account, click on 'Manage Vendors'
      - 7) click on the pending vendor account to navigate to details
