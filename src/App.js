@@ -89,7 +89,7 @@ export default class App extends Component{
                                 <strong style={style.linkStyle}>Your Account [{this.state.account}]</strong>
                               }   
                               {!this.state.account &&
-                                  <strong style={style.linkStyle}>Your Account is not connected, please verify your metamask / network settings</strong>
+                                  <strong style={style.linkStyle_warning}>Your Account is not connected, please verify your metamask / network settings</strong>
                               }                          
                               {(this.state.role  === ROLE.OWNER) &&
                                   <Link style={style.linkStyle} to="/manage-admin-accounts">Manage Admins</Link>    

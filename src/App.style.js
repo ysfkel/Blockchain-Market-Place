@@ -5,6 +5,11 @@ export const linkStyle  = {
     marginRight:'10px' 
 }
 
+export const linkStyle_warning = {
+    ...linkStyle,
+    color: 'red'
+}
+
 export const toolbar  = {
     position: 'relative' 
 }
