@@ -104,8 +104,8 @@ Compile and migrate the smart contracts to the local blockchain
      - 16) click on 'Add Product'
      - 17) Enter product details and save
      - 18 Confirm transaction with metamask - 
-     - 19) when the transaction is completed, image upload will appear which uploads product image IPFS
-     - 20) select a image file and click upload - wait for upload to comple and a dialog will appear which will prompt you
+     - 19) when the transaction is completed, image upload form will appear which uploads product image to IPFS
+     - 20) select an image file and click upload - wait for upload to comple and a dialog will appear which will prompt you
           to update the product which is saved on the blockchain with the uploaded file hash
      - 21) When the modal appears, click update and confirm transaction with  metamask.
     
