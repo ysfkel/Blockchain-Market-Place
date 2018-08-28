@@ -132,7 +132,7 @@ export default class TokenSale extends Component {
                 }
                 {this.state.amountOfTokensOnSale <= 0 && 
                     <p style={{color:'red'}}>There are currently no Tokens on sale, you may contact the owner to place some tokens on sale / 
-                     (switch account to contract deploy account anc click on Manage token sale)
+                     (switch account to contract deploy account and click on Manage token sale)
                     </p>
                 }
                 <p>
