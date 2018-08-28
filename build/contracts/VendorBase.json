@@ -16,14 +16,14 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405261001564010000000061001a810204565b61002e565b60008054600160a060020a03191633179055565b60d48061003c6000396000f300608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636e91c6b881146043575b600080fd5b348015604e57600080fd5b5060556067565b60408051918252519081900360200190f35b33600090815260016020819052604082206003015460ff1681811115608857fe5b14609157600080fd5b5033600090815260016020526040902060070154905600a165627a7a72305820d41337f9ab12dbca419b234a8181c20c4afb0b2d6149713fb4478aee49ce97700029",
-  "deployedBytecode": "0x608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636e91c6b881146043575b600080fd5b348015604e57600080fd5b5060556067565b60408051918252519081900360200190f35b33600090815260016020819052604082206003015460ff1681811115608857fe5b14609157600080fd5b5033600090815260016020526040902060070154905600a165627a7a72305820d41337f9ab12dbca419b234a8181c20c4afb0b2d6149713fb4478aee49ce97700029",
+  "bytecode": "0x608060405261001564010000000061001a810204565b61002e565b60008054600160a060020a03191633179055565b60d48061003c6000396000f300608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636e91c6b881146043575b600080fd5b348015604e57600080fd5b5060556067565b60408051918252519081900360200190f35b33600090815260016020819052604082206003015460ff1681811115608857fe5b14609157600080fd5b5033600090815260016020526040902060070154905600a165627a7a72305820eef8ab1e53517173000faffaa498f34fc238a635a865a90a568281090668b7820029",
+  "deployedBytecode": "0x608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636e91c6b881146043575b600080fd5b348015604e57600080fd5b5060556067565b60408051918252519081900360200190f35b33600090815260016020819052604082206003015460ff1681811115608857fe5b14609157600080fd5b5033600090815260016020526040902060070154905600a165627a7a72305820eef8ab1e53517173000faffaa498f34fc238a635a865a90a568281090668b7820029",
   "sourceMap": "85:698:14:-;;;87:13:5;:11;;;;:13;:::i;:::-;85:698:14;;328:69:5;371:5;:18;;-1:-1:-1;;;;;;371:18:5;379:10;371:18;;;328:69::o;85:698:14:-;;;;;;;",
   "deployedSourceMap": "85:698:14:-;;;;;;;;;;;;;;;;;;;;;;;598:183;;8:9:-1;5:2;;;30:1;27;20:12;5:2;598:183:14;;;;;;;;;;;;;;;;;;;;;678:10;646:4;670:19;;;699:21;670:19;;;;;;;:25;;;;;:50;;;;;;;;;662:59;;;;;;-1:-1:-1;755:10:14;747:19;;;;:7;:19;;;;;:27;;;598:183;:::o",
   "source": "pragma solidity 0.4.24;\nimport \"./Ownerble.sol\";\n\n/**@title vendors base contract */\ncontract VendorBase is Ownerble {\n    \n    mapping(address => Vendor) internal vendors;\n\n     struct Vendor {\n        string name;\n        string email;\n        string phone;\n        AccountState state;\n        address account;\n        bool isVendorOrApplicant;\n        int pendingListIndex;\n        int approveListIndex;\n        AppRole role;\n        uint balance;\n    }\n\n    /**\n            * @dev RETURNS THE VENDORS RETRIEVABLE BALANCE\n            * @return balance vendors balance - ether\n            */\n    function getVendorBalance() public view returns(uint) {\n        require(vendors[msg.sender].state == AccountState.Approved);\n        \n        return vendors[msg.sender].balance;\n    }\n}",
-  "sourcePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorBase.sol",
+  "sourcePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/VendorBase.sol",
   "ast": {
-    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorBase.sol",
+    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/VendorBase.sol",
     "exportedSymbols": {
       "VendorBase": [
         3691
@@ -43,7 +43,7 @@
         "src": "0:23:14"
       },
       {
-        "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
+        "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
         "file": "./Ownerble.sol",
         "id": 3640,
         "nodeType": "ImportDirective",
@@ -722,7 +722,7 @@
     "src": "0:783:14"
   },
   "legacyAST": {
-    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorBase.sol",
+    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/VendorBase.sol",
     "exportedSymbols": {
       "VendorBase": [
         3691
@@ -742,7 +742,7 @@
         "src": "0:23:14"
       },
       {
-        "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
+        "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
         "file": "./Ownerble.sol",
         "id": 3640,
         "nodeType": "ImportDirective",
@@ -1425,6 +1425,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2018-08-27T20:09:07.050Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-08-28T07:31:51.552Z"
 }

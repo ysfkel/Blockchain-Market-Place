@@ -85,6 +85,7 @@ export default class App extends Component{
                       <AppBar position="static" color="default">
                         <Toolbar style={style.toolbar}>
                               <div style={style.linksContainer}>
+                              <strong style={style.linkStyle}>Your Address [{this.state.account}]</strong>
                               {(this.state.role  === ROLE.OWNER) &&
                                   <Link style={style.linkStyle} to="/manage-admin-accounts">Manage Admins</Link>    
                                } 

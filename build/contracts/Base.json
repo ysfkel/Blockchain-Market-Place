@@ -1,14 +1,14 @@
 {
   "contractName": "Base",
   "abi": [],
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a723058204d9470970761316ff59bb3c11005443a82573762d97e8335e0d5b8a185deb2450029",
-  "deployedBytecode": "0x6080604052600080fd00a165627a7a723058204d9470970761316ff59bb3c11005443a82573762d97e8335e0d5b8a185deb2450029",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820885f1f118bfc0c02ddb6b57597dda46b7f9d5dbbc2ac22f23a70021fd40fc49b0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820885f1f118bfc0c02ddb6b57597dda46b7f9d5dbbc2ac22f23a70021fd40fc49b0029",
   "sourceMap": "26:109:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:109:1;;;;;;;",
   "deployedSourceMap": "26:109:1:-;;;;;",
   "source": "\npragma solidity 0.4.24;\n\ncontract Base{\n    \n   function getNotExistsIndex() internal pure returns (int) {\n         return -1;\n    }\n}\n\n  ",
-  "sourcePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Base.sol",
+  "sourcePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Base.sol",
   "ast": {
-    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Base.sol",
+    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Base.sol",
     "exportedSymbols": {
       "Base": [
         257
@@ -150,7 +150,7 @@
     "src": "1:138:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Base.sol",
+    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Base.sol",
     "exportedSymbols": {
       "Base": [
         257
@@ -296,6 +296,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2018-08-27T20:09:07.022Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-08-28T07:31:51.452Z"
 }
