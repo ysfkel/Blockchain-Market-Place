@@ -1,5 +1,5 @@
 # Block chain Market place
-
+### Please see the section title ' Running the application 2 - Application flow.' for a complete guide on running the application
 This project is a ecommerce website. The application serves 3 sets of users
 
   -  Owner: The owner of the application manages the users.
@@ -82,46 +82,50 @@ Compile and migrate the smart contracts to the local blockchain
   
    Use metamask to switch between accounts
  - OWNER ACCOUNT
-   1) Switch to Owner account
-   2) In the migrations folder, the 2_deploy_contract migration, set Owner to the address you choose to be owner / Admin
+   - 1) Switch to Owner account
+    -2) In the migrations folder, the 2_deploy_contract migration, set Owner to the address you choose to be owner / Admin
        - 'run truffle migrate' to deploy
-   3) If the application loads and the menu displays the owners account , you are all set to begin, else check your network settings.
-   4) Click on 'manage Tokan Sale' and enter the amount of tokens you wish to sell to customers. click sale and confirm transaction with
+    -3) If the application loads and the menu displays the owners account , you are all set to begin, else check your network settings.
+    -4) Click on 'manage Tokan Sale' and enter the amount of tokens you wish to sell to customers. click sale and confirm transaction with
        meta mask.
   - VENDOR ACCOUNT:
-    5)Switch to vendor account, refresh page, click on 'Vendor Request' and confirm transaction with metamask.
+      -5)Switch to vendor account, refresh page, click on 'Vendor Request' and confirm transaction with metamask.
   - OWNER ACCOUNT:
-     6) Switch back to Owner account, click on 'Manage Vendors'
-     7) click on the pending vendor account to navigate to details
-     8) Click on 'Approve Vendor'
+     - 6) Switch back to Owner account, click on 'Manage Vendors'
+     - 7) click on the pending vendor account to navigate to details
+     - 8) Click on 'Approve Vendor'
   - VENDOR ACCOUNT:
-     9) Switch back to vendor account using metamask.
-     10) Click on create Store,
-     11) enter store name and description and save
-     12 confirm transaction with metamask
-     14) Click on Manage stores
-     15) Click on products
-     16) click on 'Add Product'
-     17) Enter product details and save
-     18 Confirm transaction with metamask - 
-     19) when the transaction is completed, image upload will appear which uploads product image IPFS
-     20) select a image file and click upload - wait for upload to comple and a dialog will appear which will prompt you
+     - 9) Switch back to vendor account using metamask.
+     - 10) Click on create Store,
+     - 11) enter store name and description and save
+     - 12 confirm transaction with metamask
+     - 14) Click on Manage stores
+     - 15) Click on products
+     - 16) click on 'Add Product'
+     - 17) Enter product details and save
+     - 18 Confirm transaction with metamask - 
+     - 19) when the transaction is completed, image upload will appear which uploads product image IPFS
+     - 20) select a image file and click upload - wait for upload to comple and a dialog will appear which will prompt you
           to update the product which is saved on the blockchain with the uploaded file hash
-     21) When the modal appears, click update and confirm transaction with  metamask.
+     - 21) When the modal appears, click update and confirm transaction with  metamask.
     
    - CUSTOMER:
-      22) Switch to customer account
-      23) refersh browser and click on Stores
-      24) when stores page appears select a store and click 'shop'to open the stores products list
-      25) selected a product 
-      26) enter quantity and click add to cart , confirm transaction with metamask
-      28) click on shopping cart
-      29) select payment method ether or Token
-      30) if Token
-      31) buy tokens from the 'buy token page' - make sure you buy enough tokens to pay for the cart price
-      32) click on 
-      
-               
+      -22) Switch to customer account
+      -23) refersh browser and click on Stores
+      -24) when stores page appears select a store and click 'shop'to open the stores products list
+      -25) selected a product 
+      -26) enter quantity and click add to cart , confirm transaction with metamask
+      -28) click on shopping cart
+      -29) select payment method ether or Token
+      -30) if Token
+      -31) buy tokens from the 'buy token page' - make sure you buy enough tokens to pay for the cart price
+      -32) click on Pay with a modal appears which propmts you to permit the application to transfer the tokens payment
+           from your account to the vendors accoun.
+      -33) click 'approve', confirm transaction with metamask
+      -34) wait for transaction to compete and modal to disappear by itsself.
+      -35) click on complete payment and confirm transaction with metamask
+      _36) click on Order History to see completed transation
+                 
 
 ### Running tests
 
