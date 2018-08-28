@@ -111,16 +111,16 @@ Compile and migrate the smart contracts to the local blockchain
     
    - CUSTOMER:
       - 22) Switch to customer account
-      - 23) refersh browser and click on Stores
-      - 24) when stores page appears select a store and click 'shop'to open the stores products list
+      - 23) refresh browser and click on Stores
+      - 24) when stores page appears select a store and click 'shop'to open the store's products list
       - 25) selected a product 
       - 26) enter quantity and click add to cart , confirm transaction with metamask
       - 28) click on shopping cart
-      - 29) select payment method ether or Token
+      - 29) select payment method - ether or Token
       - 30) if Token
       - 31) buy tokens from the 'buy token page' - make sure you buy enough tokens to pay for the cart price
-      - 32) click on Pay with a modal appears which propmts you to permit the application to transfer the tokens payment
-           from your account to the vendors accoun.
+      - 32) click on 'Pay' ,  a modal appears which propmts you to permit the application to transfer the tokens payment
+           from your account to the vendors account.
       - 33) click 'approve', confirm transaction with metamask
       - 34) wait for transaction to compete and modal to disappear by itsself.
       - 35) click on complete payment and confirm transaction with metamask
