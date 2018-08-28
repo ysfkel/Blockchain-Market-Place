@@ -1,5 +1,5 @@
 # Block chain Market place
-### Please see the section title ' Running the application 2 - Application flow.' for a complete guide on running the application
+### Please see the section titled ' Running the application 2 - Application flow.' for a complete guide on running the application
 This project is a ecommerce website. The application serves 3 sets of users
 
   -  Owner: The owner of the application manages the users.
@@ -110,21 +110,21 @@ Compile and migrate the smart contracts to the local blockchain
      - 21) When the modal appears, click update and confirm transaction with  metamask.
     
    - CUSTOMER:
-      -22) Switch to customer account
-      -23) refersh browser and click on Stores
-      -24) when stores page appears select a store and click 'shop'to open the stores products list
-      -25) selected a product 
-      -26) enter quantity and click add to cart , confirm transaction with metamask
-      -28) click on shopping cart
-      -29) select payment method ether or Token
-      -30) if Token
-      -31) buy tokens from the 'buy token page' - make sure you buy enough tokens to pay for the cart price
-      -32) click on Pay with a modal appears which propmts you to permit the application to transfer the tokens payment
+      - 22) Switch to customer account
+      - 23) refersh browser and click on Stores
+      - 24) when stores page appears select a store and click 'shop'to open the stores products list
+      - 25) selected a product 
+      - 26) enter quantity and click add to cart , confirm transaction with metamask
+      - 28) click on shopping cart
+      - 29) select payment method ether or Token
+      - 30) if Token
+      - 31) buy tokens from the 'buy token page' - make sure you buy enough tokens to pay for the cart price
+      - 32) click on Pay with a modal appears which propmts you to permit the application to transfer the tokens payment
            from your account to the vendors accoun.
-      -33) click 'approve', confirm transaction with metamask
-      -34) wait for transaction to compete and modal to disappear by itsself.
-      -35) click on complete payment and confirm transaction with metamask
-      _36) click on Order History to see completed transation
+      - 33) click 'approve', confirm transaction with metamask
+      - 34) wait for transaction to compete and modal to disappear by itsself.
+      - 35) click on complete payment and confirm transaction with metamask
+      - 36) click on Order History to see completed transation
                  
 
 ### Running tests
