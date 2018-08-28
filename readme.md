@@ -81,6 +81,8 @@ Compile and migrate the smart contracts to the local blockchain
   ## Running the application 2 - Application flow.
   - Open the migrations folder, in the contracts migration, replace the 'OWNER' account (which will be used for contracts deployment) with the address of the account you have chosen to be OWNER.
   
+  - Run migrations
+  
    Use metamask to switch between accounts Note , run ganache - cli and import three accounst into meta mask
  - OWNER ACCOUNT
     - 1) Switch to Owner account
