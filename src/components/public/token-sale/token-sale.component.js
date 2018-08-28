@@ -131,7 +131,9 @@ export default class TokenSale extends Component {
                     <p>There are currently {this.state.amountOfTokensOnSale} Spinel Tokens on sale</p>
                 }
                 {this.state.amountOfTokensOnSale <= 0 && 
-                    <p>There are currently no Tokens on sale, you may contact the owner to place some tokens on sale</p>
+                    <p style={{color:'red'}}>There are currently no Tokens on sale, you may contact the owner to place some tokens on sale / 
+                     (switch account to contract deploy account anc click on Manage token sale)
+                    </p>
                 }
                 <p>
                   {this.state.userTokenBalance <= 0 &&
