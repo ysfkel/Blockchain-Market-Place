@@ -18,9 +18,10 @@ contract OrderHistory is StoreBase{
       */
     function createOrderHistory(uint256 orderId, uint grandTotal, 
         uint256 paymentMethod, uint256 paymentDateTimeStamp) public returns(bool) {
+        require(PaymentMethod(paymentMethod) == PaymentMethod.Token || PaymentMethod(paymentMethod) == PaymentMethod.Ether);
          orderHistory[msg.sender][orderId].timeStamp = paymentDateTimeStamp;
          orderHistory[msg.sender][orderId].grandTotal = grandTotal;
-         orderHistory[msg.sender][orderId].grandTotal = paymentMethod;
+         orderHistory[msg.sender][orderId].paymentMethod = paymentMethod;
          return true;
     }
     

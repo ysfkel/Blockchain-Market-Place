@@ -18,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-   The following software will need to be installed on your computer inorder to run this project locally.
+   The following software will be needed to be installed on your computer inorder to run this project locally.
  
  [NodeJS ](https://nodejs.org/en/download/) 
  

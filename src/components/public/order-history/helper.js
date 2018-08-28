@@ -19,7 +19,7 @@ export const getPrice = (price, paymentMethod) => {
 
 }
 export const transformTransaction = ({orderTransactionResult, web3}) => {
-    console.log('orderTransactionResult ty', orderTransactionResult)
+  
     return {
         productName:  web3.toAscii(orderTransactionResult[0]),
         quantity: orderTransactionResult[1].toNumber(),

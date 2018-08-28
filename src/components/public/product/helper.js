@@ -1,7 +1,7 @@
 
 
 export const transformProduct = ({productResult, web3}) => {
-    console.log('--productResult', productResult)
+  
     return {
         name:  web3.toAscii(productResult[0]),
         description: web3.toAscii(productResult[1]),

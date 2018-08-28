@@ -23,7 +23,8 @@ export default class CheckoutTokenPay extends Component {
                cartPrice:0,
                showApproveTokenPay: false,
                allowPayment: false,
-               paymentSubmitted: false
+               paymentSubmitted: false,
+               approvalSubmitted:false
             }
             this.web3;
             this.tokenContract;
@@ -31,6 +32,7 @@ export default class CheckoutTokenPay extends Component {
             this.handlePayment=this.handlePayment.bind(this);
             this.handleClose = this.handleClose.bind(this);
             this.handleClickOpen = this.handleClickOpen.bind(this);
+            this.handleApproveSubmitted = this.handleApproveSubmitted.bind(this);
          
         }
         
@@ -88,11 +90,14 @@ export default class CheckoutTokenPay extends Component {
                 toBlock:'latest'
             })
             .watch((error, event) => {
-              
+            
                 this.handleClose();
+
+                if(this.state.approvalSubmitted) {
                 this.setState({
                     allowPayment: true
                 })
+              }
        
             })
         }
@@ -134,7 +139,9 @@ export default class CheckoutTokenPay extends Component {
               })
         }
 
-
+        handleApproveSubmitted = () => {
+                 this.setState({approvalSubmitted:true});
+        }
         handleClickOpen = () => {
            this.setState({ showApproveTokenPay: true });
        };
@@ -218,6 +225,7 @@ export default class CheckoutTokenPay extends Component {
                     </Table>
                     </Paper>
                     <ApproveTokenPay 
+                    approveSubmitted={this.handleApproveSubmitted}
                     account={this.state.account} 
                     cartPrice={this.state.cartPrice}
                     open={this.state.showApproveTokenPay} 

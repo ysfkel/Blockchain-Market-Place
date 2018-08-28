@@ -193,6 +193,7 @@ contract VendorManager is Base, Ownerble, VendorBase {
             * @return bool true if success 
             */
     function addAccountToApprovedList(address account) private returns(bool) {
+          require(vendors[account].isVendorOrApplicant == true);
           vendors[account].approveListIndex = int(approvedVendors.length);
           approvedVendors.push(vendors[account]);
           return true;

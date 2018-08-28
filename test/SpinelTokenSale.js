@@ -75,11 +75,6 @@ contract('SpinelTokenSale', function(accounts) {
                     const purchasedtokensCostInWei_under_pay = 1;
                    return tokenSaleInstance.buyTokens(numberOfTokens, {from: buyer,value: purchasedtokensCostInWei_under_pay});
                })
-            //   .then(function(amount) {
-            //        assert.equal(amount.toNumber(), numberOfTokens, 'increments the number of tokens sold');
-            //         const purchasedtokensCostInWei_under_pay = 1;
-            //        return tokenSaleInstance.buyTokens(numberOfTokens, {from: buyer,value: purchasedtokensCostInWei_under_pay});
-            //    })
                .then(assert.fail).catch(function(error) {
                      assert(error.message.indexOf('revert') >= 0, 'msg.value (in wei), must be sufficient to pay for the amunt of tokens being requested')
                       const numberOfTokensToBuy = 20000;

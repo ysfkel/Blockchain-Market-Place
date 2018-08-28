@@ -16,24 +16,24 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405261001564010000000061001a810204565b61002e565b60008054600160a060020a03191633179055565b60d48061003c6000396000f300608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636e91c6b881146043575b600080fd5b348015604e57600080fd5b5060556067565b60408051918252519081900360200190f35b33600090815260016020819052604082206003015460ff1681811115608857fe5b14609157600080fd5b5033600090815260016020526040902060070154905600a165627a7a72305820eef8ab1e53517173000faffaa498f34fc238a635a865a90a568281090668b7820029",
-  "deployedBytecode": "0x608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636e91c6b881146043575b600080fd5b348015604e57600080fd5b5060556067565b60408051918252519081900360200190f35b33600090815260016020819052604082206003015460ff1681811115608857fe5b14609157600080fd5b5033600090815260016020526040902060070154905600a165627a7a72305820eef8ab1e53517173000faffaa498f34fc238a635a865a90a568281090668b7820029",
+  "bytecode": "0x608060405261001564010000000061001a810204565b61002e565b60008054600160a060020a03191633179055565b60d48061003c6000396000f300608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636e91c6b881146043575b600080fd5b348015604e57600080fd5b5060556067565b60408051918252519081900360200190f35b33600090815260016020819052604082206003015460ff1681811115608857fe5b14609157600080fd5b5033600090815260016020526040902060070154905600a165627a7a72305820d41337f9ab12dbca419b234a8181c20c4afb0b2d6149713fb4478aee49ce97700029",
+  "deployedBytecode": "0x608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636e91c6b881146043575b600080fd5b348015604e57600080fd5b5060556067565b60408051918252519081900360200190f35b33600090815260016020819052604082206003015460ff1681811115608857fe5b14609157600080fd5b5033600090815260016020526040902060070154905600a165627a7a72305820d41337f9ab12dbca419b234a8181c20c4afb0b2d6149713fb4478aee49ce97700029",
   "sourceMap": "85:698:14:-;;;87:13:5;:11;;;;:13;:::i;:::-;85:698:14;;328:69:5;371:5;:18;;-1:-1:-1;;;;;;371:18:5;379:10;371:18;;;328:69::o;85:698:14:-;;;;;;;",
   "deployedSourceMap": "85:698:14:-;;;;;;;;;;;;;;;;;;;;;;;598:183;;8:9:-1;5:2;;;30:1;27;20:12;5:2;598:183:14;;;;;;;;;;;;;;;;;;;;;678:10;646:4;670:19;;;699:21;670:19;;;;;;;:25;;;;;:50;;;;;;;;;662:59;;;;;;-1:-1:-1;755:10:14;747:19;;;;:7;:19;;;;;:27;;;598:183;:::o",
   "source": "pragma solidity 0.4.24;\nimport \"./Ownerble.sol\";\n\n/**@title vendors base contract */\ncontract VendorBase is Ownerble {\n    \n    mapping(address => Vendor) internal vendors;\n\n     struct Vendor {\n        string name;\n        string email;\n        string phone;\n        AccountState state;\n        address account;\n        bool isVendorOrApplicant;\n        int pendingListIndex;\n        int approveListIndex;\n        AppRole role;\n        uint balance;\n    }\n\n    /**\n            * @dev RETURNS THE VENDORS RETRIEVABLE BALANCE\n            * @return balance vendors balance - ether\n            */\n    function getVendorBalance() public view returns(uint) {\n        require(vendors[msg.sender].state == AccountState.Approved);\n        \n        return vendors[msg.sender].balance;\n    }\n}",
-  "sourcePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/VendorBase.sol",
+  "sourcePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorBase.sol",
   "ast": {
-    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/VendorBase.sol",
+    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorBase.sol",
     "exportedSymbols": {
       "VendorBase": [
-        3622
+        3691
       ]
     },
-    "id": 3623,
+    "id": 3692,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3570,
+        "id": 3639,
         "literals": [
           "solidity",
           "0.4",
@@ -43,12 +43,12 @@
         "src": "0:23:14"
       },
       {
-        "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
+        "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
         "file": "./Ownerble.sol",
-        "id": 3571,
+        "id": 3640,
         "nodeType": "ImportDirective",
-        "scope": 3623,
-        "sourceUnit": 660,
+        "scope": 3692,
+        "sourceUnit": 683,
         "src": "24:24:14",
         "symbolAliases": [],
         "unitAlias": ""
@@ -59,52 +59,52 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 3572,
+              "id": 3641,
               "name": "Ownerble",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 659,
+              "referencedDeclaration": 682,
               "src": "108:8:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownerble_$659",
+                "typeIdentifier": "t_contract$_Ownerble_$682",
                 "typeString": "contract Ownerble"
               }
             },
-            "id": 3573,
+            "id": 3642,
             "nodeType": "InheritanceSpecifier",
             "src": "108:8:14"
           }
         ],
         "contractDependencies": [
-          659
+          682
         ],
         "contractKind": "contract",
         "documentation": "@title vendors base contract ",
         "fullyImplemented": true,
-        "id": 3622,
+        "id": 3691,
         "linearizedBaseContracts": [
-          3622,
-          659
+          3691,
+          682
         ],
         "name": "VendorBase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 3577,
+            "id": 3646,
             "name": "vendors",
             "nodeType": "VariableDeclaration",
-            "scope": 3622,
+            "scope": 3691,
             "src": "128:43:14",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3598_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3667_storage_$",
               "typeString": "mapping(address => struct VendorBase.Vendor)"
             },
             "typeName": {
-              "id": 3576,
+              "id": 3645,
               "keyType": {
-                "id": 3574,
+                "id": 3643,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "136:7:14",
@@ -116,18 +116,18 @@
               "nodeType": "Mapping",
               "src": "128:26:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3598_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3667_storage_$",
                 "typeString": "mapping(address => struct VendorBase.Vendor)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 3575,
+                "id": 3644,
                 "name": "Vendor",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 3598,
+                "referencedDeclaration": 3667,
                 "src": "147:6:14",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Vendor_$3598_storage_ptr",
+                  "typeIdentifier": "t_struct$_Vendor_$3667_storage_ptr",
                   "typeString": "struct VendorBase.Vendor"
                 }
               }
@@ -137,14 +137,14 @@
           },
           {
             "canonicalName": "VendorBase.Vendor",
-            "id": 3598,
+            "id": 3667,
             "members": [
               {
                 "constant": false,
-                "id": 3579,
+                "id": 3648,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "203:11:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -153,7 +153,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3578,
+                  "id": 3647,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "203:6:14",
@@ -167,10 +167,10 @@
               },
               {
                 "constant": false,
-                "id": 3581,
+                "id": 3650,
                 "name": "email",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "224:12:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -179,7 +179,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3580,
+                  "id": 3649,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "224:6:14",
@@ -193,10 +193,10 @@
               },
               {
                 "constant": false,
-                "id": 3583,
+                "id": 3652,
                 "name": "phone",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "246:12:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -205,7 +205,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3582,
+                  "id": 3651,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "246:6:14",
@@ -219,26 +219,26 @@
               },
               {
                 "constant": false,
-                "id": 3585,
+                "id": 3654,
                 "name": "state",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "268:18:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_AccountState_$629",
+                  "typeIdentifier": "t_enum$_AccountState_$652",
                   "typeString": "enum Ownerble.AccountState"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3584,
+                  "id": 3653,
                   "name": "AccountState",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 629,
+                  "referencedDeclaration": 652,
                   "src": "268:12:14",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_AccountState_$629",
+                    "typeIdentifier": "t_enum$_AccountState_$652",
                     "typeString": "enum Ownerble.AccountState"
                   }
                 },
@@ -247,10 +247,10 @@
               },
               {
                 "constant": false,
-                "id": 3587,
+                "id": 3656,
                 "name": "account",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "296:15:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -259,7 +259,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 3586,
+                  "id": 3655,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "296:7:14",
@@ -273,10 +273,10 @@
               },
               {
                 "constant": false,
-                "id": 3589,
+                "id": 3658,
                 "name": "isVendorOrApplicant",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "321:24:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -285,7 +285,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3588,
+                  "id": 3657,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "321:4:14",
@@ -299,10 +299,10 @@
               },
               {
                 "constant": false,
-                "id": 3591,
+                "id": 3660,
                 "name": "pendingListIndex",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "355:20:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -311,7 +311,7 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 3590,
+                  "id": 3659,
                   "name": "int",
                   "nodeType": "ElementaryTypeName",
                   "src": "355:3:14",
@@ -325,10 +325,10 @@
               },
               {
                 "constant": false,
-                "id": 3593,
+                "id": 3662,
                 "name": "approveListIndex",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "385:20:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -337,7 +337,7 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 3592,
+                  "id": 3661,
                   "name": "int",
                   "nodeType": "ElementaryTypeName",
                   "src": "385:3:14",
@@ -351,26 +351,26 @@
               },
               {
                 "constant": false,
-                "id": 3595,
+                "id": 3664,
                 "name": "role",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "415:12:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_AppRole_$636",
+                  "typeIdentifier": "t_enum$_AppRole_$659",
                   "typeString": "enum Ownerble.AppRole"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3594,
+                  "id": 3663,
                   "name": "AppRole",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 636,
+                  "referencedDeclaration": 659,
                   "src": "415:7:14",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_AppRole_$636",
+                    "typeIdentifier": "t_enum$_AppRole_$659",
                     "typeString": "enum Ownerble.AppRole"
                   }
                 },
@@ -379,10 +379,10 @@
               },
               {
                 "constant": false,
-                "id": 3597,
+                "id": 3666,
                 "name": "balance",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "437:12:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -391,7 +391,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3596,
+                  "id": 3665,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "437:4:14",
@@ -406,13 +406,13 @@
             ],
             "name": "Vendor",
             "nodeType": "StructDefinition",
-            "scope": 3622,
+            "scope": 3691,
             "src": "179:277:14",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 3620,
+              "id": 3689,
               "nodeType": "Block",
               "src": "652:129:14",
               "statements": [
@@ -423,10 +423,10 @@
                       {
                         "argumentTypes": null,
                         "commonType": {
-                          "typeIdentifier": "t_enum$_AccountState_$629",
+                          "typeIdentifier": "t_enum$_AccountState_$652",
                           "typeString": "enum Ownerble.AccountState"
                         },
-                        "id": 3611,
+                        "id": 3680,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -437,34 +437,34 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 3604,
+                              "id": 3673,
                               "name": "vendors",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3577,
+                              "referencedDeclaration": 3646,
                               "src": "670:7:14",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3598_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3667_storage_$",
                                 "typeString": "mapping(address => struct VendorBase.Vendor storage ref)"
                               }
                             },
-                            "id": 3607,
+                            "id": 3676,
                             "indexExpression": {
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 3605,
+                                "id": 3674,
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4161,
+                                "referencedDeclaration": 4239,
                                 "src": "678:3:14",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
                                   "typeString": "msg"
                                 }
                               },
-                              "id": 3606,
+                              "id": 3675,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -485,21 +485,21 @@
                             "nodeType": "IndexAccess",
                             "src": "670:19:14",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Vendor_$3598_storage",
+                              "typeIdentifier": "t_struct$_Vendor_$3667_storage",
                               "typeString": "struct VendorBase.Vendor storage ref"
                             }
                           },
-                          "id": 3608,
+                          "id": 3677,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "state",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 3585,
+                          "referencedDeclaration": 3654,
                           "src": "670:25:14",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_AccountState_$629",
+                            "typeIdentifier": "t_enum$_AccountState_$652",
                             "typeString": "enum Ownerble.AccountState"
                           }
                         },
@@ -509,18 +509,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 3609,
+                            "id": 3678,
                             "name": "AccountState",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 629,
+                            "referencedDeclaration": 652,
                             "src": "699:12:14",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_AccountState_$629_$",
+                              "typeIdentifier": "t_type$_t_enum$_AccountState_$652_$",
                               "typeString": "type(enum Ownerble.AccountState)"
                             }
                           },
-                          "id": 3610,
+                          "id": 3679,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -530,7 +530,7 @@
                           "referencedDeclaration": null,
                           "src": "699:21:14",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_AccountState_$629",
+                            "typeIdentifier": "t_enum$_AccountState_$652",
                             "typeString": "enum Ownerble.AccountState"
                           }
                         },
@@ -548,21 +548,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 3603,
+                      "id": 3672,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4164,
-                        4165
+                        4242,
+                        4243
                       ],
-                      "referencedDeclaration": 4164,
+                      "referencedDeclaration": 4242,
                       "src": "662:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 3612,
+                    "id": 3681,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -576,7 +576,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3613,
+                  "id": 3682,
                   "nodeType": "ExpressionStatement",
                   "src": "662:59:14"
                 },
@@ -587,34 +587,34 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 3614,
+                        "id": 3683,
                         "name": "vendors",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3577,
+                        "referencedDeclaration": 3646,
                         "src": "747:7:14",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3598_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3667_storage_$",
                           "typeString": "mapping(address => struct VendorBase.Vendor storage ref)"
                         }
                       },
-                      "id": 3617,
+                      "id": 3686,
                       "indexExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 3615,
+                          "id": 3684,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4161,
+                          "referencedDeclaration": 4239,
                           "src": "755:3:14",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 3616,
+                        "id": 3685,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -635,33 +635,33 @@
                       "nodeType": "IndexAccess",
                       "src": "747:19:14",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Vendor_$3598_storage",
+                        "typeIdentifier": "t_struct$_Vendor_$3667_storage",
                         "typeString": "struct VendorBase.Vendor storage ref"
                       }
                     },
-                    "id": 3618,
+                    "id": 3687,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "balance",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 3597,
+                    "referencedDeclaration": 3666,
                     "src": "747:27:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 3602,
-                  "id": 3619,
+                  "functionReturnParameters": 3671,
+                  "id": 3688,
                   "nodeType": "Return",
                   "src": "740:34:14"
                 }
               ]
             },
             "documentation": "@dev RETURNS THE VENDORS RETRIEVABLE BALANCE\n@return balance vendors balance - ether",
-            "id": 3621,
+            "id": 3690,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -669,22 +669,22 @@
             "name": "getVendorBalance",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3599,
+              "id": 3668,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "623:2:14"
             },
             "payable": false,
             "returnParameters": {
-              "id": 3602,
+              "id": 3671,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3601,
+                  "id": 3670,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3621,
+                  "scope": 3690,
                   "src": "646:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -693,7 +693,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3600,
+                    "id": 3669,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "646:4:14",
@@ -708,31 +708,31 @@
               ],
               "src": "645:6:14"
             },
-            "scope": 3622,
+            "scope": 3691,
             "src": "598:183:14",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 3623,
+        "scope": 3692,
         "src": "85:698:14"
       }
     ],
     "src": "0:783:14"
   },
   "legacyAST": {
-    "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/VendorBase.sol",
+    "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/VendorBase.sol",
     "exportedSymbols": {
       "VendorBase": [
-        3622
+        3691
       ]
     },
-    "id": 3623,
+    "id": 3692,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3570,
+        "id": 3639,
         "literals": [
           "solidity",
           "0.4",
@@ -742,12 +742,12 @@
         "src": "0:23:14"
       },
       {
-        "absolutePath": "/home/yusuf/Documents/DEVELOPER/PROJECTS/truffle/marketplace/Blockchain-Market-Place/contracts/Ownerble.sol",
+        "absolutePath": "/Users/yusufkelo/Documents/DEVELOPER/ETHEREAUM/blockchain-market/market-place/contracts/Ownerble.sol",
         "file": "./Ownerble.sol",
-        "id": 3571,
+        "id": 3640,
         "nodeType": "ImportDirective",
-        "scope": 3623,
-        "sourceUnit": 660,
+        "scope": 3692,
+        "sourceUnit": 683,
         "src": "24:24:14",
         "symbolAliases": [],
         "unitAlias": ""
@@ -758,52 +758,52 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 3572,
+              "id": 3641,
               "name": "Ownerble",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 659,
+              "referencedDeclaration": 682,
               "src": "108:8:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownerble_$659",
+                "typeIdentifier": "t_contract$_Ownerble_$682",
                 "typeString": "contract Ownerble"
               }
             },
-            "id": 3573,
+            "id": 3642,
             "nodeType": "InheritanceSpecifier",
             "src": "108:8:14"
           }
         ],
         "contractDependencies": [
-          659
+          682
         ],
         "contractKind": "contract",
         "documentation": "@title vendors base contract ",
         "fullyImplemented": true,
-        "id": 3622,
+        "id": 3691,
         "linearizedBaseContracts": [
-          3622,
-          659
+          3691,
+          682
         ],
         "name": "VendorBase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 3577,
+            "id": 3646,
             "name": "vendors",
             "nodeType": "VariableDeclaration",
-            "scope": 3622,
+            "scope": 3691,
             "src": "128:43:14",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3598_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3667_storage_$",
               "typeString": "mapping(address => struct VendorBase.Vendor)"
             },
             "typeName": {
-              "id": 3576,
+              "id": 3645,
               "keyType": {
-                "id": 3574,
+                "id": 3643,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "136:7:14",
@@ -815,18 +815,18 @@
               "nodeType": "Mapping",
               "src": "128:26:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3598_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3667_storage_$",
                 "typeString": "mapping(address => struct VendorBase.Vendor)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 3575,
+                "id": 3644,
                 "name": "Vendor",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 3598,
+                "referencedDeclaration": 3667,
                 "src": "147:6:14",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Vendor_$3598_storage_ptr",
+                  "typeIdentifier": "t_struct$_Vendor_$3667_storage_ptr",
                   "typeString": "struct VendorBase.Vendor"
                 }
               }
@@ -836,14 +836,14 @@
           },
           {
             "canonicalName": "VendorBase.Vendor",
-            "id": 3598,
+            "id": 3667,
             "members": [
               {
                 "constant": false,
-                "id": 3579,
+                "id": 3648,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "203:11:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -852,7 +852,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3578,
+                  "id": 3647,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "203:6:14",
@@ -866,10 +866,10 @@
               },
               {
                 "constant": false,
-                "id": 3581,
+                "id": 3650,
                 "name": "email",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "224:12:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -878,7 +878,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3580,
+                  "id": 3649,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "224:6:14",
@@ -892,10 +892,10 @@
               },
               {
                 "constant": false,
-                "id": 3583,
+                "id": 3652,
                 "name": "phone",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "246:12:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -904,7 +904,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3582,
+                  "id": 3651,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "246:6:14",
@@ -918,26 +918,26 @@
               },
               {
                 "constant": false,
-                "id": 3585,
+                "id": 3654,
                 "name": "state",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "268:18:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_AccountState_$629",
+                  "typeIdentifier": "t_enum$_AccountState_$652",
                   "typeString": "enum Ownerble.AccountState"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3584,
+                  "id": 3653,
                   "name": "AccountState",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 629,
+                  "referencedDeclaration": 652,
                   "src": "268:12:14",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_AccountState_$629",
+                    "typeIdentifier": "t_enum$_AccountState_$652",
                     "typeString": "enum Ownerble.AccountState"
                   }
                 },
@@ -946,10 +946,10 @@
               },
               {
                 "constant": false,
-                "id": 3587,
+                "id": 3656,
                 "name": "account",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "296:15:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -958,7 +958,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 3586,
+                  "id": 3655,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "296:7:14",
@@ -972,10 +972,10 @@
               },
               {
                 "constant": false,
-                "id": 3589,
+                "id": 3658,
                 "name": "isVendorOrApplicant",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "321:24:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -984,7 +984,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3588,
+                  "id": 3657,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "321:4:14",
@@ -998,10 +998,10 @@
               },
               {
                 "constant": false,
-                "id": 3591,
+                "id": 3660,
                 "name": "pendingListIndex",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "355:20:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1010,7 +1010,7 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 3590,
+                  "id": 3659,
                   "name": "int",
                   "nodeType": "ElementaryTypeName",
                   "src": "355:3:14",
@@ -1024,10 +1024,10 @@
               },
               {
                 "constant": false,
-                "id": 3593,
+                "id": 3662,
                 "name": "approveListIndex",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "385:20:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1036,7 +1036,7 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 3592,
+                  "id": 3661,
                   "name": "int",
                   "nodeType": "ElementaryTypeName",
                   "src": "385:3:14",
@@ -1050,26 +1050,26 @@
               },
               {
                 "constant": false,
-                "id": 3595,
+                "id": 3664,
                 "name": "role",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "415:12:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_AppRole_$636",
+                  "typeIdentifier": "t_enum$_AppRole_$659",
                   "typeString": "enum Ownerble.AppRole"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3594,
+                  "id": 3663,
                   "name": "AppRole",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 636,
+                  "referencedDeclaration": 659,
                   "src": "415:7:14",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_AppRole_$636",
+                    "typeIdentifier": "t_enum$_AppRole_$659",
                     "typeString": "enum Ownerble.AppRole"
                   }
                 },
@@ -1078,10 +1078,10 @@
               },
               {
                 "constant": false,
-                "id": 3597,
+                "id": 3666,
                 "name": "balance",
                 "nodeType": "VariableDeclaration",
-                "scope": 3598,
+                "scope": 3667,
                 "src": "437:12:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1090,7 +1090,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3596,
+                  "id": 3665,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "437:4:14",
@@ -1105,13 +1105,13 @@
             ],
             "name": "Vendor",
             "nodeType": "StructDefinition",
-            "scope": 3622,
+            "scope": 3691,
             "src": "179:277:14",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 3620,
+              "id": 3689,
               "nodeType": "Block",
               "src": "652:129:14",
               "statements": [
@@ -1122,10 +1122,10 @@
                       {
                         "argumentTypes": null,
                         "commonType": {
-                          "typeIdentifier": "t_enum$_AccountState_$629",
+                          "typeIdentifier": "t_enum$_AccountState_$652",
                           "typeString": "enum Ownerble.AccountState"
                         },
-                        "id": 3611,
+                        "id": 3680,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1136,34 +1136,34 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 3604,
+                              "id": 3673,
                               "name": "vendors",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3577,
+                              "referencedDeclaration": 3646,
                               "src": "670:7:14",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3598_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3667_storage_$",
                                 "typeString": "mapping(address => struct VendorBase.Vendor storage ref)"
                               }
                             },
-                            "id": 3607,
+                            "id": 3676,
                             "indexExpression": {
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 3605,
+                                "id": 3674,
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4161,
+                                "referencedDeclaration": 4239,
                                 "src": "678:3:14",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
                                   "typeString": "msg"
                                 }
                               },
-                              "id": 3606,
+                              "id": 3675,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1184,21 +1184,21 @@
                             "nodeType": "IndexAccess",
                             "src": "670:19:14",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Vendor_$3598_storage",
+                              "typeIdentifier": "t_struct$_Vendor_$3667_storage",
                               "typeString": "struct VendorBase.Vendor storage ref"
                             }
                           },
-                          "id": 3608,
+                          "id": 3677,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "state",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 3585,
+                          "referencedDeclaration": 3654,
                           "src": "670:25:14",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_AccountState_$629",
+                            "typeIdentifier": "t_enum$_AccountState_$652",
                             "typeString": "enum Ownerble.AccountState"
                           }
                         },
@@ -1208,18 +1208,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 3609,
+                            "id": 3678,
                             "name": "AccountState",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 629,
+                            "referencedDeclaration": 652,
                             "src": "699:12:14",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_AccountState_$629_$",
+                              "typeIdentifier": "t_type$_t_enum$_AccountState_$652_$",
                               "typeString": "type(enum Ownerble.AccountState)"
                             }
                           },
-                          "id": 3610,
+                          "id": 3679,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1229,7 +1229,7 @@
                           "referencedDeclaration": null,
                           "src": "699:21:14",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_AccountState_$629",
+                            "typeIdentifier": "t_enum$_AccountState_$652",
                             "typeString": "enum Ownerble.AccountState"
                           }
                         },
@@ -1247,21 +1247,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 3603,
+                      "id": 3672,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4164,
-                        4165
+                        4242,
+                        4243
                       ],
-                      "referencedDeclaration": 4164,
+                      "referencedDeclaration": 4242,
                       "src": "662:7:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 3612,
+                    "id": 3681,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1275,7 +1275,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3613,
+                  "id": 3682,
                   "nodeType": "ExpressionStatement",
                   "src": "662:59:14"
                 },
@@ -1286,34 +1286,34 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 3614,
+                        "id": 3683,
                         "name": "vendors",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3577,
+                        "referencedDeclaration": 3646,
                         "src": "747:7:14",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3598_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Vendor_$3667_storage_$",
                           "typeString": "mapping(address => struct VendorBase.Vendor storage ref)"
                         }
                       },
-                      "id": 3617,
+                      "id": 3686,
                       "indexExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 3615,
+                          "id": 3684,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4161,
+                          "referencedDeclaration": 4239,
                           "src": "755:3:14",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 3616,
+                        "id": 3685,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1334,33 +1334,33 @@
                       "nodeType": "IndexAccess",
                       "src": "747:19:14",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Vendor_$3598_storage",
+                        "typeIdentifier": "t_struct$_Vendor_$3667_storage",
                         "typeString": "struct VendorBase.Vendor storage ref"
                       }
                     },
-                    "id": 3618,
+                    "id": 3687,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "balance",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 3597,
+                    "referencedDeclaration": 3666,
                     "src": "747:27:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 3602,
-                  "id": 3619,
+                  "functionReturnParameters": 3671,
+                  "id": 3688,
                   "nodeType": "Return",
                   "src": "740:34:14"
                 }
               ]
             },
             "documentation": "@dev RETURNS THE VENDORS RETRIEVABLE BALANCE\n@return balance vendors balance - ether",
-            "id": 3621,
+            "id": 3690,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1368,22 +1368,22 @@
             "name": "getVendorBalance",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3599,
+              "id": 3668,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "623:2:14"
             },
             "payable": false,
             "returnParameters": {
-              "id": 3602,
+              "id": 3671,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3601,
+                  "id": 3670,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3621,
+                  "scope": 3690,
                   "src": "646:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1392,7 +1392,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3600,
+                    "id": 3669,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "646:4:14",
@@ -1407,14 +1407,14 @@
               ],
               "src": "645:6:14"
             },
-            "scope": 3622,
+            "scope": 3691,
             "src": "598:183:14",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 3623,
+        "scope": 3692,
         "src": "85:698:14"
       }
     ],
@@ -1425,6 +1425,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-27T08:56:23.915Z"
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-08-27T20:09:07.050Z"
 }

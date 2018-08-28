@@ -37,9 +37,7 @@ export default class OrderHistory extends Component {
                            this.setState({account: account, balance});
                             REPO.getOrderHistory({ contract, web3 ,account})
                             .then((orderHistory) => {
-                            
-                                  console.log('--orderHistory 22333222',orderHistory);
-                              
+                                                          
                                   this.setState({orderHistory})
                             });
 

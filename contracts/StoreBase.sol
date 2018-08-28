@@ -1,5 +1,6 @@
 pragma solidity 0.4.24;
 
+/**@title Storebase contains members shared across contracts */
 contract StoreBase {
     
     enum Role {
@@ -81,6 +82,7 @@ contract StoreBase {
         uint paymentMethod;
     }
     
+    
     address[] internal vendorAccountsWithListedStores;
     mapping(address => VendorSlot) internal vendorSlot;
     mapping(address => Store[]) internal stores;  
@@ -88,6 +90,7 @@ contract StoreBase {
     mapping(address => mapping(address => uint256)) public allowance;
       
     mapping(address => uint) public customerOrdersCount;
+     
     mapping(address => mapping(uint => Order)) orderHistory; 
 
     

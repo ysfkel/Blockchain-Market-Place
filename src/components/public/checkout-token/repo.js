@@ -44,7 +44,7 @@ export const checkOutByToken = ({ account, storeInstance }) => {
 
 
 export const approveTokenPay = ({ account, cartPrice,storeContractAddress, tokenContract}) => {
-   console.log(account, cartPrice,storeContractAddress, tokenContract)
+
      return new Promise((resolve, reject) => {
             
              tokenContract.approve(

@@ -31,7 +31,7 @@ export default class StoreListPublic extends Component {
        
                   REPO.getStore({ contract, web3 ,account})
                   .then((stores) => {
-                      console.log('--stores',stores)
+                   
                        this.setState({stores})
                   });
                 

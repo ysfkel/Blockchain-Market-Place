@@ -20,7 +20,7 @@ export default class UpdateProductImageDialog extends React.Component {
 
         handleUpdateProductImage = () => {
             const { storeInstance, imageHash,  storeIndex, productId, account } = this.props;
-            console.log( storeInstance, imageHash,  storeIndex, productId, account)
+
           
             updateProductImage({ contract: storeInstance, 
                imageHash, storeIndex, productId, account

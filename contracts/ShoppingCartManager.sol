@@ -150,7 +150,10 @@ contract ShoppingCartManager is Ownerble, StoreBase,
    
         //check if quantity in the store is equql or greater than purchased quantity
         require(stores[vendorAccount][storeIndex].products[productId].quantity >= productQuantity);
-        require(stores[vendorAccount][storeIndex].products[productId].productId >0);
+       // require(stores[vendorAccount][storeIndex].products[productId].productId >0);
+        //revert if product id 
+        require(stores[vendorAccount][storeIndex].products[productId].productId > 0 && 
+         shoppingCarts[msg.sender].cartItemSlot[productId].initialized == false);
 
         //require that the vendor account is approved
         require(vendors[vendorAccount].state == AccountState.Approved);
@@ -375,6 +378,8 @@ contract ShoppingCartManager is Ownerble, StoreBase,
             * @return bool true if success
             */
   function checkOutTokenPayment(uint256 paymentMethod, uint256 paymentDateTimeStamp) public payable returns(bool){
+       
+        require(PaymentMethod(paymentMethod) == PaymentMethod.Token || PaymentMethod(paymentMethod) == PaymentMethod.Ether);
         require(shoppingCarts[msg.sender].productIds.length > 0);
         //REVERT IF THE CUSTOMER DOES NOT HAVE SUFFICIEN BALANCE TO COVER THE CART PRICE
         require(isCustomerBalanceSufficient(paymentMethod, msg.value));
@@ -433,6 +438,8 @@ contract ShoppingCartManager is Ownerble, StoreBase,
         createOrderHistory(getCustomerOrdersHistoryCount(),getCartPrice(paymentMethod), paymentMethod, paymentDateTimeStamp);
         emit PaymentCompleted(true);
         //DELETE SHOPPING CART
+        delete shoppingCarts[msg.sender].cartItemSlot[productId].initialized;
+        delete shoppingCarts[msg.sender].cartItemSlot[productId];
         delete shoppingCarts[msg.sender].products[productId];
         delete shoppingCarts[msg.sender];
          return true;

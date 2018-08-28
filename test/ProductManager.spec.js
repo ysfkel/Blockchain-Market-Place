@@ -78,7 +78,6 @@ contract('ProducManager ', function(accounts) {
             assert.equal(receipt.logs[0].event, expectedEventName, 'triggers '+expectedEventName+' event');
             assert.equal(receipt.logs[0].args.storesSize, 1, ' logs the store size');
 
-            //createProduct(uint storeIndex,bytes32 productName, bytes32 description, uint price, uint quantity
              const storeIndex = 0;
              return contractInstance.createProduct(
                  storeIndex,

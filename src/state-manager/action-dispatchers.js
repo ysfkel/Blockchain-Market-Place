@@ -11,7 +11,7 @@ export const setMarketPlaceContractInstanceDispatcher=(dispatch)=>{
     return (contractInstance, callback) =>{
        return new Promise(res=>{
                dispatch(actionsCreators.SetMarketPlaceContractInstanceAction(contractInstance),()=>{
-                  console.log('this is thunk')
+               
            });
         callback();
        })
@@ -21,8 +21,3 @@ export const setMarketPlaceContractInstanceDispatcher=(dispatch)=>{
     }
 }
 
-// export const test=(dispatch)=>{
-//     return (contractInstance) =>{
-//         dispatch(actionsCreators.SetMarketPlaceContractInstanceAction(contractInstance));
-//     }
-// }

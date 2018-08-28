@@ -6,7 +6,7 @@ export const getVendorBalance =({account,contract, web3}) => {
     return new Promise((resolve, reject) => {
               contract.getVendorBalance.call({from:account})
               .then((result)=>{
-                   console.log('...result balance', result);
+ 
 
                    const balance = web3.fromWei(result.toNumber(),'ether');
                    resolve(balance);

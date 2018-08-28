@@ -11,19 +11,19 @@ import * as styles from './styles';
 
 export default class TokenSale extends Component {
 
-/*
-         prev['tokenAmount'] = tokenAmount;
-                prev['tokenPriceInEther'] = tokenPriceInEther; */
+
     constructor(props) {
             super(props)
             this.state = {
                account:'',
                price:0,
                tokenAmount:0,
-               tokenPriceInEther:0
+               tokenPriceInEther:0,
+               amountOfTokensOnSale: 0,
+               userTokenBalance:0
             }
             this.web3;
-         
+            this.tokenContract;
             this.handleBuyTokens=this.handleBuyTokens.bind(this);
             this.handleChange=this.handleChange.bind(this);
          
@@ -37,30 +37,48 @@ export default class TokenSale extends Component {
                 this.web3 = web3;
                 this.storeInstance = contract;
                 getAccount((account, balance) => {
-                this.setState({account: account, balance});
-                console.log('--balance', balance)
-                    // REPO.getVendorBalance({account: this.state.account, 
-                    //     contract: this.storeInstance, web3: this.web3}).then((vendorBalance)=>{
-                    //                 console.log('updated!', vendorBalance)
-                    //     this.setState({vendorBalance});
-        
-                    // })
-                        
+                this.setState({account: account, balance});  
 
                 });
 
                     services.getTokenSaleContract((tokenSaleContractResult) => {
                           const { tokenSaleContract } =  tokenSaleContractResult ;
                           this.tokenSaleContract = tokenSaleContract;
-                          console.log('--tokenSaleContract',tokenSaleContractResult, tokenSaleContract)
                          
                      })
+
+                     services.getTokenContract((tokenContractResult) => {
+                        const { web3 } = tokenContractResult;
+                          const { tokenContract } =  tokenContractResult ;
+                          this.tokenContract = tokenContract;
+
+                          this.getAmountOftokensOnSale();
+                          this.getTokenBalance();
+  
+                });
+
+              
                 
             })
         }
 
 
-        
+    getAmountOftokensOnSale =() => {
+          const saleContractAddress = this.tokenSaleContract.address;
+          REPO.getAmountOfTokensOnSale({ saleContractAddress , tokenContract: this.tokenContract})
+          .then((amountOfTokensOnSale) => {
+               this.setState({amountOfTokensOnSale});
+          }) 
+    }
+
+     getTokenBalance =() => {
+     
+          REPO.getTokenBalance({ account: this.state.account , tokenContract: this.tokenContract})
+          .then((userTokenBalance) => {
+               this.setState({userTokenBalance});
+          }) 
+    }
+
     handleChange = (e) => {
         
         e.preventDefault();
@@ -109,6 +127,21 @@ export default class TokenSale extends Component {
                     <h1> BUY SPINEL TOKENS</h1>
             <Paper style={{padding: '24px'}}>
                <h3> You are buying { this.state.tokenAmount } Tokens, will cost {this.state.tokenPriceInEther} Ether</h3>
+                {this.state.amountOfTokensOnSale > 0 && 
+                    <p>There are currently {this.state.amountOfTokensOnSale} Spinel Tokens on sale</p>
+                }
+                {this.state.amountOfTokensOnSale <= 0 && 
+                    <p>There are currently no Tokens on sale, you may contact the owner to place some tokens on sale</p>
+                }
+                <p>
+                  {this.state.userTokenBalance <= 0 &&
+                      <strong>You currently have no tokens</strong>
+                   }
+                   {this.state.userTokenBalance >0 && 
+                   <strong>Your token balance is { this.state.userTokenBalance } SL </strong>
+                   }
+                </p>
+                
                  <form noValidate autoComplete="off">
                     <TextField
                     style={{width:'100%'}}
